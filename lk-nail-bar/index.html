@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>LK Nail Bar</title>
+<meta name="description" content="Draft website proposal for LK Nail Bar, a nail bar on 17 Ave SW in Calgary's Beltline offering manicures, pedicures, gel, dip powder, acrylics, nail art and group bookings.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap">
+<style>
+:root{
+  --ink:#141312;--ink-2:#1E1C1B;--ink-3:#2A2725;--ink-4:#3A3633;
+  --ivory:#FAF7F2;--ivory-2:#F3EDE4;--ivory-3:#EBE3D8;--white:#FFFFFF;
+  --blush:#F6E7E4;--blush-2:#EED7D3;
+  --rose:#B76E79;--rose-deep:#8A4A55;--rose-dark:#6B3540;--rose-light:#E0B4B9;--rose-pale:#F4E3E3;
+  --gold:#C9967E;--gold-light:#E8C3A6;
+  --text:#141312;--text-muted:#5E5A56;
+  --on-dark:#FAF7F2;--on-dark-muted:#B9B2AA;
+  --line:rgba(20,19,18,.12);--line-dark:rgba(250,247,242,.14);
+  --focus:#141312;
+  --sh-1:0 1px 2px rgba(20,19,18,.05),0 10px 28px -14px rgba(20,19,18,.16);
+  --sh-2:0 2px 4px rgba(20,19,18,.05),0 20px 44px -18px rgba(20,19,18,.24);
+  --sh-3:0 4px 10px rgba(20,19,18,.07),0 34px 70px -24px rgba(20,19,18,.36);
+  --r-sm:6px;--r-md:12px;--r-lg:18px;--r-xl:26px;
+  --font-display:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+  --font-body:"Jost","Futura","Avenir Next","Century Gothic","Segoe UI",system-ui,sans-serif;
+  --fs-display:clamp(2.6rem,1.4rem + 3.4vw,4.4rem);
+  --fs-h2:clamp(2rem,1.4rem + 2.2vw,3.3rem);
+  --fs-h3:1.35rem;--fs-body:1.0625rem;--fs-small:.9rem;
+  --banner-h:44px;--nav-h:74px;
+  --gutter:clamp(16px,4vw,48px);
+  --ease:cubic-bezier(.2,.7,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);
+  --track-label:.18em;--track-ui:.08em;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--banner-h) + var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{margin:0;padding-top:var(--banner-h);background:var(--ivory);color:var(--text);font:400 var(--fs-body)/1.65 var(--font-body);min-height:100vh;transition:padding-top .3s var(--ease)}
+[hidden]{display:none !important}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;color:inherit;font-weight:500}
+p,figure{margin:0}
+ul,ol,dl{margin:0;padding:0;list-style:none}
+h1,h2,h3,.faq-q span:first-child{text-wrap:balance}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:3px}
+.dark{background:var(--ink);color:var(--on-dark);--focus:var(--rose-light)}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:var(--gutter);top:calc(var(--banner-h) + 8px);background:var(--ink);color:var(--on-dark);padding:.6rem 1rem;border-radius:999px;font:500 .9rem var(--font-body);text-decoration:none;transform:translateY(calc(-100% - var(--banner-h) - 16px));z-index:200}
+.skip:focus-visible{transform:none}
+
+/* Draft banner */
+.draft{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:100;background:var(--ink);color:var(--on-dark);display:flex;align-items:center;justify-content:center;gap:.75rem 1rem;flex-wrap:wrap;padding:.45rem var(--gutter);min-height:44px;font:500 .82rem/1.35 var(--font-body);letter-spacing:.02em;text-align:center;box-shadow:0 2px 14px rgba(20,19,18,.3);--focus:var(--rose-light);transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.draft.closing{transform:translateY(-100%);opacity:0}
+.draft-close{border:0;background:var(--rose-light);color:var(--ink);border-radius:999px;min-height:36px;padding:.5rem 1rem;font:500 .76rem var(--font-body);letter-spacing:var(--track-ui);text-transform:uppercase;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
+.draft-close:hover{background:var(--on-dark)}
+
+/* Nav */
+.nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--banner-h));z-index:50;background:rgba(250,247,242,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--text);border-bottom:1px solid var(--line);transition:box-shadow .3s var(--ease),top .3s var(--ease)}
+.nav.scrolled{box-shadow:0 12px 30px -18px rgba(20,19,18,.35)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--nav-h);position:relative}
+.brand{display:inline-flex;align-items:center;gap:.8rem;flex:none;text-decoration:none;color:inherit}
+.brand-mark{width:42px;height:42px;flex:none;border:1px solid var(--rose);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font:600 1.15rem/1 var(--font-display);letter-spacing:-.04em;color:var(--ink);transition:background .25s var(--ease),color .25s var(--ease)}
+.brand-mark i{font-style:italic;font-weight:500;color:var(--rose-deep);transition:color .25s var(--ease)}
+.brand:hover .brand-mark{background:var(--ink);color:var(--on-dark)}
+.brand:hover .brand-mark i{color:var(--rose-light)}
+.brand-name{font:500 .78rem/1.1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+.brand-name small{display:block;font:400 .66rem/1.1 var(--font-body);letter-spacing:.18em;color:var(--text-muted);margin-top:.28rem}
+.dark .brand-mark{border-color:var(--rose-light);color:var(--on-dark)}
+.dark .brand-mark i{color:var(--rose-light)}
+.dark .brand:hover .brand-mark{background:var(--on-dark);color:var(--ink)}
+.dark .brand:hover .brand-mark i{color:var(--rose-deep)}
+.dark .brand-name small{color:var(--on-dark-muted)}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{text-decoration:none;color:var(--text-muted);font:500 .86rem var(--font-body);letter-spacing:var(--track-ui);text-transform:uppercase;padding:.6rem .85rem;border-radius:999px;transition:color .2s var(--ease),background .2s var(--ease)}
+.nav-links a:hover{color:var(--ink);background:rgba(20,19,18,.06)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.nav-toggle{display:none;position:relative;border:1px solid var(--line);background:transparent;color:var(--ink);width:44px;height:44px;border-radius:50%;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.nav-toggle:hover{border-color:var(--ink);background:rgba(20,19,18,.04)}
+.nav-toggle svg{position:absolute;inset:0;margin:auto;width:22px;height:22px;transition:opacity .2s var(--ease),transform .3s var(--ease)}
+.nav-toggle .x{opacity:0;transform:rotate(-90deg)}
+.menu-open .nav-toggle .x{opacity:1;transform:none}
+.menu-open .nav-toggle .bars{opacity:0;transform:rotate(90deg)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font:500 .9rem/1 var(--font-body);letter-spacing:var(--track-ui);text-transform:uppercase;padding:1rem 1.5rem;border-radius:999px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease);white-space:nowrap}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-primary{background:var(--ink);color:var(--on-dark);border-color:var(--ink);box-shadow:0 12px 28px -14px rgba(20,19,18,.6)}
+.btn-primary:hover{background:var(--rose-deep);border-color:var(--rose-deep);transform:translateY(-2px);box-shadow:0 18px 34px -14px rgba(138,74,85,.6)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--on-dark);transform:translateY(-2px)}
+.dark .btn-primary{background:var(--on-dark);color:var(--ink);border-color:var(--on-dark);box-shadow:0 12px 28px -14px rgba(250,247,242,.35)}
+.dark .btn-primary:hover{background:var(--rose-light);border-color:var(--rose-light)}
+.dark .btn-ghost{border-color:rgba(250,247,242,.4);color:var(--on-dark)}
+.dark .btn-ghost:hover{border-color:var(--rose-light);background:rgba(250,247,242,.08);color:var(--on-dark)}
+.btn-lg{padding:1.15rem 1.85rem;font-size:.92rem}
+.btn-sm{padding:.75rem 1.1rem;font-size:.8rem}
+.nav-call .call-word{display:none}
+
+/* Section scaffolding */
+.section{padding-block:clamp(4rem,8vw,7.5rem)}
+.section-head{max-width:720px;margin-bottom:clamp(2rem,4vw,3.5rem)}
+.section-head.center{margin-inline:auto;text-align:center}
+.section-head.center .eyebrow{justify-content:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.75rem;font:500 .74rem/1.2 var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--rose-deep);margin-bottom:1rem}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--rose)}
+.dark .eyebrow{color:var(--rose-light)}
+.dark .eyebrow::before{background:var(--rose-light)}
+h2{font-size:var(--fs-h2);line-height:1.05;letter-spacing:-.015em;font-weight:500}
+h2 em,h1 em{font-style:italic;color:var(--rose-deep);font-weight:400}
+.dark h2 em,.dark h1 em{color:var(--rose-light)}
+.sub{font-size:1.1rem;color:var(--text-muted);margin-top:1.1rem;max-width:60ch;font-weight:300}
+.dark .sub{color:var(--on-dark-muted)}
+.sub q,.hero-note q{font-family:var(--font-display);font-style:italic;font-size:1.15em}
+.todo{display:inline-flex;align-items:center;gap:.4rem;background:var(--rose-pale);color:var(--rose-deep);border:1px dashed var(--rose);border-radius:var(--r-sm);padding:.05rem .55rem;font:500 .78rem/1.6 var(--font-body);letter-spacing:.04em;vertical-align:middle;text-transform:none}
+.dark .todo{background:rgba(224,180,185,.12);color:var(--rose-light);border-color:rgba(224,180,185,.55)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(900px 520px at 100% 0%,rgba(238,215,211,.75),transparent 62%),radial-gradient(700px 480px at -10% 100%,rgba(244,227,227,.8),transparent 60%),var(--ivory);padding-block:clamp(2rem,4vw,3.5rem) clamp(9rem,12vw,11rem)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.hero h1{font-size:var(--fs-display);line-height:1.02;letter-spacing:-.02em;font-weight:500;margin:0 0 1.4rem;max-width:18ch;text-wrap:balance}
+.lede{font-size:clamp(1.08rem,1rem + .4vw,1.25rem);color:var(--text-muted);max-width:50ch;margin-bottom:2.1rem;font-weight:300}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:1.4rem}
+.hero-note{font-size:var(--fs-small);color:var(--text-muted);display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+.hero-note q{color:var(--ink);quotes:"\201C" "\201D"}
+.hero-note span{letter-spacing:.06em;font-size:.8rem;text-transform:uppercase}
+.hero-visual{position:relative}
+.scene-frame{aspect-ratio:10/11;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-3),0 0 0 1px rgba(20,19,18,.06);background:var(--blush)}
+.scene{width:100%;height:100%;--px:0;--py:0}
+.layer{transition:transform .9s var(--ease-out);will-change:transform}
+.layer-far{transform:translate(calc(var(--px) * -6px),calc(var(--py) * -4px))}
+.layer-mid{transform:translate(calc(var(--px) * -12px),calc(var(--py) * -8px))}
+.layer-near{transform:translate(calc(var(--px) * -20px),calc(var(--py) * -12px))}
+.ring-spin{transform-box:fill-box;transform-origin:center;animation:spin 80s linear infinite}
+.glow-breathe{transform-box:fill-box;transform-origin:center;animation:breathe 8s ease-in-out infinite alternate}
+.twinkle{animation:twinkle 4s ease-in-out infinite alternate}
+.twinkle.t2{animation-delay:1.3s}.twinkle.t3{animation-delay:2.4s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{from{opacity:.75;transform:scale(.97)}to{opacity:1;transform:scale(1.04)}}
+@keyframes twinkle{from{opacity:.25}to{opacity:.9}}
+.trust-card{position:absolute;left:24px;right:24px;bottom:-92px;z-index:2;width:auto;background:var(--white);color:var(--text);border-radius:var(--r-md);padding:1rem 1.25rem;box-shadow:var(--sh-3);--focus:var(--ink)}
+.trust-card .tc-head{display:flex;align-items:center;justify-content:space-between;font:500 .7rem var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--rose-deep);padding-bottom:.6rem;margin-bottom:.7rem;border-bottom:1px solid var(--line)}
+.trust-card ul{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.25rem}
+.trust-card li{display:flex;align-items:flex-start;gap:.65rem;font:500 .92rem/1.3 var(--font-body)}
+.trust-card li small{display:block;font:400 .78rem/1.35 var(--font-body);color:var(--text-muted);margin-top:.12rem;letter-spacing:.01em}
+.trust-card li svg{width:18px;height:18px;flex:none;color:var(--rose-deep);margin-top:.1rem}
+.stage{animation:rise 1s var(--ease-out) both}
+.s1{animation-delay:.05s}.s2{animation-delay:.15s}.s3{animation-delay:.28s}.s4{animation-delay:.4s}.s5{animation-delay:.52s}.s6{animation-delay:.7s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* Services ticker */
+.ticker{background:var(--ink);color:var(--on-dark);border-block:1px solid var(--line-dark);padding-block:1rem;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:1;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--ink),transparent)}
+.ticker-track{display:flex;width:max-content;animation:ticker 80s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-list{display:flex;padding-inline:1.5rem}
+.ticker-list li{display:inline-flex;align-items:center;gap:3rem;padding-right:3rem;white-space:nowrap;font:400 .8rem var(--font-body);letter-spacing:.24em;text-transform:uppercase}
+.ticker-list li::after{content:"";width:7px;height:7px;background:var(--rose);transform:rotate(45deg);flex:none}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Services grid */
+.grid-svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));gap:1.2rem}
+.card{background:var(--white);border-radius:var(--r-lg);padding:1.6rem 1.6rem 1.7rem;box-shadow:var(--sh-1);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);display:grid;grid-template-columns:1fr auto;grid-template-areas:"icon tag" "title title" "text text";gap:.55rem 1rem;align-content:start;position:relative}
+.card:hover{transform:translateY(-5px);box-shadow:var(--sh-3);border-color:rgba(183,110,121,.4)}
+.card h3{grid-area:title;font-size:var(--fs-h3);font-weight:600;letter-spacing:-.005em;margin-top:.5rem;line-height:1.15}
+.card p{grid-area:text;color:var(--text-muted);font-size:.98rem;font-weight:300}
+.svc-icon{grid-area:icon;width:56px;height:56px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--rose-deep);box-shadow:inset 0 0 0 1px rgba(183,110,121,.22);transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+.svc-icon svg{width:28px;height:28px}
+.card:hover .svc-icon{background:var(--ink);color:var(--rose-light);transform:rotate(-6deg)}
+.tag{grid-area:tag;align-self:start;justify-self:end;font:500 .7rem var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--rose-deep);background:var(--rose-pale);padding:.32rem .65rem;border-radius:999px;white-space:nowrap}
+.tag.tag-dash{border:1px dashed var(--rose);background:transparent}
+.card-cta{grid-column:1/-1;display:flex;flex-direction:row;align-items:center;gap:clamp(1.25rem,3vw,2.5rem);padding:clamp(1.5rem,3vw,2.25rem);background:linear-gradient(165deg,var(--ink-2),var(--ink));color:var(--on-dark);border-color:var(--line-dark);--focus:var(--rose-light)}
+.card-cta .svc-icon{background:rgba(224,180,185,.14);color:var(--rose-light);box-shadow:none}
+.card-cta:hover .svc-icon{background:var(--rose-light);color:var(--ink)}
+.card-cta .cta-top{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+.card-cta .tag{background:rgba(224,180,185,.14);color:var(--rose-light)}
+.card-cta h3{flex:1 1 30%;font-size:clamp(1.6rem,1.3rem + 1vw,2.1rem);font-weight:500;letter-spacing:-.01em;line-height:1.1;margin-top:0}
+.card-cta h3 em{font-style:italic;color:var(--rose-light);font-weight:400}
+.card-cta p{flex:1 1 40%;color:var(--on-dark-muted)}
+.card-cta .btn{flex:none;margin-top:0;align-self:center}
+.card-cta q{font-family:var(--font-display);font-style:italic;font-size:1.1em;color:var(--on-dark)}
+.svc-foot{margin-top:1.75rem;display:flex;gap:.9rem;align-items:flex-start;background:var(--white);border:1px dashed var(--rose);border-radius:var(--r-md);padding:1rem 1.25rem;color:var(--text-muted);font-size:.96rem;font-weight:300}
+.svc-foot svg{width:22px;height:22px;flex:none;color:var(--rose-deep);margin-top:.15rem}
+.svc-foot strong{color:var(--text);font-weight:500}
+
+/* Process */
+.process-sec{background:var(--ivory-2)}
+.process-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(2rem,4vw,4.5rem);align-items:start}
+.steps{display:grid;gap:1rem}
+.step{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.4rem 1.5rem;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.2rem;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
+.step:hover{transform:translateY(-4px);border-color:rgba(183,110,121,.45);box-shadow:var(--sh-2)}
+.step-num{grid-row:1/4;font:400 2.6rem/1 var(--font-display);font-style:italic;color:var(--rose-deep);letter-spacing:-.03em;padding-top:.05rem;min-width:1.3ch}
+.step h3{font-size:1.3rem;font-weight:600}
+.step p{color:var(--text-muted);font-weight:300}
+.step .todo{justify-self:start;margin-top:.5rem}
+.process-cta{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center}
+.process-cta p{color:var(--text-muted)}
+.fig-card{background:var(--white);color:var(--text);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.2rem);box-shadow:var(--sh-2);border:1px solid var(--line)}
+.fig-card svg{width:100%;height:auto;border-radius:var(--r-md)}
+.fig-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:.5rem 1rem;padding:1rem .5rem .25rem}
+.fig-legend li{display:flex;gap:.6rem;align-items:flex-start;font:300 .9rem/1.35 var(--font-body);color:var(--text-muted)}
+.fig-legend b{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--on-dark);font:500 .75rem/22px var(--font-body);text-align:center}
+.fig-legend strong{color:var(--text);font-weight:500}
+.fig-cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;padding:.75rem .5rem .2rem;margin-top:.6rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--text-muted)}
+.fig-cap b{font:500 .7rem var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--rose-deep)}
+.fig .fg-paper{fill:var(--ivory)}
+.fig .fg-grid{fill:none;stroke:var(--ink);stroke-opacity:.05}
+.fig .fg-eyebrow{font:500 11px var(--font-body);letter-spacing:.24em;fill:var(--rose-deep)}
+.fig .fg-title{font:500 26px var(--font-display);fill:var(--text)}
+.fig .fg-skin{fill:var(--blush-2)}
+.fig .fg-skin2{fill:var(--blush)}
+.fig .fg-plate{fill:var(--ivory-3);stroke:var(--ink);stroke-width:.8;stroke-opacity:.5}
+.fig .fg-base{fill:var(--rose-pale);stroke:var(--rose);stroke-width:.6}
+.fig .fg-colour{fill:var(--rose)}
+.fig .fg-colour2{fill:var(--rose-deep)}
+.fig .fg-top{fill:var(--white);opacity:.85}
+.fig .fg-gloss{stroke:var(--white);stroke-width:2.2;stroke-linecap:round;fill:none;opacity:.9}
+.fig .fg-lamp{fill:var(--ink)}
+.fig .fg-lamp-in{fill:var(--rose-light);opacity:.55}
+.fig .fg-ray{stroke:var(--rose);stroke-width:1.4;stroke-dasharray:3 6;fill:none;stroke-linecap:round}
+.fig .fg-glow{fill:var(--rose-pale);opacity:.7}
+.fig .fg-ldr{stroke:var(--rose-deep);stroke-width:1.1;fill:none}
+.fig .fg-co circle{fill:var(--ink)}
+.fig .fg-co text{font:500 12px var(--font-body);fill:var(--on-dark);text-anchor:middle;dominant-baseline:central}
+.fig .fg-lab{font:400 13px var(--font-body);fill:var(--text-muted)}
+.fig .fg-rule{stroke:var(--gold);stroke-width:1;fill:none}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(160px,auto);gap:1rem}
+.g-tile{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--ivory-2);border:1px solid var(--line);aspect-ratio:1/1;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.g-tile:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.g-tile.wide{grid-column:span 2;aspect-ratio:2/1}
+.g-tile.tall{grid-row:span 2;aspect-ratio:1/2;align-self:stretch}
+.g-tile svg{position:absolute;inset:0;width:100%;height:100%}
+.g-tile .g-bg1{fill:var(--blush)}.g-tile .g-bg2{fill:var(--ivory-3)}.g-tile .g-bg3{fill:var(--rose-pale)}.g-tile .g-bg4{fill:var(--ink)}
+.g-tile .g-ring{fill:none;stroke:var(--gold);stroke-width:1.2;opacity:.7}
+.g-tile .g-ring2{fill:none;stroke:var(--rose);stroke-width:1;opacity:.5}
+.g-tile .g-sw1{fill:var(--rose)}.g-tile .g-sw2{fill:var(--rose-deep)}.g-tile .g-sw3{fill:var(--gold-light)}.g-tile .g-sw4{fill:var(--rose-light)}.g-tile .g-sw5{fill:var(--ink)}
+.g-tile .g-line{stroke:var(--ink);stroke-opacity:.12;stroke-width:1;fill:none}
+.g-tile .g-line-l{stroke:var(--on-dark);stroke-opacity:.16;stroke-width:1;fill:none}
+.g-lbl{position:absolute;top:.75rem;left:.75rem;z-index:3;font:500 .7rem var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;padding:.32rem .65rem;border-radius:999px;background:var(--ink);color:var(--on-dark)}
+.g-tile.on-dark .g-lbl{background:var(--on-dark);color:var(--ink)}
+.ph{position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:.75rem}
+.ph-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.94);color:var(--text);border:1px dashed var(--rose);border-radius:999px;padding:.55rem .85rem;font:500 .76rem/1.25 var(--font-body);letter-spacing:.04em;text-align:left;box-shadow:var(--sh-1);max-width:92%}
+.ph-pill svg{width:18px;height:18px;color:var(--rose-deep);flex:none}
+.photo-note{margin-top:1.75rem;display:flex;gap:.9rem;align-items:flex-start;background:var(--white);border:1px dashed var(--rose);border-radius:var(--r-md);padding:1rem 1.25rem;color:var(--text-muted);font-size:.96rem;font-weight:300}
+.photo-note svg{width:22px;height:22px;flex:none;color:var(--rose-deep);margin-top:.15rem}
+.photo-note strong{color:var(--text);font-weight:500}
+.photo-note a{color:var(--rose-deep)}
+
+/* Why band */
+.why{position:relative;overflow:hidden}
+.why::before{content:"";position:absolute;inset:0;background:radial-gradient(760px 420px at 100% 0%,rgba(183,110,121,.22),transparent 65%),radial-gradient(600px 400px at 0% 100%,rgba(201,150,126,.12),transparent 60%);pointer-events:none}
+.why-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4.5rem);align-items:start}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.stat{background:rgba(250,247,242,.05);border:1px solid var(--line-dark);border-radius:var(--r-md);padding:1.3rem 1.2rem;transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
+.stat:hover{transform:translateY(-4px);background:rgba(250,247,242,.08);border-color:rgba(224,180,185,.4)}
+.stat-num{display:block;font:400 clamp(2.4rem,3.6vw,3.4rem)/1 var(--font-display);color:var(--on-dark);letter-spacing:-.02em}
+.stat-num i{font-style:italic;color:var(--rose-light)}
+.stat-label{display:block;font:500 .82rem var(--font-body);letter-spacing:.06em;margin-top:.55rem;color:var(--on-dark)}
+.stat-src{display:block;font:300 .78rem/1.4 var(--font-body);margin-top:.3rem;color:var(--on-dark-muted)}
+.why-list{display:grid;gap:1.15rem;margin-top:1.9rem}
+.why-list li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+.why-list svg{width:24px;height:24px;flex:none;color:var(--rose-light);margin-top:.15rem}
+.why-list q{display:block;font:400 1.3rem/1.3 var(--font-display);font-style:italic;color:var(--on-dark);quotes:"\201C" "\201D"}
+.why-list span{display:block;color:var(--on-dark-muted);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin-top:.3rem}
+.review-card{margin-top:1.5rem;background:var(--ivory);color:var(--text);border-radius:var(--r-lg);padding:1.5rem 1.6rem;--focus:var(--ink);position:relative}
+.review-card::before{content:"\201C";position:absolute;top:-.1rem;left:1.1rem;font:400 5rem/1 var(--font-display);color:var(--rose);opacity:.5}
+.review-card blockquote{margin:0;padding-left:2.2rem}
+.review-card blockquote p{font:500 1.3rem/1.35 var(--font-display);font-style:italic}
+.review-card footer{margin-top:.75rem;padding-left:2.2rem;font-size:.82rem;color:var(--text-muted);letter-spacing:.04em}
+.review-card footer a{color:var(--rose-deep)}
+.reviews-row{margin-top:1.25rem;padding:1.15rem 1.3rem;border-radius:var(--r-md);background:rgba(250,247,242,.05);border:1px solid var(--line-dark);display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center}
+.reviews-row p{flex:1 1 220px;font:500 .95rem var(--font-body)}
+.reviews-row p small{display:block;font:300 .8rem var(--font-body);color:var(--on-dark-muted);margin-top:.15rem}
+.link-pill{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font:500 .8rem var(--font-body);letter-spacing:var(--track-ui);min-height:44px;padding:.7rem 1rem;border-radius:999px;background:var(--on-dark);color:var(--ink);transition:transform .2s var(--ease),background .2s var(--ease)}
+.link-pill:hover{transform:translateY(-2px);background:var(--rose-light)}
+.link-pill svg{width:14px;height:14px}
+.link-pill.muted{background:transparent;color:var(--on-dark);border:1px solid var(--line-dark)}
+.link-pill.muted:hover{background:rgba(250,247,242,.08)}
+
+/* Find us */
+.find-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(2rem,4vw,4.5rem);align-items:start}
+.addr{margin-top:1.5rem;display:grid;gap:1.3rem}
+.addr-block{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.addr-block svg{width:24px;height:24px;color:var(--rose-deep);margin-top:.2rem}
+.addr-block h3{font-size:1.3rem;font-weight:600;line-height:1.15}
+.addr-block p{color:var(--text-muted);font-weight:300}
+.addr-block p a{display:inline-block;padding-block:.4rem;transition:color .2s var(--ease)}
+.addr-block p a:hover{color:var(--rose-deep)}
+.addr-block .big{font:500 1.5rem/1.2 var(--font-display);color:var(--text);font-style:normal}
+.addr-block address{font-style:normal}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1.5rem;margin-top:.5rem;font-size:.98rem}
+.hours dt{font-weight:500;color:var(--text)}
+.hours dd{margin:0;color:var(--text-muted);font-weight:300}
+.hours-src{font-size:.82rem;color:var(--text-muted);margin-top:.6rem;font-weight:300}
+.socials{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem}
+.chip{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;padding:.7rem .95rem;border-radius:999px;background:var(--white);border:1px solid var(--line);font:500 .82rem var(--font-body);letter-spacing:var(--track-ui);color:var(--text);text-decoration:none;transition:border-color .2s var(--ease),transform .2s var(--ease),background .2s var(--ease)}
+.chip:hover{border-color:var(--rose);transform:translateY(-2px);background:var(--rose-pale)}
+.chip svg{width:14px;height:14px;color:var(--rose-deep)}
+.chip.todo-chip{border:1px dashed var(--rose);color:var(--rose-deep);background:var(--rose-pale)}
+.map-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.25rem);box-shadow:var(--sh-2)}
+.map-card svg{width:100%;height:auto}
+.map text{font-family:var(--font-body);font-weight:500;fill:var(--text)}
+.map .m-lab{font-size:15px;letter-spacing:.12em;fill:var(--text-muted);font-weight:400}
+.map .m-lab-ave{font-size:16px;letter-spacing:.22em;fill:var(--rose-deep);font-weight:500}
+.map .m-area{font-family:var(--font-display);font-size:64px;font-style:italic;font-weight:400;fill:var(--ink);opacity:.07}
+.map .m-home{font-family:var(--font-display);font-size:30px;font-weight:600;fill:var(--ink)}
+.map .m-home-sub{font-size:14px;letter-spacing:.14em;fill:var(--text-muted);font-weight:400}
+.map .m-grid{fill:none;stroke:var(--ink);stroke-opacity:.05}
+.map .m-bg1{stop-color:var(--ivory)}.map .m-bg2{stop-color:var(--ivory-2)}
+.map .m-road{fill:none;stroke:var(--ivory-3);stroke-width:14;stroke-linecap:round}
+.map .m-road-thin{fill:none;stroke:var(--ivory-3);stroke-width:8;stroke-linecap:round}
+.map .m-ave{fill:none;stroke:var(--ink);stroke-width:16;stroke-linecap:round}
+.map .m-ave-line{fill:none;stroke:var(--rose);stroke-width:1.4;stroke-dasharray:14 10}
+.map .m-block{fill:var(--white);stroke:var(--line);stroke-width:1}
+.map .m-block-home{fill:var(--rose-pale);stroke:var(--rose);stroke-width:1.4}
+.map .m-pin path{fill:var(--rose-deep);stroke:var(--white);stroke-width:2}
+.map .m-pin circle{fill:var(--white)}
+.map .m-pin-ring{fill:none;stroke:var(--rose);stroke-width:1.2;opacity:.6}
+.map .m-card{fill:var(--white);stroke:var(--line)}
+.map .m-foot{font-size:13px;letter-spacing:.1em;fill:var(--text-muted);font-weight:400}
+.map .m-north{stroke:var(--ink);stroke-width:1.4;fill:none}
+.map-note{font-size:var(--fs-small);color:var(--text-muted);margin-top:.9rem;padding-inline:.5rem;font-weight:300}
+
+/* FAQ */
+.faq-sec{background:var(--ivory-2)}
+.faq-wrap{max-width:860px;margin-inline:auto}
+.faq-list{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:.25rem 1.6rem;box-shadow:var(--sh-1)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:0}
+.faq-item h3{font-size:1rem}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.3rem 0;background:none;border:0;text-align:left;font:600 1.3rem/1.3 var(--font-display);color:var(--text);cursor:pointer;transition:color .2s var(--ease)}
+.faq-q:hover{color:var(--rose-deep)}
+.chev{width:36px;height:36px;flex:none;border-radius:50%;background:var(--ivory-2);display:grid;place-items:center;transition:transform .4s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+.chev svg{width:16px;height:16px}
+.faq-item.open .chev{transform:rotate(180deg);background:var(--ink);color:var(--on-dark)}
+.faq-a{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .42s var(--ease),visibility .42s}
+.faq-item.open .faq-a{grid-template-rows:1fr;visibility:visible}
+.faq-a-inner{overflow:hidden}
+.faq-a p{color:var(--text-muted);padding-bottom:1.35rem;max-width:66ch;font-weight:300}
+.faq-a p + p{margin-top:-.6rem}
+.faq-a a{color:var(--rose-deep)}
+
+/* Book */
+.book-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.5rem,3vw,3rem);align-items:start}
+.contact-card{background:linear-gradient(165deg,var(--ink-2),var(--ink-3));border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.2rem);position:relative;overflow:hidden}
+.contact-card::after{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(224,180,185,.35);pointer-events:none}
+.contact-card::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(183,110,121,.3),transparent 70%);pointer-events:none}
+.big-phone{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font:500 clamp(1.7rem,1rem + 2vw,2.4rem)/1.1 var(--font-display);letter-spacing:-.01em;color:var(--on-dark);margin:0;padding-block:.5rem;position:relative;transition:color .2s var(--ease)}
+.big-phone svg{width:30px;height:30px;color:var(--rose-light);flex:none}
+.big-phone:hover{color:var(--rose-light)}
+.alt-phone{display:block;position:relative;color:var(--on-dark-muted);font-size:.95rem;margin-bottom:.6rem}
+.alt-phone a{color:var(--on-dark);text-decoration:none;border-bottom:1px solid rgba(224,180,185,.5);transition:color .2s var(--ease),border-color .2s var(--ease)}
+.alt-phone a:hover{color:var(--rose-light)}
+.contact-card > p{color:var(--on-dark-muted);position:relative;font-weight:300}
+.contact-facts{margin:1.6rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:.75rem 1.2rem;position:relative}
+.contact-facts dt{font:500 .72rem/1.6 var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--rose-light)}
+.contact-facts dd{margin:0;color:var(--on-dark);font-weight:300}
+.contact-facts dd address{font-style:normal}
+.form-card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.25rem,3vw,2rem)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;transition:opacity .2s var(--ease);animation:rise .5s var(--ease-out) backwards}
+.form.fading{opacity:0}
+.field{display:flex;flex-direction:column;gap:.45rem}
+.field.full{grid-column:1/-1}
+.field label{font:500 .78rem var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--on-dark)}
+.field label span{font:300 .78rem var(--font-body);letter-spacing:.02em;text-transform:none;color:var(--on-dark-muted)}
+.field input,.field select,.field textarea{width:100%;background:var(--ink-3);color:var(--on-dark);border:1px solid rgba(250,247,242,.18);border-radius:var(--r-sm);padding:.9rem 1rem;font:300 1.02rem/1.4 var(--font-body);transition:border-color .2s var(--ease),box-shadow .2s var(--ease);min-width:0}
+.field input::placeholder,.field textarea::placeholder{color:var(--on-dark-muted);opacity:.75}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;border-color:var(--rose-light);box-shadow:0 0 0 3px rgba(224,180,185,.3)}
+.select-wrap{position:relative}
+.select-wrap select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;cursor:pointer}
+.select-wrap::after{content:"";position:absolute;right:1.1rem;top:50%;width:9px;height:9px;border-right:1.5px solid var(--rose-light);border-bottom:1.5px solid var(--rose-light);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:var(--rose);box-shadow:0 0 0 3px rgba(183,110,121,.22)}
+.field.has-error input:focus-visible,.field.has-error select:focus-visible,.field.has-error textarea:focus-visible{border-color:var(--rose);box-shadow:0 0 0 3px rgba(183,110,121,.4)}
+.error{display:flex;align-items:flex-start;gap:.35rem;font:500 .86rem/1.4 var(--font-body);color:var(--rose-light)}
+.error svg{width:14px;height:14px;flex:none;margin-top:.2em}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:.4rem}
+.form-note{font-size:var(--fs-small);color:var(--on-dark-muted);flex:1 1 240px;font-weight:300}
+.form-success{text-align:center;padding:2.5rem 1rem;display:grid;justify-items:center;gap:.9rem;animation:rise .5s var(--ease-out) both}
+.form-success svg{width:60px;height:60px;color:var(--rose-light)}
+.form-success h3{font-size:1.9rem}
+.form-success p{color:var(--on-dark-muted);max-width:44ch;font-weight:300}
+.form-success .actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:.5rem}
+
+/* Notes panel */
+.notes-panel{border:1px dashed var(--rose);border-radius:var(--r-lg);background:var(--white)}
+.notes-panel summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1.25rem,3vw,2rem) clamp(1.5rem,3vw,2.5rem)}
+.notes-panel summary::-webkit-details-marker{display:none}
+.notes-panel summary .eyebrow{margin-bottom:.5rem}
+.notes-panel h2{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.3rem)}
+.notes-panel .chev{background:var(--rose-pale);color:var(--rose-deep)}
+.notes-panel[open] .chev{transform:rotate(180deg);background:var(--ink);color:var(--on-dark)}
+.notes-body{padding:0 clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,3vw,2.5rem)}
+.notes-intro{color:var(--text-muted);max-width:70ch;margin-bottom:1.5rem;font-weight:300}
+.notes-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem 1.6rem}
+.notes-list li{display:flex;gap:.7rem;align-items:flex-start;color:var(--text-muted);font-weight:300;font-size:.98rem}
+.notes-list li strong{color:var(--text);font-weight:500}
+.notes-list svg{width:20px;height:20px;flex:none;color:var(--rose-deep);margin-top:.2rem}
+
+/* Footer */
+.footer{background:var(--ink);color:var(--on-dark-muted);padding-block:3.5rem 2rem;border-top:1px solid var(--line-dark);--focus:var(--rose-light)}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem}
+.foot-title{font:500 .72rem var(--font-body);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--rose-light);margin-bottom:1rem}
+.foot-desc{margin-top:1.1rem;max-width:40ch;font-weight:300}
+.footer ul{display:grid;gap:.75rem;font-weight:300}
+.footer a{color:var(--on-dark);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.2em;transition:color .2s var(--ease),text-decoration-color .2s var(--ease)}
+.footer li a{display:inline-block;padding-block:.35rem;margin-block:-.35rem}
+.footer a:hover{color:var(--rose-light);text-decoration-color:currentColor}
+.footer .brand,.footer .brand:hover{text-decoration:none}
+.footer address{font-style:normal}
+.foot-legal{margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.5rem;font-size:var(--fs-small);font-weight:300}
+.foot-legal .todo{font-size:.74rem}
+
+/* Numerals: tabular wherever figures stack or sit in a row */
+.hours,.contact-facts dd,.stat-num,.footer li,.big-phone,.alt-phone,.nav-call,.addr-block p,.trust-card li{font-variant-numeric:tabular-nums}
+
+/* Scroll-driven (progressive) */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  }
+}
+@keyframes reveal{from{opacity:.75;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* Responsive */
+@media (max-width:1140px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{max-width:none}
+  .hero{padding-bottom:clamp(3rem,6vw,5rem)}
+  .hero-visual{max-width:600px;margin-inline:auto;width:100%}
+  .trust-card{position:relative;left:auto;right:auto;bottom:auto;margin:-2.25rem auto 0;width:min(100%,480px)}
+  .trust-card ul{grid-template-columns:1fr 1fr;gap:.65rem 1rem}
+}
+@media (max-width:1000px){
+  .why-grid,.find-grid,.book-grid,.process-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card-cta{flex-direction:column;align-items:flex-start;gap:.85rem;padding:1.6rem 1.6rem 1.7rem}
+  .card-cta .cta-top{flex-direction:row;align-items:center;gap:1rem}
+  .card-cta h3{flex:none;max-width:18ch}
+  .card-cta p{flex:none;max-width:60ch}
+  .card-cta .btn{margin-top:.5rem;align-self:flex-start}
+}
+@media (max-width:1080px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;background:var(--ivory);padding:.75rem var(--gutter) 1.1rem;border-bottom:1px solid var(--line);box-shadow:0 24px 44px -24px rgba(20,19,18,.45);opacity:0;transform:translateY(-8px);pointer-events:none;visibility:hidden;transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s}
+  .menu-open .nav-links{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+  .nav-links a{padding:.9rem .5rem;border-radius:var(--r-md);font-size:.95rem;opacity:0;transform:translateY(-6px);transition:opacity .35s var(--ease),transform .35s var(--ease),color .2s var(--ease),background .2s var(--ease)}
+  .menu-open .nav-links a{opacity:1;transform:none}
+  .menu-open .nav-links a:nth-child(1){transition-delay:30ms}
+  .menu-open .nav-links a:nth-child(2){transition-delay:60ms}
+  .menu-open .nav-links a:nth-child(3){transition-delay:90ms}
+  .menu-open .nav-links a:nth-child(4){transition-delay:120ms}
+  .menu-open .nav-links a:nth-child(5){transition-delay:150ms}
+  .menu-open .nav-links a:nth-child(6){transition-delay:180ms}
+  .menu-open .nav-links a:nth-child(7){transition-delay:210ms}
+}
+@media (max-width:640px){
+  .form{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .brand-name small{display:none}
+  .nav-call .num{display:none}
+  .nav-call .call-word{display:inline}
+  .trust-card ul{grid-template-columns:1fr}
+  .contact-facts{grid-template-columns:1fr;gap:.2rem .5rem}
+  .contact-facts dd{margin-bottom:.6rem}
+  .cta-row .btn{width:100%}
+  .draft{flex-wrap:nowrap;justify-content:space-between;text-align:left;font-size:.76rem;padding-block:.4rem;min-height:52px}
+  .draft span{flex:1 1 auto}
+  .draft-close{flex:none}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:last-child{grid-column:1/-1}
+  .card{grid-template-columns:auto 1fr;grid-template-areas:"icon tag" "icon title" "icon text";gap:.3rem 1rem;padding:1.1rem 1.15rem}
+  .svc-icon{width:46px;height:46px}
+  .svc-icon svg{width:24px;height:24px}
+  .card .tag{justify-self:start}
+  .card h3{font-size:1.2rem;margin-top:0}
+  .card p{font-size:.95rem}
+  .card-cta{display:flex;gap:.85rem;padding:1.4rem 1.25rem 1.5rem}
+  .card-cta .svc-icon{width:56px;height:56px}
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:.7rem}
+  .g-tile.wide{grid-column:span 2}
+  .ph-pill{font-size:.7rem;padding:.45rem .65rem}
+  .fig-legend{grid-template-columns:1fr 1fr}
+  .map .m-lab,.m-legend{display:none}
+  .map .m-foot{font-size:18px}
+  .hours{grid-template-columns:1fr;gap:.1rem}
+  .hours dd{margin-bottom:.5rem}
+  .hero{padding-top:1.5rem}
+  .fig .fg-eyebrow,.fig .fg-title,.fig .fg-rule,.fig .fg-lab{display:none}
+  .fig .fg-co circle{r:20}
+  .fig .fg-co text{font-size:20px}
+  .fig .fg-ldr{stroke-width:1.8}
+  .map .m-lab-ave,.map .m-home-sub{display:none}
+  .map .m-home{font-size:44px;transform:translate(0,20px)}
+  .map .m-area{font-size:96px}
+  .map .m-pin{transform:translate(555px,208px) scale(1.4)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .stage,.reveal,.ring-spin,.glow-breathe,.twinkle{animation:none}
+  .ticker-track{animation:none;width:100%;flex-wrap:wrap}
+  .ticker-list{flex-wrap:wrap;justify-content:center;gap:.5rem 0}
+  .ticker-list[aria-hidden="true"]{display:none}
+  .ticker::before,.ticker::after{display:none}
+  .layer{transition:none;transform:none}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="draft" id="draft-banner" role="note" aria-label="Draft notice">
+  <span>Draft website proposal for LK Nail Bar — not live. Prepared by Adeel Ahmed (Sites by Adeel), Calgary.</span>
+  <button class="draft-close" id="draft-close" type="button">Close</button>
+</div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="LK Nail Bar, back to top">
+      <span class="brand-mark" aria-hidden="true">L<i>K</i></span>
+      <span class="brand-name">LK Nail Bar<small>17 Ave SW · Calgary</small></span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#visit">Your visit</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#why">Reviews</a>
+      <a href="#find-us">Find us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#book">Book</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-call" href="tel:+15875815888">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+        <span class="num">(587) 581-5888</span><span class="call-word">Call</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow stage s1">Beltline · Downtown Calgary</p>
+      <h1 id="hero-title" class="stage s2">A nail bar on 17th Avenue SW, made for sitting <em>together</em></h1>
+      <p class="lede stage s3">Manicures, pedicures, gel, dip powder, acrylics and nail art in the Beltline. LK Nail Bar has twenty-two pedicure chairs, so a whole group can be seated at once — and the shop invites group bookings.</p>
+      <div class="cta-row stage s4">
+        <a class="btn btn-primary btn-lg" href="tel:+15875815888">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          Call (587) 581-5888
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#book">Request an appointment</a>
+      </div>
+      <p class="hero-note stage s5">
+        <q>Beauty together – memories together.</q> <span>— @lknailbar on Instagram</span>
+      </p>
+    </div>
+
+    <div class="hero-visual stage s3">
+      <div class="scene-frame">
+        <svg class="scene" id="scene" viewBox="0 0 800 880" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="scene-title scene-desc">
+          <title id="scene-title">Illustration of a nail polish bottle beside a card of colour swatches</title>
+          <desc id="scene-desc">A stylised illustration for this draft, not a photo of LK Nail Bar.</desc>
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBF6F1"/><stop offset=".55" stop-color="#F4E6E1"/><stop offset="1" stop-color="#E9D3CD"/></linearGradient>
+            <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F3D9D3" stop-opacity=".95"/><stop offset=".6" stop-color="#F3D9D3" stop-opacity=".4"/><stop offset="1" stop-color="#F3D9D3" stop-opacity="0"/></radialGradient>
+            <linearGradient id="liquid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E7B3B4"/><stop offset=".5" stop-color="#C77C86"/><stop offset="1" stop-color="#9B5260"/></linearGradient>
+            <linearGradient id="liquid2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7D3644"/><stop offset="1" stop-color="#3E1A24"/></linearGradient>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".55"/><stop offset=".22" stop-color="#FFFFFF" stop-opacity=".05"/><stop offset=".7" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity=".14"/></linearGradient>
+            <linearGradient id="cap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E2A28"/><stop offset=".3" stop-color="#4B4542"/><stop offset=".55" stop-color="#1B1917"/><stop offset="1" stop-color="#0E0D0C"/></linearGradient>
+            <linearGradient id="band" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9967E"/><stop offset=".35" stop-color="#F3DFCB"/><stop offset=".65" stop-color="#D8A98F"/><stop offset="1" stop-color="#9E6B58"/></linearGradient>
+            <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#231F1E"/><stop offset="1" stop-color="#0F0E0D"/></linearGradient>
+            <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3CF"/><stop offset=".5" stop-color="#C9967E"/><stop offset="1" stop-color="#E8C3A6"/></linearGradient>
+            <linearGradient id="surface" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E7D2CC"/><stop offset="1" stop-color="#DCC3BC"/></linearGradient>
+            <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="16"/></filter>
+            <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+          </defs>
+          <g class="layer layer-far">
+            <rect x="-40" y="-40" width="880" height="960" fill="url(#bg)"/>
+            <circle class="glow-breathe" cx="540" cy="270" r="270" fill="url(#halo)"/>
+            <circle class="ring-spin" cx="540" cy="270" r="312" fill="none" stroke="#C9967E" stroke-width="1.4" stroke-dasharray="3 12" opacity=".6"/>
+            <circle cx="540" cy="270" r="236" fill="none" stroke="#C9967E" stroke-width="1" opacity=".38"/>
+            <g fill="#C9967E">
+              <path class="twinkle" d="M150 160 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
+              <path class="twinkle t2" d="M690 120 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5z"/>
+              <path class="twinkle t3" d="M120 520 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z"/>
+              <circle class="twinkle t2" cx="740" cy="470" r="2.4"/>
+              <circle class="twinkle" cx="210" cy="90" r="1.8"/>
+            </g>
+            <rect x="-40" y="720" width="880" height="200" fill="url(#surface)"/>
+            <rect x="-40" y="718" width="880" height="2" fill="#FFFFFF" opacity=".5"/>
+          </g>
+          <g class="layer layer-mid">
+            <g transform="rotate(-7 400 650)">
+              <ellipse cx="410" cy="730" rx="290" ry="26" fill="#3E1A24" opacity=".22" filter="url(#soft)"/>
+              <rect x="110" y="580" width="580" height="138" rx="20" fill="url(#card)"/>
+              <rect x="110" y="580" width="580" height="138" rx="20" fill="none" stroke="#C9967E" stroke-width="1" opacity=".5"/>
+              <rect x="140" y="604" width="90" height="3" rx="1.5" fill="#C9967E" opacity=".9"/>
+              <g transform="translate(140 622)">
+                <path d="M0 0h44v50q0 34-22 46q-22-12-22-46z" fill="#F5E6DC"/>
+                <path d="M66 0h44v50q0 34-22 46q-22-12-22-46z" fill="#EFCFC4"/>
+                <path d="M132 0h44v50q0 34-22 46q-22-12-22-46z" fill="#D9A39A"/>
+                <path d="M198 0h44v50q0 34-22 46q-22-12-22-46z" fill="#C3766A"/>
+                <path d="M264 0h44v50q0 34-22 46q-22-12-22-46z" fill="#8E3B45"/>
+                <path d="M330 0h44v50q0 34-22 46q-22-12-22-46z" fill="#5A2B3A"/>
+                <path d="M396 0h44v50q0 34-22 46q-22-12-22-46z" fill="url(#shimmer)"/>
+                <path d="M462 0h44v50q0 34-22 46q-22-12-22-46z" fill="#F8F3EE"/>
+                <g fill="none" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="1.2">
+                  <path d="M8 6v42"/><path d="M74 6v42"/><path d="M140 6v42"/><path d="M206 6v42"/><path d="M272 6v42"/><path d="M338 6v42"/><path d="M404 6v42"/><path d="M470 6v42"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="layer layer-near">
+            <ellipse cx="330" cy="772" rx="170" ry="24" fill="#3E1A24" opacity=".28" filter="url(#soft)"/>
+            <ellipse cx="545" cy="758" rx="110" ry="18" fill="#3E1A24" opacity=".22" filter="url(#soft2)"/>
+            <g>
+              <rect x="482" y="540" width="130" height="220" rx="34" fill="#F6ECE7"/>
+              <rect x="490" y="588" width="114" height="164" rx="28" fill="url(#liquid2)"/>
+              <path d="M490 600 q57 -18 114 0 v14 q-57 -14 -114 0z" fill="#FFFFFF" opacity=".16"/>
+              <rect x="482" y="540" width="130" height="220" rx="34" fill="url(#glass)"/>
+              <rect x="500" y="600" width="10" height="130" rx="5" fill="#FFFFFF" opacity=".42"/>
+              <rect x="514" y="386" width="66" height="162" rx="14" fill="url(#cap)"/>
+              <rect x="506" y="532" width="82" height="16" rx="6" fill="url(#band)"/>
+              <rect x="524" y="400" width="7" height="130" rx="3.5" fill="#FFFFFF" opacity=".16"/>
+            </g>
+            <g>
+              <rect x="220" y="470" width="220" height="300" rx="52" fill="#FBF3EE"/>
+              <rect x="230" y="530" width="200" height="232" rx="44" fill="url(#liquid)"/>
+              <path d="M230 548 q100 -24 200 0 v18 q-100 -20 -200 0z" fill="#FFFFFF" opacity=".22"/>
+              <rect x="220" y="470" width="220" height="300" rx="52" fill="url(#glass)"/>
+              <rect x="246" y="548" width="14" height="190" rx="7" fill="#FFFFFF" opacity=".5"/>
+              <rect x="412" y="560" width="6" height="160" rx="3" fill="#FFFFFF" opacity=".22"/>
+              <rect x="278" y="220" width="104" height="256" rx="20" fill="url(#cap)"/>
+              <rect x="268" y="458" width="124" height="22" rx="8" fill="url(#band)"/>
+              <rect x="292" y="238" width="10" height="210" rx="5" fill="#FFFFFF" opacity=".18"/>
+              <rect x="278" y="248" width="104" height="1.5" fill="#C9967E" opacity=".7"/>
+              <circle cx="330" cy="470" r="3" fill="#FFFFFF" opacity=".7"/>
+            </g>
+            <ellipse cx="180" cy="760" rx="12" ry="5" fill="#3E1A24" opacity=".18" filter="url(#soft2)"/>
+            <path d="M160 748 q20 -30 60 -22 q-6 22 -34 26 q-14 2 -26 -4z" fill="#C77C86"/>
+            <path d="M166 746 q18 -20 50 -18" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity=".5"/>
+          </g>
+        </svg>
+      </div>
+      <aside class="trust-card stage s6" aria-label="At a glance">
+        <div class="tc-head"><span>At a glance</span><span>Beltline</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>1312 17 Ave SW<small>Unit A · 17th Avenue strip</small></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16M6 12V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5M4 12v6M20 12v6M6 18h12"/></svg><span>22 pedicure chairs<small>Shop's Instagram, Nov 2023</small></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19a6 6 0 0 1 12 0M14 18a4.5 4.5 0 0 1 7 0"/></svg><span>Group bookings<small>Invited in the shop's posts</small></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span>4.5 on Google<small>576 reviews, via Birdeye</small></span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" role="region" aria-label="Services listed by LK Nail Bar">
+  <div class="ticker-track">
+    <ul class="ticker-list">
+      <li>Manicure</li><li>Pedicure</li><li>Gel Nails</li><li>Gel Nail Extensions</li><li>Dip Powder Nails</li><li>Acrylic Nails</li><li>Nail Extensions</li><li>Nail Art</li><li>Nail Polish</li><li>Men's Manicure</li><li>Men's Pedicure</li><li>Group Bookings</li>
+    </ul>
+    <ul class="ticker-list" aria-hidden="true">
+      <li>Manicure</li><li>Pedicure</li><li>Gel Nails</li><li>Gel Nail Extensions</li><li>Dip Powder Nails</li><li>Acrylic Nails</li><li>Nail Extensions</li><li>Nail Art</li><li>Nail Polish</li><li>Men's Manicure</li><li>Men's Pedicure</li><li>Group Bookings</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2 id="services-title">Hands, feet and <em>every finish</em> in between</h2>
+      <p class="sub">These are the service categories LK Nail Bar lists publicly. Prices and timings are not published yet, so the fastest way to plan a visit is a phone call. <span class="todo">Prices to confirm</span></p>
+    </div>
+    <div class="grid-svc reveal">
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3h8v9c0 4-2 8-4 9-2-1-4-5-4-9z"/><path d="M11 6v6"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Manicure</h3>
+        <p>Shaping, cuticle care and a buff, finished with a polish of your choice. The classic place to start.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11h18l-1.5 7a2 2 0 0 1-2 1.5h-11a2 2 0 0 1-2-1.5z"/><path d="M6 11c1-1.5 2-1.5 3 0s2 1.5 3 0 2-1.5 3 0 2 1.5 3 0"/><path d="M12 3v3M9.5 4.5l1 2M14.5 4.5l-1 2"/></svg></div>
+        <span class="tag">22 chairs</span>
+        <h3>Pedicure</h3>
+        <p>Soak, shape, cuticle and heel care, then polish — in a room with twenty-two pedicure chairs, by the shop's own count.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h6v7c0 3-1.5 5.5-3 6.5-1.5-1-3-3.5-3-6.5z"/><path d="M13 14h8l-1 4.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 14 18.5z"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Manicure &amp; Pedicure</h3>
+        <p>Hands and feet in one sitting, finished to match. Ask for it when you have an afternoon to spare.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 13a8 8 0 0 1 16 0v3H4z"/><path d="M4 16v3M20 16v3"/><path d="M12 8v1M9 9l.5 1M15 9l-.5 1"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Gel Nails</h3>
+        <p>Colour that cures hard under a lamp for a glossy, chip-resistant finish that generally holds for weeks.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3h8v6c0 5-2 10-4 12-2-2-4-7-4-12z"/><path d="M8 9h8"/><path d="M11 12v5"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Gel Nail Extensions</h3>
+        <p>Length added with a gel system, then shaped, refined and finished in gel colour for a seamless set.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9h12v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><path d="M8 9V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><circle cx="10" cy="14" r=".6"/><circle cx="13.5" cy="16" r=".6"/><circle cx="12" cy="12.5" r=".6"/><circle cx="15" cy="13" r=".6"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Dip Powder Nails</h3>
+        <p>Colour built up in fine pigment powder over a bonding base and sealed hard — a strong finish that needs no lamp.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20l9-9"/><path d="M13 11l4-4a2.5 2.5 0 0 1 3.5 3.5L17 14"/><circle cx="7" cy="7" r="2.5"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Acrylic Nails</h3>
+        <p>A liquid-and-powder overlay sculpted for length and strength — the long-standing choice for durable, longer sets.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6v5c0 5-1.5 9-3 11-1.5-2-3-6-3-11z"/><path d="M9 8h6"/><path d="M5 21h14"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Nail Extensions</h3>
+        <p>Tips or forms to add length, finished in whichever system suits you — gel, acrylic or dip.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 3.8 4.2.6-3 3 .7 4.2L12 12.6l-3.7 2 .7-4.2-3-3 4.2-.6z"/><path d="M5 21l4-4"/><path d="M9 17l1.5 1.5"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Nail Art</h3>
+        <p>From a single accent nail to a full hand of detail. Bring a reference and ask what is possible for your design.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 3h4v4h-4z"/><path d="M9 7h6v2H9z"/><path d="M8 9h8v9a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3z"/><path d="M10 13v4"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Nail Polish</h3>
+        <p>A fresh coat of colour on natural nails when you want the shade without the full manicure.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h10v6H7z"/><path d="M7 9h10v7a5 5 0 0 1-10 0z"/><path d="M12 12v4"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Men's Manicure</h3>
+        <p>Clean-up, shaping and buffed natural nails, with or without a clear coat. Listed for men on the shop's menu.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 14h16v3a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/><path d="M7 14V9a5 5 0 0 1 10 0v5"/><path d="M9 6h6"/></svg></div>
+        <span class="tag">Listed</span>
+        <h3>Men's Pedicure</h3>
+        <p>Soak, heel and cuticle care and tidy, shaped toenails — the pedicure, listed for men as well.</p>
+      </article>
+      <article class="card card-cta">
+        <div class="cta-top">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2 19a6 6 0 0 1 12 0M13.5 18.5a4.5 4.5 0 0 1 8.5 0"/></svg></div>
+          <span class="tag">From Instagram</span>
+        </div>
+        <h3>Bring the <em>whole group</em></h3>
+        <p>The shop's own posts invite group appointments and describe <q>professional nail technicians experienced with large groups</q>. Call ahead and the chairs are yours together.</p>
+        <a class="btn btn-primary" href="tel:+15875815888">Call about a group</a>
+      </article>
+    </div>
+    <p class="svc-foot reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.5"/></svg>
+      <span><strong>Also seen in third-party directories, not yet confirmed:</strong> waxing and tinting, salt scrubs, hot stone and paraffin treatments. These are left off the menu above until the owner confirms them. <span class="todo">To confirm</span></span>
+    </p>
+  </div>
+</section>
+
+<!-- YOUR VISIT -->
+<section class="section process-sec" id="visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Your visit</p>
+      <h2 id="visit-title">Simple from the <em>first call</em></h2>
+      <p class="sub">A nail appointment should feel easy. Here is the shape of a visit, with the details that still need the owner's word marked.</p>
+    </div>
+    <div class="process-grid">
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>Call to book</h3>
+          <p>Phone <a href="tel:+15875815888">(587) 581-5888</a> or <a href="tel:+14032454499">(403) 245-4499</a>. Say what you want done and how many of you are coming.</p>
+          <span class="todo">Online booking and walk-ins: to confirm</span>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>Choose your service and colour</h3>
+          <p>Classic polish, gel, dip or acrylic — and the shade. Bring a photo if you have a look in mind for nail art.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>Settle in</h3>
+          <p>The shop describes itself as <q>a private, elegant, and welcoming space</q>, with twenty-two pedicure chairs so friends sit side by side.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">4</span>
+          <h3>Leave finished</h3>
+          <p>Gel and dip cure hard before you go; classic polish needs a little care for the first hour. Ask how long your finish should last.</p>
+          <span class="todo">Deposits and cancellation policy: to confirm</span>
+        </li>
+      </ol>
+      <figure class="fig-card fig reveal">
+        <svg viewBox="0 0 720 440" role="img" aria-labelledby="fig-title fig-desc">
+          <title id="fig-title">Diagram of the layers in a gel manicure, seen in cross-section</title>
+          <desc id="fig-desc">A general illustration of how a gel set is built up: shaped nail plate, base coat, colour coats, top coat, each cured under a lamp. It is a guide to the process, not a description of LK Nail Bar's exact method.</desc>
+          <defs>
+            <pattern id="fg-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path class="fg-grid" d="M24 0H0v24"/></pattern>
+          </defs>
+          <rect class="fg-paper" width="720" height="440" rx="12"/>
+          <rect width="720" height="440" fill="url(#fg-grid)" rx="12"/>
+          <text class="fg-eyebrow" x="36" y="44">A GEL SET, IN SECTION</text>
+          <text class="fg-title" x="36" y="80">Four layers, one lamp, one finish</text>
+          <path class="fg-rule" d="M36 96h120"/>
+          <!-- lamp -->
+          <path class="fg-lamp" d="M330 120h200a36 36 0 0 1 36 36v26H294v-26a36 36 0 0 1 36-36z"/>
+          <rect class="fg-lamp-in" x="306" y="170" width="248" height="10" rx="3"/>
+          <path class="fg-glow" d="M300 182h260l40 96H260z"/>
+          <g class="fg-ray"><path d="M340 188v78"/><path d="M400 188v82"/><path d="M460 188v82"/><path d="M520 188v78"/></g>
+          <!-- finger -->
+          <path class="fg-skin" d="M60 400 C60 320 130 280 260 280 L560 280 C640 280 690 320 690 400 Z"/>
+          <path class="fg-skin2" d="M90 400 C95 340 150 300 260 296 L400 296 L400 400 Z"/>
+          <!-- nail plate -->
+          <path class="fg-plate" d="M252 282 C340 270 470 268 600 286 L612 306 C470 290 340 292 246 302 Z"/>
+          <!-- base -->
+          <path class="fg-base" d="M254 276 C340 264 470 262 604 280 L600 286 C470 268 340 270 252 282 Z"/>
+          <!-- colour -->
+          <path class="fg-colour" d="M258 262 C340 250 470 248 610 266 L604 280 C470 262 340 264 254 276 Z"/>
+          <path class="fg-colour2" d="M258 262 C340 250 470 248 610 266 L612 262 C470 244 340 246 260 256 Z"/>
+          <!-- top -->
+          <path class="fg-top" d="M262 254 C340 242 470 240 614 258 L612 262 C470 244 340 246 260 256 Z"/>
+          <path class="fg-gloss" d="M300 250 C360 244 420 243 470 246"/>
+          <!-- callouts -->
+          <g class="fg-ldr">
+            <path d="M420 300 L420 340 L470 340"/>
+            <path d="M380 279 L360 350 L300 350"/>
+            <path d="M540 262 L560 230 L600 230"/>
+            <path d="M330 249 L300 220 L250 220"/>
+            <path d="M560 150 L610 150"/>
+          </g>
+          <g class="fg-co">
+            <circle cx="484" cy="340" r="12"/><text x="484" y="340">1</text>
+            <circle cx="286" cy="350" r="12"/><text x="286" y="350">2</text>
+            <circle cx="614" cy="230" r="12"/><text x="614" y="230">3</text>
+            <circle cx="236" cy="220" r="12"/><text x="236" y="220">4</text>
+            <circle cx="624" cy="150" r="12"/><text x="624" y="150">5</text>
+          </g>
+          <text class="fg-lab" x="36" y="420">Not to scale · general guide</text>
+        </svg>
+        <figcaption>
+          <ul class="fig-legend">
+            <li><b>1</b><span><strong>Prep and shape.</strong> Nail plate cleaned, shaped and lightly buffed.</span></li>
+            <li><b>2</b><span><strong>Base coat.</strong> A thin bonding layer, cured.</span></li>
+            <li><b>3</b><span><strong>Colour.</strong> Usually two coats, each cured.</span></li>
+            <li><b>4</b><span><strong>Top coat.</strong> Gloss and protection, cured and wiped.</span></li>
+            <li><b>5</b><span><strong>The lamp.</strong> Each layer hardens under it in seconds.</span></li>
+          </ul>
+          <div class="fig-cap"><b>How gel works</b><span>General trade description — not LK Nail Bar's exact method.</span></div>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="process-cta reveal">
+      <p>Questions about a specific service or a group of twelve?</p>
+      <a class="btn btn-primary" href="tel:+15875815888">Call (587) 581-5888</a>
+      <a class="btn btn-ghost" href="#book">Send a request</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery" aria-labelledby="gallery-title">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Gallery</p>
+      <h2 id="gallery-title">Your work, <em>your room</em></h2>
+      <p class="sub">Six tiles laid out for real photos from the shop — no stock imagery. Each one is labelled with the shot that would sit there.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-tile wide">
+        <svg viewBox="0 0 400 200" aria-hidden="true" focusable="false"><rect class="g-bg1" width="400" height="200"/><circle class="g-ring" cx="320" cy="100" r="70"/><circle class="g-ring2" cx="320" cy="100" r="50"/><path class="g-line" d="M0 150h400M40 0v200"/><rect class="g-sw3" x="60" y="60" width="26" height="60" rx="13"/><rect class="g-sw1" x="94" y="60" width="26" height="60" rx="13"/><rect class="g-sw2" x="128" y="60" width="26" height="60" rx="13"/></svg>
+        <span class="g-lbl">Storefront</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here — the front of the shop on 17th</span></div>
+      </div>
+      <div class="g-tile tall on-dark">
+        <svg viewBox="0 0 200 400" aria-hidden="true" focusable="false"><rect class="g-bg4" width="200" height="400"/><circle class="g-ring" cx="100" cy="150" r="80"/><path class="g-line-l" d="M0 300h200M100 0v400"/><path class="g-sw4" d="M78 130h44v50q0 34-22 46q-22-12-22-46z"/></svg>
+        <span class="g-lbl">Close-up</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here — a gel set, close up</span></div>
+      </div>
+      <div class="g-tile">
+        <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect class="g-bg2" width="200" height="200"/><circle class="g-ring2" cx="60" cy="60" r="40"/><path class="g-line" d="M0 130h200"/><circle class="g-sw1" cx="140" cy="130" r="18"/><circle class="g-sw3" cx="100" cy="150" r="12"/></svg>
+        <span class="g-lbl">Pedicure room</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here — the pedicure chairs</span></div>
+      </div>
+      <div class="g-tile">
+        <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect class="g-bg3" width="200" height="200"/><path class="g-line" d="M0 60h200M0 140h200"/><path class="g-sw2" d="M40 70h30v40q0 24-15 32q-15-8-15-32z"/><path class="g-sw5" d="M85 70h30v40q0 24-15 32q-15-8-15-32z"/><path class="g-sw3" d="M130 70h30v40q0 24-15 32q-15-8-15-32z"/></svg>
+        <span class="g-lbl">Nail art</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here — nail art detail</span></div>
+      </div>
+      <div class="g-tile">
+        <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect class="g-bg1" width="200" height="200"/><circle class="g-ring" cx="100" cy="100" r="60"/><circle class="g-sw4" cx="70" cy="100" r="16"/><circle class="g-sw1" cx="100" cy="100" r="16"/><circle class="g-sw2" cx="130" cy="100" r="16"/></svg>
+        <span class="g-lbl">Group</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here — a group booking</span></div>
+      </div>
+      <div class="g-tile">
+        <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect class="g-bg2" width="200" height="200"/><path class="g-line" d="M40 0v200M80 0v200M120 0v200M160 0v200"/><rect class="g-sw3" x="30" y="40" width="20" height="20" rx="10"/><rect class="g-sw1" x="70" y="80" width="20" height="20" rx="10"/><rect class="g-sw2" x="110" y="120" width="20" height="20" rx="10"/><rect class="g-sw5" x="150" y="60" width="20" height="20" rx="10"/></svg>
+        <span class="g-lbl">Colour wall</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here — the colour wall</span></div>
+      </div>
+    </div>
+    <p class="photo-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.5"/></svg>
+      <span><strong>No photos are used in this draft.</strong> The shop already posts reels and photos on <a href="https://www.instagram.com/lknailbar/" rel="noopener noreferrer" target="_blank">Instagram</a>; with the owner's go-ahead those can fill these tiles, or a phone can shoot six new ones in an afternoon.</span>
+    </p>
+  </div>
+</section>
+
+<!-- WHY / REVIEWS -->
+<section class="section dark why" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="reveal">
+        <p class="eyebrow">Why LK</p>
+        <h2 id="why-title">Beauty together, <em>memories together</em></h2>
+        <p class="sub">That line is the shop's own, from its Instagram. The rest of this page is built around it — a room big enough for everyone, and nails worth the visit.</p>
+        <ul class="why-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M10 20v-6h4v6"/></svg><div><q>A private, elegant, and welcoming space</q><span>Instagram, @lknailbar, February 2026</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2 19a6 6 0 0 1 12 0M13.5 18.5a4.5 4.5 0 0 1 8.5 0"/></svg><div><q>Professional nail technicians experienced with large groups</q><span>Instagram, @lknailbar, February 2026</span></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16M6 12V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5M4 12v6M20 12v6M6 18h12"/></svg><div><q>22 chairs pedicure available to serve you</q><span>Instagram reel caption, @lknailbar, November 2023</span></div></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-num">4<i>.</i>5</span>
+            <span class="stat-label">Google rating</span>
+            <span class="stat-src">576 reviews, as shown on Birdeye</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">89<i>%</i></span>
+            <span class="stat-label">Apple Maps</span>
+            <span class="stat-src">Overall score from 19 ratings</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">22</span>
+            <span class="stat-label">Pedicure chairs</span>
+            <span class="stat-src">By the shop's own count, Nov 2023</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <blockquote>
+            <p>amazing place, such a nice environment and sweet people! loved my pedicure</p>
+          </blockquote>
+          <footer>Google review, as displayed on <a href="https://reviews.birdeye.com/lk-nail-bar-170643695900974" rel="noopener noreferrer" target="_blank">Birdeye</a> — one of 576</footer>
+        </div>
+        <div class="reviews-row">
+          <p>Read the reviews yourself<small>Yelp's rating could not be read for this draft, so it is a link only.</small></p>
+          <a class="link-pill" href="https://reviews.birdeye.com/lk-nail-bar-170643695900974" rel="noopener noreferrer" target="_blank">Google reviews via Birdeye <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="link-pill muted" href="https://maps.apple.com/place?place-id=IB7914E9019C570AC" rel="noopener noreferrer" target="_blank">Apple Maps <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="link-pill muted" href="https://www.yelp.ca/biz/lk-nail-bar-calgary-3" rel="noopener noreferrer" target="_blank">Yelp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="section" id="find-us" aria-labelledby="find-title">
+  <div class="wrap find-grid">
+    <div class="reveal">
+      <p class="eyebrow">Find us on 17th</p>
+      <h2 id="find-title">1312 17 Avenue SW, <em>Beltline</em></h2>
+      <p class="sub">A storefront on Calgary's 17th Avenue retail strip, a short walk from downtown.</p>
+      <div class="addr">
+        <div class="addr-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div>
+            <h3>Address</h3>
+            <address><p class="big">1312 17 Ave SW, Unit A</p><p>Calgary, AB T2T 0C3</p></address>
+          </div>
+        </div>
+        <div class="addr-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div>
+            <h3>Hours <span class="todo">To confirm — listings disagree</span></h3>
+            <dl class="hours">
+              <dt>Monday – Friday</dt><dd>10:00 am – 7:00 pm</dd>
+              <dt>Saturday</dt><dd>10:00 am – 6:00 pm</dd>
+              <dt>Sunday</dt><dd>11:00 am – 6:00 pm</dd>
+            </dl>
+            <p class="hours-src">As listed on Fresha, Birdeye, Wheree and Apple Maps. Yelp and YellowPages show Monday to Saturday 10:00 am – 6:00 pm instead, with no Sunday shown. The owner's word decides.</p>
+          </div>
+        </div>
+        <div class="addr-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          <div>
+            <h3>Phone</h3>
+            <p><a href="tel:+15875815888">(587) 581-5888</a> · <a href="tel:+14032454499">(403) 245-4499</a></p>
+            <p>Both numbers are published by the shop.</p>
+          </div>
+        </div>
+        <div class="addr-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <div>
+            <h3>Follow along</h3>
+            <div class="socials">
+              <a class="chip" href="https://www.instagram.com/lknailbar/" rel="noopener noreferrer" target="_blank">Instagram <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <a class="chip" href="https://www.facebook.com/lknailbar.calgary/" rel="noopener noreferrer" target="_blank">Facebook <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <a class="chip" href="https://www.tiktok.com/@lknailbar.calgary" rel="noopener noreferrer" target="_blank">TikTok <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <a class="chip" href="https://www.youtube.com/@lknailbar" rel="noopener noreferrer" target="_blank">YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <a class="chip" href="https://x.com/lknailbar" rel="noopener noreferrer" target="_blank">X <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              <span class="chip todo-chip">Parking notes: to confirm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-card reveal">
+      <svg class="map" viewBox="0 0 900 540" role="img" aria-labelledby="map-title map-desc">
+        <title id="map-title">Stylised map of 17 Avenue SW with LK Nail Bar marked</title>
+        <desc id="map-desc">A simplified, not-to-scale sketch of the Beltline grid around 17 Avenue SW, with a pin at 1312 17 Ave SW between 13 Street and 14 Street SW. It is an illustration, not a survey.</desc>
+        <defs>
+          <linearGradient id="mbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="m-bg1"/><stop offset="1" class="m-bg2"/></linearGradient>
+          <pattern id="mgrid" width="30" height="30" patternUnits="userSpaceOnUse"><path class="m-grid" d="M30 0H0v30"/></pattern>
+        </defs>
+        <rect width="900" height="540" rx="14" fill="url(#mbg)"/>
+        <rect width="900" height="540" rx="14" fill="url(#mgrid)"/>
+        <text class="m-area" x="120" y="150">Beltline</text>
+        <!-- blocks -->
+        <g>
+          <rect class="m-block" x="120" y="200" width="150" height="70" rx="6"/>
+          <rect class="m-block" x="300" y="200" width="150" height="70" rx="6"/>
+          <rect class="m-block-home" x="480" y="200" width="150" height="70" rx="6"/>
+          <rect class="m-block" x="660" y="200" width="150" height="70" rx="6"/>
+          <rect class="m-block" x="120" y="330" width="150" height="70" rx="6"/>
+          <rect class="m-block" x="300" y="330" width="150" height="70" rx="6"/>
+          <rect class="m-block" x="480" y="330" width="150" height="70" rx="6"/>
+          <rect class="m-block" x="660" y="330" width="150" height="70" rx="6"/>
+        </g>
+        <!-- avenues -->
+        <path class="m-road-thin" d="M40 180H860"/>
+        <path class="m-road-thin" d="M40 420H860"/>
+        <path class="m-ave" d="M40 300H860"/>
+        <path class="m-ave-line" d="M60 300H840"/>
+        <!-- streets -->
+        <path class="m-road" d="M105 60V500"/>
+        <path class="m-road" d="M285 60V500"/>
+        <path class="m-road" d="M465 60V500"/>
+        <path class="m-road" d="M645 60V500"/>
+        <path class="m-road" d="M825 60V500"/>
+        <!-- labels -->
+        <text class="m-lab-ave" x="60" y="284">17 AVE SW</text>
+        <text class="m-lab" x="60" y="170">16 Ave SW</text>
+        <text class="m-lab" x="60" y="446">18 Ave SW</text>
+        <g>
+          <text class="m-lab" x="118" y="90">15 St SW</text>
+          <text class="m-lab" x="298" y="90">14 St SW</text>
+          <text class="m-lab" x="478" y="90">13 St SW</text>
+          <text class="m-lab" x="658" y="90">12 St SW</text>
+        </g>
+        <!-- pin -->
+        <g class="m-pin" transform="translate(555 232)">
+          <circle class="m-pin-ring" cx="0" cy="62" r="18"/>
+          <path d="M0 40C0 40-26 20-26-2A26 26 0 0 1 26-2C26 20 0 40 0 40Z" transform="translate(0 20)"/>
+          <circle cx="0" cy="18" r="8"/>
+        </g>
+        <!-- callout card -->
+        <g transform="translate(540 380)">
+          <rect class="m-card" x="0" y="0" width="300" height="88" rx="12"/>
+          <text class="m-home" x="20" y="38">LK Nail Bar</text>
+          <text class="m-home-sub" x="20" y="66">1312 17 AVE SW · UNIT A</text>
+        </g>
+        <!-- north arrow -->
+        <g class="m-legend" transform="translate(830 500)">
+          <path class="m-north" d="M0 -22V6M-8 -12L0 -22L8 -12"/>
+          <text class="m-foot" x="14" y="4">N</text>
+        </g>
+        <text class="m-foot" x="40" y="510">STYLISED · NOT TO SCALE</text>
+      </svg>
+      <p class="map-note">Illustrative map, not to scale. The pin sits in the 1300 block between 13 St and 14 St SW; exact cross-streets, entrance and parking notes to confirm with the owner before launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-sec" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq-title">Good questions, <em>honest answers</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <h3><button class="faq-q" id="faq-q1" type="button" aria-expanded="true" aria-controls="faq-a1"><span>What services do you offer?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-inner"><p>The publicly listed menu covers manicures, pedicures, manicure-and-pedicure combinations, gel nails, gel nail extensions, dip powder nails, acrylic nails, nail extensions, nail art, nail polish, and men's manicures and pedicures. The shop also invites group bookings on its social pages.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q2" type="button" aria-expanded="false" aria-controls="faq-a2"><span>Can we come as a group?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-inner"><p>Yes — that is a point the shop makes itself. Its posts invite group appointments and describe twenty-two pedicure chairs and technicians <q>experienced with large groups</q>. Call ahead with your numbers so the chairs can be held together.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q3" type="button" aria-expanded="false" aria-controls="faq-a3"><span>How do I book?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-inner"><p>By phone: <a href="tel:+15875815888">(587) 581-5888</a> or <a href="tel:+14032454499">(403) 245-4499</a>. You can also send a request through the form below.</p><p><span class="todo">To confirm</span> Whether online booking and walk-ins are offered. The Fresha page that lists the shop says it is not partnered with Fresha, so no online booking link is shown here.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q4" type="button" aria-expanded="false" aria-controls="faq-a4"><span>Where exactly are you?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>1312 17 Ave SW, Unit A, Calgary, AB T2T 0C3 — on the 17th Avenue strip in the Beltline, which the shop's own captions call Downtown Calgary.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q5" type="button" aria-expanded="false" aria-controls="faq-a5"><span>What are your hours?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div class="faq-a-inner"><p>Most listings show Monday to Friday 10:00 am – 7:00 pm, Saturday 10:00 am – 6:00 pm and Sunday 11:00 am – 6:00 pm. Two others show Monday to Saturday 10:00 am – 6:00 pm.</p><p><span class="todo">To confirm with the owner</span> The final hours, including Sunday, before this goes live.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q6" type="button" aria-expanded="false" aria-controls="faq-a6"><span>Gel, dip or acrylic — what is the difference?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div class="faq-a-inner"><p>Gel is a polish-like colour cured under a lamp: glossy, flexible and usually the gentlest on natural nails. Dip builds colour from pigment powder over a bonding base, sets without a lamp and tends to be harder-wearing. Acrylic is a liquid-and-powder mix sculpted onto the nail, the strongest option for adding real length. All three generally last a few weeks; how long depends on your nails and how you use your hands.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q7" type="button" aria-expanded="false" aria-controls="faq-a7"><span>Do you do men's nails?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div class="faq-a-inner"><p>Yes. Men's manicure and men's pedicure are both on the listed menu.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q8" type="button" aria-expanded="false" aria-controls="faq-a8"><span>How much does it cost?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><div class="faq-a-inner"><p><span class="todo">To confirm with the owner</span></p><p>No prices are published anywhere public, so none are shown here. Call for a quote, or the owner can add a price list to this page before launch.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRAFT NOTES -->
+<section class="section notes-sec" id="notes" aria-labelledby="notes-title">
+  <div class="wrap">
+    <details class="notes-panel reveal" id="notes-panel" open>
+      <summary>
+        <div>
+          <p class="eyebrow">Draft notes</p>
+          <h2 id="notes-title">Before this goes live: things to confirm with the owner</h2>
+        </div>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="notes-body">
+        <p class="notes-intro">Everything on this page comes from what the shop or public listings already say. Where sources disagree or say nothing, the slot is marked rather than guessed. This list is every one of those slots.</p>
+        <ul class="notes-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>Hours.</strong> Fresha, Birdeye, Wheree and Apple Maps list Mon–Fri 10–7, Sat 10–6, Sun 11–6. Yelp and YellowPages snippets show Mon–Sat 10–6 with no Sunday. The shop's own posts give no hours. Pills sit on the Find us block, FAQ and contact card until confirmed.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span><strong>Prices.</strong> None published anywhere. A "20% off all services" reel title was seen but its date and validity are unknown, so no promotion is shown. Add a price list only if you want one on the site.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg><span><strong>Online booking.</strong> The Fresha listing states the shop is not partnered with Fresha, so it is not linked as a booking page. Tell us if you take bookings online anywhere, and whether walk-ins are welcome.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span><strong>Service list.</strong> Taken from the Fresha category list (no durations or prices). Waxing and tinting appear only in a YellowPages/Canpages snippet; salt scrubs, hot stone and paraffin appear only in a Wheree description that looks review-derived. All are held back pending your confirmation.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2 19a6 6 0 0 1 12 0M13.5 18.5a4.5 4.5 0 0 1 8.5 0"/></svg><span><strong>Group bookings.</strong> Shown because your own reels and posts invite them. If there are minimums, deposits or a group rate, they can go on the card and in the FAQ.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span><strong>Reviews.</strong> The 4.5 rating and 576 count are what Birdeye displays for Google; Apple Maps shows 89% from 19 ratings. Yelp could not be read, so it is a link only. A lead note mentioned about 76 reviews on BestProsInTown, but no such page could be found. The one quoted review is real and displayed publicly on Birdeye; swap it for one you would rather feature.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><strong>Email.</strong> No public business email was found on any listing, so none is shown. Confirm the address you want on the site, if any.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span><strong>Owner and staff names.</strong> None are published by the shop itself. A directory lists first names that appear to come from customer reviews; they were deliberately not used. Tell us if you want anyone named.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><strong>Credentials and years.</strong> No licences, certifications or "since" claims are published by the shop, so none appear. The Alberta Corporations listing shows LK Nail BAR Ltd registered January 31, 2022, Active — that is the only date used, in the footer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/></svg><span><strong>Name styling.</strong> The registry spells it "LK Nail BAR Ltd"; social pages use "LK NAIL BAR". This draft uses "LK Nail Bar" throughout. Say which you prefer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><strong>Address and map.</strong> Directories list "1312 17 Ave SW A"; your own caption gives "1312 17 Ave South West". Unit A is shown but should be confirmed, along with the entrance and any parking advice. The map is a stylised sketch, not to scale.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg><span><strong>Social pages.</strong> Two Facebook pages exist (lknailbar.calgary and LKNailBar); only the first is linked. The Instagram bio, Facebook bios, TikTok and X pages could not be read, so no follower counts are shown. Confirm which pages are official.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span><strong>Photos.</strong> None are used; the hero and gallery are illustrations and labelled placeholders. Six tiles are ready for real shots of the front, the pedicure room, sets, art and a group.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/></svg><span><strong>Policies.</strong> Deposits, cancellations, walk-ins and lead times are not stated anywhere public. Steps 1 and 4 of "Your visit" carry pills until you fill them in.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg><span><strong>Request form.</strong> The draft form has no backend. The live site needs a delivery route (a form service or an SMS relay) so requests really do reach the shop.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg><span><strong>Draft banner.</strong> Remove the black banner and the footer draft line when the site goes live, and lift the noindex tag so search engines can find it.</span></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="section dark" id="book" aria-labelledby="book-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Book</p>
+      <h2 id="book-title">Request an <em>appointment</em></h2>
+      <p class="sub">Call for the quickest answer, or send the details and the shop calls you back.</p>
+    </div>
+    <div class="book-grid reveal">
+      <div class="contact-card">
+        <p class="eyebrow">Fastest way</p>
+        <a class="big-phone" href="tel:+15875815888"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>(587) 581-5888</a>
+        <span class="alt-phone">or <a href="tel:+14032454499">(403) 245-4499</a></span>
+        <p>Say what you would like done and how many are coming.</p>
+        <dl class="contact-facts">
+          <dt>Address</dt><dd><address>1312 17 Ave SW, Unit A<br>Calgary, AB T2T 0C3</address></dd>
+          <dt>Hours</dt><dd>Mon–Fri 10–7 · Sat 10–6 · Sun 11–6 <span class="todo">To confirm</span></dd>
+          <dt>Online booking</dt><dd><span class="todo">To confirm</span></dd>
+          <dt>Email</dt><dd><span class="todo">To confirm</span></dd>
+        </dl>
+      </div>
+      <div class="form-card">
+        <form class="form" id="book-form" novalidate>
+          <div class="field">
+            <label for="b-name">Your name</label>
+            <input id="b-name" name="name" type="text" autocomplete="name" required aria-describedby="b-name-error">
+            <p class="error" id="b-name-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="b-phone">Phone</label>
+            <input id="b-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="587 555 0123" required aria-describedby="b-phone-error">
+            <p class="error" id="b-phone-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="b-service">Service</label>
+            <div class="select-wrap">
+              <select id="b-service" name="service" required aria-describedby="b-service-error">
+                <option value="">Choose one</option>
+                <option value="manicure">Manicure</option>
+                <option value="pedicure">Pedicure</option>
+                <option value="mani-pedi">Manicure and pedicure</option>
+                <option value="gel">Gel nails</option>
+                <option value="gel-ext">Gel nail extensions</option>
+                <option value="dip">Dip powder nails</option>
+                <option value="acrylic">Acrylic nails</option>
+                <option value="extensions">Nail extensions</option>
+                <option value="art">Nail art</option>
+                <option value="polish">Nail polish</option>
+                <option value="mens">Men's manicure or pedicure</option>
+                <option value="group">Group booking</option>
+                <option value="other">Not sure yet</option>
+              </select>
+            </div>
+            <p class="error" id="b-service-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="b-party">How many people?</label>
+            <div class="select-wrap">
+              <select id="b-party" name="party">
+                <option value="1">Just me</option>
+                <option value="2-4">2 to 4</option>
+                <option value="5-10">5 to 10</option>
+                <option value="11+">11 or more</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="b-when">Preferred day and time <span>(optional)</span></label>
+            <input id="b-when" name="when" type="text" placeholder="e.g. Saturday afternoon">
+          </div>
+          <div class="field">
+            <label for="b-colour">Colour or design in mind? <span>(optional)</span></label>
+            <input id="b-colour" name="colour" type="text" placeholder="e.g. soft pink French">
+          </div>
+          <div class="field full">
+            <label for="b-notes">Anything else <span>(optional)</span></label>
+            <textarea id="b-notes" name="notes" placeholder="Occasion, allergies, a reference photo you will bring, anything worth knowing."></textarea>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+            <p class="form-note">Draft: this form has no backend yet. On the live site it will reach the shop directly.</p>
+          </div>
+        </form>
+        <div class="form-success" id="form-success" hidden tabindex="-1" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <h3>Request noted</h3>
+          <p id="form-success-msg"></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:+15875815888">Or call (587) 581-5888</a>
+            <button class="btn btn-ghost" id="form-again" type="button">Send another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="LK Nail Bar, back to top">
+          <span class="brand-mark" aria-hidden="true">L<i>K</i></span>
+          <span class="brand-name">LK Nail Bar<small>17 Ave SW · Calgary</small></span>
+        </a>
+        <p class="foot-desc">A nail bar on 17th Avenue SW in Calgary's Beltline: manicures, pedicures, gel, dip powder, acrylics, nail art and room for the whole group.</p>
+      </div>
+      <div>
+        <h3 class="foot-title">Details</h3>
+        <ul>
+          <li><address>1312 17 Ave SW, Unit A, Calgary, AB T2T 0C3</address></li>
+          <li><a href="tel:+15875815888">(587) 581-5888</a></li>
+          <li><a href="tel:+14032454499">(403) 245-4499</a></li>
+          <li>Hours: Mon–Fri 10–7 · Sat 10–6 · Sun 11–6 <span class="todo">to confirm</span></li>
+          <li>Email: <span class="todo">to confirm</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="foot-title">Find us online</h3>
+        <ul>
+          <li><a href="https://www.instagram.com/lknailbar/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+          <li><a href="https://www.facebook.com/lknailbar.calgary/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+          <li><a href="https://www.tiktok.com/@lknailbar.calgary" rel="noopener noreferrer" target="_blank">TikTok</a></li>
+          <li><a href="https://www.youtube.com/@lknailbar" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+          <li><a href="https://reviews.birdeye.com/lk-nail-bar-170643695900974" rel="noopener noreferrer" target="_blank">Google reviews via Birdeye</a></li>
+          <li><a href="https://maps.apple.com/place?place-id=IB7914E9019C570AC" rel="noopener noreferrer" target="_blank">Apple Maps</a></li>
+          <li><a href="https://www.yelp.ca/biz/lk-nail-bar-calgary-3" rel="noopener noreferrer" target="_blank">Yelp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>Draft website proposal — not the business's live website. Prepared by Adeel Ahmed (Sites by Adeel), Calgary, September 2026.</span>
+      <span>LK Nail BAR Ltd · Alberta corporation, registered January 2022 <span class="todo">name styling to confirm</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* Draft banner: measure height so body offset and sticky nav track it */
+  var banner = document.getElementById('draft-banner');
+  var bannerClose = document.getElementById('draft-close');
+  var bannerClosing = false;
+  function setBannerHeight() {
+    var h = (banner && !banner.hidden && !bannerClosing) ? banner.offsetHeight : 0;
+    root.style.setProperty('--banner-h', h + 'px');
+  }
+  if (banner) {
+    setBannerHeight();
+    window.addEventListener('resize', setBannerHeight);
+    if (window.ResizeObserver) { new ResizeObserver(setBannerHeight).observe(banner); }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(setBannerHeight); }
+    if (bannerClose) {
+      bannerClose.addEventListener('click', function () {
+        if (bannerClosing) { return; }
+        bannerClosing = true;
+        var finished = false;
+        var finish = function () {
+          if (finished) { return; }
+          finished = true;
+          banner.hidden = true;
+        };
+        /* Bar slides up while body padding and nav top animate over the same 300ms */
+        banner.classList.add('closing');
+        setBannerHeight();
+        banner.addEventListener('transitionend', function (e) {
+          if (e.target === banner) { finish(); }
+        });
+        window.setTimeout(finish, 400);
+      });
+    }
+  }
+
+  /* Sticky nav: mobile menu + scrolled shadow */
+  var nav = document.getElementById('site-nav');
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  function closeMenu() {
+    if (!nav || !toggle) { return; }
+    nav.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+  if (nav && toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('menu-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    links.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t && t.closest && t.closest('a')) { closeMenu(); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('menu-open')) { closeMenu(); toggle.focus(); }
+    });
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* Hero scene: pointer parallax on fine pointers only */
+  var hero = document.getElementById('hero');
+  var scene = document.getElementById('scene');
+  var finePointer = window.matchMedia('(pointer: fine)');
+  if (hero && scene && finePointer.matches && !reduceMotion.matches) {
+    var raf = 0, px = 0, py = 0;
+    var paint = function () {
+      raf = 0;
+      scene.style.setProperty('--px', px.toFixed(3));
+      scene.style.setProperty('--py', py.toFixed(3));
+    };
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      px = (e.clientX - r.left) / r.width - 0.5;
+      py = (e.clientY - r.top) / r.height - 0.5;
+      if (!raf) { raf = window.requestAnimationFrame(paint); }
+    });
+    hero.addEventListener('mouseleave', function () {
+      if (raf) { window.cancelAnimationFrame(raf); raf = 0; }
+      px = 0; py = 0; paint();
+    });
+  }
+
+  /* FAQ accordion: single open item */
+  var faqButtons = Array.prototype.slice.call(document.querySelectorAll('.faq-q'));
+  faqButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) { return; }
+      var wasOpen = item.classList.contains('open');
+      faqButtons.forEach(function (other) {
+        var oi = other.closest('.faq-item');
+        if (oi) { oi.classList.remove('open'); }
+        other.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* Draft notes: open on wide screens, collapsed on phones */
+  var notes = document.getElementById('notes-panel');
+  if (notes && window.matchMedia('(max-width: 640px)').matches) {
+    notes.removeAttribute('open');
+  }
+
+  /* Booking form: client-side validation, no backend */
+  var form = document.getElementById('book-form');
+  var success = document.getElementById('form-success');
+  var successMsg = document.getElementById('form-success-msg');
+  var again = document.getElementById('form-again');
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  function errorIcon() {
+    var svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.8');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    var circle = document.createElementNS(SVG_NS, 'circle');
+    circle.setAttribute('cx', '12');
+    circle.setAttribute('cy', '12');
+    circle.setAttribute('r', '9');
+    var path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('d', 'M12 8v5M12 16v.5');
+    svg.appendChild(circle);
+    svg.appendChild(path);
+    return svg;
+  }
+  function setError(id, msg) {
+    var field = document.getElementById(id);
+    var err = document.getElementById(id + '-error');
+    if (!field || !err) { return; }
+    err.textContent = '';
+    if (msg) {
+      err.appendChild(errorIcon());
+      err.appendChild(document.createTextNode(msg));
+    }
+    err.hidden = !msg;
+    field.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    var wrap = field.closest('.field');
+    if (wrap) { wrap.classList.toggle('has-error', !!msg); }
+  }
+  if (form && success && successMsg) {
+    ['b-name', 'b-phone'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) { el.addEventListener('input', function () { setError(id, ''); }); }
+    });
+    var serviceEl = document.getElementById('b-service');
+    if (serviceEl) { serviceEl.addEventListener('change', function () { setError('b-service', ''); }); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('b-name');
+      var phone = document.getElementById('b-phone');
+      var service = document.getElementById('b-service');
+      var ok = true;
+      var nameVal = name ? name.value.trim() : '';
+      var phoneVal = phone ? phone.value.trim() : '';
+      var serviceVal = service ? service.value : '';
+      if (!nameVal) { setError('b-name', 'Please tell us your name.'); ok = false; } else { setError('b-name', ''); }
+      if (phoneVal.replace(/\D/g, '').length < 10) { setError('b-phone', 'Please enter a phone number with area code.'); ok = false; } else { setError('b-phone', ''); }
+      if (!serviceVal) { setError('b-service', 'Pick a service, or choose "Not sure yet".'); ok = false; } else { setError('b-service', ''); }
+      if (!ok) {
+        var first = form.querySelector('[aria-invalid="true"]');
+        if (first) { first.focus(); }
+        return;
+      }
+      successMsg.textContent = 'Thanks — on the live site this reaches the shop directly.';
+      var showSuccess = function () {
+        form.hidden = true;
+        form.classList.remove('fading');
+        success.hidden = false;
+        success.focus();
+      };
+      /* Fade the form out, then let the success state rise in like the hero stages */
+      form.classList.add('fading');
+      if (reduceMotion.matches) { showSuccess(); } else { window.setTimeout(showSuccess, 200); }
+    });
+    if (again) {
+      again.addEventListener('click', function () {
+        form.reset();
+        success.hidden = true;
+        form.hidden = false;
+        var name = document.getElementById('b-name');
+        if (name) { name.focus(); }
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>

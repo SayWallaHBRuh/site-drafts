@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Super Electric Service</title>
+<meta name="description" content="Draft website proposal for Super Electric Service, a master electrician based in north Calgary and serving Calgary and area: service upgrades, wiring and rewiring, knob and tube removal, basement development and landscape lighting.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Fira+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+<style>
+:root{
+  --slate:#242D38;--slate-2:#2B3542;--slate-3:#344050;--slate-4:#3F4C5D;--slate-5:#4C5B6E;
+  --fog:#EEF1F4;--fog-2:#E1E6EB;--white:#FFFFFF;
+  --text:#1C232C;--text-muted:#525E6C;
+  --on-dark:#EEF1F4;--on-dark-muted:#AEB9C5;
+  --copper:#B87333;--copper-bright:#D4884A;--copper-hover:#E0975C;--copper-light:#E5A66F;--copper-deep:#8C5322;--copper-mid:#A46A33;--copper-dark:#5A3312;--copper-pale:#F4E5D6;--copper-mist:#FBF5EF;--copper-glow:#F7CFA6;
+  --steel:#7F8FA1;--steel-light:#B4C0CC;--error:#F3B6A3;
+  --scene-bg:#2A3441;
+  --map-bg-1:#F6F8FA;--map-bg-2:#E6EBF0;--map-line:#C9D2DB;--map-water:#AFC6D8;--map-water-text:#39607F;--map-green:#D7E3D2;--map-green-text:#3F5C3A;
+  --line:rgba(28,35,44,.12);--line-dark:rgba(238,241,244,.14);
+  --focus:#1C232C;
+  --sh-1:0 1px 2px rgba(28,35,44,.06),0 8px 24px -12px rgba(28,35,44,.2);
+  --sh-2:0 2px 4px rgba(28,35,44,.06),0 18px 40px -16px rgba(28,35,44,.3);
+  --sh-3:0 4px 8px rgba(28,35,44,.08),0 30px 60px -20px rgba(28,35,44,.42);
+  --r-sm:8px;--r-md:14px;--r-lg:20px;--r-xl:28px;
+  --font-display:"Bricolage Grotesque","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-body:"Fira Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --fs-display:clamp(2.5rem,1.2rem + 3.9vw,4.25rem);
+  --fs-h2:clamp(1.9rem,1.3rem + 2vw,2.9rem);
+  --fs-h3:1.22rem;--fs-body:1.0625rem;--fs-small:.9rem;
+  --banner-h:44px;--nav-h:72px;
+  --gutter:clamp(16px,4vw,40px);
+  --ease:cubic-bezier(.2,.7,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);
+  --lift:-6px;--lift-sm:-2px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--banner-h) + var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{margin:0;padding-top:var(--banner-h);background:var(--fog);color:var(--text);font:400 var(--fs-body)/1.6 var(--font-body);min-height:100vh;transition:padding-top .3s var(--ease)}
+[hidden]{display:none !important}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;color:inherit}
+p,figure{margin:0}
+h1,h2,h3,.card-cta h3{text-wrap:balance}
+.lede,.sub,.card p,.faq-a p,.step p,.why-list span,.notes-list li span,.bbb-explain p,.photo-note p{text-wrap:pretty}
+.stat-num,.step-num{font-variant-numeric:tabular-nums}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit}
+q{quotes:"\201C" "\201D"}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.dark{background:var(--slate);color:var(--on-dark);--focus:var(--copper-bright)}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:var(--gutter);top:calc(var(--banner-h) + 8px);background:var(--copper-bright);color:var(--text);padding:.6rem 1rem;border-radius:999px;font:600 .95rem var(--font-display);text-decoration:none;transform:translateY(calc(-100% - var(--banner-h) - 24px));z-index:200}
+.skip:focus-visible{transform:none}
+
+/* Draft banner */
+.draft{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:100;background:var(--copper-bright);color:var(--text);display:flex;align-items:center;justify-content:center;gap:.75rem 1rem;flex-wrap:wrap;padding:.45rem var(--gutter);min-height:44px;font:600 .85rem/1.35 var(--font-display);text-align:center;box-shadow:0 2px 12px rgba(28,35,44,.3);--focus:var(--text)}
+.draft-close{position:relative;border:0;background:var(--slate);color:var(--on-dark);border-radius:999px;padding:.3rem .8rem;font:600 .78rem var(--font-display);cursor:pointer;transition:background .2s var(--ease)}
+.draft-close::before{content:"";position:absolute;inset:-10px -8px}
+.draft-close:hover{background:var(--slate-4)}
+
+/* Nav */
+.nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--banner-h));z-index:50;background:rgba(36,45,56,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--on-dark);border-bottom:1px solid var(--line-dark);--focus:var(--copper-bright);transition:box-shadow .3s var(--ease),top .3s var(--ease)}
+.nav.scrolled{box-shadow:0 10px 30px -14px rgba(0,0,0,.6)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--nav-h);position:relative;z-index:1}
+.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font:700 1.05rem/1.1 var(--font-display);color:var(--on-dark)}
+.brand-mark{width:40px;height:40px;flex:none;filter:drop-shadow(0 4px 10px rgba(212,136,74,.35))}
+.bm-a{stop-color:var(--slate-5)}.bm-b{stop-color:var(--slate-3)}
+.bm-bg{fill:var(--slate-4)}.bm-wire{stroke:var(--copper-bright)}.bm-dot{fill:var(--copper-glow)}
+.brand-name small{display:block;font:500 .7rem/1.1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--copper-light);margin-top:.15rem}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--on-dark-muted);font:600 .95rem var(--font-display);padding:.55rem .85rem;border-radius:999px;transition:color .2s var(--ease),background .2s var(--ease)}
+.nav-links a:hover{color:var(--on-dark);background:rgba(238,241,244,.08)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.nav-toggle{display:none;position:relative;border:1px solid var(--line-dark);background:transparent;color:var(--on-dark);width:44px;height:44px;border-radius:var(--r-md);align-items:center;justify-content:center;cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease)}
+.nav-toggle:hover{background:rgba(238,241,244,.08);border-color:rgba(238,241,244,.3)}
+.nav-toggle svg{position:absolute;inset:0;margin:auto;width:22px;height:22px;transition:opacity .2s var(--ease),transform .3s var(--ease)}
+.nav-toggle .x{opacity:0;transform:rotate(-90deg) scale(.8)}
+.menu-open .nav-toggle .bars{opacity:0;transform:rotate(90deg) scale(.8)}
+.menu-open .nav-toggle .x{opacity:1;transform:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font:600 1rem/1 var(--font-display);padding:.95rem 1.4rem;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease),border-color .2s var(--ease);white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--copper-bright);color:var(--text);box-shadow:0 10px 26px -10px rgba(212,136,74,.6)}
+.btn-primary:hover{background:var(--copper-hover);transform:translateY(var(--lift-sm));box-shadow:0 16px 32px -12px rgba(212,136,74,.7)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{border-color:rgba(238,241,244,.35);color:var(--on-dark);background:transparent}
+.btn-ghost:hover{border-color:var(--copper-light);background:rgba(238,241,244,.06);transform:translateY(var(--lift-sm))}
+.btn-lg{padding:1.1rem 1.7rem;font-size:1.05rem}
+.btn-sm{padding:.7rem 1.05rem;font-size:.9rem}
+.nav-call .call-word{display:none}
+
+/* Section scaffolding */
+.section{padding-block:clamp(4rem,8vw,7rem)}
+.section-head{max-width:780px;margin-bottom:clamp(2rem,4vw,3.25rem)}
+.section-head.tight{margin-bottom:0}
+.section-head.center{margin-inline:auto;text-align:center}
+.section-head.center .eyebrow{justify-content:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:700 .78rem/1.2 var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:var(--copper-deep);margin-bottom:.9rem}
+.eyebrow::before{content:"";width:26px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--copper-deep),var(--copper-bright))}
+.dark .eyebrow{color:var(--copper-light)}
+h2{font-size:var(--fs-h2);line-height:1.06;letter-spacing:-.02em;font-weight:800}
+h2 em,h1 em{font-style:normal;color:var(--copper-deep)}
+.dark h2 em,.dark h1 em{color:var(--copper-light)}
+.sub{font-size:1.15rem;color:var(--text-muted);margin-top:1rem;max-width:62ch}
+.dark .sub{color:var(--on-dark-muted)}
+.sub q{font-style:italic}
+.todo{display:inline-flex;align-items:center;gap:.4rem;background:var(--copper-pale);color:var(--copper-deep);border:1px dashed var(--copper);border-radius:var(--r-sm);padding:.05rem .5rem;font:600 .85rem/1.5 var(--font-display);vertical-align:middle}
+.dark .todo,.why .todo,.footer .todo{background:rgba(229,166,111,.14);color:var(--copper-light);border-color:rgba(229,166,111,.5)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1100px 600px at 90% -10%,rgba(184,115,51,.3),transparent 60%),radial-gradient(800px 500px at -10% 110%,rgba(212,136,74,.12),transparent 60%),linear-gradient(180deg,var(--slate) 0%,var(--slate-2) 100%);padding-block:clamp(2.5rem,4.5vw,4rem) clamp(4.5rem,8vw,7.5rem)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(238,241,244,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(238,241,244,.04) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;mask-image:radial-gradient(70% 80% at 50% 40%,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(70% 80% at 50% 40%,#000 30%,transparent 100%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+.hero h1{font-size:var(--fs-display);line-height:1.02;letter-spacing:-.025em;font-weight:800;margin:0 0 1.1rem}
+.lede{font-size:clamp(1.05rem,.95rem + .45vw,1.2rem);color:var(--on-dark-muted);max-width:54ch;margin-bottom:1.6rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:1.2rem}
+.hero-note{font-size:var(--fs-small);color:var(--on-dark-muted);display:flex;align-items:flex-start;gap:.5rem;flex-wrap:wrap;max-width:54ch}
+.hero-note svg{width:16px;height:16px;color:var(--copper-bright);flex:none;margin-top:.2rem}
+.hero-note q{font-style:italic;color:var(--on-dark)}
+.hero-visual{position:relative}
+.scene-frame{aspect-ratio:4/3;border-radius:var(--r-xl);overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.75),0 0 0 1px rgba(238,241,244,.08);background:var(--scene-bg)}
+.scene{width:100%;height:100%;--px:0;--py:0}
+.layer{transition:transform .9s var(--ease-out);will-change:transform}
+.layer-far{transform:translate(calc(var(--px) * -8px),calc(var(--py) * -5px))}
+.layer-mid{transform:translate(calc(var(--px) * -14px),calc(var(--py) * -8px))}
+.layer-near{transform:translate(calc(var(--px) * -22px),calc(var(--py) * -12px))}
+.glow-breathe{transform-box:fill-box;transform-origin:center;animation:breathe 7s ease-in-out infinite alternate}
+.tip-glow{transform-box:fill-box;transform-origin:center;animation:tip 3.2s ease-in-out infinite alternate}
+@keyframes breathe{from{opacity:.8;transform:scale(.95)}to{opacity:1;transform:scale(1.06)}}
+@keyframes tip{from{opacity:.55;transform:scale(.9)}to{opacity:1;transform:scale(1.1)}}
+.trust-card{position:absolute;left:-24px;right:-24px;bottom:-48px;z-index:2;width:auto;background:var(--white);color:var(--text);border-radius:var(--r-md);padding:.9rem 1.15rem;box-shadow:var(--sh-3);--focus:var(--text)}
+.trust-card ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem 1.25rem}
+.trust-card li{display:flex;align-items:flex-start;gap:.6rem;font:600 .9rem/1.3 var(--font-display)}
+.trust-card li small{display:block;font:400 .8rem/1.3 var(--font-body);color:var(--text-muted);margin-top:.1rem}
+.trust-card li svg{width:20px;height:20px;flex:none;color:var(--copper-bright)}
+.trust-card .tc-head{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;font:700 .72rem var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--copper-deep);padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.stage{animation:rise .9s var(--ease-out) both}
+.s1{animation-delay:.05s}.s2{animation-delay:.15s}.s3{animation-delay:.28s}.s4{animation-delay:.4s}.s5{animation-delay:.5s}.s6{animation-delay:.8s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* Services ticker */
+.ticker{background:var(--slate-2);border-block:1px solid var(--line-dark);padding-block:.95rem;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:1;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--slate-2),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--slate-2),transparent)}
+.ticker-track{display:flex;width:max-content;animation:ticker 70s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-list{display:flex;padding-inline:1.25rem}
+.ticker-list li{display:inline-flex;align-items:center;gap:2.5rem;padding-right:2.5rem;white-space:nowrap;font:600 .92rem var(--font-display);color:var(--on-dark)}
+.ticker-list li::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--copper-bright);box-shadow:0 0 0 3px rgba(212,136,74,.2);flex:none}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Cards / grids */
+.grid-svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:1.25rem}
+.card{background:var(--white);border-radius:var(--r-lg);padding:1.6rem;box-shadow:var(--sh-1);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:grid;grid-template-columns:1fr auto;grid-template-areas:"icon tag" "title title" "text text";gap:.55rem 1rem;align-content:start;position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;left:1.6rem;right:1.6rem;bottom:0;height:3px;border-radius:3px 3px 0 0;background:linear-gradient(90deg,var(--copper-deep),var(--copper-bright));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.card:hover{transform:translateY(var(--lift));box-shadow:var(--sh-3)}
+.card:hover::after{transform:scaleX(1)}
+.card h3{grid-area:title;font-size:var(--fs-h3);font-weight:700;letter-spacing:-.01em;margin-top:.25rem}
+.card p{grid-area:text;color:var(--text-muted);font-size:1rem}
+.card p q{font-style:italic}
+.svc-icon{grid-area:icon;width:58px;height:58px;border-radius:var(--r-md);background:linear-gradient(135deg,var(--slate-3),var(--slate-4));display:grid;place-items:center;color:var(--copper-light);box-shadow:inset 0 0 0 1px rgba(238,241,244,.08);transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+.svc-icon svg{width:32px;height:32px}
+.card:hover .svc-icon{background:var(--copper-bright);color:var(--text);transform:rotate(-4deg)}
+.acc{fill:var(--copper-bright)}
+.acc-stroke{stroke:var(--copper-bright)}
+.card:hover .acc{fill:var(--text)}
+.card:hover .acc-stroke{stroke:var(--text)}
+.tag{grid-area:tag;align-self:start;justify-self:end;font:700 .68rem var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--copper-deep);background:var(--copper-pale);padding:.3rem .6rem;border-radius:999px;white-space:nowrap}
+.card-cta{display:flex;flex-direction:column;gap:.8rem;background:linear-gradient(160deg,var(--slate-2),var(--slate-3));color:var(--on-dark);border-color:var(--line-dark);--focus:var(--copper-bright)}
+.card-cta::after{display:none}
+.card-cta .svc-icon{background:rgba(212,136,74,.16);color:var(--copper-bright);box-shadow:none}
+.card-cta:hover .svc-icon{background:var(--copper-bright);color:var(--text)}
+.card-cta .cta-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.card-cta .tag{background:rgba(229,166,111,.16);color:var(--copper-light)}
+.card-cta h3{font-size:clamp(1.5rem,1.2rem + 1vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-top:.2rem}
+.card-cta p{color:var(--on-dark-muted)}
+.card-cta .btn{margin-top:auto;align-self:flex-start}
+@media (min-width:641px){
+  .card-cta{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;grid-template-areas:"top top" "title title" "text btn";gap:.8rem 1.5rem;align-items:end}
+  .card-cta .cta-top{grid-area:top;align-self:start}
+  .card-cta h3{grid-area:title;align-self:start;max-width:24ch}
+  .card-cta p{grid-area:text}
+  .card-cta .btn{grid-area:btn;margin-top:0;align-self:end;justify-self:end}
+}
+
+/* Process */
+.process-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.steps{display:grid;gap:1rem}
+.step{background:var(--slate-2);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:1.4rem 1.5rem;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.1rem;transition:transform .35s var(--ease),border-color .35s var(--ease);position:relative}
+.step:hover{transform:translateY(var(--lift));border-color:rgba(229,166,111,.45)}
+.step-num{grid-row:1/4;font:800 2.2rem/1 var(--font-display);color:var(--copper-light);letter-spacing:-.03em;padding-top:.1rem}
+.step h3{font-size:1.15rem;font-weight:700}
+.step p{color:var(--on-dark-muted)}
+.step p q{font-style:italic;color:var(--on-dark)}
+.step .todo{justify-self:start;margin-top:.45rem}
+.process-cta{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center}
+.process-cta p{color:var(--on-dark-muted)}
+.fig-card{margin:0;background:var(--white);color:var(--text);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.1rem);box-shadow:var(--sh-3);--focus:var(--text)}
+.fig-card svg{width:100%;height:auto;border-radius:var(--r-md)}
+.fig-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:.45rem 1rem;padding:1rem .5rem .25rem;margin:0}
+.fig-legend li{display:flex;gap:.55rem;align-items:flex-start;font:500 .88rem/1.35 var(--font-body);color:var(--text-muted)}
+.fig-legend b{flex:none;width:22px;height:22px;border-radius:50%;background:var(--copper-bright);color:var(--text);font:800 .78rem/22px var(--font-display);text-align:center}
+.fig-cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;padding:.75rem .5rem .2rem;margin-top:.6rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--text-muted)}
+.fig-cap b{font:700 .72rem var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:var(--copper-deep)}
+.fig .fg-paper{fill:var(--white)}.fig .fg-paper2{fill:var(--fog-2)}.fig .fg-paper3{fill:var(--fog)}
+.fig .fg-grid{fill:none;stroke:var(--slate);stroke-opacity:.06}
+.fig .fg-earth{stroke:var(--copper-light);stroke-width:1.1;stroke-opacity:.7}
+.fig .fg-eyebrow{font:700 12px var(--font-display);letter-spacing:.2em;fill:var(--copper-deep)}
+.fig .fg-mute{fill:var(--text-muted)}
+.fig .fg-title{font:800 24px var(--font-display);fill:var(--text);letter-spacing:-.01em}
+.fig .fg-rule{stroke:var(--copper);stroke-width:1;fill:none}
+.fig .fg-wall{stroke:var(--slate);stroke-width:.6;opacity:.25}
+.fig .fg-stroke{stroke:var(--slate);stroke-width:1.2}
+.fig .fg-thin{stroke:var(--slate);stroke-width:.7}
+.fig .fg-none{fill:none}
+.fig .fg-grade{stroke:var(--slate);stroke-width:2;fill:none}
+.fig .fg-lab{font:600 15px var(--font-display);fill:var(--text-muted)}
+.fig .fg-steel{fill:var(--steel-light)}.fig .fg-steel2{fill:var(--steel)}.fig .fg-slate{fill:var(--slate-4)}
+.fig .fg-cu{fill:var(--copper-bright)}.fig .fg-cu2{fill:var(--copper-deep)}
+.fig .fg-wire{stroke:var(--slate);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fig .fg-wire-cu{stroke:var(--copper);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fig .fg-ink{fill:var(--slate)}
+.fig .fg-ldr{stroke:var(--copper-deep);stroke-width:1.2;fill:none}
+.fig .fg-co circle{fill:var(--copper-bright);stroke:var(--slate);stroke-width:1.5}
+.fig .fg-co text{font:800 16px var(--font-display);fill:var(--text);text-anchor:middle;dominant-baseline:central}
+
+/* Gallery: before / after pairs */
+.gallery-sec{background:var(--fog-2)}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1.4rem}
+.pair{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:.9rem;box-shadow:var(--sh-1);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.pair:hover{transform:translateY(var(--lift));box-shadow:var(--sh-3)}
+.pair-tiles{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.pt{position:relative;aspect-ratio:4/5;border-radius:var(--r-md);overflow:hidden;background:var(--fog-2)}
+.pt svg{position:absolute;inset:0;width:100%;height:100%}
+.pt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,35,44,0) 55%,rgba(28,35,44,.45));pointer-events:none}
+.pt-lbl{position:absolute;top:.6rem;left:.6rem;z-index:3;font:700 .66rem var(--font-display);letter-spacing:.12em;text-transform:uppercase;padding:.3rem .6rem;border-radius:999px;background:var(--slate);color:var(--on-dark)}
+.pt.after .pt-lbl{background:var(--copper-bright);color:var(--text)}
+.ph{position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:.75rem}
+.ph-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.94);color:var(--text);border:1.5px dashed var(--copper);border-radius:999px;padding:.5rem .8rem;font:600 .78rem/1.25 var(--font-display);text-align:left;box-shadow:var(--sh-1);max-width:92%}
+.ph-pill svg{width:18px;height:18px;color:var(--copper-deep);flex:none}
+.pair-cap{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.9rem .35rem .2rem}
+.pair-cap h3{font-size:1.02rem;font-weight:700}
+.pair-cap .tag{position:static}
+.photo-note{margin-top:1.75rem;display:flex;gap:.9rem;align-items:flex-start;background:var(--white);border:1.5px dashed var(--copper);border-radius:var(--r-md);padding:1rem 1.2rem;color:var(--text-muted);font-size:.98rem}
+.photo-note svg{width:22px;height:22px;flex:none;color:var(--copper-deep);margin-top:.15rem}
+.photo-note strong{color:var(--text);font-family:var(--font-display)}
+
+/* Why band */
+.why{background:linear-gradient(135deg,var(--copper-dark) 0%,var(--copper-deep) 55%,var(--copper-mid) 100%);color:var(--copper-mist);--focus:var(--copper-glow);position:relative;overflow:hidden}
+.why::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 100% 0%,rgba(247,207,166,.22),transparent 65%);pointer-events:none}
+.why::after{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--copper-glow),var(--copper-bright) 40%,var(--copper-deep));opacity:.9}
+.why .eyebrow{color:var(--copper-pale)}
+.why .eyebrow::before{background:var(--copper-mist)}
+.why h2 em{color:var(--copper-glow)}
+.why .sub{color:var(--copper-mist)}
+.why-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.stat{background:rgba(36,45,56,.34);border:1px solid rgba(251,245,239,.16);border-radius:var(--r-md);padding:1.3rem 1.2rem;backdrop-filter:blur(6px);transition:transform .35s var(--ease),background .35s var(--ease)}
+.stat:hover{transform:translateY(var(--lift));background:rgba(36,45,56,.46)}
+.stat-num{display:block;font:800 clamp(2.1rem,3.2vw,2.9rem)/1 var(--font-display);color:var(--copper-mist);letter-spacing:-.03em}
+.stat-label{display:block;font:700 .92rem var(--font-display);margin-top:.5rem;color:var(--copper-pale)}
+.stat-src{display:block;font:400 .8rem var(--font-body);margin-top:.2rem;color:var(--copper-pale);opacity:.9}
+.why-list{display:grid;gap:1.1rem;margin-top:1.75rem}
+.why-list li{display:flex;gap:.9rem;align-items:flex-start}
+.why-list svg{width:26px;height:26px;flex:none;color:var(--copper-glow);margin-top:.1rem}
+.why-list strong{display:block;font:700 1.02rem var(--font-display)}
+.why-list span{color:var(--copper-mist)}
+.why-list q{font-style:italic}
+.bbb-explain{margin-top:1.25rem;display:grid;grid-template-columns:1fr;gap:1.1rem;align-items:start;background:var(--slate);color:var(--on-dark);border-radius:var(--r-lg);padding:1.4rem 1.5rem;--focus:var(--copper-bright)}
+.bbb-explain h3{font-size:1.12rem;font-weight:700}
+.bbb-explain p{margin-top:.4rem;color:var(--on-dark-muted);font-size:.98rem}
+.bbb-explain a{color:var(--copper-light)}
+.reviews-row{margin-top:1.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-md);background:rgba(36,45,56,.3);border:1px solid rgba(251,245,239,.16);display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center}
+.reviews-row p{flex:1 1 220px;font:600 .98rem var(--font-display)}
+.link-pill{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font:600 .9rem var(--font-display);padding:.7rem 1.05rem;min-height:44px;border-radius:999px;background:var(--copper-mist);color:var(--copper-deep);transition:transform .2s var(--ease),background .2s var(--ease),box-shadow .2s var(--ease)}
+.link-pill:hover{transform:translateY(var(--lift-sm));background:var(--white);box-shadow:var(--sh-1)}
+.link-pill svg{width:16px;height:16px}
+
+/* Service area */
+.area-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+.comm-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .9rem;border-radius:999px;background:var(--white);border:1px solid var(--line);font:600 .9rem var(--font-display);color:var(--text)}
+.chip.home{background:var(--slate);color:var(--on-dark);border-color:var(--slate)}
+.chip.home::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--copper-bright)}
+.chip.todo-chip{border:1.5px dashed var(--copper);color:var(--copper-deep);background:var(--copper-pale)}
+.map-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.25rem);box-shadow:var(--sh-2)}
+.map-card svg{width:100%;height:auto}
+.map text{font-family:var(--font-display);font-weight:600;fill:var(--text)}
+.map .m-lab{font-size:19px}
+.map .m-lab-home{font-size:24px;font-weight:800}
+.map .road-label{font-weight:500;font-size:15px;fill:var(--text-muted)}
+.map .m-water-text{fill:var(--map-water-text);font-weight:600;font-size:14px}
+.map .m-park{fill:var(--map-green)}
+.map .m-park-text{fill:var(--map-green-text);font-size:15px;font-weight:600}
+.map .m-grid{fill:none;stroke:var(--slate);stroke-opacity:.05}
+.map .m-bg1{stop-color:var(--map-bg-1)}.map .m-bg2{stop-color:var(--map-bg-2)}
+.map .m-water{fill:none;stroke:var(--map-water);stroke-width:9;stroke-linecap:round}
+.map .m-road{fill:none;stroke:var(--map-line);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.map .m-road-hwy{stroke-width:10}
+.map .comm{fill:var(--copper-pale);stroke:var(--copper);stroke-width:1.6;stroke-linejoin:round;transition:fill .25s var(--ease)}
+.map .comm:hover{fill:var(--copper-light)}
+.map .comm.tbc{fill:var(--fog);stroke-dasharray:7 5}
+.map .comm.home{fill:var(--copper-light)}
+.map .m-pin path{fill:var(--copper-bright);stroke:var(--slate);stroke-width:1.6}
+.map .m-pin circle{fill:var(--slate)}
+.map .m-white{fill:var(--white);stroke:var(--map-line)}
+.map .m-ink{fill:var(--slate)}
+.map .m-sw{fill:var(--copper-pale);stroke:var(--copper);stroke-width:1.5}
+.map .m-sw-home{fill:var(--copper-light);stroke:var(--copper);stroke-width:1.5}
+.map .m-sw-tbc{fill:var(--fog);stroke:var(--copper);stroke-width:1.5;stroke-dasharray:4 3}
+.map .m-leg text{font-size:13px}
+.map .m-foot{font-size:14px;font-weight:500;fill:var(--text-muted)}
+.map-note{font-size:var(--fs-small);color:var(--text-muted);margin-top:.9rem;padding-inline:.5rem}
+.area-note{font-size:var(--fs-small);color:var(--text-muted);margin-top:1.4rem}
+
+/* FAQ */
+.faq-sec{background:var(--fog-2)}
+.faq-wrap{max-width:860px;margin-inline:auto}
+.faq-list{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:.25rem 1.5rem;box-shadow:var(--sh-1)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:0}
+.faq-item h3{font-size:1rem}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;background:none;border:0;text-align:left;font:600 1.1rem/1.3 var(--font-display);color:var(--text);cursor:pointer;transition:color .2s var(--ease)}
+.faq-q:hover{color:var(--copper-deep)}
+.chev{width:34px;height:34px;flex:none;border-radius:50%;background:var(--fog);display:grid;place-items:center;transition:transform .4s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+.chev svg{width:18px;height:18px}
+.faq-item.open .chev{transform:rotate(180deg);background:var(--copper-bright)}
+.faq-a{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .42s var(--ease),visibility .42s}
+.faq-item.open .faq-a{grid-template-rows:1fr;visibility:visible}
+.faq-a-inner{overflow:hidden}
+.faq-a p{color:var(--text-muted);padding-bottom:1.35rem;max-width:66ch}
+.faq-a p + p{margin-top:-.6rem}
+.faq-a q{font-style:italic}
+
+/* Quote */
+.quote-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.5rem,3vw,3rem);align-items:start}
+.contact-card{background:linear-gradient(160deg,var(--slate-2),var(--slate-3));border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.2rem);position:relative;overflow:hidden}
+.contact-card::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(212,136,74,.3),transparent 70%);pointer-events:none}
+.big-phone{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font:800 clamp(1.6rem,1rem + 2vw,2.3rem)/1.1 var(--font-display);letter-spacing:-.02em;color:var(--on-dark);margin:.3rem 0 .6rem;position:relative;transition:color .2s var(--ease)}
+.big-phone svg{width:34px;height:34px;color:var(--copper-bright);flex:none}
+.big-phone:hover{color:var(--copper-light)}
+.contact-card > p{color:var(--on-dark-muted)}
+.contact-facts{margin:1.6rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:.7rem 1rem;position:relative}
+.contact-facts dt{font:700 .8rem/1.5 var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--copper-light)}
+.contact-facts dd{margin:0;color:var(--on-dark)}
+.contact-facts dd small{display:block;font-size:.85rem;color:var(--on-dark-muted)}
+.form-card{background:var(--slate-2);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.2rem)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field.full{grid-column:1/-1}
+.field label{font:600 .95rem var(--font-display);color:var(--on-dark)}
+.field label span{font:400 .85rem var(--font-body);color:var(--on-dark-muted)}
+.field input,.field select,.field textarea{width:100%;background:var(--slate-3);color:var(--on-dark);border:1px solid rgba(238,241,244,.18);border-radius:var(--r-sm);padding:.9rem 1rem;font:400 1.05rem/1.4 var(--font-body);transition:border-color .2s var(--ease),box-shadow .2s var(--ease);min-width:0}
+.field input::placeholder,.field textarea::placeholder{color:var(--on-dark-muted);opacity:.8}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;border-color:var(--copper-bright);box-shadow:0 0 0 3px rgba(212,136,74,.35)}
+.select-wrap{position:relative}
+.select-wrap select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;cursor:pointer}
+.select-wrap::after{content:"";position:absolute;right:1.1rem;top:50%;width:9px;height:9px;border-right:2px solid var(--copper-light);border-bottom:2px solid var(--copper-light);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.field.has-error input,.field.has-error textarea{border-color:var(--error);box-shadow:0 0 0 3px rgba(243,182,163,.25)}
+.error{display:block;overflow:hidden;max-height:0;margin-top:-.4rem;opacity:0;transform:translateY(-4px);font:600 .88rem/1.5 var(--font-body);color:var(--error);transition:max-height .3s var(--ease),margin-top .3s var(--ease),opacity .25s var(--ease),transform .3s var(--ease)}
+.error.is-visible{max-height:3.2rem;margin-top:0;opacity:1;transform:none}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:.4rem}
+.form-note{font-size:var(--fs-small);color:var(--on-dark-muted);flex:1 1 240px}
+.form-success{text-align:center;padding:2.5rem 1rem;display:grid;justify-items:center;gap:.9rem}
+.form-success:not([hidden]){animation:rise .5s var(--ease-out) both}
+.form-success svg{width:64px;height:64px;color:var(--copper-bright)}
+.form-success h3{font-size:1.5rem}
+.form-success p{color:var(--on-dark-muted);max-width:44ch}
+.form-success .actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:.5rem}
+
+/* Notes panel */
+.notes-sec{background:var(--fog-2);padding-block:clamp(2.5rem,5vw,4rem) clamp(3rem,6vw,5rem)}
+.notes-panel{border:2px dashed var(--copper);border-radius:var(--r-lg);background:var(--white)}
+.notes-panel summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1.25rem,3vw,2rem) clamp(1.5rem,3vw,2.5rem)}
+.notes-panel summary::-webkit-details-marker{display:none}
+.notes-panel summary:focus-visible{outline-offset:-6px;border-radius:var(--r-lg)}
+.notes-panel summary .eyebrow{margin-bottom:.5rem}
+.notes-panel h2{font-size:clamp(1.4rem,1.1rem + 1.2vw,2.1rem)}
+.notes-panel .chev{background:var(--copper-pale);color:var(--copper-deep)}
+.notes-panel[open] .chev{transform:rotate(180deg)}
+.notes-body{padding:0 clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,3vw,2.5rem);animation:rise .45s var(--ease-out) both}
+.notes-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem 1.6rem}
+.notes-list li{display:flex;gap:.7rem;align-items:flex-start;color:var(--text-muted)}
+.notes-list li strong{color:var(--text);font-family:var(--font-display)}
+.notes-list svg{width:20px;height:20px;flex:none;color:var(--copper-deep);margin-top:.2rem}
+
+/* Footer */
+.footer{background:var(--slate-2);color:var(--on-dark-muted);padding-block:3.5rem 2rem;border-top:1px solid var(--line-dark);--focus:var(--copper-bright)}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem}
+.foot-title{font:700 .8rem var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--copper-light);margin-bottom:.9rem}
+.foot-desc{margin-top:1rem;max-width:40ch}
+.footer ul{display:grid;gap:.5rem}
+.footer a{color:var(--on-dark);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:color .2s var(--ease),text-decoration-color .2s var(--ease)}
+.footer a:hover{color:var(--copper-light);text-decoration-color:currentColor}
+.foot-legal{margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.5rem;font-size:var(--fs-small)}
+.foot-legal .todo{font-size:.78rem}
+
+/* Scroll-driven (progressive) */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  }
+}
+@keyframes reveal{from{opacity:.75;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Responsive */
+@media (max-width:1140px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero{padding-bottom:clamp(3rem,6vw,5rem)}
+  .hero-visual{max-width:720px;margin-inline:auto;width:100%}
+  .trust-card{position:relative;left:auto;right:auto;bottom:auto;margin:-2.25rem auto 0;width:min(100%,560px);padding:1rem 1.15rem}
+}
+@media (max-width:1000px){
+  .why-grid,.area-grid,.quote-grid,.process-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:1080px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{position:absolute;top:100%;left:calc(-1 * var(--gutter));right:calc(-1 * var(--gutter));display:flex;flex-direction:column;background:var(--slate-2);padding:.75rem var(--gutter) 1.1rem;border-bottom:1px solid var(--line-dark);box-shadow:0 20px 40px -20px rgba(0,0,0,.7);visibility:hidden;opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .3s var(--ease),transform .35s var(--ease-out),visibility 0s .3s}
+  .menu-open .nav-links{visibility:visible;opacity:1;transform:none;pointer-events:auto;transition:opacity .3s var(--ease),transform .35s var(--ease-out),visibility 0s}
+  .nav-links a{padding:.85rem .5rem;border-radius:var(--r-md);font-size:1.05rem}
+  .nav::after{content:"";position:absolute;left:0;right:0;top:100%;height:100vh;height:100dvh;background:rgba(28,35,44,.45);opacity:0;pointer-events:none;transition:opacity .3s var(--ease);z-index:0}
+  .nav.menu-open::after{opacity:1;pointer-events:auto}
+  html.menu-locked{overflow:hidden;scrollbar-gutter:stable}
+}
+@media (max-width:640px){
+  :root{--banner-h:63px}
+  .nav{top:env(safe-area-inset-top,0px)}
+  html{scroll-padding-top:calc(var(--nav-h) + 16px)}
+  .form{grid-template-columns:1fr}
+  .form-foot .btn{width:100%}
+  .form-note{text-align:center;flex-basis:100%}
+  .foot-grid{grid-template-columns:1fr}
+  .brand-name small{display:none}
+  .nav-call .num{display:none}
+  .nav-call .call-word{display:inline}
+  .trust-card ul{grid-template-columns:1fr}
+  .contact-facts{grid-template-columns:1fr;gap:.2rem .5rem}
+  .contact-facts dd{margin-bottom:.6rem}
+  .cta-row .btn{width:100%}
+  .draft{position:absolute;flex-wrap:nowrap;justify-content:space-between;text-align:left;font-size:.78rem;padding-block:.4rem}
+  .draft span{flex:1 1 auto}
+  .draft-close{flex:none}
+  .card{grid-template-columns:auto 1fr;grid-template-areas:"icon tag" "icon title" "icon text";gap:.3rem 1rem;padding:1.1rem 1.15rem}
+  .card::after{left:1.15rem;right:1.15rem}
+  .svc-icon{width:46px;height:46px}
+  .svc-icon svg{width:26px;height:26px}
+  .card .tag{justify-self:start}
+  .card h3{font-size:1.08rem;margin-top:0}
+  .card p{font-size:.95rem}
+  .card-cta{display:flex}
+  .card-cta .btn{align-self:stretch}
+  .card-cta .svc-icon{width:58px;height:58px}
+  .map .road-label,.map .m-leg,.map .m-water-text{display:none}
+  .map .m-foot{font-size:20px}
+  .map .m-lab{font-size:28px}
+  .map .m-lab-home{font-size:30px;transform:translateY(6px)}
+  .map .m-park-text{font-size:22px}
+  .ph-pill{font-size:.72rem;padding:.45rem .65rem}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:last-child{grid-column:1/-1}
+  .footer ul{gap:.75rem}
+  .footer li{min-height:44px;display:flex;flex-wrap:wrap;align-items:center;gap:0 .3em}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .stage,.reveal,.glow-breathe,.tip-glow{animation:none}
+  .ticker-track{animation:none;width:100%;flex-wrap:wrap}
+  .ticker-list{flex-wrap:wrap;justify-content:center;gap:.5rem 0}
+  .ticker-list[aria-hidden="true"]{display:none}
+  .ticker::before,.ticker::after{display:none}
+  .layer{transition:none;transform:none}
+  *,*::before,*::after{transition-duration:.01ms !important;transition-delay:0s !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="draft" id="draft-banner" role="note" aria-label="Draft notice">
+  <span>Draft website proposal for Super Electric Service — not live. Prepared by Adeel Ahmed (Sites by Adeel), Calgary.</span>
+  <button class="draft-close" id="draft-close" type="button">Close</button>
+</div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Super Electric Service, back to top">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="bm-a"/><stop offset="1" class="bm-b"/></linearGradient></defs>
+        <rect width="40" height="40" rx="11" fill="url(#bm)"/>
+        <path class="bm-wire" d="M27 12.5a5.5 5.5 0 0 0-11 0c0 7 11 6.5 11 14.5a5.5 5.5 0 0 1-11 0" fill="none" stroke-width="3.6" stroke-linecap="round"/>
+        <circle class="bm-dot" cx="27" cy="12.5" r="2.3"/><circle class="bm-dot" cx="16" cy="27" r="2.3"/>
+      </svg>
+      <span class="brand-name">Super Electric Service<small>Master electrician · Calgary</small></span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#work">Work</a>
+      <a href="#areas">Service area</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quote">Get a quote</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-call" href="tel:+14038309346">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+        <span class="num">(403) 830-9346</span><span class="call-word">Call</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+<!-- HERO -->
+<section class="hero dark" id="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow stage s1">Master electrician · Based in north Calgary · Since 2003</p>
+      <h1 id="hero-title" class="stage s2">A master electrician for <em>Calgary</em> homes and businesses</h1>
+      <p class="lede stage s3">Super Electric Service is licensed, WCB-covered and insured, and has served Calgary and area for 23 years — residential and commercial, from a single switch to a full service upgrade. Ask for Jack.</p>
+      <div class="cta-row stage s4">
+        <a class="btn btn-primary btn-lg" href="tel:+14038309346">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          Call (403) 830-9346
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#quote">Get a quote</a>
+      </div>
+      <p class="hero-note stage s5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg>
+        <span><q>Reasonable price, quality and safety guaranteed, pay after 100% satisfaction.</q> — from our Kijiji listing</span>
+      </p>
+    </div>
+
+    <div class="hero-visual stage s3">
+      <div class="scene-frame">
+        <svg class="scene" id="scene" viewBox="0 0 960 640" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="scene-title scene-desc">
+          <title id="scene-title">Isometric illustration of an open steel junction box with copper wiring</title>
+          <desc id="scene-desc">A stylised isometric illustration drawn for this draft: an open junction box with wire nuts and a bare copper ground wire curling over the rim, a conduit entering from the right, the cover leaning against the box and a spool of copper wire behind it. It is an illustration, not a photo of Super Electric Service work.</desc>
+          <defs>
+            <linearGradient id="sc-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#36434F"/><stop offset="1" stop-color="#1D252E"/></linearGradient>
+            <radialGradient id="sc-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E5A66F" stop-opacity=".5"/><stop offset=".5" stop-color="#B87333" stop-opacity=".16"/><stop offset="1" stop-color="#B87333" stop-opacity="0"/></radialGradient>
+            <radialGradient id="sc-vig" cx=".5" cy=".5" r=".72"><stop offset=".55" stop-color="#141A21" stop-opacity="0"/><stop offset="1" stop-color="#141A21" stop-opacity=".6"/></radialGradient>
+            <radialGradient id="sc-tip" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F7CFA6" stop-opacity=".85"/><stop offset="1" stop-color="#F7CFA6" stop-opacity="0"/></radialGradient>
+            <linearGradient id="sc-ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D4A5A" stop-opacity=".95"/><stop offset="1" stop-color="#2A3441" stop-opacity=".15"/></linearGradient>
+            <linearGradient id="sc-cu-v" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8652A"/><stop offset=".5" stop-color="#DB9556"/><stop offset="1" stop-color="#8C5322"/></linearGradient>
+            <linearGradient id="sc-cover" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#66788C"/><stop offset="1" stop-color="#4A5869"/></linearGradient>
+            <pattern id="sc-iso" width="52" height="30" patternUnits="userSpaceOnUse"><path d="M0 15L26 0L52 15L26 30Z" fill="none" stroke="#EEF1F4" stroke-opacity=".07" stroke-width="1"/></pattern>
+            <pattern id="sc-wind" width="4" height="5" patternUnits="userSpaceOnUse"><path d="M0 2.5H4" stroke="#5E3612" stroke-opacity=".38" stroke-width="1.2"/></pattern>
+            <clipPath id="sc-open"><polygon points="470,242 665.7,355 522,438 326.2,325"/></clipPath>
+            <filter id="sc-blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="12"/></filter>
+          </defs>
+          <g class="layer layer-far">
+            <rect x="-60" y="-40" width="1080" height="720" fill="url(#sc-bg)"/>
+            <polygon points="-120,430 500,70 1120,430 500,790" fill="url(#sc-ground)"/>
+            <polygon points="-120,430 500,70 1120,430 500,790" fill="url(#sc-iso)"/>
+            <circle class="glow-breathe" cx="770" cy="290" r="250" fill="url(#sc-glow)"/>
+            <g>
+              <ellipse cx="750" cy="384" rx="80" ry="46" fill="#10161C" opacity=".5" filter="url(#sc-blur)"/>
+              <ellipse cx="747" cy="378" rx="76" ry="44" fill="#2C3643"/>
+              <ellipse cx="747" cy="372" rx="76" ry="44" fill="#4A5869"/>
+              <rect x="692" y="283" width="110" height="90" fill="url(#sc-cu-v)"/>
+              <rect x="692" y="283" width="110" height="90" fill="url(#sc-wind)"/>
+              <path d="M692 373A55 32 0 0 0 802 373Z" fill="#9A5A24"/>
+              <path d="M692 373A55 32 0 0 0 802 373Z" fill="url(#sc-wind)"/>
+              <path d="M704 300C720 296 780 296 796 300" fill="none" stroke="#F0B27A" stroke-opacity=".35" stroke-width="2"/>
+              <ellipse cx="747" cy="289" rx="76" ry="44" fill="#2C3643"/>
+              <ellipse cx="747" cy="283" rx="76" ry="44" fill="#56667A"/>
+              <ellipse cx="747" cy="283" rx="60" ry="35" fill="none" stroke="#7F8FA1" stroke-opacity=".35"/>
+              <ellipse cx="747" cy="283" rx="16" ry="9" fill="#1E2630"/>
+            </g>
+          </g>
+          <g class="layer layer-mid">
+            <polygon points="480,345 705,475 530,575 300,445" fill="#0F151B" opacity=".6" filter="url(#sc-blur)"/>
+            <polygon points="305.5,325 522,450 522,550 305.5,425" fill="#48566B"/>
+            <polygon points="686.5,355 686.5,455 522,550 522,450" fill="#37424F"/>
+            <polygon points="470,230 686.5,355 522,450 305.5,325" fill="#66778A"/>
+            <g clip-path="url(#sc-open)">
+              <polygon points="470,312 665.7,425 522,508 326.2,395" fill="#1F272F"/>
+              <polygon points="470,242 665.7,355 665.7,425 470,312" fill="#2F3A48"/>
+              <polygon points="470,242 326.2,325 326.2,395 470,312" fill="#27313D"/>
+              <path d="M470 242V312" stroke="#141A21" stroke-width="1.5"/>
+              <path d="M470 312L605 390M470 312L387 360" stroke="#141A21" stroke-opacity=".6" stroke-width="1"/>
+              <g transform="matrix(-0.866 0.5 0 -1 376.5 346)"><circle r="13" fill="#141B22"/><circle r="13" fill="none" stroke="#5B6B7E" stroke-width="2"/></g>
+              <ellipse cx="470" cy="332" rx="7.3" ry="4.2" fill="#D4884A"/>
+              <path d="M465 331.5L475 332.5" stroke="#5E3612" stroke-width="1.4"/>
+              <path d="M377 348C410 364 446 352 468 336" fill="none" stroke="#B87333" stroke-width="5" stroke-linecap="round"/>
+              <path d="M378 342C420 352 470 372 496 358C506 352 490 342 476 340" fill="none" stroke="#E1E6EB" stroke-width="9" stroke-linecap="round"/>
+              <path d="M376 350C430 384 520 404 548 392C552 386 548 380 542 377" fill="none" stroke="#1A2029" stroke-width="9" stroke-linecap="round"/>
+              <path d="M639 423C590 420 520 400 500 372C492 360 484 344 474 342" fill="none" stroke="#E1E6EB" stroke-width="9" stroke-linecap="round"/>
+              <path d="M641 419C610 405 566 392 542 377" fill="none" stroke="#1A2029" stroke-width="9" stroke-linecap="round"/>
+              <g transform="rotate(-20 460 337)"><rect x="444" y="329" width="32" height="16" rx="8" fill="#6E86A3"/><rect x="468" y="329" width="8" height="16" rx="4" fill="#4F657F"/><path d="M450 333H466" stroke="#8FA4BD" stroke-width="1.2" stroke-linecap="round"/></g>
+              <g transform="rotate(-33 528 368)"><rect x="512" y="360" width="32" height="16" rx="8" fill="#6E86A3"/><rect x="536" y="360" width="8" height="16" rx="4" fill="#4F657F"/><path d="M518 364H534" stroke="#8FA4BD" stroke-width="1.2" stroke-linecap="round"/></g>
+            </g>
+            <path d="M470 230L686.5 355L522 450L305.5 325Z" fill="none" stroke="#8A9BAE" stroke-opacity=".55" stroke-width="1.2"/>
+            <path d="M470 242L665.7 355L522 438L326.2 325Z" fill="none" stroke="#1B222A" stroke-opacity=".6" stroke-width="1.2"/>
+            <path d="M686.5 355V455M522 450V550" stroke="#1B222A" stroke-opacity=".5"/>
+            <g fill="#D4884A"><ellipse cx="470" cy="236" rx="6.1" ry="3.5"/><ellipse cx="676" cy="355" rx="6.1" ry="3.5"/><ellipse cx="522" cy="444" rx="6.1" ry="3.5"/><ellipse cx="316" cy="325" rx="6.1" ry="3.5"/></g>
+            <g stroke="#5E3612" stroke-width="1.2"><path d="M466 236h8M672 355h8M518 444h8M312 325h8"/></g>
+            <path d="M652 425L905 571" stroke="#1A2129" stroke-width="42" stroke-linecap="round" opacity=".45" transform="translate(4 12)"/>
+            <path d="M652 425L905 571" stroke="#4A5869" stroke-width="34" stroke-linecap="round"/>
+            <path d="M656 418L909 564" stroke="#75859A" stroke-width="9" stroke-linecap="round" opacity=".85"/>
+            <path d="M647 434L900 580" stroke="#2F3A47" stroke-width="7" stroke-linecap="round" opacity=".7"/>
+            <g transform="matrix(-0.866 0.5 0 -1 652 425)"><circle r="26" fill="#8C5322"/><circle r="26" fill="none" stroke="#5E3612" stroke-width="2"/><circle r="18" fill="#3F4C5D"/><circle r="18" fill="none" stroke="#D4884A" stroke-width="2.5"/></g>
+            <polygon points="219,475 435,600 435,607 219,482" fill="#2F3A47"/>
+            <polygon points="305.5,355 522,480 435,600 219,475" fill="url(#sc-cover)"/>
+            <polygon points="305.5,355 522,480 512,494 295.5,369" fill="#EEF1F4" opacity=".08"/>
+            <g fill="#26303C"><ellipse cx="316.8" cy="381.9" rx="5" ry="3.2"/><ellipse cx="490" cy="481.9" rx="5" ry="3.2"/><ellipse cx="424.3" cy="573.1" rx="5" ry="3.2"/><ellipse cx="251" cy="473.1" rx="5" ry="3.2"/></g>
+            <path d="M540 428C548 396 566 378 590 384C612 390 616 420 600 442C586 462 556 478 546 500C538 518 548 532 562 528C572 525 570 514 560 514C552 514 550 522 556 526" fill="none" stroke="#3A2007" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".55" transform="translate(3 5)"/>
+            <path d="M540 428C548 396 566 378 590 384C612 390 616 420 600 442C586 462 556 478 546 500C538 518 548 532 562 528C572 525 570 514 560 514C552 514 550 522 556 526" fill="none" stroke="#B87333" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M540 428C548 396 566 378 590 384C612 390 616 420 600 442C586 462 556 478 546 500C538 518 548 532 562 528C572 525 570 514 560 514C552 514 550 522 556 526" fill="none" stroke="#F0B27A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(-1.5 -2)"/>
+            <circle class="tip-glow" cx="560" cy="522" r="36" fill="url(#sc-tip)"/>
+          </g>
+          <g class="layer layer-near">
+            <ellipse cx="152" cy="594" rx="48" ry="27" fill="#0F1419" opacity=".5" filter="url(#sc-blur)"/>
+            <ellipse cx="150" cy="590" rx="44" ry="25" fill="#12181F"/>
+            <ellipse cx="150" cy="580" rx="44" ry="25" fill="#1F2831"/>
+            <ellipse cx="150" cy="580" rx="44" ry="25" fill="none" stroke="#3A4756" stroke-opacity=".6"/>
+            <ellipse cx="150" cy="581" rx="19" ry="11" fill="#0D1218"/>
+            <ellipse cx="150" cy="578" rx="19" ry="11" fill="#2A3441"/>
+            <path d="M230 618C250 604 270 620 292 606C306 598 318 604 326 614" fill="none" stroke="#3A2007" stroke-width="7" stroke-linecap="round" opacity=".5" transform="translate(2 4)"/>
+            <path d="M230 618C250 604 270 620 292 606C306 598 318 604 326 614" fill="none" stroke="#B87333" stroke-width="6" stroke-linecap="round"/>
+            <path d="M230 618C250 604 270 620 292 606C306 598 318 604 326 614" fill="none" stroke="#F0B27A" stroke-width="2" stroke-linecap="round" transform="translate(-1 -1.5)"/>
+            <g transform="rotate(20 350 590)"><rect x="336" y="583" width="28" height="14" rx="7" fill="#6E86A3"/><rect x="357" y="583" width="7" height="14" rx="3.5" fill="#4F657F"/></g>
+          </g>
+          <rect x="-60" y="-40" width="1080" height="720" fill="url(#sc-vig)"/>
+        </svg>
+      </div>
+      <div class="trust-card stage s6" role="group" aria-label="Credentials">
+        <ul>
+          <li class="tc-head"><span>Credentials</span><span>North Calgary</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><div>Master electrician<small>Jack — as the business lists itself</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><div>Licensed · WCB · Insured<small>Kijiji and YellowPages listings</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><div>City of Calgary licensed trade contractor<small>Electrical — listed under Evanston</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><div>In business since 2003<small>BBB profile · 23 years</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES TICKER -->
+<section class="ticker dark" aria-label="Services at a glance">
+  <div class="ticker-track">
+    <ul class="ticker-list">
+      <li>Service upgrades</li><li>Wiring &amp; rewiring</li><li>Knob &amp; tube removal</li><li>Basement development</li><li>Electrical renovations</li><li>New construction</li><li>Switch installation</li><li>Landscape lighting</li><li>Electrical inspection</li><li>Installation &amp; replacement</li><li>Electrical repair</li><li>Residential &amp; commercial</li>
+    </ul>
+    <ul class="ticker-list" aria-hidden="true">
+      <li>Service upgrades</li><li>Wiring &amp; rewiring</li><li>Knob &amp; tube removal</li><li>Basement development</li><li>Electrical renovations</li><li>New construction</li><li>Switch installation</li><li>Landscape lighting</li><li>Electrical inspection</li><li>Installation &amp; replacement</li><li>Electrical repair</li><li>Residential &amp; commercial</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What Super Electric does</p>
+      <h2 id="services-title">From one switch to a <em>full service upgrade</em></h2>
+      <p class="sub"><q>Available for all your electrical needs.</q> Residential and commercial; renovations and new construction; the small jobs and the big ones.</p>
+    </div>
+    <div class="grid-svc reveal">
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="20" height="26" rx="2"/><path d="M13 8h6"/><path class="acc-stroke" d="M16 12v14"/><path d="M9 14h4M9 18h4M9 22h4M19 14h4M19 18h4M19 22h4"/></svg></div>
+        <span class="tag">Panels</span>
+        <h3>Service upgrades</h3>
+        <p>More capacity, a modern breaker panel and a clean, labelled install. A service upgrade is what makes room for the loads older homes were never wired for.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20c4-8 8-8 12 0s8 8 12 0"/><path class="acc-stroke" d="M3 12c4-8 8-8 12 0"/><circle class="acc" cx="27" cy="12" r="1.8" stroke="none"/><path d="M3 28h26"/></svg></div>
+        <span class="tag">Home · Business</span>
+        <h3>Wiring &amp; rewiring</h3>
+        <p>New circuits, added receptacles and complete rewires — copper run cleanly, protected properly and terminated tight.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h26M3 24h26" opacity=".5"/><circle cx="9" cy="17" r="3"/><circle cx="23" cy="17" r="3"/><path d="M12 17h8"/><path class="acc-stroke" d="M5 5l22 24"/></svg></div>
+        <span class="tag">Older homes</span>
+        <h3>Knob &amp; tube removal</h3>
+        <p>Pre-1950s wiring with no ground and brittle insulation. Removing it and rewiring is a safety upgrade — and many insurers ask for it before they will cover the house.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14l12-9 12 9"/><path d="M7 12v17h18V12"/><path d="M7 20h18"/><circle class="acc" cx="12" cy="25" r="1.4" stroke="none"/><circle class="acc" cx="20" cy="25" r="1.4" stroke="none"/></svg></div>
+        <span class="tag">Home</span>
+        <h3>Basement development</h3>
+        <p>The electrical side of a finished basement, from rough-in to the last cover plate: circuits, lighting and receptacles laid out for how the space will actually be used.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h24"/><path d="M6 28V13l9-7 9 7v15"/><path d="M12 28v-8h8v8"/><path class="acc-stroke" d="M22 6l4 4"/><circle class="acc" cx="26" cy="10" r="1.6" stroke="none"/></svg></div>
+        <span class="tag">Home · Business</span>
+        <h3>Renovations &amp; new construction</h3>
+        <p>The wiring behind a renovation or a new build — planned around the other trades on site, so the finish goes on once and stays put.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="20" height="24" rx="2"/><rect x="12" y="9" width="8" height="14" rx="1.5"/><path class="acc-stroke" d="M16 9v7"/><circle class="acc" cx="16" cy="26" r=".9" stroke="none"/><circle class="acc" cx="16" cy="6" r=".9" stroke="none"/></svg></div>
+        <span class="tag">Home</span>
+        <h3>Switch installation</h3>
+        <p>Switches, dimmers and receptacles replaced or added — the small jobs that make a house feel finished, done safely.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h24"/><path d="M16 28V14"/><path d="M11 14h10l-2-5h-6z"/><path class="acc-stroke" d="M8 20l-2 2M24 20l2 2M6 14H3M29 14h-3"/><circle class="acc" cx="16" cy="18" r="1.4" stroke="none"/></svg></div>
+        <span class="tag">Outdoors</span>
+        <h3>Landscape lighting</h3>
+        <p>Path, step and garden lighting that makes a yard usable after dark — run outdoors with wiring and fittings rated for it.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h14v9"/><path d="M6 4v24h9"/><path d="M10 10h6M10 15h6M10 20h4"/><circle cx="21" cy="21" r="5"/><path class="acc-stroke" d="M25 25l4 4"/></svg></div>
+        <span class="tag">Home · Business</span>
+        <h3>Electrical inspection</h3>
+        <p>A look at the panel, wiring and devices — before a purchase, after a scare, or when something just does not seem right.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M27 6.5a4 4 0 0 0-5.2 4.6L14 19l3 3 7.9-7.8A4 4 0 0 0 29.5 9l-2.3 2.3-2.5-2.5z"/><path d="M14 19l-9 9"/><rect x="4" y="4" width="8" height="8" rx="1.5"/><path class="acc-stroke" d="M7 7v2M9 7v2"/></svg></div>
+        <span class="tag">Home · Business</span>
+        <h3>Electrical repair</h3>
+        <p>Tripping breakers, dead receptacles, flickering lights, a buzzing switch — found and fixed, not patched over.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h24"/><path d="M6 28V10h20v18"/><path d="M4 10l3-6h18l3 6"/><path d="M10 15h4v4h-4zM18 15h4v4h-4z"/><path class="acc-stroke" d="M13 28v-6h6v6"/></svg></div>
+        <span class="tag">Business</span>
+        <h3>Commercial electrical</h3>
+        <p>Commercial spaces as well as homes — <q>residential and commercial</q>. Call with the details of the space and what it needs.</p>
+      </article>
+      <article class="card card-cta">
+        <div class="cta-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h5l2.5 6.5L11 13a14 14 0 0 0 8 8l2.5-3.5L28 20v5a3 3 0 0 1-3 3A21 21 0 0 1 4 7a3 3 0 0 1 3-3z"/></svg></div>
+          <span class="tag">Anything else</span>
+        </div>
+        <h3>“Available for all your electrical needs.”</h3>
+        <p>Not on the list? Call and ask for Jack.</p>
+        <a class="btn btn-primary" href="tel:+14038309346">Call Jack, (403) 830-9346</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section dark" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How a job goes</p>
+      <h2 id="process-title">Call, quote, <em>done properly</em></h2>
+      <p class="sub">From the first call to the last cover plate.</p>
+    </div>
+    <div class="process-grid">
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">01</span>
+          <h3>Call or send the form</h3>
+          <p>Tell Jack what you need and where you are — north or NW Calgary, or anywhere in the city. The phone is fastest: <a href="tel:+14038309346">(403) 830-9346</a>.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">02</span>
+          <h3>Get a price</h3>
+          <p>Ask for a price before the work starts. The listing puts it simply: <q>Reasonable price</q>.</p>
+          <span class="todo">To confirm with Jack: free quote? site visit? written estimate?</span>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">03</span>
+          <h3>The work</h3>
+          <p>Licensed, WCB-covered, insured work — and in the listing’s own words, <q>pay after 100% satisfaction</q>.</p>
+          <span class="todo">To confirm with Jack: permits and inspection, scheduling, warranty</span>
+        </li>
+      </ol>
+      <figure class="fig-card reveal">
+        <svg class="fig" viewBox="0 0 640 520" role="img" aria-labelledby="fig-title fig-desc">
+          <title id="fig-title">Schematic drawing of a residential electrical service</title>
+          <desc id="fig-desc">A simplified schematic for this draft: the service drop lands on a mast and weatherhead, passes through a meter base into the main breaker panel with its copper bus bars, and branch circuits run out to a light, a receptacle and an appliance, with a grounding electrode below. Numbered callouts match the legend under the drawing.</desc>
+          <defs>
+            <pattern id="f-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" class="fg-grid"/></pattern>
+            <pattern id="f-earth" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" class="fg-earth"/></pattern>
+            <pattern id="f-wall" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><path d="M0 0V6" class="fg-wall"/></pattern>
+          </defs>
+          <rect width="640" height="520" rx="14" class="fg-paper"/>
+          <rect width="640" height="520" rx="14" fill="url(#f-grid)"/>
+          <text x="26" y="36" class="fg-eyebrow">FIG. 01</text>
+          <text x="26" y="64" class="fg-title">Anatomy of a residential service</text>
+          <text x="614" y="36" text-anchor="end" class="fg-eyebrow fg-mute">SCHEMATIC</text>
+          <path d="M26 80H614" class="fg-rule"/>
+          <rect x="26" y="470" width="588" height="30" class="fg-paper2"/>
+          <rect x="26" y="470" width="588" height="30" fill="url(#f-earth)"/>
+          <path d="M26 470H614" class="fg-grade"/>
+          <text x="560" y="462" class="fg-lab">Grade</text>
+          <rect x="196" y="96" width="14" height="374" class="fg-paper3 fg-stroke"/>
+          <rect x="196" y="96" width="14" height="374" fill="url(#f-wall)"/>
+          <text x="140" y="112" text-anchor="middle" class="fg-lab">Outside</text>
+          <text x="262" y="112" text-anchor="middle" class="fg-lab">Inside</text>
+          <path d="M26 118C70 132 120 116 160 100" class="fg-wire"/>
+          <path d="M26 126C72 140 122 124 162 108" class="fg-wire"/>
+          <path d="M26 134C74 148 124 132 164 116" class="fg-wire"/>
+          <rect x="164" y="92" width="10" height="90" rx="2" class="fg-steel2 fg-stroke"/>
+          <path d="M158 100L169 86L180 100Z" class="fg-slate fg-stroke"/>
+          <rect x="140" y="182" width="58" height="82" rx="4" class="fg-steel fg-stroke"/>
+          <circle cx="169" cy="214" r="18" class="fg-paper fg-stroke"/>
+          <circle cx="169" cy="214" r="12" class="fg-none fg-thin"/>
+          <path d="M169 214L176 206" class="fg-wire"/>
+          <rect x="152" y="240" width="34" height="14" rx="2" class="fg-paper2 fg-thin"/>
+          <path d="M198 222H250" class="fg-wire"/>
+          <path d="M198 230H250" class="fg-wire"/>
+          <rect x="250" y="170" width="190" height="270" rx="6" class="fg-paper fg-stroke"/>
+          <rect x="250" y="170" width="190" height="270" rx="6" fill="url(#f-grid)"/>
+          <rect x="318" y="186" width="54" height="26" rx="3" class="fg-slate fg-stroke"/>
+          <rect x="336" y="192" width="18" height="14" rx="2" class="fg-cu"/>
+          <rect x="338" y="222" width="6" height="190" class="fg-cu fg-thin"/>
+          <rect x="356" y="222" width="6" height="190" class="fg-cu fg-thin"/>
+          <rect x="332" y="212" width="36" height="10" class="fg-cu2"/>
+          <g class="fg-slate fg-thin">
+            <rect x="298" y="232" width="38" height="16" rx="2"/><rect x="298" y="254" width="38" height="16" rx="2"/><rect x="298" y="276" width="38" height="16" rx="2"/><rect x="298" y="298" width="38" height="16" rx="2"/><rect x="298" y="320" width="38" height="16" rx="2"/><rect x="298" y="342" width="38" height="16" rx="2"/><rect x="298" y="364" width="38" height="16" rx="2"/><rect x="298" y="386" width="38" height="16" rx="2"/>
+            <rect x="364" y="232" width="38" height="16" rx="2"/><rect x="364" y="254" width="38" height="16" rx="2"/><rect x="364" y="276" width="38" height="16" rx="2"/><rect x="364" y="298" width="38" height="16" rx="2"/><rect x="364" y="364" width="38" height="16" rx="2"/><rect x="364" y="386" width="38" height="16" rx="2"/>
+          </g>
+          <g class="fg-cu">
+            <rect x="304" y="238" width="6" height="4"/><rect x="304" y="260" width="6" height="4"/><rect x="304" y="282" width="6" height="4"/><rect x="304" y="304" width="6" height="4"/><rect x="304" y="326" width="6" height="4"/><rect x="304" y="348" width="6" height="4"/><rect x="304" y="370" width="6" height="4"/><rect x="304" y="392" width="6" height="4"/>
+            <rect x="390" y="238" width="6" height="4"/><rect x="390" y="260" width="6" height="4"/><rect x="390" y="282" width="6" height="4"/><rect x="390" y="304" width="6" height="4"/><rect x="390" y="370" width="6" height="4"/><rect x="390" y="392" width="6" height="4"/>
+          </g>
+          <path d="M402 240H470V230H556" class="fg-wire"/>
+          <path d="M402 306H556" class="fg-wire"/>
+          <path d="M402 372H470V370H556" class="fg-wire"/>
+          <circle cx="585" cy="230" r="13" class="fg-paper fg-stroke"/>
+          <path d="M585 209v6M600 215l-4 4M570 215l4 4M604 230h-6M566 230h6" class="fg-wire"/>
+          <path d="M579 226l6 6 6-6" class="fg-none fg-thin"/>
+          <rect x="570" y="291" width="30" height="30" rx="4" class="fg-paper fg-stroke"/>
+          <path d="M580 300v8M590 300v8" class="fg-wire"/>
+          <path d="M585 314v-3" class="fg-wire"/>
+          <rect x="567" y="352" width="36" height="36" rx="3" class="fg-paper fg-stroke"/>
+          <circle cx="577" cy="362" r="4" class="fg-none fg-thin"/><circle cx="593" cy="362" r="4" class="fg-none fg-thin"/><circle cx="577" cy="378" r="4" class="fg-none fg-thin"/><circle cx="593" cy="378" r="4" class="fg-none fg-thin"/>
+          <path d="M345 440V500" class="fg-wire-cu"/>
+          <path d="M338 500h14M340 506h10M342 512h6" class="fg-wire-cu"/>
+          <path d="M166 150L128 150" class="fg-ldr"/>
+          <path d="M150 264L150 296" class="fg-ldr"/>
+          <path d="M372 199L478 160" class="fg-ldr"/>
+          <path d="M362 330L392 330" class="fg-ldr"/>
+          <path d="M470 306L478 306" class="fg-ldr"/>
+          <path d="M350 486L406 486" class="fg-ldr"/>
+          <g class="fg-co">
+            <circle cx="112" cy="150" r="16"/><text x="112" y="150">1</text>
+            <circle cx="150" cy="312" r="16"/><text x="150" y="312">2</text>
+            <circle cx="494" cy="154" r="16"/><text x="494" y="154">3</text>
+            <circle cx="408" cy="330" r="16"/><text x="408" y="330">4</text>
+            <circle cx="494" cy="306" r="16"/><text x="494" y="306">5</text>
+            <circle cx="422" cy="486" r="16"/><text x="422" y="486">6</text>
+          </g>
+        </svg>
+        <ol class="fig-legend">
+          <li><b>1</b>Service mast and weatherhead — where the utility’s drop lands</li>
+          <li><b>2</b>Meter base</li>
+          <li><b>3</b>Main breaker — the disconnect for the whole building</li>
+          <li><b>4</b>Bus bars — the bars each breaker clips onto</li>
+          <li><b>5</b>Branch circuits — lights, receptacles, appliances</li>
+          <li><b>6</b>Grounding electrode — ties the system to earth</li>
+        </ol>
+        <figcaption class="fig-cap"><b>Fig. 01</b><span>What a service upgrade typically touches: items 1 to 4 and the grounding. Branch circuits stay unless they are the problem.</span></figcaption>
+      </figure>
+    </div>
+    <div class="process-cta">
+      <p>Ready to talk it through? Ask for Jack.</p>
+      <a class="btn btn-primary" href="tel:+14038309346"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Call (403) 830-9346</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK / GALLERY -->
+<section class="section gallery-sec" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Recent work</p>
+      <h2 id="work-title">Your work, <em>front and centre</em></h2>
+      <p class="sub">Nothing sells electrical work like a clean, labelled panel next to the mess it replaced. These three pairs are designed placeholders — swap in real Super Electric jobs before launch.</p>
+    </div>
+    <div class="pairs reveal">
+      <article class="pair">
+        <div class="pair-tiles">
+          <div class="pt">
+            <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><linearGradient id="g1a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CDC8BF"/><stop offset="1" stop-color="#B7B1A6"/></linearGradient></defs><rect width="300" height="375" fill="url(#g1a)"/><rect x="0" y="300" width="300" height="75" fill="#8E877B"/><rect x="82" y="86" width="136" height="196" rx="4" fill="#6B6F76"/><rect x="82" y="86" width="136" height="196" rx="4" fill="none" stroke="#4A4E55" stroke-width="3"/><g fill="#B8A98A" stroke="#7A6B4E" stroke-width="2"><circle cx="118" cy="140" r="14"/><circle cx="182" cy="140" r="14"/><circle cx="118" cy="190" r="14"/><circle cx="182" cy="190" r="14"/></g><g fill="#6E5A3A"><circle cx="118" cy="140" r="5"/><circle cx="182" cy="140" r="5"/><circle cx="118" cy="190" r="5"/><circle cx="182" cy="190" r="5"/></g><rect x="120" y="224" width="60" height="30" rx="3" fill="#4A4E55"/><path d="M96 90v190M206 96v180" stroke="#8E6A4A" stroke-opacity=".55" stroke-width="5"/><path d="M150 282C150 300 130 310 118 330C110 344 122 356 138 350" fill="none" stroke="#2A2A2A" stroke-width="4" stroke-linecap="round"/><path d="M160 282C170 306 196 316 206 340" fill="none" stroke="#2A2A2A" stroke-width="3" stroke-linecap="round"/></svg>
+            <span class="pt-lbl">Before</span>
+            <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your “before” photo</span></div>
+          </div>
+          <div class="pt after">
+            <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><linearGradient id="g1b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF1F4"/><stop offset="1" stop-color="#D5DCE3"/></linearGradient><linearGradient id="g1c" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3F4C5D"/><stop offset="1" stop-color="#2B3542"/></linearGradient></defs><rect width="300" height="375" fill="url(#g1b)"/><rect x="0" y="310" width="300" height="65" fill="#B4BEC9"/><rect x="78" y="70" width="144" height="226" rx="6" fill="url(#g1c)"/><rect x="90" y="84" width="120" height="198" rx="4" fill="#EEF1F4"/><rect x="136" y="94" width="28" height="18" rx="2" fill="#242D38"/><rect x="146" y="118" width="4" height="150" fill="#D4884A"/><rect x="156" y="118" width="4" height="150" fill="#D4884A"/><g fill="#242D38"><rect x="100" y="122" width="34" height="12" rx="2"/><rect x="100" y="140" width="34" height="12" rx="2"/><rect x="100" y="158" width="34" height="12" rx="2"/><rect x="100" y="176" width="34" height="12" rx="2"/><rect x="100" y="194" width="34" height="12" rx="2"/><rect x="100" y="212" width="34" height="12" rx="2"/><rect x="100" y="230" width="34" height="12" rx="2"/><rect x="100" y="248" width="34" height="12" rx="2"/><rect x="166" y="122" width="34" height="12" rx="2"/><rect x="166" y="140" width="34" height="12" rx="2"/><rect x="166" y="158" width="34" height="12" rx="2"/><rect x="166" y="176" width="34" height="12" rx="2"/><rect x="166" y="194" width="34" height="12" rx="2"/><rect x="166" y="212" width="34" height="12" rx="2"/><rect x="166" y="230" width="34" height="12" rx="2"/><rect x="166" y="248" width="34" height="12" rx="2"/></g><g fill="#D4884A"><rect x="104" y="126" width="5" height="4"/><rect x="104" y="144" width="5" height="4"/><rect x="104" y="162" width="5" height="4"/><rect x="104" y="180" width="5" height="4"/><rect x="104" y="198" width="5" height="4"/><rect x="104" y="216" width="5" height="4"/><rect x="104" y="234" width="5" height="4"/><rect x="104" y="252" width="5" height="4"/><rect x="191" y="126" width="5" height="4"/><rect x="191" y="144" width="5" height="4"/><rect x="191" y="162" width="5" height="4"/><rect x="191" y="180" width="5" height="4"/><rect x="191" y="198" width="5" height="4"/><rect x="191" y="216" width="5" height="4"/><rect x="191" y="234" width="5" height="4"/><rect x="191" y="252" width="5" height="4"/></g><rect x="100" y="268" width="100" height="8" rx="2" fill="#B4BEC9"/><rect x="78" y="296" width="144" height="6" fill="#1D252E" opacity=".25"/></svg>
+            <span class="pt-lbl">After</span>
+            <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your finished panel</span></div>
+          </div>
+        </div>
+        <div class="pair-cap"><h3>Service upgrade</h3><span class="tag">Placeholder</span></div>
+      </article>
+      <article class="pair">
+        <div class="pair-tiles">
+          <div class="pt">
+            <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><rect width="300" height="375" fill="#4E3E30"/><g fill="#7C6349"><rect x="20" y="0" width="34" height="375"/><rect x="94" y="0" width="34" height="375"/><rect x="168" y="0" width="34" height="375"/><rect x="242" y="0" width="34" height="375"/></g><g fill="#6A533C"><rect x="20" y="0" width="6" height="375"/><rect x="94" y="0" width="6" height="375"/><rect x="168" y="0" width="6" height="375"/><rect x="242" y="0" width="6" height="375"/></g><path d="M37 120C60 150 80 150 111 122C140 150 160 150 185 122C210 150 230 150 259 118" fill="none" stroke="#2A2622" stroke-width="5" stroke-linecap="round"/><path d="M37 200C60 236 80 236 111 206C140 236 160 236 185 206C210 236 230 236 259 200" fill="none" stroke="#2A2622" stroke-width="5" stroke-linecap="round"/><g fill="#E7E1D6" stroke="#B8AE9E" stroke-width="2"><circle cx="37" cy="120" r="9"/><circle cx="111" cy="122" r="9"/><circle cx="185" cy="122" r="9"/><circle cx="259" cy="118" r="9"/><circle cx="37" cy="200" r="9"/><circle cx="111" cy="206" r="9"/><circle cx="185" cy="206" r="9"/><circle cx="259" cy="200" r="9"/></g><path d="M140 270C150 300 120 320 130 350" fill="none" stroke="#2A2622" stroke-width="4" stroke-linecap="round"/><g fill="#9A8A74" opacity=".4"><circle cx="70" cy="300" r="2"/><circle cx="200" cy="320" r="2.5"/><circle cx="230" cy="280" r="1.6"/><circle cx="150" cy="60" r="2"/></g></svg>
+            <span class="pt-lbl">Before</span>
+            <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your “before” photo</span></div>
+          </div>
+          <div class="pt after">
+            <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><rect width="300" height="375" fill="#6B5644"/><g fill="#A88A66"><rect x="20" y="0" width="34" height="375"/><rect x="94" y="0" width="34" height="375"/><rect x="168" y="0" width="34" height="375"/><rect x="242" y="0" width="34" height="375"/></g><g fill="#93765A"><rect x="20" y="0" width="6" height="375"/><rect x="94" y="0" width="6" height="375"/><rect x="168" y="0" width="6" height="375"/><rect x="242" y="0" width="6" height="375"/></g><path d="M0 130H300" stroke="#E1E6EB" stroke-width="9" stroke-linecap="round"/><path d="M0 210H300" stroke="#E1E6EB" stroke-width="9" stroke-linecap="round"/><path d="M0 130H300M0 210H300" stroke="#F6F8FA" stroke-width="3" stroke-opacity=".7" transform="translate(0 -2)"/><g fill="#D4884A"><rect x="34" y="124" width="6" height="12" rx="1"/><rect x="108" y="124" width="6" height="12" rx="1"/><rect x="182" y="124" width="6" height="12" rx="1"/><rect x="256" y="124" width="6" height="12" rx="1"/><rect x="34" y="204" width="6" height="12" rx="1"/><rect x="108" y="204" width="6" height="12" rx="1"/><rect x="182" y="204" width="6" height="12" rx="1"/><rect x="256" y="204" width="6" height="12" rx="1"/></g><rect x="130" y="250" width="56" height="56" rx="4" fill="#3F4C5D"/><rect x="136" y="256" width="44" height="44" rx="3" fill="#4C5B6E"/><g fill="#D4884A"><circle cx="140" cy="260" r="2"/><circle cx="176" cy="260" r="2"/><circle cx="140" cy="296" r="2"/><circle cx="176" cy="296" r="2"/></g><path d="M158 210V250" stroke="#E1E6EB" stroke-width="9" stroke-linecap="round"/></svg>
+            <span class="pt-lbl">After</span>
+            <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your new wiring</span></div>
+          </div>
+        </div>
+        <div class="pair-cap"><h3>Knob &amp; tube removal</h3><span class="tag">Placeholder</span></div>
+      </article>
+      <article class="pair">
+        <div class="pair-tiles">
+          <div class="pt">
+            <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><linearGradient id="g3a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B4658"/><stop offset="1" stop-color="#1F2630"/></linearGradient></defs><rect width="300" height="375" fill="url(#g3a)"/><path d="M0 170L60 150L120 172L180 146L240 168L300 150V200H0Z" fill="#141A21"/><rect x="0" y="196" width="300" height="179" fill="#232E27"/><path d="M110 375C120 320 90 290 150 250C200 216 170 200 190 196" fill="none" stroke="#3E444B" stroke-width="30" stroke-linecap="round"/><rect x="200" y="120" width="70" height="80" fill="#1A2029"/><path d="M196 120L235 96L274 120Z" fill="#12171D"/><g fill="#2E3947"><rect x="212" y="140" width="16" height="18"/><rect x="242" y="140" width="16" height="18"/></g></svg>
+            <span class="pt-lbl">Before</span>
+            <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your “before” photo</span></div>
+          </div>
+          <div class="pt after">
+            <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><linearGradient id="g3b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B4658"/><stop offset="1" stop-color="#1F2630"/></linearGradient><radialGradient id="g3c" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F7CFA6" stop-opacity=".85"/><stop offset="1" stop-color="#F7CFA6" stop-opacity="0"/></radialGradient></defs><rect width="300" height="375" fill="url(#g3b)"/><path d="M0 170L60 150L120 172L180 146L240 168L300 150V200H0Z" fill="#141A21"/><rect x="0" y="196" width="300" height="179" fill="#26352B"/><path d="M110 375C120 320 90 290 150 250C200 216 170 200 190 196" fill="none" stroke="#4A4F55" stroke-width="30" stroke-linecap="round"/><rect x="200" y="120" width="70" height="80" fill="#1A2029"/><path d="M196 120L235 96L274 120Z" fill="#12171D"/><g fill="#F0B27A"><rect x="212" y="140" width="16" height="18"/><rect x="242" y="140" width="16" height="18"/></g><g><circle cx="86" cy="312" r="40" fill="url(#g3c)"/><circle cx="140" cy="266" r="40" fill="url(#g3c)"/><circle cx="196" cy="230" r="34" fill="url(#g3c)"/><circle cx="118" cy="352" r="34" fill="url(#g3c)"/></g><g fill="#3F4C5D"><rect x="83" y="300" width="6" height="24"/><rect x="137" y="254" width="6" height="24"/><rect x="193" y="220" width="6" height="22"/><rect x="115" y="340" width="6" height="24"/></g><g fill="#D4884A"><rect x="79" y="294" width="14" height="6" rx="2"/><rect x="133" y="248" width="14" height="6" rx="2"/><rect x="189" y="214" width="14" height="6" rx="2"/><rect x="111" y="334" width="14" height="6" rx="2"/></g></svg>
+            <span class="pt-lbl">After</span>
+            <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your lit-up yard</span></div>
+          </div>
+        </div>
+        <div class="pair-cap"><h3>Landscape lighting</h3><span class="tag">Placeholder</span></div>
+      </article>
+    </div>
+    <div class="photo-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+      <p><strong>Note for Jack:</strong> a phone photo before you open the panel and one when it is labelled and closed is all this section needs. Three pairs are laid out; six would fill it nicely. No stock photos will ever be shown as your work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BAND -->
+<section class="section why" id="why" aria-labelledby="why-title">
+  <div class="wrap why-grid">
+    <div>
+      <div class="section-head tight reveal">
+        <p class="eyebrow">Why Super Electric</p>
+        <h2 id="why-title">Licensed, insured, <em>and a master electrician</em></h2>
+        <p class="sub">Here is what stands behind the work.</p>
+      </div>
+      <ul class="why-list reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><div><strong>A master electrician on the job</strong><span>Jack is a master electrician — the senior certification in the trade, and the person who signs off on the work.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 18 0z"/><path d="M12 12v7a2 2 0 0 0 4 0"/></svg><div><strong>Licensed, WCB, insured</strong><span>The listings say it plainly: <q>licensed, WCB, insured</q>. The coverage every homeowner and business should expect from anyone touching their wiring.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>Twenty-three years in</strong><span>Started August 2003, per the BBB profile — 23 years serving Calgary and area, in homes and commercial spaces.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>On the City’s contractor list</strong><span>Super Electric Service appears on the City of Calgary’s Licensed Trade Contractors list for electrical work, listed under Evanston in north Calgary.</span></div></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="stats">
+        <div class="stat"><span class="stat-num">2003</span><span class="stat-label">Business started</span><span class="stat-src">BBB profile</span></div>
+        <div class="stat"><span class="stat-num">23</span><span class="stat-label">Years serving Calgary &amp; area</span><span class="stat-src">Kijiji listing, 2026</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">BBB complaints, last 3 years</span><span class="stat-src">BBB profile</span></div>
+      </div>
+      <div class="bbb-explain">
+        <div>
+          <h3>What the BBB shows</h3>
+          <p>The Better Business Bureau profile lists a business start date of August 21, 2003 and zero complaints closed in the last three years. <a href="https://www.bbb.org/ca/ab/calgary/profile/electrician/super-electric-service-0017-81062" rel="noopener noreferrer" target="_blank">See the profile</a>.</p>
+        </div>
+      </div>
+      <div class="reviews-row">
+        <p>Find Super Electric Service on:</p>
+        <a class="link-pill" href="https://www.yelp.ca/biz/super-electric-service-calgary" rel="noopener noreferrer" target="_blank">Yelp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://www.bbb.org/ca/ab/calgary/profile/electrician/super-electric-service-0017-81062" rel="noopener noreferrer" target="_blank">BBB <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://www.yellowpages.ca/bus/Alberta/Calgary/Super-Electric-Service/8229489.html" rel="noopener noreferrer" target="_blank">YellowPages <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="section" id="areas" aria-labelledby="areas-title">
+  <div class="wrap area-grid">
+    <div class="reveal">
+      <div class="section-head tight">
+        <p class="eyebrow">Service area</p>
+        <h2 id="areas-title">Based in <em>north Calgary,</em> serving the whole city</h2>
+        <p class="sub">Home base is the Evanston / Sage Hill / Nolan Hill corner of north Calgary. The listings say <q>Calgary and area</q> and <q>Calgary and surrounding areas</q> — so if you are anywhere in the city, call.</p>
+      </div>
+      <ul class="comm-list" aria-label="Communities">
+        <li class="chip home">Evanston</li><li class="chip">Sage Hill</li><li class="chip">Nolan Hill</li><li class="chip">Calgary &amp; area</li><li class="chip todo-chip">Airdrie · High River · Red Deer? — to confirm with Jack</li>
+      </ul>
+      <p class="area-note">Evanston is the community on the City of Calgary’s contractor list; Sage Hill and Nolan Hill share the T3P postal area given on the BBB profile. No street address is published here — this is a mobile service, and the area is what matters.</p>
+    </div>
+    <div class="map-card reveal">
+      <svg class="map" viewBox="0 0 640 480" role="img" aria-labelledby="map-title map-desc">
+        <title id="map-title">Stylised map of north Calgary</title>
+        <desc id="map-desc">A simplified, not-to-scale map with Evanston, Sage Hill and Nolan Hill marked north of Stoney Trail along Symons Valley Road, and unlabelled dashed outlines south of Stoney Trail for neighbouring communities still to be confirmed with the owner.</desc>
+        <defs>
+          <pattern id="mgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" class="m-grid"/></pattern>
+          <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="m-bg1"/><stop offset="1" class="m-bg2"/></linearGradient>
+        </defs>
+        <rect width="640" height="480" rx="22" fill="url(#mbg)"/>
+        <rect width="640" height="480" rx="22" fill="url(#mgrid)"/>
+        <path d="M200 400C230 376 300 368 360 378C410 388 446 416 430 446C412 470 300 476 240 456C210 446 190 420 200 400Z" class="m-park"/>
+        <text x="318" y="432" text-anchor="middle" class="m-park-text">Nose Hill Park</text>
+        <path d="M574 20C560 110 588 210 570 300S562 420 578 480" class="m-water"/>
+        <text x="559" y="130" class="m-water-text" transform="rotate(84 559 130)">Nose Creek</text>
+        <g class="m-road">
+          <path class="m-road-hwy" d="M20 224H620"/>
+          <path class="m-road-hwy" d="M600 20V470"/>
+          <path d="M360 470C340 380 322 300 308 170L300 40"/>
+          <path d="M470 40V470"/>
+          <path d="M38 470V20"/>
+          <path d="M160 470V20"/>
+          <path d="M20 352H620"/>
+        </g>
+        <g class="road-label">
+          <text x="26" y="214">Stoney Trail NW</text>
+          <text x="612" y="60" transform="rotate(90 612 60)">Deerfoot Tr</text>
+          <text x="318" y="120" transform="rotate(82 318 120)">Symons Valley Rd</text>
+          <text x="478" y="70" transform="rotate(90 478 70)">14 St NW</text>
+          <text x="168" y="262" transform="rotate(90 168 262)">Shaganappi Tr</text>
+          <text x="46" y="262" transform="rotate(90 46 262)">Sarcee Tr</text>
+          <text x="26" y="372">Country Hills Blvd</text>
+        </g>
+        <g>
+          <rect class="comm tbc" x="55" y="240" width="92" height="96" rx="24"/>
+          <rect class="comm tbc" x="176" y="240" width="122" height="96" rx="26"/>
+          <rect class="comm tbc" x="345" y="240" width="110" height="96" rx="26"/>
+          <rect class="comm tbc" x="486" y="240" width="98" height="96" rx="24"/>
+          <rect class="comm tbc" x="178" y="362" width="120" height="36" rx="14"/>
+          <rect class="comm tbc" x="486" y="366" width="98" height="80" rx="22"/>
+          <rect class="comm" x="55" y="104" width="92" height="102" rx="24"/>
+          <text x="101" y="160" text-anchor="middle" class="m-lab">Nolan Hill</text>
+          <rect class="comm" x="176" y="104" width="122" height="102" rx="26"/>
+          <text x="237" y="160" text-anchor="middle" class="m-lab">Sage Hill</text>
+          <rect class="comm home" x="330" y="104" width="132" height="102" rx="28"/>
+          <text x="396" y="182" text-anchor="middle" class="m-lab m-lab-home">Evanston</text>
+        </g>
+        <g class="m-pin" transform="translate(396 136) scale(1.35)">
+          <path d="M0 22 C -12 8 -12 -8 0 -14 C 12 -8 12 8 0 22 Z"/>
+          <circle cx="0" cy="-2" r="4.5"/>
+        </g>
+        <g transform="translate(78 60)">
+          <circle r="20" class="m-white"/>
+          <path d="M0 -13 L6 6 L0 2 L-6 6 Z" class="m-ink"/>
+          <text x="0" y="38" text-anchor="middle" class="m-foot">N</text>
+        </g>
+        <g class="m-leg" transform="translate(20 380)">
+          <rect width="170" height="86" rx="12" class="m-white"/>
+          <rect x="12" y="12" width="20" height="13" rx="4" class="m-sw-home"/>
+          <text x="40" y="23">Evanston — City list</text>
+          <rect x="12" y="36" width="20" height="13" rx="4" class="m-sw"/>
+          <text x="40" y="47">T3P postal area</text>
+          <rect x="12" y="60" width="20" height="13" rx="4" class="m-sw-tbc"/>
+          <text x="40" y="71">Others — to confirm</text>
+        </g>
+        <text x="616" y="466" text-anchor="end" class="m-foot">Stylised, not to scale</text>
+      </svg>
+      <p class="map-note">Illustrative map. Dashed outlines are placeholders for the communities Jack confirms — not a record of jobs completed there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-sec" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq-title">Good questions, <em>straight answers</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <h3><button class="faq-q" id="faq-q1" type="button" aria-expanded="true" aria-controls="faq-a1"><span>Are you a licensed electrician?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-inner"><p>Yes. Jack is a master electrician, and the business lists itself as <q>licensed, WCB, insured</q>. Super Electric Service also appears on the City of Calgary’s Licensed Trade Contractors list for electrical work.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q2" type="button" aria-expanded="false" aria-controls="faq-a2"><span>What kind of work do you take on?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-inner"><p>Electrical renovations and new construction, basement development, wiring and rewiring, switch installation, service upgrades, landscape lighting and knob and tube removal — plus inspection, installation or replacement, and repair. Residential and commercial. As the listing puts it: <q>available for all your electrical needs</q>.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q3" type="button" aria-expanded="false" aria-controls="faq-a3"><span>Do you do commercial work too?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-inner"><p>Yes — the business describes its work as <q>residential and commercial</q>. Call with the details of the space and what it needs.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q4" type="button" aria-expanded="false" aria-controls="faq-a4"><span>What does a service upgrade actually involve?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>In general terms: the panel is replaced with a larger one (100 amps to 200 is the common jump), and the meter base, mast and service conductors are usually renewed at the same time. The utility disconnects and reconnects power, the work is permitted and inspected, and the existing branch circuits are moved onto the new breakers. See Fig. 01 above for the parts involved.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q5" type="button" aria-expanded="false" aria-controls="faq-a5"><span>My house has knob and tube wiring. Does it have to come out?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div class="faq-a-inner"><p>Knob and tube has no ground, its insulation is often brittle after seventy-plus years, and it was never meant to sit under modern attic insulation. Many insurers will not cover a home until it is removed. Removal and rewiring is listed as one of Super Electric Service’s services — call and describe the house.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q6" type="button" aria-expanded="false" aria-controls="faq-a6"><span>How long has Super Electric Service been in business?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div class="faq-a-inner"><p>Since 2003. The BBB profile gives a business start date of August 21, 2003, and the business’s own listing says it has served <q>Calgary and area for 23 years</q>.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q7" type="button" aria-expanded="false" aria-controls="faq-a7"><span>What are your hours?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div class="faq-a-inner"><p>A Yelp listing shows 8:00 AM to 7:00 PM, Monday to Sunday — but that listing is unclaimed, so treat it as a starting point.</p><p><span class="todo">To confirm with Jack: hours, and whether after-hours calls are taken</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q8" type="button" aria-expanded="false" aria-controls="faq-a8"><span>What about pricing and payment?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><div class="faq-a-inner"><p>No prices are published. The business’s own listing says <q>Reasonable price, quality and safety guaranteed, pay after 100% satisfaction</q>. Ask for a quote before the work starts.</p><p><span class="todo">To confirm with Jack: keep this wording? deposit? payment methods?</span></p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="section dark" id="quote" aria-labelledby="quote-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Get a quote</p>
+      <h2 id="quote-title">Tell Jack about <em>the job</em></h2>
+      <p class="sub">Call, or send the details below. From a single switch to a whole service upgrade — home or business.</p>
+    </div>
+    <div class="quote-grid reveal">
+      <div class="contact-card">
+        <p class="eyebrow">Fastest way</p>
+        <a class="big-phone" href="tel:+14038309346"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>(403) 830-9346</a>
+        <p>Ask for Jack, master electrician.</p>
+        <dl class="contact-facts">
+          <dt>Electrician</dt><dd>Jack — master electrician</dd>
+          <dt>Service area</dt><dd>Calgary and area<small>Based in north Calgary</small></dd>
+          <dt>Hours</dt><dd>8 AM – 7 PM, Mon–Sun<small>From an unclaimed Yelp listing</small><span class="todo">To confirm with Jack</span></dd>
+          <dt>Email</dt><dd><span class="todo">To confirm with Jack</span></dd>
+        </dl>
+      </div>
+      <div class="form-card">
+        <form class="form" id="quote-form" novalidate>
+          <div class="field">
+            <label for="q-name">Your name</label>
+            <input id="q-name" name="name" type="text" autocomplete="name" required aria-describedby="q-name-error">
+            <p class="error" id="q-name-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="q-phone">Phone</label>
+            <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="403 555 0123" required aria-describedby="q-phone-error">
+            <p class="error" id="q-phone-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="q-community">Community <span>(optional)</span></label>
+            <input id="q-community" name="community" type="text" autocomplete="address-level2" placeholder="e.g. Sage Hill">
+          </div>
+          <div class="field">
+            <label for="q-service">What kind of work?</label>
+            <div class="select-wrap">
+              <select id="q-service" name="service">
+                <option value="">Choose one</option>
+                <option value="upgrade">Service or panel upgrade</option>
+                <option value="wiring">Wiring or rewiring</option>
+                <option value="knob-tube">Knob and tube removal</option>
+                <option value="basement">Basement development</option>
+                <option value="renovation">Renovation or new construction</option>
+                <option value="switch">Switch, dimmer or receptacle</option>
+                <option value="landscape">Landscape lighting</option>
+                <option value="inspection">Electrical inspection</option>
+                <option value="repair">Repair or troubleshooting</option>
+                <option value="commercial">Commercial electrical</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="field full">
+            <label for="q-details">Tell us about the job</label>
+            <textarea id="q-details" name="details" required aria-describedby="q-details-error" placeholder="What needs doing, roughly the size of the job, and anything worth knowing up front — age of the house, panel size, anything tripping."></textarea>
+            <p class="error" id="q-details-error" aria-live="polite"></p>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-primary btn-lg" type="submit">Request a quote</button>
+            <p class="form-note">Draft: this form has no backend yet. On the live site it will reach Super Electric Service directly.</p>
+          </div>
+        </form>
+        <div class="form-success" id="form-success" hidden tabindex="-1" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <h3>Request noted</h3>
+          <p id="form-success-msg"></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:+14038309346">Or call (403) 830-9346</a>
+            <button class="btn btn-ghost" id="form-again" type="button">Send another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRAFT NOTES -->
+<section class="section notes-sec" id="notes" aria-labelledby="notes-title">
+  <div class="wrap">
+    <details class="notes-panel reveal" id="notes-panel" open>
+      <summary>
+        <div>
+          <p class="eyebrow">Draft notes</p>
+          <h2 id="notes-title">Before this goes live: things to confirm with the owner</h2>
+        </div>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="notes-body">
+        <ul class="notes-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span><strong>Old website.</strong> A domain, superelectricservice.ca, still shows up in search results but no longer resolves and has no archived copy. This draft assumes there is no live site. Is the domain still yours? It would be the natural home for this one.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><strong>Address.</strong> YellowPages lists a suite address in Beddington; BBB and Kijiji give only the T3P postal area with the street kept private; Yelp shows no address. No address is published on this page — the site shows the service area only. Say if you want one shown.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><strong>Email.</strong> None is published anywhere. The contact card and footer have a slot waiting for one.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>Hours.</strong> The only source is an unclaimed Yelp listing (8 AM to 7 PM, every day). It is shown with a to-confirm pill in the contact card and FAQ. Confirm or correct.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><strong>Credentials wording.</strong> “Master electrician”, “licensed, WCB, insured” and “fully licensed and insured” come from your Kijiji and YellowPages listings. The City of Calgary contractor list shows the business under Evanston but not the licence status or expiry. Confirm the master electrician certificate, contractor licence, WCB account and insurance are current before launch.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><strong>Years in business.</strong> BBB gives a start date of August 21, 2003 and the Kijiji ad says 23 years — consistent, and used in the hero and FAQ. The Yelp text says only “for the last several years”. Confirm 2003 is the year to build the story around.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span><strong>Service list.</strong> Taken from YellowPages (renovations, new construction, basement development, wiring and rewiring, switch installation, service upgrades, landscape lighting, knob and tube removal) and Yelp (inspection, installation or replacement, repair). The YellowPages text was cut off after “knob and tube removal” — tell us what else belongs on the list.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg><span><strong>Not claimed: HVAC and solar.</strong> Yelp files the business under heating and air conditioning too, and a search snippet from the old site mentions solar panels. Neither is confirmed anywhere else, so neither appears on this page. Say the word if either is real.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><path d="M9 10h6"/></svg><span><strong>Service area.</strong> Confirmed: Evanston (City list), the T3P postal area (Sage Hill / Nolan Hill), and “Calgary and area”. Search snippets mention Airdrie, High River and Red Deer, but that text was not readable in full — it sits in a dashed to-confirm chip. The dashed map outlines are placeholders; name the communities you want listed.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span><strong>Pricing, payment, guarantee wording.</strong> No prices are published. The hero, process and FAQ quote your Kijiji ad — “Reasonable price, quality and safety guaranteed, pay after 100% satisfaction” — word for word and attributed. A snippet also mentions work being “guaranteed and warrantied”, which was not readable in full and is not used. Decide whether that wording stays, and whether a deposit, payment methods or a warranty should be spelled out.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span><strong>Reviews.</strong> BBB, Yelp and YellowPages all show zero reviews, so no stars, counts or quotes appear — only links to the listings and the BBB “0 complaints in 3 years” figure. With customer permission, real quotes can replace the links. A Google Business Profile would help most; none was found.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span><strong>Project photos.</strong> None available publicly. Three before-and-after pairs are laid out and ready for phone photos. The hero artwork is an illustration, not a photo of your work.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span><strong>Name and team.</strong> The page uses “Jack” because your own ad title does; the surname is left off until you say otherwise. Team size is not stated anywhere, so the site says “ask for Jack” and nothing more.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 16l2 2 2-2" opacity=".6"/></svg><span><strong>How a job goes.</strong> Steps 2 and 3 carry pills: free quote or site visit, written estimate, permits and inspection, scheduling, warranty. Dictate the real flow and the pills come off.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 4h10M7 8h10M9 12h6"/><path d="M5 16h14v4H5z"/></svg><span><strong>Listings to tidy.</strong> Your Yelp page is unclaimed and no Google Business Profile, Facebook, Instagram or HomeStars page was found. Claiming Yelp and adding a Google profile would give this site somewhere to send review traffic.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg><span><strong>Quote form.</strong> The draft form has no backend. The live site needs a delivery route (a form service or an SMS relay) so requests really do reach your phone.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/></svg><span><strong>Draft banner.</strong> Remove the copper banner and the footer draft line when the site goes live.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span><strong>Legal name.</strong> The footer says Super Electric Service · Calgary, Alberta — confirm the registered business name (and whether a numbered company or sole-proprietor name should appear).</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><span><strong>North Calgary positioning.</strong> The eyebrow, trust card and service-area section say “based in north Calgary”, while your listings say “Calgary and area”. Say whether you want the north / NW angle kept or the page to read city-wide throughout.</span></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Super Electric Service, back to top">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect class="bm-bg" width="40" height="40" rx="11"/><path class="bm-wire" d="M27 12.5a5.5 5.5 0 0 0-11 0c0 7 11 6.5 11 14.5a5.5 5.5 0 0 1-11 0" fill="none" stroke-width="3.6" stroke-linecap="round"/><circle class="bm-dot" cx="27" cy="12.5" r="2.3"/><circle class="bm-dot" cx="16" cy="27" r="2.3"/></svg>
+          <span class="brand-name">Super Electric Service<small>Master electrician · Calgary</small></span>
+        </a>
+        <p class="foot-desc">Master electrician based in north Calgary, serving Calgary and area since 2003. Residential and commercial: service upgrades, wiring and rewiring, knob and tube removal, basement development, landscape lighting and repair.</p>
+      </div>
+      <div>
+        <h3 class="foot-title">Details</h3>
+        <ul>
+          <li>Master electrician: Jack</li>
+          <li><a href="tel:+14038309346">(403) 830-9346</a> — ask for Jack</li>
+          <li>Based in north Calgary · serving Calgary and area</li>
+          <li>Hours: 8 AM – 7 PM daily (per Yelp) <span class="todo">to confirm</span></li>
+          <li>Email: <span class="todo">to confirm</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="foot-title">Credentials &amp; listings</h3>
+        <ul>
+          <li>Licensed · WCB · Insured</li>
+          <li>In business since 2003 (BBB)</li>
+          <li><a href="https://dbaservices.calgary.ca/publicinq/Default.aspx?PossePresentation=LicensedTradeContractors&amp;PosseObjectId=124631268&amp;ContractorType=Electrical" rel="noopener noreferrer" target="_blank">City of Calgary licensed trade contractors</a></li>
+          <li><a href="https://www.bbb.org/ca/ab/calgary/profile/electrician/super-electric-service-0017-81062" rel="noopener noreferrer" target="_blank">BBB profile</a></li>
+          <li><a href="https://www.kijiji.ca/v-electrician/calgary/super-electric-service-master-electrician-jack-luo-4038309346/1738927817" rel="noopener noreferrer" target="_blank">Kijiji listing</a></li>
+          <li><a href="https://www.yelp.ca/biz/super-electric-service-calgary" rel="noopener noreferrer" target="_blank">Yelp</a> · <a href="https://www.yellowpages.ca/bus/Alberta/Calgary/Super-Electric-Service/8229489.html" rel="noopener noreferrer" target="_blank">YellowPages</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>Draft website proposal — not the business’s live website. Prepared by Adeel Ahmed (Sites by Adeel), Calgary, September 2026.</span>
+      <span>Super Electric Service · Calgary, Alberta <span class="todo">legal name to confirm</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* Draft banner: measure height so body offset and sticky nav track it */
+  var banner = document.getElementById('draft-banner');
+  var bannerClose = document.getElementById('draft-close');
+  function setBannerHeight() {
+    var h = (banner && !banner.hidden) ? banner.offsetHeight : 0;
+    root.style.setProperty('--banner-h', h + 'px');
+  }
+  if (banner) {
+    setBannerHeight();
+    window.addEventListener('resize', setBannerHeight);
+    window.addEventListener('load', setBannerHeight);
+    document.addEventListener('visibilitychange', setBannerHeight);
+    if (window.ResizeObserver) { new ResizeObserver(setBannerHeight).observe(banner); }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(setBannerHeight); }
+    if (bannerClose) {
+      bannerClose.addEventListener('click', function () {
+        banner.hidden = true;
+        setBannerHeight();
+      });
+    }
+  }
+
+  /* Sticky nav: mobile menu + scrolled shadow */
+  var nav = document.getElementById('site-nav');
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  function closeMenu() {
+    if (!nav || !toggle) { return; }
+    nav.classList.remove('menu-open');
+    root.classList.remove('menu-locked');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+  if (nav && toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('menu-open');
+      root.classList.toggle('menu-locked', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    links.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t && t.closest && t.closest('a')) { closeMenu(); }
+    });
+    /* Tap on the scrim (the nav's ::after, so the event target is the nav itself) closes the menu */
+    nav.addEventListener('click', function (e) {
+      if (e.target === nav && nav.classList.contains('menu-open')) { closeMenu(); }
+    });
+    var wideNav = window.matchMedia('(min-width: 1081px)');
+    var onWide = function (e) { if (e.matches) { closeMenu(); } };
+    if (wideNav.addEventListener) { wideNav.addEventListener('change', onWide); } else if (wideNav.addListener) { wideNav.addListener(onWide); }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('menu-open')) { closeMenu(); toggle.focus(); }
+    });
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* Hero scene: pointer parallax on fine pointers only */
+  var hero = document.getElementById('hero');
+  var scene = document.getElementById('scene');
+  var finePointer = window.matchMedia('(pointer: fine)');
+  if (hero && scene && finePointer.matches && !reduceMotion.matches) {
+    var raf = 0, px = 0, py = 0;
+    var paint = function () {
+      raf = 0;
+      scene.style.setProperty('--px', px.toFixed(3));
+      scene.style.setProperty('--py', py.toFixed(3));
+    };
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      px = (e.clientX - r.left) / r.width - 0.5;
+      py = (e.clientY - r.top) / r.height - 0.5;
+      if (!raf) { raf = window.requestAnimationFrame(paint); }
+    });
+    hero.addEventListener('mouseleave', function () {
+      if (raf) { window.cancelAnimationFrame(raf); raf = 0; }
+      px = 0; py = 0; paint();
+    });
+  }
+
+  /* FAQ accordion: single open item */
+  var faqButtons = Array.prototype.slice.call(document.querySelectorAll('.faq-q'));
+  faqButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) { return; }
+      var wasOpen = item.classList.contains('open');
+      faqButtons.forEach(function (other) {
+        var oi = other.closest('.faq-item');
+        if (oi) { oi.classList.remove('open'); }
+        other.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* Draft notes: open on wide screens, collapsed on phones */
+  var notes = document.getElementById('notes-panel');
+  if (notes && window.matchMedia('(max-width: 640px)').matches) {
+    notes.removeAttribute('open');
+  }
+
+  /* Quote form: client-side validation, no backend */
+  var form = document.getElementById('quote-form');
+  var success = document.getElementById('form-success');
+  var successMsg = document.getElementById('form-success-msg');
+  var again = document.getElementById('form-again');
+  function setError(id, msg) {
+    var field = document.getElementById(id);
+    var err = document.getElementById(id + '-error');
+    if (!field || !err) { return; }
+    if (err._clearTimer) { clearTimeout(err._clearTimer); err._clearTimer = 0; }
+    if (msg) {
+      err.textContent = msg;
+      err.classList.add('is-visible');
+    } else {
+      err.classList.remove('is-visible');
+      /* let the collapse finish before the text goes, so it does not blink out */
+      err._clearTimer = setTimeout(function () {
+        err._clearTimer = 0;
+        if (!err.classList.contains('is-visible')) { err.textContent = ''; }
+      }, 320);
+    }
+    field.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    var wrap = field.closest('.field');
+    if (wrap) { wrap.classList.toggle('has-error', !!msg); }
+  }
+  if (form && success && successMsg) {
+    ['q-name', 'q-phone', 'q-details'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) { el.addEventListener('input', function () { setError(id, ''); }); }
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('q-name');
+      var phone = document.getElementById('q-phone');
+      var details = document.getElementById('q-details');
+      var ok = true;
+      var nameVal = name ? name.value.trim() : '';
+      var phoneVal = phone ? phone.value.trim() : '';
+      var detailsVal = details ? details.value.trim() : '';
+      if (!nameVal) { setError('q-name', 'Please tell us your name.'); ok = false; } else { setError('q-name', ''); }
+      if (phoneVal.replace(/\D/g, '').length < 10) { setError('q-phone', 'Please enter a phone number with area code.'); ok = false; } else { setError('q-phone', ''); }
+      if (detailsVal.length < 10) { setError('q-details', 'A sentence or two about the job helps Jack give a useful quote.'); ok = false; } else { setError('q-details', ''); }
+      if (!ok) {
+        var first = form.querySelector('[aria-invalid="true"]');
+        if (first) { first.focus(); }
+        return;
+      }
+      successMsg.textContent = 'Thanks — on the live site this reaches the shop directly.';
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    });
+    if (again) {
+      again.addEventListener('click', function () {
+        form.reset();
+        success.hidden = true;
+        form.hidden = false;
+        var name = document.getElementById('q-name');
+        if (name) { name.focus(); }
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>

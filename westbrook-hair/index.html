@@ -1,0 +1,1479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Westbrook Hair Styling &amp; Barber Shop</title>
+<meta name="description" content="Draft website proposal for Westbrook Hair Styling &amp; Barber Shop, a barber shop and hair salon inside Westbrook Mall on 37 Street SW in Calgary, open seven days a week.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:root{
+  --ink:#231F20;--ink-2:#2B2627;--ink-3:#352F30;--ink-4:#413A3B;
+  --paper:#F7F0EB;--paper-2:#EFE3DC;--white:#FFFDFB;
+  --blush:#E9D2C9;--blush-deep:#B8897A;--blush-mist:#FBF5F1;
+  --text:#231F20;--text-muted:#615753;
+  --on-dark:#F7F0EB;--on-dark-muted:#C9BEB7;
+  --gold:#C9A250;--gold-hover:#D8B466;--gold-deep:#7A5B1A;--gold-mid:#A6812C;--gold-light:#E4C87C;--gold-pale:#F3E6C4;--gold-glow:#FFE9AE;
+  --error:#F2B8A8;
+  --map-bg-1:#FBF6F2;--map-bg-2:#F1E6DF;--map-line:#D8CBC2;--map-rail:#3A6EA5;--map-rail-text:#2E5A88;
+  --line:rgba(35,31,32,.12);--line-dark:rgba(247,240,235,.14);
+  --focus:#231F20;
+  --sh-1:0 1px 2px rgba(35,31,32,.06),0 10px 26px -14px rgba(35,31,32,.2);
+  --sh-2:0 2px 4px rgba(35,31,32,.06),0 20px 44px -18px rgba(35,31,32,.3);
+  --sh-3:0 4px 8px rgba(35,31,32,.08),0 34px 70px -24px rgba(35,31,32,.45);
+  --sh-gold:0 12px 28px -12px rgba(201,162,80,.65);
+  --r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;
+  --font-display:"Fraunces","Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+  --font-body:"Manrope","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --fs-display:clamp(2.6rem,1.4rem + 4vw,4.5rem);
+  --fs-h2:clamp(2rem,1.35rem + 2.1vw,3.1rem);
+  --fs-h3:1.25rem;--fs-body:1.0625rem;--fs-small:.9rem;
+  --banner-h:44px;--nav-h:74px;
+  --gutter:clamp(16px,4vw,40px);
+  --ease:cubic-bezier(.2,.7,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--banner-h) + var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{margin:0;padding-top:var(--banner-h);background:var(--paper);color:var(--text);font:400 var(--fs-body)/1.6 var(--font-body);min-height:100vh}
+body.ready{transition:padding-top .3s var(--ease)}
+[hidden]{display:none !important}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;color:inherit;font-weight:600;text-wrap:balance}
+p{margin:0}
+.sub,.lede,.card p,.step p,.faq-a p,.why-list span,.notes-list li,.stat-label,.fig-cap span,.menu-note p,.photo-note p,.transit p,.map-note,.notes-intro{text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.dark{background:var(--ink);color:var(--on-dark);--focus:var(--gold)}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:fixed;left:var(--gutter);top:8px;background:var(--ink);color:var(--on-dark);border:2px solid var(--gold);padding:.6rem 1rem;border-radius:999px;font:700 .95rem var(--font-body);text-decoration:none;transform:translateY(-300%);z-index:200}
+.skip:focus-visible{transform:none}
+
+/* Draft banner */
+.draft{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:100;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;gap:.75rem 1rem;flex-wrap:wrap;padding:.45rem var(--gutter);min-height:44px;font:700 .85rem/1.35 var(--font-body);text-align:center;box-shadow:0 2px 12px rgba(35,31,32,.25);--focus:var(--ink)}
+.draft-close{border:0;background:var(--ink);color:var(--on-dark);border-radius:999px;min-height:36px;padding:.45rem .9rem;font:700 .78rem var(--font-body);cursor:pointer;transition:background .2s var(--ease)}
+.draft-close:hover{background:var(--ink-3)}
+
+/* Nav */
+.nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--banner-h));z-index:50;background:rgba(35,31,32,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--on-dark);border-bottom:1px solid var(--line-dark);--focus:var(--gold);transition:box-shadow .3s var(--ease)}
+.ready .nav{transition:box-shadow .3s var(--ease),top .3s var(--ease)}
+.nav.scrolled{box-shadow:0 10px 30px -14px rgba(0,0,0,.6)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--nav-h);position:relative}
+.brand{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--on-dark)}
+.brand-mark{width:42px;height:42px;flex:none;filter:drop-shadow(0 4px 10px rgba(201,162,80,.35));transition:transform .35s var(--ease)}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.04)}
+.bm-a{stop-color:var(--gold-light)}.bm-b{stop-color:var(--gold-mid)}
+.bm-bg{fill:var(--gold)}.bm-ink{stroke:var(--ink)}.bm-dot{fill:var(--ink)}
+.brand-name{font:600 1.2rem/1 var(--font-display);letter-spacing:-.01em}
+.brand-name small{display:block;font:700 .72rem/1.1 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-top:.28rem}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{text-decoration:none;color:var(--on-dark-muted);font:600 .92rem var(--font-body);padding:.55rem .8rem;border-radius:999px;white-space:nowrap;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--on-dark);background:rgba(247,240,235,.08)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.nav-toggle{display:none;position:relative;border:1px solid var(--line-dark);background:transparent;color:var(--on-dark);width:44px;height:44px;border-radius:var(--r-sm);align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s var(--ease),background .25s var(--ease)}
+.nav-toggle:hover{border-color:rgba(247,240,235,.4);background:rgba(247,240,235,.06)}
+.nav-toggle svg{position:absolute;inset:0;margin:auto;width:22px;height:22px;transition:opacity .25s var(--ease),transform .3s var(--ease)}
+.nav-toggle .x{opacity:0;transform:rotate(-45deg)}
+.menu-open .nav-toggle .bars{opacity:0;transform:rotate(45deg)}
+.menu-open .nav-toggle .x{opacity:1;transform:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font:700 1rem/1 var(--font-body);padding:.95rem 1.45rem;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--gold);color:var(--ink);box-shadow:var(--sh-gold)}
+.btn-primary:hover{background:var(--gold-hover);transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(201,162,80,.75)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{border-color:rgba(247,240,235,.35);color:var(--on-dark);background:transparent}
+.btn-ghost:hover{border-color:var(--gold-light);background:rgba(247,240,235,.06);transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:var(--on-dark)}
+.btn-ink:hover{background:var(--ink-3);transform:translateY(-2px)}
+.btn-lg{padding:1.1rem 1.75rem;font-size:1.05rem}
+.btn-sm{padding:.7rem 1.05rem;font-size:.9rem}
+.nav-call .call-word{display:none}
+
+/* Section scaffolding */
+.section{padding-block:clamp(4rem,8vw,7rem)}
+.section-head{max-width:780px;margin-bottom:clamp(2rem,4vw,3.25rem)}
+.section-head.tight{margin-bottom:0}
+.section-head.center{margin-inline:auto;text-align:center}
+.section-head.center .eyebrow{justify-content:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:800 .76rem/1.2 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.9rem}
+.eyebrow::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--gold);transform:rotate(45deg)}
+.dark .eyebrow{color:var(--gold-light)}
+h2{font-size:var(--fs-h2);line-height:1.05;letter-spacing:-.02em;font-weight:600}
+h2 em,h1 em{font-style:italic;font-weight:500;color:var(--gold-deep)}
+.dark h2 em,.dark h1 em{color:var(--gold-light)}
+.sub{font-size:1.15rem;color:var(--text-muted);margin-top:1rem;max-width:62ch}
+.dark .sub{color:var(--on-dark-muted)}
+.sub q,.faq-a q,.why q{font-style:italic}
+.todo{display:inline-flex;align-items:center;gap:.4rem;background:var(--gold-pale);color:var(--gold-deep);border:1px dashed var(--gold-mid);border-radius:6px;padding:.05rem .5rem;font:700 .82rem/1.5 var(--font-body);vertical-align:middle}
+.dark .todo,.footer .todo{background:rgba(228,200,124,.14);color:var(--gold-light);border-color:rgba(228,200,124,.5)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1100px 560px at 88% -10%,rgba(201,162,80,.26),transparent 60%),radial-gradient(760px 480px at -10% 110%,rgba(233,210,201,.16),transparent 60%),linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);padding-block:clamp(3rem,6vw,5.5rem) clamp(6rem,10vw,9rem)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(247,240,235,.05) 1px,transparent 1.2px);background-size:26px 26px;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+.hero h1{font-size:var(--fs-display);line-height:1;letter-spacing:-.025em;font-weight:600;margin:0 0 1.4rem;max-width:15ch;text-wrap:balance}
+.lede{font-size:clamp(1.1rem,1rem + .5vw,1.3rem);color:var(--on-dark-muted);max-width:52ch;margin-bottom:2rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem}
+.hero-visual{position:relative}
+.scene-frame{aspect-ratio:4/3;border-radius:var(--r-xl);overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(247,240,235,.08);background:var(--ink-2)}
+.scene{width:100%;height:100%;--px:0;--py:0}
+.layer{transition:transform .9s var(--ease-out);will-change:transform}
+.layer-far{transform:translate(calc(var(--px) * -8px),calc(var(--py) * -5px))}
+.layer-mid{transform:translate(calc(var(--px) * -14px),calc(var(--py) * -8px))}
+.layer-near{transform:translate(calc(var(--px) * -22px),calc(var(--py) * -12px))}
+.glow-breathe{transform-box:fill-box;transform-origin:center;animation:breathe 7s ease-in-out infinite alternate}
+.bulb{animation:flicker 3.6s ease-in-out infinite alternate}
+.bulb:nth-child(2){animation-delay:-1.2s}.bulb:nth-child(3){animation-delay:-2.1s}.bulb:nth-child(4){animation-delay:-.6s}.bulb:nth-child(5){animation-delay:-2.8s}
+.steam{animation:steam 5s ease-in-out infinite}
+.steam:nth-child(2){animation-delay:-1.7s}.steam:nth-child(3){animation-delay:-3.3s}
+@keyframes breathe{from{opacity:.8;transform:scale(.96)}to{opacity:1;transform:scale(1.05)}}
+@keyframes flicker{from{opacity:.72}to{opacity:1}}
+@keyframes steam{0%{transform:translateY(0);opacity:0}25%{opacity:.5}100%{transform:translateY(-22px);opacity:0}}
+.trust-card{position:absolute;right:-40px;bottom:-84px;z-index:2;width:min(100%,300px);background:var(--white);color:var(--text);border-radius:var(--r-md);padding:.9rem 1rem;box-shadow:var(--sh-3);--focus:var(--ink)}
+.trust-card ul{display:grid;gap:.6rem}
+.trust-card li{display:flex;align-items:flex-start;gap:.6rem;font:700 .9rem/1.3 var(--font-body)}
+.trust-card li small{display:block;font:400 .8rem/1.3 var(--font-body);color:var(--text-muted);margin-top:.1rem}
+.trust-card li svg{width:20px;height:20px;flex:none;color:var(--gold-mid)}
+.trust-card .tc-head{display:flex;align-items:center;justify-content:space-between;font:800 .72rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.stage{animation:rise .9s var(--ease-out) both}
+.s1{animation-delay:.05s}.s2{animation-delay:.15s}.s3{animation-delay:.28s}.s4{animation-delay:.4s}.s6{animation-delay:.8s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* Ticker */
+.ticker{background:var(--ink-2);border-block:1px solid var(--line-dark);padding-block:.95rem;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:1;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--ink-2),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--ink-2),transparent)}
+.ticker-track{display:flex;width:max-content;animation:ticker 60s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-list{display:flex;padding-inline:1.25rem}
+.ticker-list li{display:inline-flex;align-items:center;gap:2.5rem;padding-right:2.5rem;white-space:nowrap;font:500 1.02rem var(--font-display);color:var(--on-dark)}
+.ticker-list li::after{content:"";width:7px;height:7px;border-radius:2px;transform:rotate(45deg);background:var(--gold);flex:none}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Services menu */
+.grid-svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem}
+.card{background:var(--white);border-radius:var(--r-lg);padding:1.6rem;box-shadow:var(--sh-1);border:1px solid var(--line);transition:box-shadow .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease);display:grid;grid-template-columns:1fr auto;grid-template-areas:"icon tag" "title title" "text text" "price price";gap:.55rem 1rem;align-content:start;position:relative}
+.card:hover{box-shadow:var(--sh-2);border-color:rgba(122,91,26,.22)}
+.card h3{grid-area:title;font-size:1.45rem;font-weight:600;letter-spacing:-.01em;margin-top:.25rem}
+.card p{grid-area:text;color:var(--text-muted);font-size:1rem}
+.svc-icon{grid-area:icon;width:58px;height:58px;border-radius:var(--r-md);background:linear-gradient(135deg,var(--gold-pale),var(--blush-mist));display:grid;place-items:center;color:var(--gold-deep);box-shadow:inset 0 0 0 1px rgba(122,91,26,.14);transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+.svc-icon svg{width:32px;height:32px}
+.card:hover .svc-icon{background:var(--gold);color:var(--ink);transform:rotate(-5deg)}
+.acc{fill:var(--gold)}
+.acc-stroke{stroke:var(--gold)}
+.card:hover .acc{fill:var(--ink)}
+.card:hover .acc-stroke{stroke:var(--ink)}
+.tag{grid-area:tag;align-self:start;justify-self:end;font:800 .72rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);background:var(--gold-pale);padding:.3rem .6rem;border-radius:999px;white-space:nowrap}
+.tag.tbc{background:var(--paper-2);color:var(--text-muted);border:1px dashed var(--blush-deep)}
+.price{grid-area:price;display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:.6rem;padding-top:.85rem;border-top:1px solid var(--line);font:700 .85rem var(--font-body);color:var(--text-muted);letter-spacing:.04em}
+.price .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-.25em)}
+.card-cta{display:flex;flex-direction:column;gap:.8rem;background:linear-gradient(160deg,var(--ink-2),var(--ink-3));color:var(--on-dark);border-color:var(--line-dark);--focus:var(--gold)}
+.card-cta .svc-icon{background:rgba(201,162,80,.16);color:var(--gold-light);box-shadow:none}
+.card-cta:hover .svc-icon{background:var(--gold);color:var(--ink)}
+.card-cta:hover{transform:translateY(-4px);box-shadow:var(--sh-3);border-color:rgba(228,200,124,.4)}
+.card-cta .cta-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.card-cta .tag{background:rgba(228,200,124,.16);color:var(--gold-light)}
+.card-cta h3{font-size:clamp(1.5rem,1.2rem + 1vw,1.9rem);letter-spacing:-.02em;line-height:1.15;margin-top:.2rem}
+.card-cta p{color:var(--on-dark-muted)}
+.card-cta .btn{margin-top:auto;align-self:flex-start}
+.menu-note{margin-top:1.75rem;display:flex;gap:.9rem;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:1rem 1.2rem;color:var(--text-muted);font-size:.98rem}
+.menu-note svg{width:22px;height:22px;flex:none;color:var(--gold-deep);margin-top:.15rem}
+.menu-note strong{color:var(--text)}
+
+/* Process */
+.process-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.steps{display:grid;gap:1rem}
+.step{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.1rem;align-content:center;transition:border-color .35s var(--ease),background .35s var(--ease)}
+.step:hover{border-color:rgba(228,200,124,.45);background:var(--ink-3)}
+.step-num{grid-row:1/4;font:500 2.4rem/1 var(--font-display);font-style:italic;color:var(--gold-light);letter-spacing:-.03em;padding-top:.05rem}
+.step h3{font-size:1.3rem}
+.step p{color:var(--on-dark-muted)}
+.step p a{color:var(--gold-light)}
+.step .todo{justify-self:start;margin-top:.45rem}
+.process-cta{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center}
+.process-cta p{color:var(--on-dark-muted)}
+.fig-card{margin:0;background:var(--white);color:var(--text);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.1rem);box-shadow:var(--sh-3);--focus:var(--ink)}
+.nowrap{white-space:nowrap}
+.fig-card svg{width:100%;height:auto;border-radius:var(--r-md)}
+.fig-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:.45rem 1rem;padding:1rem .5rem .25rem;margin:0}
+.fig-legend li{display:flex;gap:.55rem;align-items:flex-start;font:500 .88rem/1.35 var(--font-body);color:var(--text-muted)}
+.fig-legend b{flex:none;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--ink);font:800 .78rem/22px var(--font-body);text-align:center}
+.fig-cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;padding:.75rem .5rem .2rem;margin-top:.6rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--text-muted)}
+.fig-cap b{font:800 .72rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.fig .fg-paper{fill:var(--white)}
+.fig .fg-grid{fill:none;stroke:var(--ink);stroke-opacity:.06}
+.fig .fg-eyebrow{font:800 12px var(--font-body);letter-spacing:2px;fill:var(--gold-deep)}
+.fig .fg-mute{fill:var(--text-muted)}
+.fig .fg-title{font:600 26px var(--font-display);fill:var(--text);letter-spacing:-.2px}
+.fig .fg-rule{stroke:var(--gold);stroke-width:1;fill:none}
+.fig .fg-skin{fill:#F0DCD2;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.fig .fg-ear{fill:#E7CCC0;stroke:var(--ink);stroke-width:1.2}
+.fig .fg-thin{stroke:var(--ink);stroke-width:1;fill:none;stroke-linecap:round}
+.fig .fg-lab{font:600 15px var(--font-body);fill:var(--text-muted)}
+.fig .fg-dash{stroke:var(--gold-deep);stroke-width:1.5;stroke-dasharray:7 5;fill:none}
+.fig .fg-ldr{stroke:var(--gold-deep);stroke-width:1.2;fill:none}
+.fig .fg-strand{stroke:var(--gold-light);stroke-width:1.2;fill:none;opacity:.7;stroke-linecap:round}
+.fig .fg-line{stroke:var(--gold);stroke-width:3;fill:none;stroke-linecap:round}
+.fig .fg-co circle{fill:var(--gold);stroke:var(--ink);stroke-width:1.5}
+.fig .fg-co text{font:800 16px var(--font-body);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+
+/* Gallery */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem}
+.tile{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--paper-2);box-shadow:var(--sh-1);border:1px solid var(--line);transition:box-shadow .35s var(--ease)}
+.tile:hover{box-shadow:var(--sh-2)}
+.tile svg{position:absolute;inset:0;width:100%;height:100%}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,31,32,0) 55%,rgba(35,31,32,.5));pointer-events:none}
+.tile-lbl{position:absolute;left:.85rem;bottom:.85rem;z-index:3;font:600 1.05rem/1.2 var(--font-display);color:var(--on-dark)}
+.tile-lbl small{display:block;font:800 .72rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.3rem}
+.ph{position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:.75rem}
+.ph-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,253,251,.94);color:var(--text);border:1px solid rgba(122,91,26,.28);border-radius:999px;padding:.5rem .8rem;font:700 .78rem/1.25 var(--font-body);text-align:left;box-shadow:var(--sh-1);max-width:92%}
+.ph-pill svg{position:static;width:18px;height:18px;color:var(--gold-deep);flex:none}
+.photo-note{margin-top:1.75rem;display:flex;gap:.9rem;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:1rem 1.2rem;color:var(--text-muted);font-size:.98rem}
+.photo-note svg{width:22px;height:22px;flex:none;color:var(--gold-deep);margin-top:.15rem}
+.photo-note strong{color:var(--text)}
+
+/* Why band */
+.why{background:linear-gradient(135deg,var(--blush) 0%,var(--paper-2) 55%,var(--gold-pale) 100%);color:var(--text);position:relative;overflow:clip}
+.why::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 100% 0%,rgba(255,233,174,.45),transparent 65%);pointer-events:none}
+.why-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.stat{background:rgba(255,253,251,.72);border:1px solid rgba(35,31,32,.08);border-radius:var(--r-md);padding:1.3rem 1.2rem;backdrop-filter:blur(6px);transition:background .35s var(--ease),border-color .35s var(--ease)}
+.stat:hover{background:rgba(255,253,251,.95);border-color:rgba(122,91,26,.18)}
+.stat-num{display:flex;align-items:center;gap:.35rem;font:600 clamp(2.2rem,3.4vw,3rem)/1 var(--font-display);color:var(--ink);letter-spacing:-.03em}
+.stat-num svg{width:.6em;height:.6em;color:var(--gold-mid);flex:none}
+.stat-label{display:block;font:700 .92rem var(--font-body);margin-top:.5rem;color:var(--gold-deep)}
+.stat-label small{display:block;font:400 .8rem var(--font-body);color:var(--text-muted);margin-top:.15rem}
+.why-list{display:grid;gap:1.1rem;margin-top:1.75rem}
+.why-list li{display:flex;gap:.9rem;align-items:flex-start}
+.why-list svg{width:26px;height:26px;flex:none;color:var(--gold-deep);margin-top:.1rem}
+.why-list strong{display:block;font:700 1.02rem var(--font-body)}
+.why-list span{color:var(--text-muted)}
+.quote-card{margin-top:1.25rem;background:var(--ink);color:var(--on-dark);border-radius:var(--r-lg);padding:1.5rem 1.6rem;position:relative;--focus:var(--gold)}
+.quote-card::before{content:"\201C";position:absolute;left:1.1rem;top:-.4rem;font:600 5rem/1 var(--font-display);color:var(--gold);opacity:.9}
+.quote-card blockquote{margin:0;padding-left:2.4rem}
+.quote-card blockquote p{font:500 1.2rem/1.45 var(--font-display);font-style:italic}
+.quote-card footer{margin-top:.9rem;padding-left:2.4rem;font-size:.9rem;color:var(--on-dark-muted)}
+.quote-card footer a{color:var(--gold-light)}
+.owner-note{margin-top:1.25rem;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--sh-1)}
+.plate{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,var(--gold-light),var(--gold-mid));color:var(--ink);display:grid;place-items:center;font:600 2.2rem/1 var(--font-display);flex:none;box-shadow:var(--sh-gold)}
+.owner-note h3{font-size:1.3rem}
+.owner-note p{margin-top:.4rem;color:var(--text-muted);font-size:.98rem}
+.owner-note .todo{margin-top:.6rem}
+.reviews-row{margin-top:1.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-md);background:rgba(255,253,251,.72);border:1px solid rgba(35,31,32,.08);display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center}
+.reviews-row p{flex:1 1 200px;font:700 .98rem var(--font-body)}
+.link-pill{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font:700 .9rem var(--font-body);min-height:44px;padding:.65rem 1.05rem;border-radius:999px;background:var(--ink);color:var(--on-dark);transition:transform .2s var(--ease),background .2s}
+.link-pill:hover{transform:translateY(-2px);background:var(--ink-3)}
+.link-pill svg{width:16px;height:16px;color:var(--gold-light)}
+
+/* Visit: hours + location */
+.visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.hours{margin-top:1.5rem;background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:.35rem 1.4rem;box-shadow:var(--sh-1)}
+.hours li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:1.02rem}
+.hours li:last-child{border-bottom:0}
+.hours .hd{font-weight:700}
+.hours .hv{font-family:var(--font-display);font-weight:500;font-size:1.12rem;white-space:nowrap}
+.hours li.today{color:var(--gold-deep)}
+.hours .now{font:800 .72rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--ink);border-radius:999px;padding:.2rem .5rem;margin-left:.5rem;vertical-align:middle}
+.hours-src{margin-top:.9rem;font-size:var(--fs-small);color:var(--text-muted);display:flex;flex-wrap:wrap;gap:.4rem .6rem;align-items:center}
+.addr{margin-top:1.75rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.addr svg{width:44px;height:44px;flex:none;color:var(--gold-deep);background:var(--gold-pale);border-radius:var(--r-sm);padding:10px}
+.addr strong{display:block;font:600 1.2rem var(--font-display)}
+.addr span{color:var(--text-muted)}
+.addr a{color:var(--gold-deep)}
+.transit{margin-top:1.1rem;display:flex;gap:.75rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--paper-2);border-radius:var(--r-md);color:var(--text-muted);font-size:.95rem}
+.transit svg{width:22px;height:22px;flex:none;color:var(--map-rail);margin-top:.1rem}
+.transit strong{color:var(--text)}
+.map-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.25rem);box-shadow:var(--sh-2)}
+.map-card svg{width:100%;height:auto}
+.map text{font-family:var(--font-body);font-weight:600;fill:var(--text)}
+.map .m-lab{font-size:20px}
+.map .m-lab-home{font-size:24px;font-weight:800}
+.map .m-comm{font-size:19px;font-weight:600;fill:var(--text-muted);font-style:italic;font-family:var(--font-display)}
+.map .road-label{font-weight:500;font-size:15px;fill:var(--text-muted)}
+.map .m-grid{fill:none;stroke:var(--ink);stroke-opacity:.05}
+.map .m-bg1{stop-color:var(--map-bg-1)}.map .m-bg2{stop-color:var(--map-bg-2)}
+.map .m-road{fill:none;stroke:var(--map-line);stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.map .m-road-major{stroke-width:12}
+.map .m-rail{fill:none;stroke:var(--map-rail);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+.map .m-rail-tie{fill:none;stroke:var(--white);stroke-width:2;stroke-dasharray:6 10;stroke-linecap:butt}
+.map .m-rail-text{fill:var(--map-rail-text);font-weight:700;font-size:15px}
+.map .m-block{fill:var(--paper-2);stroke:var(--map-line);stroke-width:1}
+.map .m-mall{fill:var(--gold-pale);stroke:var(--gold);stroke-width:2;stroke-linejoin:round;transition:fill .25s}
+.map .m-mall:hover{fill:var(--gold-light)}
+.map .m-stn{fill:var(--map-rail);stroke:var(--white);stroke-width:2.5}
+.map .m-stn-t{fill:var(--white);font-weight:800;font-size:16px;text-anchor:middle;dominant-baseline:central}
+.map .m-pin path{fill:var(--gold);stroke:var(--ink);stroke-width:1.6}
+.map .m-pin circle{fill:var(--ink)}
+.map .m-white{fill:var(--white);stroke:var(--map-line)}
+.map .m-ink{fill:var(--ink)}
+.map .m-leg text{font-size:14px}
+.map .m-foot{font-size:14px;font-weight:500;fill:var(--text-muted)}
+.map-note{font-size:var(--fs-small);color:var(--text-muted);margin-top:.9rem;padding-inline:.5rem}
+
+/* FAQ */
+.faq-sec{background:var(--paper-2)}
+.faq-wrap{max-width:860px;margin-inline:auto}
+.faq-list{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:.25rem 1.5rem;box-shadow:var(--sh-1)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:0}
+.faq-item h3{font-size:1rem}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;background:none;border:0;text-align:left;font:600 1.2rem/1.3 var(--font-display);color:var(--text);cursor:pointer;transition:color .2s}
+.faq-q:hover{color:var(--gold-deep)}
+.faq-q:hover .chev{background:var(--gold-pale)}
+.chev{width:34px;height:34px;flex:none;border-radius:50%;background:var(--paper);display:grid;place-items:center;transition:transform .42s var(--ease),background .25s var(--ease)}
+.chev svg{width:18px;height:18px;stroke-width:2}
+.faq-item.open .chev{transform:rotate(180deg);background:var(--gold)}
+.faq-a{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .42s var(--ease),visibility .42s}
+.faq-item.open .faq-a{grid-template-rows:1fr;visibility:visible}
+.faq-a-inner{overflow:hidden}
+.faq-a p{color:var(--text-muted);padding-bottom:1.35rem;max-width:66ch}
+.faq-a p + p{margin-top:-.6rem}
+.faq-a a{color:var(--gold-deep)}
+
+/* Booking */
+.book-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.5rem,3vw,3rem);align-items:start}
+.contact-card{background:linear-gradient(160deg,var(--ink-2),var(--ink-3));border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.2rem);position:relative;overflow:hidden}
+.contact-card::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,80,.3),transparent 70%);pointer-events:none}
+.big-phone{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font:600 clamp(1.6rem,1rem + 2vw,2.3rem)/1.1 var(--font-display);letter-spacing:-.02em;color:var(--on-dark);padding:.35rem 0;margin:.2rem 0 .5rem;position:relative;transition:color .2s var(--ease)}
+.big-phone svg{width:34px;height:34px;color:var(--gold);flex:none}
+.big-phone:hover{color:var(--gold-light)}
+.contact-card > p{color:var(--on-dark-muted)}
+.contact-facts{margin:1.6rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:.7rem 1rem;position:relative}
+.contact-facts dt{font:800 .72rem/1.5 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}
+.contact-facts dd{margin:0;color:var(--on-dark)}
+.contact-facts dd a{color:var(--gold-light)}
+.form-card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.2rem);transition:height .45s var(--ease)}
+.form-card.is-animating{overflow:clip}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.form,.form-success{transition:opacity .3s var(--ease),transform .4s var(--ease-out)}
+@starting-style{.form:not([hidden]),.form-success:not([hidden]){opacity:0;transform:translateY(14px)}}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field.full{grid-column:1/-1}
+.field label{font:700 .95rem var(--font-body);color:var(--on-dark)}
+.field label span{font:400 .85rem var(--font-body);color:var(--on-dark-muted)}
+.field input,.field select,.field textarea{width:100%;background:var(--ink-3);color:var(--on-dark);border:1px solid rgba(247,240,235,.18);border-radius:var(--r-sm);padding:.9rem 1rem;font:400 1.05rem/1.4 var(--font-body);transition:border-color .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease);min-width:0}
+.field input::placeholder,.field textarea::placeholder{color:var(--on-dark-muted);opacity:.8}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,80,.35)}
+.select-wrap{position:relative}
+.select-wrap select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;cursor:pointer}
+.select-wrap::after{content:"";position:absolute;right:1.1rem;top:50%;width:9px;height:9px;border-right:2px solid var(--gold-light);border-bottom:2px solid var(--gold-light);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:var(--error)}
+.error{font:600 .88rem var(--font-body);color:var(--error);transition:opacity .25s var(--ease)}
+@starting-style{.error:not([hidden]){opacity:0}}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:.4rem}
+.form-note{font-size:var(--fs-small);color:var(--on-dark-muted);flex:1 1 240px}
+.form-success{text-align:center;padding:2.5rem 1rem;display:grid;justify-items:center;gap:.9rem}
+.form-success svg{width:64px;height:64px;color:var(--gold)}
+.form-success h3{font-size:1.7rem}
+.form-success p{color:var(--on-dark-muted);max-width:44ch}
+.form-success .actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:.5rem}
+
+/* Notes panel */
+.notes-sec{padding-top:0;margin-top:-3.5rem;position:relative;z-index:1}
+.notes-panel{border:2px dashed var(--gold-mid);border-radius:var(--r-lg);background:var(--white);box-shadow:var(--sh-2);interpolate-size:allow-keywords}
+.notes-panel::details-content{height:0;overflow:clip}
+.ready .notes-panel::details-content{transition:height .45s var(--ease),content-visibility .45s allow-discrete}
+.notes-panel[open]::details-content{height:auto}
+.notes-panel summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1.25rem,3vw,2rem) clamp(1.5rem,3vw,2.5rem)}
+.notes-panel summary::-webkit-details-marker{display:none}
+.notes-panel summary .eyebrow{margin-bottom:.5rem}
+.notes-panel h2{font-size:clamp(1.4rem,1.1rem + 1.2vw,2.1rem)}
+.notes-panel .chev{background:var(--gold-pale);color:var(--gold-deep)}
+.notes-panel summary:hover .chev{background:var(--gold-light)}
+.notes-panel[open] .chev{transform:rotate(180deg)}
+.notes-body{padding:0 clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,3vw,2.5rem)}
+.notes-intro{color:var(--text-muted);max-width:70ch;margin-bottom:1.5rem}
+.notes-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem 1.6rem}
+.notes-list li{display:flex;gap:.7rem;align-items:flex-start;color:var(--text-muted)}
+.notes-list li strong{color:var(--text)}
+.notes-list svg{width:20px;height:20px;flex:none;color:var(--gold-deep);margin-top:.2rem}
+.notes-list a{color:var(--gold-deep)}
+
+/* Footer */
+.footer{background:var(--ink-2);color:var(--on-dark-muted);padding-block:3.5rem 2rem;border-top:1px solid var(--line-dark);--focus:var(--gold)}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem}
+.foot-title{font:800 .72rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.9rem}
+.foot-desc{margin-top:1rem;max-width:40ch}
+.footer ul{display:grid;gap:.5rem}
+.footer a{color:var(--on-dark);text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:transparent;text-underline-offset:.22em;transition:color .2s var(--ease),text-decoration-color .25s var(--ease)}
+.footer a:hover{color:var(--gold-light);text-decoration-color:currentColor}
+.footer .brand{text-decoration:none}
+.foot-legal{margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.5rem;font-size:var(--fs-small)}
+.foot-legal .todo{font-size:.78rem}
+
+/* Type details (after the components so no font shorthand resets them) */
+.hours .hv,.stat-num,.contact-facts dd,.fig-legend b,.big-phone,.nav-call .num{font-variant-numeric:tabular-nums}
+.step p a,.faq-a a,.addr a,.contact-facts dd a,.quote-card footer a,.notes-list a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:color-mix(in srgb,currentColor 38%,transparent);transition:color .2s var(--ease),text-decoration-color .25s var(--ease)}
+.step p a:hover,.faq-a a:hover,.addr a:hover,.contact-facts dd a:hover,.quote-card footer a:hover,.notes-list a:hover{text-decoration-color:currentColor}
+
+/* Scroll-driven (progressive) */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  }
+}
+@keyframes reveal{from{opacity:.75;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Responsive */
+@media (min-width:1141px){
+  .scene-frame{aspect-ratio:1/1}
+}
+@media (min-width:1001px){
+  .map-card,.why-grid > div:first-child{position:sticky;top:calc(var(--banner-h) + var(--nav-h) + 24px)}
+  .process-grid{align-items:stretch}
+  .steps{grid-auto-rows:1fr}
+}
+@media (min-width:1000px){
+  .grid-svc{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .card-cta{grid-column:1/-1;flex-direction:row;align-items:center;gap:1.5rem 2rem;padding:1.6rem 2rem}
+  .card-cta .cta-top{flex:none}
+  .card-cta h3{margin:0;flex:0 0 auto;max-width:14ch}
+  .card-cta p{flex:1 1 20ch}
+  .card-cta .btn{margin:0 0 0 auto;align-self:center}
+}
+@media (min-width:641px) and (max-width:999px){
+  .card-cta{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"top title" "top text" "top btn";align-items:start;gap:.5rem 1.5rem;padding:1.5rem 1.75rem}
+  .card-cta .cta-top{grid-area:top;flex-direction:column;align-items:flex-start;gap:.75rem}
+  .card-cta h3{grid-area:title;margin:0}
+  .card-cta p{grid-area:text}
+  .card-cta .btn{grid-area:btn;margin:.5rem 0 0;justify-self:start}
+}
+@media (max-width:1140px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{max-width:none}
+  .hero{padding-bottom:clamp(3rem,6vw,5rem)}
+  .hero-visual{max-width:720px;margin-inline:auto;width:100%}
+  .trust-card{position:relative;right:auto;bottom:auto;margin:-2.25rem auto 0;width:min(100%,480px);padding:1rem 1.25rem}
+  .trust-card ul{grid-template-columns:1fr 1fr;gap:.6rem 1rem}
+  .trust-card .tc-head{grid-column:1/-1}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:1000px){
+  .why-grid,.visit-grid,.book-grid,.process-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .draft{flex-wrap:nowrap;justify-content:space-between;text-align:left}
+  .draft span{flex:1 1 auto}
+  .draft-close{flex:none}
+}
+@media (max-width:1180px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{position:absolute;top:100%;left:calc(-1 * var(--gutter));right:calc(-1 * var(--gutter));flex-direction:column;background:var(--ink-2);padding:.75rem var(--gutter) 1.1rem;border-bottom:1px solid var(--line-dark);box-shadow:0 20px 40px -20px rgba(0,0,0,.7);visibility:hidden;opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .3s var(--ease),transform .4s var(--ease-out),visibility 0s .3s}
+  .menu-open .nav-links{visibility:visible;opacity:1;transform:none;pointer-events:auto;transition-delay:0s}
+  .nav-links a{padding:.85rem .5rem;border-radius:var(--r-sm);font-size:1.05rem}
+}
+@media (max-width:640px){
+  :root{--banner-h:63px;--nav-h:62px}
+  html{scroll-padding-top:calc(var(--nav-h) + 16px)}
+  .nav{top:env(safe-area-inset-top,0px)}
+  .brand-mark{width:36px;height:36px}
+  .form{grid-template-columns:1fr}
+  .form-foot .btn{width:100%}
+  .foot-grid{grid-template-columns:1fr}
+  .brand-name small{display:none}
+  .nav-call .num{display:none}
+  .nav-call .call-word{display:inline}
+  .trust-card ul{grid-template-columns:1fr}
+  .contact-facts{grid-template-columns:1fr;gap:.2rem .5rem}
+  .contact-facts dd{margin-bottom:.6rem}
+  .cta-row .btn{width:100%}
+  .draft{position:absolute;font-size:.78rem;padding-block:.4rem}
+  .grid-svc{grid-template-columns:1fr}
+  .card{grid-template-columns:auto 1fr;grid-template-areas:"icon tag" "icon title" "icon text" "price price";gap:.3rem 1rem;padding:1.15rem 1.2rem}
+  .svc-icon{width:46px;height:46px;border-radius:12px}
+  .svc-icon svg{width:26px;height:26px}
+  .card .tag{justify-self:start}
+  .card h3{font-size:1.25rem;margin-top:0}
+  .card p{font-size:.95rem}
+  .card-cta{display:flex}
+  .card-cta .svc-icon{width:58px;height:58px}
+  .tiles{gap:.8rem}
+  .tile-lbl{font-size:.92rem;left:.65rem;bottom:.65rem}
+  .ph-pill{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}
+  .ph-pill span{display:none}
+  .map .road-label,.map .m-leg,.map .m-comm{display:none}
+  .map .m-foot{font-size:20px}
+  .fig-legend{grid-template-columns:1fr 1fr}
+  .owner-note{grid-template-columns:1fr}
+  .hours{padding-inline:1rem}
+  .hours li{flex-wrap:nowrap;align-items:flex-start}
+  .hours .hd{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem}
+  .hours .now{margin-left:0}
+  .hours .hv{font-size:1rem}
+  .stat-num{font-size:2.1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .stage,.reveal,.glow-breathe,.bulb,.steam{animation:none}
+  .steam{opacity:.35}
+  .ticker-track{animation:none;width:100%;flex-wrap:wrap}
+  .ticker-list{flex-wrap:wrap;justify-content:center;gap:.5rem 0}
+  .ticker-list[aria-hidden="true"]{display:none}
+  .ticker::before,.ticker::after{display:none}
+  .layer{transition:none;transform:none}
+  .notes-panel::details-content{transition:none}
+  *,*::before,*::after{transition-duration:.01ms !important;transition-delay:0s !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="draft" id="draft-banner" role="note" aria-label="Draft notice">
+  <span>Draft website proposal for Westbrook Hair Styling &amp; Barber Shop — not live. Prepared by Adeel Ahmed (Sites by Adeel), Calgary.</span>
+  <button class="draft-close" id="draft-close" type="button">Close</button>
+</div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Westbrook Hair Styling and Barber Shop, back to top">
+      <svg class="brand-mark" viewBox="0 0 42 42" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="bm-a"/><stop offset="1" class="bm-b"/></linearGradient></defs>
+        <rect width="42" height="42" rx="12" fill="url(#bm)"/>
+        <path class="bm-ink" d="M9 12l5 18 7-13 7 13 5-18" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="bm-dot" cx="21" cy="9.5" r="2"/>
+      </svg>
+      <span class="brand-name">Westbrook<small>Hair Styling &amp; Barber Shop</small></span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#shop">The shop</a>
+      <a href="#why">Reviews</a>
+      <a href="#visit">Hours &amp; location</a>
+      <a href="#faq">FAQ</a>
+      <a href="#book">Book</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-call" href="tel:+14032420528">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+        <span class="num">(403) 242-0528</span><span class="call-word">Call</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+<!-- HERO -->
+<section class="hero dark" id="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow stage s1">Westbrook Mall · SW Calgary · <span class="nowrap">Open 7 days</span></p>
+      <h1 id="hero-title" class="stage s2">Cuts, shaves and styling, <em>steps from the Westbrook <span class="nowrap">C-Train</span></em></h1>
+      <p class="lede stage s3">Westbrook Hair Styling &amp; Barber Shop is inside Westbrook Mall on 37 Street SW — hair styling and barbering under one roof, seven days a week.</p>
+      <div class="cta-row stage s4">
+        <a class="btn btn-primary btn-lg" href="tel:+14032420528">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          Call (403) 242-0528
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#book">Request a time</a>
+      </div>
+    </div>
+
+    <div class="hero-visual stage s3">
+      <div class="scene-frame">
+        <svg class="scene" id="scene" viewBox="0 0 960 640" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="scene-title scene-desc">
+          <title id="scene-title">Illustration of a barber's counter: scissors, comb, straight razor and a hot towel under a lit mirror</title>
+          <desc id="scene-desc">A stylised still-life illustration made for this draft. It is not a photo of Westbrook Hair Styling and Barber Shop.</desc>
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F292A"/><stop offset="1" stop-color="#1D1819"/></linearGradient>
+            <radialGradient id="goldGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE9AE" stop-opacity=".5"/><stop offset=".45" stop-color="#E4C87C" stop-opacity=".18"/><stop offset="1" stop-color="#E4C87C" stop-opacity="0"/></radialGradient>
+            <radialGradient id="blushGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E9D2C9" stop-opacity=".32"/><stop offset="1" stop-color="#E9D2C9" stop-opacity="0"/></radialGradient>
+            <linearGradient id="mirrorRim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3E6C4"/><stop offset=".45" stop-color="#C9A250"/><stop offset=".7" stop-color="#8E6A22"/><stop offset="1" stop-color="#E4C87C"/></linearGradient>
+            <linearGradient id="mirrorGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8EBE3"/><stop offset=".5" stop-color="#E6CBBE"/><stop offset="1" stop-color="#C9A69C"/></linearGradient>
+            <radialGradient id="bulbGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE9AE" stop-opacity=".85"/><stop offset=".4" stop-color="#FFE9AE" stop-opacity=".25"/><stop offset="1" stop-color="#FFE9AE" stop-opacity="0"/></radialGradient>
+            <linearGradient id="counter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D3334"/><stop offset="1" stop-color="#231D1E"/></linearGradient>
+            <linearGradient id="counterEdge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E4C87C" stop-opacity="0"/><stop offset=".5" stop-color="#E4C87C" stop-opacity=".7"/><stop offset="1" stop-color="#E4C87C" stop-opacity="0"/></linearGradient>
+            <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F1EF"/><stop offset=".5" stop-color="#B9B4B1"/><stop offset="1" stop-color="#E8E4E1"/></linearGradient>
+            <linearGradient id="steelDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A8A29F"/><stop offset="1" stop-color="#6F6968"/></linearGradient>
+            <linearGradient id="goldHandle" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E6C4"/><stop offset=".5" stop-color="#C9A250"/><stop offset="1" stop-color="#8E6A22"/></linearGradient>
+            <linearGradient id="towel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF8F4"/><stop offset=".6" stop-color="#EDE0D8"/><stop offset="1" stop-color="#D5C5BC"/></linearGradient>
+            <linearGradient id="amber" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5B3A12"/><stop offset=".4" stop-color="#A6742E"/><stop offset="1" stop-color="#6B4416"/></linearGradient>
+            <linearGradient id="combBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A3233"/><stop offset="1" stop-color="#110E0F"/></linearGradient>
+            <radialGradient id="vig" cx=".5" cy=".5" r=".72"><stop offset=".55" stop-color="#1D1819" stop-opacity="0"/><stop offset="1" stop-color="#1D1819" stop-opacity=".6"/></radialGradient>
+            <pattern id="teeth" x="110" y="500" width="9" height="24" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="3.4" height="24" rx="1.2" fill="#1A1516"/></pattern>
+          </defs>
+          <g class="layer layer-far">
+            <rect x="-40" y="-30" width="1040" height="700" fill="url(#bg)"/>
+            <circle class="glow-breathe" cx="700" cy="150" r="320" fill="url(#goldGlow)"/>
+            <circle cx="110" cy="580" r="280" fill="url(#blushGlow)"/>
+            <g fill="#FFE9AE" opacity=".55">
+              <circle cx="90" cy="90" r="1.6"/><circle cx="180" cy="170" r="1.2"/><circle cx="260" cy="60" r="1.4"/><circle cx="330" cy="140" r="1.1"/><circle cx="820" cy="380" r="1.5"/><circle cx="890" cy="300" r="1.2"/><circle cx="140" cy="300" r="1"/><circle cx="60" cy="240" r="1.3"/><circle cx="900" cy="120" r="1"/><circle cx="240" cy="260" r="1.2"/>
+            </g>
+            <circle cx="560" cy="250" r="180" fill="#1A1516" opacity=".5"/>
+            <circle cx="560" cy="250" r="172" fill="url(#mirrorGlass)"/>
+            <ellipse cx="505" cy="190" rx="62" ry="112" fill="#FFF8F2" opacity=".28" transform="rotate(-28 505 190)"/>
+            <path d="M420 300 C 470 380, 620 390, 690 300" fill="none" stroke="#C9A250" stroke-opacity=".28" stroke-width="18" stroke-linecap="round"/>
+            <circle cx="560" cy="250" r="172" fill="none" stroke="url(#mirrorRim)" stroke-width="16"/>
+            <circle cx="560" cy="250" r="163" fill="none" stroke="#1D1819" stroke-opacity=".45" stroke-width="2"/>
+            <g>
+              <g class="bulb"><circle cx="733" cy="150" r="34" fill="url(#bulbGlow)"/><circle cx="733" cy="150" r="9" fill="#FFF1C9"/></g>
+              <g class="bulb"><circle cx="660" cy="77" r="34" fill="url(#bulbGlow)"/><circle cx="660" cy="77" r="9" fill="#FFF1C9"/></g>
+              <g class="bulb"><circle cx="560" cy="50" r="34" fill="url(#bulbGlow)"/><circle cx="560" cy="50" r="9" fill="#FFF1C9"/></g>
+              <g class="bulb"><circle cx="460" cy="77" r="34" fill="url(#bulbGlow)"/><circle cx="460" cy="77" r="9" fill="#FFF1C9"/></g>
+              <g class="bulb"><circle cx="387" cy="150" r="34" fill="url(#bulbGlow)"/><circle cx="387" cy="150" r="9" fill="#FFF1C9"/></g>
+            </g>
+            <rect x="-40" y="436" width="1040" height="234" fill="url(#counter)"/>
+            <rect x="-40" y="433" width="1040" height="5" fill="url(#counterEdge)"/>
+            <path d="M-40 520 C 200 512, 520 530, 1000 516" fill="none" stroke="#F7F0EB" stroke-opacity=".05" stroke-width="2"/>
+          </g>
+          <g class="layer layer-mid">
+            <ellipse cx="235" cy="446" rx="118" ry="12" fill="#0E0B0C" opacity=".45"/>
+            <g transform="translate(130 380)">
+              <g fill="none" stroke="#FBF5F1" stroke-opacity=".45" stroke-width="3" stroke-linecap="round">
+                <path class="steam" d="M60 -8 C 48 -28, 72 -44, 60 -66"/>
+                <path class="steam" d="M112 -4 C 100 -24, 124 -40, 112 -62"/>
+                <path class="steam" d="M164 -10 C 152 -30, 176 -46, 164 -68"/>
+              </g>
+              <rect x="0" y="0" width="210" height="64" rx="32" fill="url(#towel)"/>
+              <path d="M52 6 C 70 28, 70 40, 52 58 M100 6 C 118 28, 118 40, 100 58 M148 6 C 166 28, 166 40, 148 58" fill="none" stroke="#CDBDB4" stroke-opacity=".6" stroke-width="2"/>
+              <circle cx="210" cy="32" r="32" fill="#F3E8E1"/><circle cx="210" cy="32" r="21" fill="#DED0C8"/><circle cx="210" cy="32" r="11" fill="#C9B9B0"/><circle cx="210" cy="32" r="4" fill="#B5A49B"/>
+            </g>
+            <ellipse cx="800" cy="450" rx="46" ry="8" fill="#0E0B0C" opacity=".45"/>
+            <g transform="translate(770 296)">
+              <rect x="0" y="40" width="58" height="112" rx="12" fill="url(#amber)"/>
+              <rect x="17" y="10" width="24" height="34" fill="url(#amber)"/>
+              <rect x="12" y="0" width="34" height="14" rx="5" fill="url(#goldHandle)"/>
+              <rect x="8" y="78" width="42" height="42" rx="6" fill="#F7F0EB" opacity=".93"/>
+              <path d="M16 92h26M16 101h18M16 110h22" stroke="#A6812C" stroke-width="2" stroke-linecap="round"/>
+              <rect x="6" y="50" width="7" height="90" rx="3.5" fill="#FFFFFF" opacity=".16"/>
+            </g>
+            <ellipse cx="706" cy="436" rx="30" ry="6" fill="#0E0B0C" opacity=".4"/>
+            <g transform="translate(690 336)">
+              <path d="M-4 28 C -4 -2, 40 -2, 40 28 Z" fill="#F1E6DE"/>
+              <path d="M4 26 C 6 12, 10 8, 14 4 M22 4 C 26 8, 30 12, 32 26" fill="none" stroke="#D5C5BC" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="0" y="28" width="36" height="9" fill="url(#goldHandle)"/>
+              <path d="M2 37 C -2 60, -2 80, 6 96 L30 96 C 38 80, 38 60, 34 37 Z" fill="#1F1A1B"/>
+              <path d="M8 44 C 6 60, 6 76, 10 90" fill="none" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="2"/>
+            </g>
+          </g>
+          <g class="layer layer-near">
+            <ellipse cx="270" cy="522" rx="170" ry="12" fill="#0E0B0C" opacity=".45"/>
+            <g transform="rotate(-9 270 486)">
+              <rect x="110" y="468" width="320" height="33" rx="9" fill="url(#combBody)"/>
+              <rect x="116" y="500" width="308" height="22" fill="url(#teeth)"/>
+              <rect x="122" y="473" width="296" height="3" rx="1.5" fill="#FFFFFF" opacity=".12"/>
+              <rect x="122" y="490" width="60" height="4" rx="2" fill="#C9A250" opacity=".7"/>
+            </g>
+            <g transform="translate(-120 -24)">
+              <ellipse cx="720" cy="600" rx="150" ry="12" fill="#0E0B0C" opacity=".45"/>
+              <g>
+                <path d="M612 560 L546 468 L592 452 L644 556 Z" fill="url(#steel)"/>
+                <path d="M548 468 L592 452" stroke="#A6812C" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M560 470 L600 548" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="1.2"/>
+                <g transform="rotate(14 720 566)">
+                  <rect x="612" y="552" width="222" height="28" rx="14" fill="url(#combBody)"/>
+                  <rect x="624" y="558" width="196" height="3" rx="1.5" fill="#FFFFFF" opacity=".1"/>
+                  <circle cx="642" cy="566" r="4" fill="url(#goldHandle)"/><circle cx="812" cy="566" r="4" fill="url(#goldHandle)"/>
+                </g>
+                <circle cx="620" cy="562" r="8" fill="url(#goldHandle)"/><circle cx="620" cy="562" r="2.8" fill="#231F20"/>
+              </g>
+            </g>
+            <ellipse cx="500" cy="536" rx="200" ry="14" fill="#0E0B0C" opacity=".4"/>
+            <g>
+              <path d="M430 470 L664 394 L656 410 L438 490 Z" fill="url(#steelDark)"/>
+              <path d="M430 470 L654 354 L650 372 L440 486 Z" fill="url(#steel)"/>
+              <path d="M446 470 L640 366" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="1.2"/>
+              <path d="M430 470 L368 522" stroke="url(#goldHandle)" stroke-width="11" stroke-linecap="round"/>
+              <ellipse cx="342" cy="542" rx="31" ry="22" transform="rotate(-38 342 542)" fill="none" stroke="url(#goldHandle)" stroke-width="11"/>
+              <path d="M430 470 L400 548" stroke="url(#goldHandle)" stroke-width="11" stroke-linecap="round"/>
+              <ellipse cx="386" cy="576" rx="27" ry="22" transform="rotate(-62 386 576)" fill="none" stroke="url(#goldHandle)" stroke-width="11"/>
+              <circle cx="430" cy="470" r="9" fill="url(#goldHandle)"/>
+              <circle cx="430" cy="470" r="3.2" fill="#231F20"/>
+            </g>
+          </g>
+          <rect x="-40" y="-30" width="1040" height="700" fill="url(#vig)"/>
+        </svg>
+      </div>
+      <div class="trust-card stage s6" role="group" aria-label="At a glance">
+        <ul>
+          <li class="tc-head"><span>At a glance</span><span>Westbrook Mall</span></li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><div>4.3 out of 5 on Google<small>149 reviews, gathered by Birdeye</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div>Open 7 days a week<small>Hours below — as stated by the shop</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div>Unit 32, Westbrook Mall<small>Beside the Westbrook C-Train station</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><div>Ask for Ali<small>(403) 242-0528</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<section class="ticker dark" aria-label="Services at a glance">
+  <div class="ticker-track">
+    <ul class="ticker-list">
+      <li>Men’s haircut</li><li>Beard trim</li><li>Head shave</li><li>Hot towel shave</li><li>Haircut &amp; shave</li><li>Hair styling</li><li>Open 7 days</li><li>Westbrook Mall, 37 St SW</li><li>Ask for Ali</li>
+    </ul>
+    <ul class="ticker-list" aria-hidden="true">
+      <li>Men’s haircut</li><li>Beard trim</li><li>Head shave</li><li>Hot towel shave</li><li>Haircut &amp; shave</li><li>Hair styling</li><li>Open 7 days</li><li>Westbrook Mall, 37 St SW</li><li>Ask for Ali</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The menu</p>
+      <h2 id="services-title">Barbering and hair styling, <em>the classic way</em></h2>
+      <p class="sub">The services listed publicly for the shop. No prices are published anywhere yet, so every line is waiting on a number from Ali.</p>
+    </div>
+    <div class="grid-svc reveal">
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><circle cx="8" cy="24" r="4"/><path d="M11.2 10.6L28 22M11.2 21.4L28 10"/><circle class="acc" cx="18.6" cy="16" r="1.6" stroke="none"/></svg></div>
+        <span class="tag">Hair &amp; styling</span>
+        <h3>Men’s haircut</h3>
+        <p>A quick word about what you want, the cut itself, and a clean finish at the neck and around the ears.</p>
+        <div class="price"><span>Price</span><span class="dots" aria-hidden="true"></span><span class="todo">To confirm</span></div>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7c0-2.5 2-4 4.5-4h5C21 3 23 4.5 23 7v9c0 6-4 11-7 11S9 22 9 16z"/><path d="M9 14c2 0 3 2 3 4M23 14c-2 0-3 2-3 4"/><path d="M12.5 21c1 1.5 2.3 2.2 3.5 2.2S18.5 22.5 19.5 21"/><circle class="acc" cx="13" cy="11" r="1.2" stroke="none"/><circle class="acc" cx="19" cy="11" r="1.2" stroke="none"/></svg></div>
+        <span class="tag">Barbering</span>
+        <h3>Beard trim</h3>
+        <p>Shaped, tapered and lined up, with the neckline and cheek line decided on purpose rather than left to chance.</p>
+        <div class="price"><span>Price</span><span class="dots" aria-hidden="true"></span><span class="todo">To confirm</span></div>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 27c0-4 2-7 5-8"/><circle cx="12" cy="11" r="6.5"/><path d="M18 26l8-8M25 17l3 3-3 3"/><path class="acc-stroke" d="M18 26l-3 3"/></svg></div>
+        <span class="tag">Barbering</span>
+        <h3>Head shave</h3>
+        <p>Down to the skin, with warm prep first so the blade glides instead of drags.</p>
+        <div class="price"><span>Price</span><span class="dots" aria-hidden="true"></span><span class="todo">To confirm</span></div>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h22v3a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><rect x="8" y="13" width="16" height="8" rx="4"/><path class="acc-stroke" d="M12 9c-1-2 1-3 0-5M17 9c-1-2 1-3 0-5M22 9c-1-2 1-3 0-5"/></svg></div>
+        <span class="tag">Barbering</span>
+        <h3>Hot towel shave</h3>
+        <p>The old-school ritual: a hot towel to open things up, lather, a straight razor, then a cool towel to close.</p>
+        <div class="price"><span>Price</span><span class="dots" aria-hidden="true"></span><span class="todo">To confirm</span></div>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="7" r="2.5"/><circle cx="5" cy="17" r="2.5"/><path d="M7 8.5l10 6.5M7 15.5l10-6.5"/><path d="M18 26l8-8M25 17l3 3-3 3"/><circle class="acc" cx="12" cy="12" r="1.2" stroke="none"/></svg></div>
+        <span class="tag">Combination</span>
+        <h3>Haircut &amp; shave</h3>
+        <p>Both in one sitting — the cut first, then the shave while the towel is still warm.</p>
+        <div class="price"><span>Price</span><span class="dots" aria-hidden="true"></span><span class="todo">To confirm</span></div>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h5v22H5z"/><path d="M10 9h3M10 13h3M10 17h3M10 21h3M10 25h3"/><path d="M17 8h8a4 4 0 0 1 0 8h-8z"/><path d="M17 16l-1.5 9h5l1-9"/><circle class="acc" cx="25" cy="12" r="1.3" stroke="none"/></svg></div>
+        <span class="tag tbc">To confirm</span>
+        <h3>Hair styling</h3>
+        <p>It is half the shop’s name. Exactly what the styling side covers — who it is for, and what beyond a cut — is to confirm with Ali before it goes on the menu.</p>
+        <div class="price"><span>Price</span><span class="dots" aria-hidden="true"></span><span class="todo">To confirm</span></div>
+      </article>
+      <article class="card card-cta">
+        <div class="cta-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h5l2.5 6.5L11 13a14 14 0 0 0 8 8l2.5-3.5L28 20v5a3 3 0 0 1-3 3A21 21 0 0 1 4 7a3 3 0 0 1 3-3z"/></svg></div>
+          <span class="tag">Not sure?</span>
+        </div>
+        <h3>Describe it. Ask for Ali.</h3>
+        <p>Not on the list, or not sure what to call it? Ring the shop and say what you are after.</p>
+        <a class="btn btn-primary" href="tel:+14032420528">Call (403) 242-0528</a>
+      </article>
+    </div>
+    <div class="menu-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+      <p><strong>Note for Ali:</strong> the first five items come from the shop’s public directory listings. Send the full price list and anything missing — kids’ cuts, line-ups, colour, women’s services — and the menu fills in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section dark" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How a visit goes</p>
+      <h2 id="process-title">Sit down, <em>walk out sharp</em></h2>
+      <p class="sub">From the first call to the last look in the mirror.</p>
+    </div>
+    <div class="process-grid">
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">01</span>
+          <h3>Call, or come by</h3>
+          <p>Ring <a href="tel:+14032420528">(403) 242-0528</a> to ask about a time, or find Unit 32 inside Westbrook Mall on 37 Street SW.</p>
+          <span class="todo">To confirm with Ali: walk-ins, appointments, or both?</span>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">02</span>
+          <h3>The consult</h3>
+          <p>Say what you want, or show a photo. A good barber asks how you style it, how your hair grows and how long the cut should hold before the next visit.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">03</span>
+          <h3>The cut, then the finish</h3>
+          <p>Then the details: crisp edges, a hot towel if you came for the shave, and a proper look in the mirror before you leave.</p>
+          <span class="todo">To confirm with Ali: payment methods, gift cards</span>
+        </li>
+      </ol>
+      <figure class="fig-card reveal">
+        <svg class="fig" viewBox="0 0 640 520" role="img" aria-labelledby="fig-title fig-desc">
+          <title id="fig-title">Diagram: the anatomy of a fade</title>
+          <desc id="fig-desc">A stylised side profile of a head showing how a fade moves from skin at the neckline through progressively longer clipper guards into a blend and the length left on top. Numbered callouts match the legend below the drawing.</desc>
+          <defs>
+            <pattern id="f-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" class="fg-grid"/></pattern>
+            <clipPath id="f-hair"><path d="M448 152 C 430 90, 330 62, 262 104 C 190 150, 168 260, 190 340 C 205 388, 232 400, 250 402 C 268 382, 300 362, 318 332 C 306 302, 318 272, 344 262 C 378 236, 416 202, 448 152 Z"/></clipPath>
+            <linearGradient id="f-blend" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2425"/><stop offset="1" stop-color="#6E5A54"/></linearGradient>
+          </defs>
+          <rect width="640" height="520" rx="16" class="fg-paper"/>
+          <rect width="640" height="520" rx="16" fill="url(#f-grid)"/>
+          <text x="26" y="36" class="fg-eyebrow">FIG. 01</text>
+          <text x="26" y="66" class="fg-title">Anatomy of a fade</text>
+          <text x="614" y="36" text-anchor="end" class="fg-eyebrow fg-mute">NOT TO SCALE</text>
+          <path d="M26 82H614" class="fg-rule"/>
+          <path class="fg-skin" d="M250 470 L250 402 C 170 362, 160 222, 230 132 C 300 62, 430 72, 452 162 C 462 202, 442 214, 456 232 C 480 264, 462 274, 448 288 C 440 294, 452 302, 448 312 C 452 324, 440 334, 446 348 C 440 374, 400 394, 350 398 C 340 422, 340 442, 342 470 Z"/>
+          <g clip-path="url(#f-hair)">
+            <rect x="150" y="332" width="320" height="80" fill="#E8CFC3"/>
+            <rect x="150" y="302" width="320" height="30" fill="#C4A89B"/>
+            <rect x="150" y="272" width="320" height="30" fill="#9C8177"/>
+            <rect x="150" y="236" width="320" height="36" fill="#6E5A54"/>
+            <rect x="150" y="190" width="320" height="46" fill="url(#f-blend)"/>
+            <rect x="150" y="40" width="320" height="150" fill="#2A2425"/>
+            <path d="M270 110 C 300 92, 350 86, 400 96 M262 132 C 300 112, 360 104, 420 116 M270 156 C 310 134, 370 128, 428 138" class="fg-strand"/>
+          </g>
+          <path d="M448 152 C 430 90, 330 62, 262 104 C 190 150, 168 260, 190 340 C 205 388, 232 400, 250 402 C 268 382, 300 362, 318 332 C 306 302, 318 272, 344 262 C 378 236, 416 202, 448 152 Z" class="fg-thin"/>
+          <path class="fg-ear" d="M332 268 C 318 262, 310 280, 314 298 C 318 314, 330 322, 338 312 C 344 302, 342 276, 332 268 Z"/>
+          <path d="M328 282 C 322 288, 324 302, 330 306" class="fg-thin"/>
+          <path d="M448 152 L 410 208" class="fg-line"/>
+          <path d="M150 402 H 470" class="fg-dash"/>
+          <text x="478" y="406" class="fg-lab">Neckline</text>
+          <path d="M256 388 H 98" class="fg-ldr"/>
+          <path d="M186 316 H 98" class="fg-ldr"/>
+          <path d="M180 286 H 98" class="fg-ldr"/>
+          <path d="M176 252 H 98" class="fg-ldr"/>
+          <path d="M182 212 H 98" class="fg-ldr"/>
+          <path d="M226 130 H 98" class="fg-ldr"/>
+          <path d="M432 176 L 546 176" class="fg-ldr"/>
+          <g class="fg-co">
+            <circle cx="80" cy="388" r="16"/><text x="80" y="388">1</text>
+            <circle cx="80" cy="316" r="16"/><text x="80" y="316">2</text>
+            <circle cx="80" cy="286" r="16"/><text x="80" y="286">3</text>
+            <circle cx="80" cy="252" r="16"/><text x="80" y="252">4</text>
+            <circle cx="80" cy="212" r="16"/><text x="80" y="212">5</text>
+            <circle cx="80" cy="130" r="16"/><text x="80" y="130">6</text>
+            <circle cx="564" cy="176" r="16"/><text x="564" y="176">7</text>
+          </g>
+        </svg>
+        <ol class="fig-legend">
+          <li><b>1</b>Skin at the neckline and around the ear</li>
+          <li><b>2</b>#0.5 guard, about 1.5 mm</li>
+          <li><b>3</b>#1 guard, about 3 mm</li>
+          <li><b>4</b>#2 guard, about 6 mm</li>
+          <li><b>5</b>The blend — where the lengths disappear into each other</li>
+          <li><b>6</b>Length left on top, cut with scissors or a longer guard</li>
+          <li><b>7</b>Line-up along the hairline and temple</li>
+        </ol>
+        <figcaption class="fig-cap"><b>Fig. 01</b><span>What a barber is doing when the clippers keep changing — general trade knowledge, not a description of any one shop’s technique.</span></figcaption>
+      </figure>
+    </div>
+    <div class="process-cta">
+      <p>Ready for a chair? The phone is fastest.</p>
+      <a class="btn btn-primary" href="tel:+14032420528"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Call (403) 242-0528</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE SHOP / GALLERY -->
+<section class="section" id="shop" aria-labelledby="shop-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The shop</p>
+      <h2 id="shop-title">Your chairs, your storefront, <em>your work</em></h2>
+      <p class="sub">Four tiles designed for real photos of the shop. Until those arrive they are illustrations, not pictures of Westbrook.</p>
+    </div>
+    <div class="tiles reveal">
+      <article class="tile">
+        <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><linearGradient id="t1a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F292A"/><stop offset="1" stop-color="#1D1819"/></linearGradient><linearGradient id="t1g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3E6C4"/><stop offset=".5" stop-color="#C9A250"/><stop offset="1" stop-color="#8E6A22"/></linearGradient><linearGradient id="t1w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9D2C9" stop-opacity=".5"/><stop offset=".5" stop-color="#FBF5F1" stop-opacity=".15"/><stop offset="1" stop-color="#E9D2C9" stop-opacity=".4"/></linearGradient></defs><rect width="300" height="375" fill="url(#t1a)"/><rect x="0" y="300" width="300" height="75" fill="#EFE3DC"/><rect x="0" y="300" width="300" height="4" fill="#C9A250" opacity=".6"/><rect x="20" y="40" width="260" height="58" rx="8" fill="url(#t1g)"/><g fill="#231F20"><rect x="44" y="58" width="22" height="22" rx="3"/><rect x="72" y="58" width="22" height="22" rx="3"/><rect x="100" y="58" width="22" height="22" rx="3"/><rect x="128" y="58" width="22" height="22" rx="3"/><rect x="156" y="58" width="22" height="22" rx="3"/><rect x="184" y="58" width="22" height="22" rx="3"/><rect x="212" y="58" width="22" height="22" rx="3"/><rect x="240" y="58" width="22" height="22" rx="3"/></g><rect x="20" y="112" width="160" height="188" rx="4" fill="#3B3334"/><rect x="26" y="118" width="148" height="176" rx="3" fill="url(#t1w)"/><path d="M40 118 L120 294 M70 118 L150 294" stroke="#FBF5F1" stroke-opacity=".12" stroke-width="10"/><rect x="196" y="112" width="84" height="188" rx="4" fill="#3B3334"/><rect x="202" y="118" width="72" height="176" rx="3" fill="#2A2425"/><rect x="234" y="196" width="10" height="26" rx="4" fill="#C9A250"/><g><rect x="256" y="130" width="14" height="80" rx="7" fill="#F7F0EB"/><path d="M256 130 h14 v13 h-14z M256 156 h14 v13 h-14z M256 182 h14 v13 h-14z" fill="#C0392B"/><path d="M256 143 h14 v13 h-14z M256 169 h14 v13 h-14z" fill="#3A6EA5"/></g></svg>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Your photo here</span></span></div>
+        <div class="tile-lbl"><small>Placeholder</small>The storefront at Westbrook Mall</div>
+      </article>
+      <article class="tile">
+        <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><linearGradient id="t2a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EFE3DC"/><stop offset="1" stop-color="#E9D2C9"/></linearGradient><linearGradient id="t2s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F3E6C4"/><stop offset=".5" stop-color="#C9A250"/><stop offset="1" stop-color="#8E6A22"/></linearGradient></defs><rect width="300" height="375" fill="url(#t2a)"/><rect x="0" y="0" width="300" height="200" fill="#F7F0EB"/><rect x="0" y="200" width="300" height="6" fill="#C9A250" opacity=".5"/><rect x="0" y="270" width="300" height="105" fill="#3B3334"/><g><rect x="70" y="118" width="90" height="120" rx="14" fill="#231F20"/><rect x="60" y="176" width="110" height="34" rx="10" fill="#2F292A"/><rect x="56" y="206" width="16" height="30" rx="4" fill="#231F20"/><rect x="158" y="206" width="16" height="30" rx="4" fill="#231F20"/><rect x="108" y="236" width="14" height="34" fill="url(#t2s)"/><path d="M78 270 h74 l-8 -10 h-58 z" fill="url(#t2s)"/><rect x="82" y="128" width="66" height="4" rx="2" fill="#C9A250" opacity=".6"/></g><g transform="translate(120 0) scale(.72)" opacity=".85"><rect x="70" y="118" width="90" height="120" rx="14" fill="#231F20"/><rect x="60" y="176" width="110" height="34" rx="10" fill="#2F292A"/><rect x="56" y="206" width="16" height="30" rx="4" fill="#231F20"/><rect x="158" y="206" width="16" height="30" rx="4" fill="#231F20"/><rect x="108" y="236" width="14" height="34" fill="url(#t2s)"/><path d="M78 270 h74 l-8 -10 h-58 z" fill="url(#t2s)"/></g><circle cx="40" cy="60" r="26" fill="#E9D2C9" stroke="url(#t2s)" stroke-width="4"/><circle cx="262" cy="70" r="20" fill="#E9D2C9" stroke="url(#t2s)" stroke-width="4"/></svg>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Your photo here</span></span></div>
+        <div class="tile-lbl"><small>Placeholder</small>The chairs</div>
+      </article>
+      <article class="tile">
+        <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><radialGradient id="t3a" cx=".5" cy=".3" r=".8"><stop offset="0" stop-color="#4A4041"/><stop offset="1" stop-color="#1D1819"/></radialGradient><linearGradient id="t3f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2425"/><stop offset=".45" stop-color="#3D3233"/><stop offset=".7" stop-color="#8A7168"/><stop offset=".9" stop-color="#D8BDB1"/><stop offset="1" stop-color="#F0DCD2"/></linearGradient></defs><rect width="300" height="375" fill="url(#t3a)"/><circle cx="150" cy="120" r="150" fill="#E4C87C" opacity=".08"/><path d="M92 300 C 88 250, 80 210, 96 170 C 110 130, 190 130, 204 170 C 220 210, 212 250, 208 300 Z" fill="#F0DCD2"/><path d="M84 190 C 78 130, 110 92, 150 90 C 190 92, 222 130, 216 190 C 212 226, 206 250, 200 272 C 190 240, 180 214, 170 196 C 160 206, 140 206, 130 196 C 120 214, 110 240, 100 272 C 94 250, 88 226, 84 190 Z" fill="url(#t3f)"/><path d="M104 122 C 130 104, 170 104, 196 122 M98 142 C 128 120, 172 120, 202 142" stroke="#E4C87C" stroke-opacity=".5" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="60" y="300" width="180" height="75" fill="#3B3334"/></svg>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Your photo here</span></span></div>
+        <div class="tile-lbl"><small>Placeholder</small>A fresh cut, from behind</div>
+      </article>
+      <article class="tile">
+        <svg viewBox="0 0 300 375" aria-hidden="true" focusable="false"><defs><linearGradient id="t4a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F292A"/><stop offset="1" stop-color="#3D3334"/></linearGradient><linearGradient id="t4t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF8F4"/><stop offset=".6" stop-color="#EDE0D8"/><stop offset="1" stop-color="#D5C5BC"/></linearGradient><linearGradient id="t4g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8E6A22"/><stop offset=".5" stop-color="#E4C87C"/><stop offset="1" stop-color="#8E6A22"/></linearGradient></defs><rect width="300" height="375" fill="url(#t4a)"/><circle cx="150" cy="150" r="120" fill="#FFE9AE" opacity=".1"/><ellipse cx="150" cy="262" rx="120" ry="18" fill="url(#t4g)"/><ellipse cx="150" cy="256" rx="112" ry="14" fill="#231F20"/><rect x="60" y="186" width="150" height="56" rx="28" fill="url(#t4t)"/><path d="M96 190 C 112 210, 112 222, 96 238 M132 190 C 148 210, 148 222, 132 238 M168 190 C 184 210, 184 222, 168 238" stroke="#CDBDB4" stroke-width="2" fill="none"/><circle cx="210" cy="214" r="28" fill="#F3E8E1"/><circle cx="210" cy="214" r="18" fill="#DED0C8"/><circle cx="210" cy="214" r="9" fill="#C9B9B0"/><g fill="none" stroke="#FBF5F1" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"><path d="M100 170 C 90 150, 110 136, 100 116"/><path d="M140 166 C 130 146, 150 132, 140 112"/><path d="M180 172 C 170 152, 190 138, 180 118"/></g></svg>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Your photo here</span></span></div>
+        <div class="tile-lbl"><small>Placeholder</small>The hot towel</div>
+      </article>
+    </div>
+    <div class="photo-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+      <p><strong>Note for Ali:</strong> phone photos are enough — the storefront sign, the chairs from the door, a couple of finished cuts with the customer’s say-so. The shop’s Instagram already has some; they can be reused here. No stock photos will ever be shown as your shop.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BAND -->
+<section class="section why" id="why" aria-labelledby="why-title">
+  <div class="wrap why-grid">
+    <div>
+      <div class="section-head tight reveal">
+        <p class="eyebrow">Why people keep coming back</p>
+        <h2 id="why-title">Rated by the people <em>in the chair</em></h2>
+        <p class="sub">The numbers here come from the shop’s public Google reviews, gathered by Birdeye, and every one links back to the source. Nothing is quoted that cannot be checked.</p>
+      </div>
+      <ul class="why-list reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><div><strong>4.3 out of 5, from 149 reviews</strong><span>That is the Google average shown on the shop’s Birdeye page in September 2026 — a real track record, not a slogan.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><strong>Open seven days a week</strong><span>Every listing agrees on that much. Weekday evenings and Sunday afternoons included — see the hours below.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 12h16M8 18l-2 3M16 18l2 3M9 8h6"/></svg><div><strong>Inside the mall, beside the train</strong><span>Westbrook Mall on 37 Street SW, right next to the Westbrook C-Train station. Easy to get to from anywhere on the line.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><div><strong>Ask for Ali</strong><span>The shop’s replies to its reviews are signed by Ali. A name to ask for when you call.</span></div></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="stats">
+        <div class="stat"><span class="stat-num">4.3<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><span class="stat-label">Google rating<small>via Birdeye, Sept 2026</small></span></div>
+        <div class="stat"><span class="stat-num">149</span><span class="stat-label">Google reviews<small>gathered by Birdeye</small></span></div>
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Days open a week<small>consistent across every listing</small></span></div>
+        <div class="stat"><span class="stat-num">Ali</span><span class="stat-label">Who to ask for<small>(403) 242-0528</small></span></div>
+      </div>
+      <div class="quote-card">
+        <blockquote>
+          <p>Tremendous barbershop spot. The staff at Westbrook Hair Styling are amazing, friendly…</p>
+        </blockquote>
+        <footer>Eric M., Google review, about a month ago — <a href="https://reviews.birdeye.com/westbrook-hair-styling-barber-shop-170180898044435" rel="noopener noreferrer" target="_blank">read it in full on Birdeye</a></footer>
+      </div>
+      <div class="owner-note">
+        <div class="plate" aria-hidden="true">A</div>
+        <div>
+          <h3>The name behind the replies</h3>
+          <p>Ali answers the shop’s reviews on its behalf. Here is one, correcting a listing’s hours: <q>the hours are MONDAY- FRIDAY: 9:00am until 7:00 pm And weekends we are open SATURDAY 9:00 am until 5:00pm SUNDAY 11:00 am until 5:00pm</q>.</p>
+          <span class="todo">To confirm with Ali: role, a short bio, a photo, and whether other staff should be named</span>
+        </div>
+      </div>
+      <div class="reviews-row">
+        <p>Read the reviews at the source:</p>
+        <a class="link-pill" href="https://reviews.birdeye.com/westbrook-hair-styling-barber-shop-170180898044435" rel="noopener noreferrer" target="_blank">Google reviews via Birdeye <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://m.yelp.com/biz/westbrook-hair-styling-and-barber-shop-calgary" rel="noopener noreferrer" target="_blank">Yelp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://www.instagram.com/westbrook_barbershop/" rel="noopener noreferrer" target="_blank">Instagram <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS + LOCATION -->
+<section class="section" id="visit" aria-labelledby="visit-title">
+  <div class="wrap visit-grid">
+    <div class="reveal">
+      <div class="section-head tight">
+        <p class="eyebrow">Hours &amp; location</p>
+        <h2 id="visit-title">Inside Westbrook Mall, <em>seven days a week</em></h2>
+        <p class="sub">The hours below are the ones the shop itself has stated. Other directories show slightly different closing times, so they carry a to-confirm flag until Ali signs off.</p>
+      </div>
+      <ul class="hours" id="hours" aria-label="Opening hours">
+        <li data-days="1,2,3,4,5"><span class="hd">Monday – Friday<span class="now" hidden>Today</span></span><span class="hv">9:00 am – 7:00 pm</span></li>
+        <li data-days="6"><span class="hd">Saturday<span class="now" hidden>Today</span></span><span class="hv">9:00 am – 5:00 pm</span></li>
+        <li data-days="0"><span class="hd">Sunday<span class="now" hidden>Today</span></span><span class="hv">11:00 am – 5:00 pm</span></li>
+      </ul>
+      <p class="hours-src"><span>As stated by the shop in a reply on Birdeye.</span><span class="todo">To confirm with Ali — other listings differ, and holiday hours are unknown</span></p>
+      <div class="addr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div>
+          <strong>Unit 32 – 1200 37 Street SW</strong>
+          <span>Westbrook Mall (Westbrook Shopping Centre), Calgary, AB T3C 1S2 — in the Rosscarrock / Westbrook area of SW Calgary. Phone <a href="tel:+14032420528">(403) 242-0528</a>.</span>
+        </div>
+      </div>
+      <div class="transit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 12h16M8 18l-2 3M16 18l2 3M9 8h6"/></svg>
+        <p><strong>By C-Train:</strong> the shop is adjacent to Westbrook station. <strong>By car:</strong> the mall sits at 37 Street SW. <span class="todo">Parking details and the nearest mall entrance to Unit 32: to confirm</span></p>
+      </div>
+    </div>
+    <div class="map-card reveal">
+      <svg class="map" viewBox="0 0 640 480" role="img" aria-labelledby="map-title map-desc">
+        <title id="map-title">Stylised map of the Westbrook Mall area in SW Calgary</title>
+        <desc id="map-desc">A simplified, not-to-scale map showing Westbrook Mall between 37 Street SW and 33 Street SW, north of 17 Avenue SW, with the Westbrook C-Train station beside it and Bow Trail to the north.</desc>
+        <defs>
+          <pattern id="mgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" class="m-grid"/></pattern>
+          <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="m-bg1"/><stop offset="1" class="m-bg2"/></linearGradient>
+        </defs>
+        <rect width="640" height="480" rx="24" fill="url(#mbg)"/>
+        <rect width="640" height="480" rx="24" fill="url(#mgrid)"/>
+        <g class="m-block">
+          <rect x="60" y="170" width="170" height="112" rx="8"/>
+          <rect x="60" y="320" width="170" height="70" rx="8"/>
+          <rect x="270" y="320" width="110" height="70" rx="8"/>
+          <rect x="430" y="320" width="100" height="70" rx="8"/>
+          <rect x="430" y="150" width="100" height="132" rx="8"/>
+          <rect x="60" y="60" width="170" height="60" rx="8"/>
+        </g>
+        <g class="m-road">
+          <path class="m-road-major" d="M-10 300 H650"/>
+          <path d="M250 -10 V490"/>
+          <path d="M400 -10 V490"/>
+          <path d="M550 -10 V490"/>
+          <path d="M-10 410 H650"/>
+          <path class="m-road-major" d="M-10 150 C 150 142, 300 120, 420 96 S 600 52, 650 40"/>
+        </g>
+        <g class="road-label">
+          <text x="30" y="292">17 Ave SW</text>
+          <text x="258" y="470" transform="rotate(-90 258 470)">37 St SW</text>
+          <text x="408" y="470" transform="rotate(-90 408 470)">33 St SW</text>
+          <text x="558" y="470" transform="rotate(-90 558 470)">29 St SW</text>
+          <text x="30" y="402">26 Ave SW</text>
+          <text x="470" y="72" transform="rotate(-11 470 72)">Bow Trail SW</text>
+        </g>
+        <text x="80" y="230" class="m-comm">Rosscarrock</text>
+        <text x="592" y="46" class="road-label" text-anchor="end" transform="rotate(-11 592 46)">to downtown</text>
+        <g>
+          <path class="m-rail" d="M650 52 C 600 64, 500 84, 412 100 L412 270 Q 412 316 366 316 L-10 316"/>
+          <path class="m-rail-tie" d="M650 52 C 600 64, 500 84, 412 100 L412 270 Q 412 316 366 316 L-10 316"/>
+        </g>
+        <rect class="m-mall" x="266" y="176" width="124" height="112" rx="12"/>
+        <text x="328" y="228" text-anchor="middle" class="m-lab m-lab-home">Westbrook</text>
+        <text x="328" y="252" text-anchor="middle" class="m-lab">Mall</text>
+        <g class="m-pin" transform="translate(328 178) scale(1.3)">
+          <path d="M0 22 C -12 8 -12 -8 0 -14 C 12 -8 12 8 0 22 Z"/>
+          <circle cx="0" cy="-2" r="4.5"/>
+        </g>
+        <g transform="translate(412 262)">
+          <rect x="-16" y="-16" width="32" height="32" rx="8" class="m-stn"/>
+          <text x="0" y="0" class="m-stn-t">C</text>
+        </g>
+        <text x="440" y="258" class="m-rail-text">Westbrook Stn</text>
+        <text x="440" y="276" class="road-label">C-Train</text>
+        <g transform="translate(590 400)">
+          <circle r="20" class="m-white"/>
+          <path d="M0 -13 L6 6 L0 2 L-6 6 Z" class="m-ink"/>
+          <text x="0" y="38" text-anchor="middle" class="m-foot">N</text>
+        </g>
+        <g class="m-leg" transform="translate(24 24)">
+          <rect width="236" height="60" rx="12" class="m-white"/>
+          <g class="m-pin" transform="translate(24 30) scale(.8)"><path d="M0 22 C -12 8 -12 -8 0 -14 C 12 -8 12 8 0 22 Z"/><circle cx="0" cy="-2" r="4.5"/></g>
+          <text x="44" y="24">Unit 32, Westbrook Mall</text>
+          <path d="M14 46 H34" class="m-rail"/>
+          <text x="44" y="50">C-Train line and station</text>
+        </g>
+        <text x="24" y="460" class="m-foot">Stylised, not to scale</text>
+      </svg>
+      <p class="map-note">Illustrative map drawn for this draft. Streets and the station are placed roughly, not surveyed — check the mall entrance nearest Unit 32 before this goes live.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-sec" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq-title">Good questions, <em>straight answers</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <h3><button class="faq-q" id="faq-q1" type="button" aria-expanded="true" aria-controls="faq-a1"><span>Where exactly is the shop?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-inner"><p>Unit 32 inside Westbrook Mall, 1200 37 Street SW, Calgary, T3C 1S2 — in SW Calgary’s Rosscarrock / Westbrook area, adjacent to the Westbrook C-Train station.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q2" type="button" aria-expanded="false" aria-controls="faq-a2"><span>What are the hours?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-inner"><p>Open seven days a week. As stated by the shop: Monday to Friday 9:00 am – 7:00 pm, Saturday 9:00 am – 5:00 pm, Sunday 11:00 am – 5:00 pm.</p><p><span class="todo">To confirm with Ali — some directories show later weekday closing times, and holiday hours are not published</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q3" type="button" aria-expanded="false" aria-controls="faq-a3"><span>Do I need an appointment, or can I walk in?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-inner"><p><span class="todo">To confirm with Ali</span></p><p>There is no online booking for the shop. The Fresha page that shows up in search results is a public directory listing, not a booking page — the shop is not partnered with Fresha. Until the policy is confirmed, the surest route is to call <a href="tel:+14032420528">(403) 242-0528</a> and ask.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q4" type="button" aria-expanded="false" aria-controls="faq-a4"><span>What services do you offer?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>The services listed publicly are men’s haircuts, beard trims, head shaves and hot towel shaves, plus a haircut-and-shave combination. The shop is also listed under hairdressers and hair styling. Anything else — ask when you call.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q5" type="button" aria-expanded="false" aria-controls="faq-a5"><span>How much is a haircut?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div class="faq-a-inner"><p><span class="todo">To confirm with Ali</span></p><p>No prices are published anywhere yet, so this page does not guess. Call the shop for current pricing; once Ali supplies the list it goes straight onto the menu above.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q6" type="button" aria-expanded="false" aria-controls="faq-a6"><span>Do you cut women’s hair, or do colour?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div class="faq-a-inner"><p><span class="todo">To confirm with Ali</span></p><p>The name is Hair Styling &amp; Barber Shop, and directories file it under beauty salon and hairdressers as well as barbers — but the only services actually listed are the barbering ones above. Rather than guess, this page leaves the question open. Call and ask; the answer will be added here.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q7" type="button" aria-expanded="false" aria-controls="faq-a7"><span>Who is Ali?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div class="faq-a-inner"><p>Ali is the name signed on the shop’s public replies to reviews, where the reply is labelled as coming from the owner. That is all this draft claims — ask for Ali when you call, and the rest of the introduction will come from the shop itself.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q8" type="button" aria-expanded="false" aria-controls="faq-a8"><span>What is a hot towel shave, exactly?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><div class="faq-a-inner"><p>A traditional barber’s shave. A hot, damp towel sits on the face for a minute or two to soften the beard and open the pores; then comes lather, a straight razor worked in short passes with the grain, and usually a second pass for closeness. A cool towel and a balm finish it. It takes longer than a shave at home — that is the point.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q9" type="button" aria-expanded="false" aria-controls="faq-a9"><span>Is there parking?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a9" role="region" aria-labelledby="faq-q9"><div class="faq-a-inner"><p><span class="todo">To confirm with Ali</span></p><p>The shop is inside a shopping centre, and the Westbrook C-Train station is next door. Parking details and the closest mall entrance to Unit 32 are left for the owner to confirm.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="section dark" id="book" aria-labelledby="book-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Book a chair</p>
+      <h2 id="book-title">Call, or send a request <em>for a time</em></h2>
+      <p class="sub">The phone is the sure thing. The form is here for people who prefer to type — on the live site it would reach the shop directly.</p>
+    </div>
+    <div class="book-grid reveal">
+      <div class="contact-card">
+        <p class="eyebrow">Fastest way</p>
+        <a class="big-phone" href="tel:+14032420528"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>(403) 242-0528</a>
+        <p>Ask for Ali.</p>
+        <dl class="contact-facts">
+          <dt>Address</dt><dd>Unit 32 – 1200 37 Street SW, Westbrook Mall, Calgary, AB T3C 1S2</dd>
+          <dt>Hours</dt><dd>Mon–Fri 9–7 · Sat 9–5 · Sun 11–5 <span class="todo">to confirm</span></dd>
+          <dt>Online booking</dt><dd>Not yet — call the shop <span class="todo">to confirm</span></dd>
+          <dt>Email</dt><dd><span class="todo">To confirm with Ali</span></dd>
+          <dt>Instagram</dt><dd><a href="https://www.instagram.com/westbrook_barbershop/" rel="noopener noreferrer" target="_blank">@westbrook_barbershop</a></dd>
+        </dl>
+      </div>
+      <div class="form-card">
+        <form class="form" id="book-form" novalidate>
+          <div class="field">
+            <label for="b-name">Your name</label>
+            <input id="b-name" name="name" type="text" autocomplete="name" required aria-describedby="b-name-error">
+            <p class="error" id="b-name-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="b-phone">Phone</label>
+            <input id="b-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="403 555 0123" required aria-describedby="b-phone-error">
+            <p class="error" id="b-phone-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="b-service">What are you in for?</label>
+            <div class="select-wrap">
+              <select id="b-service" name="service" required aria-describedby="b-service-error">
+                <option value="">Choose one</option>
+                <option value="haircut">Men’s haircut</option>
+                <option value="beard">Beard trim</option>
+                <option value="headshave">Head shave</option>
+                <option value="hottowel">Hot towel shave</option>
+                <option value="combo">Haircut &amp; shave</option>
+                <option value="styling">Hair styling</option>
+                <option value="other">Something else — I’ll explain below</option>
+              </select>
+            </div>
+            <p class="error" id="b-service-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="b-day">Preferred day <span>(optional)</span></label>
+            <div class="select-wrap">
+              <select id="b-day" name="day">
+                <option value="">Any day</option>
+                <option value="weekday">A weekday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+              </select>
+            </div>
+          </div>
+          <div class="field full">
+            <label for="b-notes">Anything else? <span>(optional)</span></label>
+            <textarea id="b-notes" name="notes" placeholder="A time of day that suits you, a style you have in mind, or who you would like to see."></textarea>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-primary btn-lg" type="submit">Send the request</button>
+            <p class="form-note">Draft: this form has no backend yet. On the live site it would reach the shop directly.</p>
+          </div>
+        </form>
+        <div class="form-success" id="form-success" hidden tabindex="-1" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <h3>Request noted</h3>
+          <p id="form-success-msg"></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:+14032420528">Or call (403) 242-0528</a>
+            <button class="btn btn-ghost" id="form-again" type="button">Send another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRAFT NOTES -->
+<section class="section notes-sec" id="notes" aria-labelledby="notes-title">
+  <div class="wrap">
+    <details class="notes-panel reveal" id="notes-panel" open>
+      <summary>
+        <div>
+          <p class="eyebrow">Draft notes</p>
+          <h2 id="notes-title">Before this goes live: things to confirm with the owner</h2>
+        </div>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="notes-body">
+        <p class="notes-intro">Everything on this page came from public listings checked in September 2026. Where those listings disagree or say nothing, the page shows a to-confirm flag instead of a guess. This is the list of those flags.</p>
+        <ul class="notes-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>Hours.</strong> Sources conflict. Ali’s own reply on Birdeye (Mon–Fri 9–7, Sat 9–5, Sun 11–5) matches the Fresha listing; Birdeye’s own display says Mon–Fri 9–6; the Westbrook Mall store page says Mon–Fri 8:30 to 8, Sat 9–6, Sun and holidays 11–5; YellowPages and Google snippets say weekdays until 8 pm. The page shows Ali’s version. Confirm by phone, including holidays.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span><strong>Prices.</strong> None published anywhere, so every menu line and the pricing FAQ carry a flag. Send the list and they fill in.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span><strong>Services.</strong> Only men’s haircut, beard trim, head shave and hot towel shave are listed (Fresha), plus haircut-and-shave from a Yelp snippet. Colour or highlights were not verified by any source and are not claimed. Whether the “Hair Styling” half of the name means women’s or all-gender services is left open in the menu and FAQ.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><strong>Booking and walk-ins.</strong> No booking link exists. The Fresha page is a directory listing that says the business is not affiliated with Fresha, so it is not linked as booking. Walk-ins versus appointments is flagged in step 1 and the FAQ.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span><strong>Ali.</strong> The name comes only from a Birdeye owner reply. Role, a short bio, a photo, and whether other barbers should be named are all to confirm — the page says “ask for Ali” and nothing more.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span><strong>Reviews.</strong> The 4.3 rating and 149 count were read directly from the shop’s <a href="https://reviews.birdeye.com/westbrook-hair-styling-barber-shop-170180898044435" rel="noopener noreferrer" target="_blank">Birdeye page</a>, which is unclaimed and aggregates Google reviews; a search-result title showed 146. Yelp returned an access error, so no Yelp rating is shown. Hotfrog has no reviews. One review excerpt is quoted with its source; swap in others with the reviewers’ permission if you prefer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/></svg><span><strong>Trading name.</strong> Directories say “Westbrook Hair Styling &amp; Barber Shop”, the Westbrook Mall directory says “Westbrook Barbers”, and Instagram says “Westbrook Barbershop”. Pick one for the site, the sign and the search listings.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span><strong>Website and domain.</strong> No owned website was found on any listing. westbrookhairstyling.ca / .com, westbrookbarbershop.ca / .com and westbrookbarbers.ca returned no DNS record at the time of checking — availability still needs a registrar check.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><strong>Email.</strong> None published. The contact card shows a flag rather than an address.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><strong>Years in business.</strong> Not stated on any source, so there is no “since” line anywhere on the page. Supply the year and it goes in the hero.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span><strong>Photos.</strong> No photos are used. The hero and the four gallery tiles are illustrations and say so. Phone photos of the storefront, chairs and finished cuts (with permission) replace them.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><strong>Address details.</strong> Every source agrees on Unit 32 – 1200 37 Street SW, T3C 1S2, except Hotfrog, which lists an odd T2G 2M3 postal code; the page uses T3C 1S2. Parking and the nearest mall entrance are flagged. The map is stylised from general knowledge of the area, not surveyed.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span><strong>Payment and gift cards.</strong> Not stated anywhere public; flagged in step 3. Add only if you want them on the site.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg><span><strong>Social.</strong> Instagram (@westbrook_barbershop, 56 followers, no website in the bio) is linked. No Facebook page was found — results were other Westbrook salons or an unrelated business elsewhere. Confirm whether one exists, and add the site link to the Instagram bio once live.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg><span><strong>Request form.</strong> The draft form has no backend. The live site needs a delivery route — a form service or an SMS relay — so requests really reach the shop.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/></svg><span><strong>Draft banner.</strong> Remove the gold banner at the top and the draft line in the footer when the site goes live.</span></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Westbrook Hair Styling and Barber Shop, back to top">
+          <svg class="brand-mark" viewBox="0 0 42 42" aria-hidden="true" focusable="false"><rect class="bm-bg" width="42" height="42" rx="12"/><path class="bm-ink" d="M9 12l5 18 7-13 7 13 5-18" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="bm-dot" cx="21" cy="9.5" r="2"/></svg>
+          <span class="brand-name">Westbrook<small>Hair Styling &amp; Barber Shop</small></span>
+        </a>
+        <p class="foot-desc">Westbrook Hair Styling &amp; Barber Shop. Haircuts, beard trims, head shaves and hot towel shaves inside Westbrook Mall, SW Calgary — open seven days a week.</p>
+      </div>
+      <div>
+        <h3 class="foot-title">Details</h3>
+        <ul>
+          <li>Unit 32 – 1200 37 Street SW, Westbrook Mall</li>
+          <li>Calgary, AB T3C 1S2</li>
+          <li><a href="tel:+14032420528">(403) 242-0528</a> — ask for Ali</li>
+          <li>Hours: Mon–Fri 9–7 · Sat 9–5 · Sun 11–5 <span class="todo">to confirm</span></li>
+          <li>Email: <span class="todo">to confirm</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="foot-title">Listings &amp; social</h3>
+        <ul>
+          <li><a href="https://reviews.birdeye.com/westbrook-hair-styling-barber-shop-170180898044435" rel="noopener noreferrer" target="_blank">Google reviews via Birdeye</a></li>
+          <li><a href="https://m.yelp.com/biz/westbrook-hair-styling-and-barber-shop-calgary" rel="noopener noreferrer" target="_blank">Yelp</a></li>
+          <li><a href="https://www.instagram.com/westbrook_barbershop/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+          <li><a href="https://westbrookmall.com/stores/westbrook-westbrook-mall-westbrook-barbers/" rel="noopener noreferrer" target="_blank">Westbrook Mall store page</a></li>
+          <li><a href="https://411.ca/business/profile/12589129" rel="noopener noreferrer" target="_blank">411.ca listing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>Draft website proposal — not the business’s live website. Prepared by Adeel Ahmed (Sites by Adeel), Calgary, September 2026.</span>
+      <span>Westbrook Hair Styling &amp; Barber Shop · Calgary, Alberta <span class="todo">trading name to confirm</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* Draft banner: measure height so body offset and sticky nav track it */
+  var banner = document.getElementById('draft-banner');
+  var bannerClose = document.getElementById('draft-close');
+  function setBannerHeight() {
+    var h = (banner && !banner.hidden) ? banner.offsetHeight : 0;
+    root.style.setProperty('--banner-h', h + 'px');
+  }
+  if (banner) {
+    setBannerHeight();
+    window.addEventListener('resize', setBannerHeight);
+    if (window.ResizeObserver) { new ResizeObserver(setBannerHeight).observe(banner); }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(setBannerHeight); }
+    if (bannerClose) {
+      bannerClose.addEventListener('click', function () {
+        banner.hidden = true;
+        setBannerHeight();
+      });
+    }
+  }
+
+  /* Layout transitions (body offset, nav top, notes panel) switch on only after fonts settle, so first paint never slides */
+  function markReady() {
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { document.body.classList.add('ready'); });
+    });
+  }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(markReady); } else { window.addEventListener('load', markReady); }
+
+  /* Swap two panels inside one card, easing the card's height between them */
+  function swapPanels(card, hideEl, showEl) {
+    if (!card) { hideEl.hidden = true; showEl.hidden = false; return; }
+    var from = card.offsetHeight;
+    hideEl.hidden = true;
+    showEl.hidden = false;
+    var to = card.offsetHeight;
+    if (from === to) { return; }
+    var done = false;
+    var onEnd = function (e) { if (e.target === card && e.propertyName === 'height') { finish(); } };
+    var finish = function () {
+      if (done) { return; }
+      done = true;
+      card.style.height = '';
+      card.classList.remove('is-animating');
+      card.removeEventListener('transitionend', onEnd);
+    };
+    card.classList.add('is-animating');
+    card.style.height = from + 'px';
+    void card.offsetHeight;
+    card.style.height = to + 'px';
+    card.addEventListener('transitionend', onEnd);
+    window.setTimeout(finish, 600);
+  }
+
+  /* Sticky nav: mobile menu + scrolled shadow */
+  var nav = document.getElementById('site-nav');
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  function closeMenu() {
+    if (!nav || !toggle) { return; }
+    nav.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+  if (nav && toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('menu-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    links.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t && t.closest && t.closest('a')) { closeMenu(); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('menu-open')) { closeMenu(); toggle.focus(); }
+    });
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* Hero scene: pointer parallax on fine pointers only */
+  var hero = document.getElementById('hero');
+  var scene = document.getElementById('scene');
+  var finePointer = window.matchMedia('(pointer: fine)');
+  if (hero && scene && finePointer.matches && !reduceMotion.matches) {
+    var raf = 0, px = 0, py = 0;
+    var paint = function () {
+      raf = 0;
+      scene.style.setProperty('--px', px.toFixed(3));
+      scene.style.setProperty('--py', py.toFixed(3));
+    };
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      px = (e.clientX - r.left) / r.width - 0.5;
+      py = (e.clientY - r.top) / r.height - 0.5;
+      if (!raf) { raf = window.requestAnimationFrame(paint); }
+    });
+    hero.addEventListener('mouseleave', function () {
+      if (raf) { window.cancelAnimationFrame(raf); raf = 0; }
+      px = 0; py = 0; paint();
+    });
+  }
+
+  /* Hours: mark today's row (display only; the hours themselves are still to confirm) */
+  var hoursList = document.getElementById('hours');
+  if (hoursList) {
+    var today = String(new Date().getDay());
+    Array.prototype.slice.call(hoursList.querySelectorAll('li[data-days]')).forEach(function (row) {
+      var days = (row.getAttribute('data-days') || '').split(',');
+      if (days.indexOf(today) !== -1) {
+        row.classList.add('today');
+        var badge = row.querySelector('.now');
+        if (badge) { badge.hidden = false; }
+      }
+    });
+  }
+
+  /* FAQ accordion: single open item */
+  var faqButtons = Array.prototype.slice.call(document.querySelectorAll('.faq-q'));
+  faqButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) { return; }
+      var wasOpen = item.classList.contains('open');
+      faqButtons.forEach(function (other) {
+        var oi = other.closest('.faq-item');
+        if (oi) { oi.classList.remove('open'); }
+        other.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* Draft notes: open on wide screens, collapsed on phones */
+  var notes = document.getElementById('notes-panel');
+  if (notes && window.matchMedia('(max-width: 640px)').matches) {
+    notes.removeAttribute('open');
+  }
+
+  /* Booking form: client-side validation, no backend */
+  var form = document.getElementById('book-form');
+  var success = document.getElementById('form-success');
+  var successMsg = document.getElementById('form-success-msg');
+  var again = document.getElementById('form-again');
+  function setError(id, msg) {
+    var field = document.getElementById(id);
+    var err = document.getElementById(id + '-error');
+    if (!field || !err) { return; }
+    err.textContent = msg;
+    err.hidden = !msg;
+    field.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    var wrap = field.closest('.field');
+    if (wrap) { wrap.classList.toggle('has-error', !!msg); }
+  }
+  if (form && success && successMsg) {
+    ['b-name', 'b-phone'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) { el.addEventListener('input', function () { setError(id, ''); }); }
+    });
+    var serviceEl = document.getElementById('b-service');
+    if (serviceEl) { serviceEl.addEventListener('change', function () { setError('b-service', ''); }); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('b-name');
+      var phone = document.getElementById('b-phone');
+      var service = document.getElementById('b-service');
+      var ok = true;
+      var nameVal = name ? name.value.trim() : '';
+      var phoneVal = phone ? phone.value.trim() : '';
+      var serviceVal = service ? service.value : '';
+      if (!nameVal) { setError('b-name', 'Please tell us your name.'); ok = false; } else { setError('b-name', ''); }
+      if (phoneVal.replace(/\D/g, '').length < 10) { setError('b-phone', 'Please enter a phone number with area code.'); ok = false; } else { setError('b-phone', ''); }
+      if (!serviceVal) { setError('b-service', 'Pick a service, or choose “Something else”.'); ok = false; } else { setError('b-service', ''); }
+      if (!ok) {
+        var first = form.querySelector('[aria-invalid="true"]');
+        if (first) { first.focus(); }
+        return;
+      }
+      successMsg.textContent = 'Thanks — on the live site this reaches the shop directly.';
+      swapPanels(form.parentNode, form, success);
+      success.focus();
+    });
+    if (again) {
+      again.addEventListener('click', function () {
+        form.reset();
+        swapPanels(form.parentNode, success, form);
+        var name = document.getElementById('b-name');
+        if (name) { name.focus(); }
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>

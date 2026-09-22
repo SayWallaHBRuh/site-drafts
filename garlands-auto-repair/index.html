@@ -1,0 +1,1488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Garland's Auto Repair</title>
+<meta name="description" content="Draft website proposal for Garland's Auto Repair, an auto repair shop at 429 36 Avenue NE in Calgary's Highland Park / Greenview area.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Barlow:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+<style>
+:root{
+  --steel:#2B2F36;--steel-2:#343943;--steel-3:#3F454F;--steel-4:#4B525D;
+  --cream:#F4EFE6;--cream-2:#E9E2D4;--cream-3:#DCD4C3;--white:#FFFFFF;
+  --text:#23262B;--text-muted:#585E68;
+  --on-dark:#F4EFE6;--on-dark-muted:#B9BEC7;
+  --red:#B3271E;--red-hover:#C7352B;--red-deep:#8E1C15;--red-dark:#5E100B;--red-pale:#F6DDD9;--red-mist:#FBF1EF;--red-soft:#FF9A8C;
+  --lamp:#F2B84B;--lamp-pale:#FBE7B8;--lamp-deep:#C98A1E;
+  --map-bg-1:#FBF8F2;--map-bg-2:#EFE8DA;--map-line:#CFC6B5;--map-major:#B4A88F;--map-green:#D9E1CB;--map-water-text:#2F5670;
+  --line:rgba(35,38,43,.12);--line-dark:rgba(244,239,230,.14);
+  --focus:#23262B;
+  --sh-1:0 1px 2px rgba(35,38,43,.06),0 8px 22px -12px rgba(35,38,43,.2);
+  --sh-2:0 2px 4px rgba(35,38,43,.06),0 18px 40px -16px rgba(35,38,43,.3);
+  --sh-3:0 4px 8px rgba(35,38,43,.08),0 30px 60px -20px rgba(35,38,43,.42);
+  --r-xs:4px;--r-sm:6px;--r-md:10px;--r-lg:14px;--r-xl:20px;
+  --font-display:"Barlow Condensed","Arial Narrow","Roboto Condensed","Segoe UI",system-ui,sans-serif;
+  --font-body:"Barlow","Segoe UI",system-ui,-apple-system,sans-serif;
+  --fs-display:clamp(3rem,1.5rem + 5.4vw,5.8rem);
+  --fs-h2:clamp(2.1rem,1.4rem + 2.5vw,3.5rem);
+  --fs-h3:1.35rem;--fs-body:1.0625rem;--fs-small:.9rem;
+  --banner-h:44px;--nav-h:72px;
+  --gutter:clamp(16px,4vw,40px);
+  --ease:cubic-bezier(.2,.7,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--banner-h) + var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{margin:0;padding-top:var(--banner-h);background:var(--cream);color:var(--text);font:400 var(--fs-body)/1.6 var(--font-body);min-height:100vh;transition:padding-top .3s var(--ease)}
+[hidden]{display:none !important}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;color:inherit}
+p,figure{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:var(--r-xs)}
+.dark{background:var(--steel);color:var(--on-dark);--focus:var(--lamp)}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:fixed;left:var(--gutter);top:0;background:var(--red);color:var(--white);padding:.6rem 1rem;border-radius:var(--r-sm);font:700 1rem var(--font-display);text-transform:uppercase;letter-spacing:.06em;text-decoration:none;transform:translateY(-120%);z-index:200}
+.skip:focus-visible{transform:none;top:calc(env(safe-area-inset-top,0px) + var(--banner-h) + 8px)}
+
+/* Draft banner */
+.draft{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:100;background:var(--lamp);color:var(--text);display:flex;align-items:center;justify-content:center;gap:.75rem 1rem;padding:.2rem var(--gutter);min-height:44px;font:600 .9rem/1.35 var(--font-body);text-align:center;box-shadow:0 2px 12px rgba(35,38,43,.25);--focus:var(--text)}
+.draft span{flex:0 1 auto;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.draft-close{flex:none;border:0;background:var(--steel);color:var(--on-dark);border-radius:var(--r-sm);min-height:40px;min-width:44px;padding:.45rem .9rem;font:700 .8rem var(--font-display);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background-color .25s var(--ease),transform .25s var(--ease)}
+.draft-close:hover{background:var(--steel-3);transform:translateY(-1px)}
+.draft-close:active{transform:none}
+
+/* Nav */
+.nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--banner-h));z-index:50;background:rgba(43,47,54,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--on-dark);border-bottom:1px solid var(--line-dark);--focus:var(--lamp);transition:box-shadow .3s var(--ease),top .3s var(--ease)}
+.nav.scrolled{box-shadow:0 10px 30px -14px rgba(0,0,0,.6)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--nav-h);position:relative}
+.brand{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--on-dark)}
+.brand-mark{width:42px;height:42px;flex:none;filter:drop-shadow(0 4px 10px rgba(179,39,30,.4))}
+.bm-bg{fill:var(--red)}.bm-f{fill:var(--cream)}.bm-d{fill:var(--red-dark)}
+.brand-name{font:800 1.35rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.02em}
+.brand-name small{display:block;font:600 .7rem/1.1 var(--font-display);letter-spacing:.18em;text-transform:uppercase;color:var(--lamp);margin-top:.25rem}
+.nav-links{display:flex;gap:.15rem}
+.nav-links a{position:relative;text-decoration:none;color:var(--on-dark-muted);font:700 1rem var(--font-display);text-transform:uppercase;letter-spacing:.06em;padding:.55rem .8rem;border-radius:var(--r-sm);transition:color .25s var(--ease),background-color .25s var(--ease)}
+.nav-links a::after{content:"";position:absolute;left:.8rem;right:.8rem;bottom:.3rem;height:2px;background:var(--lamp);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-out)}
+.nav-links a:hover{color:var(--on-dark);background:rgba(244,239,230,.08)}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.nav-toggle{display:none;position:relative;border:1px solid var(--line-dark);background:transparent;color:var(--on-dark);width:44px;height:44px;border-radius:var(--r-sm);align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s var(--ease),background-color .25s var(--ease)}
+.nav-toggle:hover{border-color:rgba(244,239,230,.35);background:rgba(244,239,230,.06)}
+.nav-toggle svg{position:absolute;inset:0;margin:auto;width:22px;height:22px;transition:opacity .2s var(--ease),transform .3s var(--ease)}
+.nav-toggle .x{opacity:0;transform:rotate(-90deg) scale(.6)}
+.menu-open .nav-toggle .bars{opacity:0;transform:rotate(90deg) scale(.6)}
+.menu-open .nav-toggle .x{opacity:1;transform:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font:700 1.1rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.06em;padding:.95rem 1.4rem;border-radius:var(--r-sm);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--red);color:var(--white);box-shadow:0 10px 26px -10px rgba(179,39,30,.7)}
+.btn-primary:hover{background:var(--red-hover);transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(179,39,30,.75)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{border-color:rgba(244,239,230,.35);color:var(--on-dark);background:transparent}
+.btn-ghost:hover{border-color:var(--lamp);background:rgba(244,239,230,.06);transform:translateY(-2px)}
+.btn-light{background:var(--cream);color:var(--red-deep)}
+.btn-light:hover{background:var(--white);transform:translateY(-2px)}
+.btn-lg{padding:1.1rem 1.7rem;font-size:1.2rem}
+.btn-sm{padding:.7rem 1.05rem;font-size:1rem}
+.nav-call .call-word{display:none}
+
+/* Section scaffolding */
+.section{padding-block:clamp(4rem,8vw,7rem)}
+.section-head{max-width:780px;margin-bottom:clamp(2rem,4vw,3.25rem)}
+.section-head.tight{margin-bottom:0}
+.section-head.center{margin-inline:auto;text-align:center}
+.section-head.center .eyebrow{justify-content:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:700 .82rem/1.2 var(--font-display);letter-spacing:.18em;text-transform:uppercase;color:var(--red-deep);margin-bottom:.9rem}
+.eyebrow::before{content:"";width:26px;height:3px;background:var(--red)}
+.dark .eyebrow{color:var(--lamp)}
+.dark .eyebrow::before{background:var(--lamp)}
+h2{font-size:var(--fs-h2);line-height:1;letter-spacing:.005em;font-weight:800;text-transform:uppercase}
+h2 em,h1 em{font-style:normal;color:var(--red)}
+h1 em{white-space:nowrap}
+.dark h2 em,.dark h1 em{color:var(--lamp)}
+h2,.card h3,.step h3,.form-success h3,.faq-q > span:first-child{text-wrap:balance}
+.sub,.lede,.faq-a p,.card p,.step p,.notes-intro,.notes-list li,.owner-note p{text-wrap:pretty}
+.sub{font-size:1.15rem;color:var(--text-muted);margin-top:1rem;max-width:62ch}
+.dark .sub{color:var(--on-dark-muted)}
+.sub q,.faq-a q{font-style:italic}
+.todo{display:inline-flex;align-items:center;gap:.4rem;background:var(--lamp-pale);color:var(--red-dark);border:1px dashed var(--lamp-deep);border-radius:var(--r-xs);padding:.05rem .5rem;font:600 .85rem/1.5 var(--font-body);vertical-align:middle}
+.dark .todo,.why .todo,.footer .todo{background:rgba(242,184,75,.14);color:var(--lamp-pale);border-color:rgba(242,184,75,.55)}
+.trust-card .todo{background:var(--lamp-pale);color:var(--red-dark);border-color:var(--lamp-deep)}
+.src{font-size:.85rem;color:var(--text-muted)}
+.dark .src{color:var(--on-dark-muted)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1100px 600px at 80% -10%,rgba(242,184,75,.16),transparent 60%),radial-gradient(800px 500px at -10% 110%,rgba(179,39,30,.22),transparent 60%),linear-gradient(180deg,var(--steel) 0%,var(--steel-2) 100%);padding-block:clamp(3rem,6vw,5.5rem) clamp(5rem,9vw,7.5rem)}
+.hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(244,239,230,.035) 0 1px,transparent 1px 28px);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+.hero h1{font-size:var(--fs-display);line-height:.94;letter-spacing:.005em;font-weight:800;text-transform:uppercase;margin:0 0 1.4rem;max-width:12ch;text-wrap:balance}
+.lede{font-size:clamp(1.1rem,1rem + .5vw,1.3rem);color:var(--on-dark-muted);max-width:52ch;margin-bottom:2rem}
+.lede strong{color:var(--on-dark);font-weight:600}
+.lede a{color:var(--on-dark);font-weight:600;text-decoration:none;background:linear-gradient(currentColor,currentColor) no-repeat 0 100%/0 1px,linear-gradient(rgba(244,239,230,.35),rgba(244,239,230,.35)) no-repeat 0 100%/100% 1px;transition:background-size .3s var(--ease)}
+.lede a:hover,.lede a:focus-visible{background-size:100% 1px,100% 1px}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:1.2rem}
+.hero-note{font-size:var(--fs-small);color:var(--on-dark-muted);display:grid;grid-template-columns:16px 1fr;align-items:start;gap:.5rem}
+.hero-note svg{width:16px;height:16px;color:var(--lamp);margin-top:.25rem}
+.hero-visual{position:relative}
+.scene-frame{aspect-ratio:4/3;border-radius:var(--r-xl);overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(244,239,230,.08);background:var(--steel-3)}
+.scene{width:100%;height:100%;--px:0;--py:0}
+.layer{transition:transform .9s var(--ease-out);will-change:transform}
+.layer-far{transform:translate(calc(var(--px) * -8px),calc(var(--py) * -5px))}
+.layer-mid{transform:translate(calc(var(--px) * -14px),calc(var(--py) * -8px))}
+.layer-near{transform:translate(calc(var(--px) * -22px),calc(var(--py) * -12px))}
+.lamp-glow{transform-box:fill-box;transform-origin:center;animation:lampbreathe 4.5s ease-in-out infinite alternate}
+.lamp-glow.b{animation-delay:-2.2s}
+@keyframes lampbreathe{from{opacity:.72;transform:scale(.97)}to{opacity:1;transform:scale(1.03)}}
+.trust-card{position:relative;z-index:2;margin:-2.5rem 1.5rem 0;background:var(--white);color:var(--text);border-radius:var(--r-md);padding:1rem 1.25rem 1.15rem;box-shadow:var(--sh-3);--focus:var(--text);border-top:4px solid var(--red)}
+.trust-card ul{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1rem}
+.trust-card .tc-head{grid-column:1/-1}
+.trust-card li{display:flex;align-items:flex-start;gap:.6rem;font:600 .95rem/1.3 var(--font-body)}
+.trust-card li small{display:block;font:400 .82rem/1.3 var(--font-body);color:var(--text-muted);margin-top:.1rem}
+.trust-card li svg{width:20px;height:20px;flex:none;color:var(--red)}
+.trust-card .tc-head{display:flex;align-items:center;justify-content:space-between;font:700 .75rem var(--font-display);letter-spacing:.16em;text-transform:uppercase;color:var(--red-deep);padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.stage{animation:rise .9s var(--ease-out) both}
+.s1{animation-delay:.05s}.s2{animation-delay:.15s}.s3{animation-delay:.28s}.s4{animation-delay:.4s}.s5{animation-delay:.5s}.s6{animation-delay:.8s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* Facts ticker */
+.ticker{background:var(--red);color:var(--white);border-block:1px solid rgba(0,0,0,.15);padding-block:.9rem;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:1;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--red),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--red),transparent)}
+.ticker-track{display:flex;width:max-content;animation:ticker 60s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-list{display:flex;padding-inline:1.25rem}
+.ticker-list li{display:inline-flex;align-items:center;gap:2.5rem;padding-right:2.5rem;white-space:nowrap;font:700 1.05rem var(--font-display);letter-spacing:.08em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.ticker-list li::after{content:"";width:8px;height:8px;background:var(--lamp);transform:rotate(45deg);flex:none}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Service cards */
+.grid-svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}
+.card{background:var(--white);border-radius:var(--r-lg);padding:1.6rem;box-shadow:var(--sh-1);border:1px solid var(--line);border-top:4px solid var(--steel);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);display:grid;grid-template-columns:1fr auto;grid-template-areas:"icon tag" "title title" "text text" "foot foot";gap:.55rem 1rem;align-content:start;position:relative}
+.card:hover{transform:translateY(-6px);box-shadow:var(--sh-3);border-top-color:var(--red)}
+.card h3{grid-area:title;font-size:var(--fs-h3);font-weight:700;text-transform:uppercase;letter-spacing:.02em;margin-top:.25rem}
+.card p{grid-area:text;color:var(--text-muted);font-size:1rem}
+.card .src{grid-area:foot;margin-top:.35rem;padding-top:.6rem;border-top:1px solid var(--line);font-size:.8rem}
+.svc-icon{grid-area:icon;width:58px;height:58px;border-radius:var(--r-md);background:linear-gradient(135deg,var(--cream-2),var(--cream));display:grid;place-items:center;color:var(--steel);box-shadow:inset 0 0 0 1px rgba(35,38,43,.08);transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+.svc-icon svg{width:32px;height:32px}
+.card:hover .svc-icon{background:var(--red);color:var(--white);transform:rotate(-6deg)}
+.acc{fill:var(--red)}
+.acc-stroke{stroke:var(--red)}
+.card:hover .acc{fill:var(--lamp)}
+.card:hover .acc-stroke{stroke:var(--lamp)}
+.tag{grid-area:tag;align-self:start;justify-self:end;font:700 .7rem var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--red-deep);background:var(--red-pale);padding:.3rem .6rem;border-radius:var(--r-xs);white-space:nowrap}
+.tag.tbc{background:var(--lamp-pale);color:var(--red-dark);border:1px dashed var(--lamp-deep)}
+.card-cta{grid-column:span 2;display:flex;flex-direction:column;gap:.8rem;background:linear-gradient(160deg,var(--steel-2),var(--steel-3));color:var(--on-dark);border-color:var(--line-dark);border-top-color:var(--lamp);--focus:var(--lamp)}
+.card-cta .svc-icon{background:rgba(242,184,75,.14);color:var(--lamp);box-shadow:none}
+.card-cta:hover .svc-icon{background:var(--lamp);color:var(--steel)}
+.card-cta .cta-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.card-cta .tag{background:rgba(242,184,75,.16);color:var(--lamp-pale)}
+.card-cta h3{font-size:clamp(1.6rem,1.2rem + 1vw,2.1rem);font-weight:800;line-height:1.05;margin-top:.2rem;max-width:22ch}
+.card-cta p{color:var(--on-dark-muted);max-width:52ch}
+.card-cta .btn{margin-top:auto;align-self:flex-start}
+.owner-note{margin-top:1.75rem;display:flex;gap:.9rem;align-items:flex-start;background:var(--white);border:1.5px dashed var(--lamp-deep);border-radius:var(--r-md);padding:1rem 1.2rem;color:var(--text-muted);font-size:.98rem}
+.owner-note svg{width:22px;height:22px;flex:none;color:var(--red-deep);margin-top:.15rem}
+.owner-note strong{color:var(--text);font-weight:600}
+
+/* Process */
+.process-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.steps{display:grid;gap:1rem}
+.step{background:var(--steel-2);border:1px solid var(--line-dark);border-left:4px solid var(--lamp);border-radius:var(--r-lg);padding:1.4rem 1.5rem;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.1rem;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
+.step:hover{transform:translateY(-4px);border-color:rgba(242,184,75,.45);border-left-color:var(--lamp);box-shadow:0 18px 40px -20px rgba(0,0,0,.6)}
+.step-num{grid-row:1/4;font:800 2.6rem/1 var(--font-display);color:var(--lamp);letter-spacing:-.02em;padding-top:.05rem;font-variant-numeric:tabular-nums}
+.step h3{font-size:1.3rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.step p{color:var(--on-dark-muted)}
+.step .todo{justify-self:start;margin-top:.45rem}
+.process-cta{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center}
+.process-cta p{color:var(--on-dark-muted)}
+.fig-card{background:var(--white);color:var(--text);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.1rem);box-shadow:var(--sh-3);--focus:var(--text)}
+.fig-card svg{width:100%;height:auto;border-radius:var(--r-md)}
+.fig-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:.45rem 1rem;padding:1rem .5rem .25rem;margin:0}
+.fig-legend li{display:flex;gap:.55rem;align-items:flex-start;font:500 .88rem/1.35 var(--font-body);color:var(--text-muted)}
+.fig-legend b{flex:none;width:22px;height:22px;border-radius:50%;background:var(--red);color:var(--white);font:800 .8rem/22px var(--font-display);text-align:center}
+.fig-cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1rem;padding:.75rem .5rem .2rem;margin-top:.6rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--text-muted)}
+.fig-cap b{font:700 .75rem var(--font-display);letter-spacing:.16em;text-transform:uppercase;color:var(--red-deep)}
+.fig .fg-paper{fill:var(--white)}
+.fig .fg-grid{fill:none;stroke:var(--steel);stroke-opacity:.06}
+.fig .fg-eyebrow{font:700 13px var(--font-display);letter-spacing:.2em;fill:var(--red-deep)}
+.fig .fg-mute{fill:var(--text-muted)}
+.fig .fg-title{font:800 26px var(--font-display);fill:var(--text);letter-spacing:.02em;text-transform:uppercase}
+.fig .fg-rule{stroke:var(--red);stroke-width:1.2;fill:none}
+.fig .fg-steel{fill:var(--steel-4)}.fig .fg-steel2{fill:var(--steel-3)}.fig .fg-steel3{fill:var(--steel-2)}
+.fig .fg-light{fill:var(--cream-3)}.fig .fg-light2{fill:var(--cream-2)}
+.fig .fg-stroke{stroke:var(--steel);stroke-width:1.3}
+.fig .fg-thin{stroke:var(--steel);stroke-width:.8;fill:none}
+.fig .fg-red{fill:var(--red)}.fig .fg-ink{fill:var(--steel)}.fig .fg-lamp{fill:var(--lamp)}
+.fig .fg-ldr{stroke:var(--red-deep);stroke-width:1.2;fill:none}
+.fig .fg-lab{font:600 15px var(--font-display);fill:var(--text-muted);letter-spacing:.04em}
+.fig .fg-co circle{fill:var(--red);stroke:var(--white);stroke-width:2}
+.fig .fg-co text{font:800 16px var(--font-display);fill:var(--white);text-anchor:middle;dominant-baseline:central}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+.g-wide{grid-column:span 2}
+.g-tall{grid-row:span 2}
+.gt{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--cream-2);border:1px solid var(--line);box-shadow:var(--sh-1);aspect-ratio:1/1;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.g-wide.gt{aspect-ratio:2/1}
+.g-tall.gt{aspect-ratio:auto;min-height:100%}
+.gt:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.gt svg{position:absolute;inset:0;width:100%;height:100%}
+.gt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,38,43,0) 55%,rgba(35,38,43,.5));pointer-events:none}
+.gt-lbl{position:absolute;top:.7rem;left:.7rem;z-index:3;font:700 .7rem var(--font-display);letter-spacing:.14em;text-transform:uppercase;padding:.3rem .6rem;border-radius:var(--r-xs);background:var(--steel);color:var(--on-dark)}
+.ph{position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:.75rem}
+.ph-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.95);color:var(--text);border:1.5px dashed var(--red);border-radius:var(--r-sm);padding:.5rem .8rem;font:600 .82rem/1.25 var(--font-body);text-align:left;box-shadow:var(--sh-1);max-width:92%}
+.ph-pill svg{width:18px;height:18px;color:var(--red-deep);flex:none}
+.gt-cap{position:absolute;left:.9rem;right:.9rem;bottom:.8rem;z-index:3;color:var(--on-dark);font:700 1.05rem var(--font-display);text-transform:uppercase;letter-spacing:.04em}
+
+/* Why band */
+.why{background:linear-gradient(135deg,var(--red-dark) 0%,var(--red-deep) 55%,var(--red) 100%);color:var(--cream);--focus:var(--lamp-pale);position:relative;overflow:hidden}
+.why::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 100% 0%,rgba(242,184,75,.22),transparent 65%),repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 2px,transparent 2px 18px);pointer-events:none}
+.why .eyebrow{color:var(--lamp-pale)}
+.why .eyebrow::before{background:var(--lamp)}
+.why h2 em{color:var(--lamp)}
+.why .sub{color:var(--cream)}
+.why-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.why-list{display:grid;gap:1.1rem;margin-top:1.75rem}
+.why-list li{display:flex;gap:.9rem;align-items:flex-start}
+.why-list svg{width:26px;height:26px;flex:none;color:var(--lamp);margin-top:.1rem}
+.why-list strong{display:block;font:700 1.2rem var(--font-display);text-transform:uppercase;letter-spacing:.03em}
+.why-list span{color:var(--cream)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.stat{background:rgba(35,38,43,.34);border:1px solid rgba(244,239,230,.16);border-radius:var(--r-md);padding:1.4rem 1.5rem;backdrop-filter:blur(6px);transition:transform .35s var(--ease),background-color .35s var(--ease),border-color .35s var(--ease)}
+.stat:hover{transform:translateY(-4px);background:rgba(35,38,43,.46);border-color:rgba(242,184,75,.4)}
+.stat-num{display:block;font:800 clamp(2.4rem,3.6vw,3.4rem)/1 var(--font-display);color:var(--cream);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.stat-label{display:block;font:700 1rem var(--font-display);text-transform:uppercase;letter-spacing:.06em;margin-top:.5rem;color:var(--lamp-pale)}
+.stat small{display:block;font:400 .82rem/1.35 var(--font-body);color:var(--cream);opacity:.85;margin-top:.3rem}
+.quote-card{margin-top:1.25rem;background:var(--cream);color:var(--text);border-radius:var(--r-lg);padding:1.5rem 1.6rem;position:relative;--focus:var(--text);box-shadow:var(--sh-2)}
+.quote-card::before{content:"\201C";position:absolute;top:-.2rem;left:1rem;font:800 5rem/1 var(--font-display);color:var(--red);opacity:.25}
+.quote-card blockquote{margin:0;font:600 1.35rem/1.3 var(--font-display);color:var(--text);position:relative;padding-left:.25rem}
+.quote-card footer{margin-top:.8rem;font-size:.9rem;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:.3rem .6rem;align-items:center}
+.quote-card footer a{color:var(--red-deep);font-weight:600;text-decoration:none;background:linear-gradient(currentColor,currentColor) no-repeat 0 100%/0 1px,linear-gradient(rgba(142,28,21,.3),rgba(142,28,21,.3)) no-repeat 0 100%/100% 1px;transition:background-size .3s var(--ease)}
+.quote-card footer a:hover,.quote-card footer a:focus-visible{background-size:100% 1px,100% 1px}
+.reviews-row{margin-top:1.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-md);background:rgba(35,38,43,.3);border:1px solid rgba(244,239,230,.16);display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center}
+.reviews-row p{flex:1 1 100%;font:700 1.05rem var(--font-display);text-transform:uppercase;letter-spacing:.05em}
+.link-pill{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font:600 .9rem var(--font-body);min-height:44px;padding:.6rem 1rem;border-radius:var(--r-sm);background:var(--cream);color:var(--red-deep);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .25s var(--ease)}
+.link-pill:hover{transform:translateY(-2px);box-shadow:var(--sh-1);background:var(--white)}
+.link-pill svg{width:16px;height:16px}
+
+/* Hours and location */
+.loc-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,4vw,4rem);align-items:start}
+.hours-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-1);overflow:hidden;margin-top:1.75rem}
+.hours-card .hc-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.3rem;background:var(--steel);color:var(--on-dark)}
+.hours-card .hc-head h3{font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em}
+.hours-card .hc-head span{font:600 .8rem var(--font-body);color:var(--on-dark-muted)}
+.hours{margin:0;display:grid}
+.hours > div{display:grid;grid-template-columns:1fr auto;gap:.25rem 1rem;padding:.85rem 1.3rem;border-bottom:1px solid var(--line);align-items:center}
+.hours > div:last-child{border-bottom:0}
+.hours dt{font:700 1.05rem var(--font-display);text-transform:uppercase;letter-spacing:.04em}
+.hours dd{margin:0;text-align:right;font-weight:500;font-variant-numeric:tabular-nums}
+.hours dd .closed{color:var(--text-muted)}
+.hours > div.today{background:var(--red-mist)}
+.hours > div.today dt::after{content:"Today";display:inline-block;margin-left:.6rem;font:700 .65rem var(--font-display);letter-spacing:.14em;background:var(--red);color:var(--white);padding:.15rem .45rem;border-radius:var(--r-xs);vertical-align:middle}
+.hours-note{padding:.9rem 1.3rem;background:var(--cream);font-size:.88rem;color:var(--text-muted);border-top:1px solid var(--line)}
+.addr-card{margin-top:1.25rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;background:var(--steel);color:var(--on-dark);border-radius:var(--r-lg);padding:1.5rem 1.6rem;--focus:var(--lamp)}
+.addr-card svg{width:34px;height:34px;color:var(--lamp);flex:none}
+.addr-card h3{font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em}
+.addr-card p{color:var(--on-dark-muted);margin-top:.3rem}
+.addr-card address{font-style:normal;font:600 1.15rem/1.4 var(--font-body);color:var(--on-dark)}
+.addr-card .row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.9rem}
+.map-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(.75rem,2vw,1.25rem);box-shadow:var(--sh-2)}
+.map-card svg{width:100%;height:auto}
+.map text{font-family:var(--font-display);font-weight:700;fill:var(--text)}
+.map .m-lab{font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+.map .m-lab-home{font-size:26px;font-weight:800}
+.map .road-label{font-weight:600;font-size:15px;fill:var(--text-muted);letter-spacing:.04em}
+.map .m-grid{fill:none;stroke:var(--steel);stroke-opacity:.05}
+.map .m-bg1{stop-color:var(--map-bg-1)}.map .m-bg2{stop-color:var(--map-bg-2)}
+.map .m-road{fill:none;stroke:var(--map-line);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+.map .m-major{fill:none;stroke:var(--map-major);stroke-width:11;stroke-linecap:round;stroke-linejoin:round}
+.map .m-major-in{fill:none;stroke:var(--map-bg-1);stroke-width:3;stroke-dasharray:14 12;stroke-linecap:butt}
+.map .m-green{fill:var(--map-green)}
+.map .comm{fill:var(--red-pale);stroke:var(--red);stroke-width:1.6;stroke-linejoin:round;opacity:.85;transition:fill .25s var(--ease)}
+.map .comm:hover{fill:var(--lamp-pale)}
+.map .m-pin path{fill:var(--red);stroke:var(--white);stroke-width:2}
+.map .m-pin circle{fill:var(--white)}
+.map .m-pin-ring{fill:none;stroke:var(--red);stroke-width:2;opacity:.5;transform-box:fill-box;transform-origin:center;animation:ping 2.6s ease-out infinite}
+@keyframes ping{from{transform:scale(.4);opacity:.7}to{transform:scale(1.6);opacity:0}}
+.map .m-water-text{fill:var(--map-water-text)}
+.map .m-white{fill:var(--white);stroke:var(--map-line)}
+.map .m-ink{fill:var(--steel)}
+.map .m-foot{font-size:14px;font-weight:500;fill:var(--text-muted)}
+.map .m-addr{font:700 16px var(--font-display);fill:var(--text);letter-spacing:.04em}
+.map-note{font-size:var(--fs-small);color:var(--text-muted);margin-top:.9rem;padding-inline:.5rem}
+
+/* FAQ */
+.faq-sec{background:var(--cream-2)}
+.faq-wrap{max-width:860px;margin-inline:auto}
+.faq-list{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:.25rem 1.5rem;box-shadow:var(--sh-1)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:0}
+.faq-item h3{font-size:1rem}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;background:none;border:0;text-align:left;font:600 1.25rem/1.25 var(--font-display);text-transform:none;letter-spacing:0;color:var(--text);cursor:pointer;transition:color .25s var(--ease)}
+.faq-q:hover{color:var(--red-deep)}
+.faq-q:hover .chev{background:var(--red-pale);color:var(--red-deep)}
+.chev{width:34px;height:34px;flex:none;border-radius:50%;background:var(--cream);display:grid;place-items:center;transition:transform .4s var(--ease),background-color .25s var(--ease),color .25s var(--ease)}
+.chev svg{width:18px;height:18px}
+.faq-item.open .chev{transform:rotate(180deg);background:var(--red);color:var(--white)}
+.faq-a{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .42s var(--ease),visibility .42s}
+.faq-item.open .faq-a{grid-template-rows:1fr;visibility:visible}
+.faq-a-inner{overflow:hidden}
+.faq-a p{color:var(--text-muted);padding-bottom:1.35rem;max-width:66ch}
+.faq-a p + p{margin-top:-.6rem}
+
+/* Quote */
+.quote-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.5rem,3vw,3rem);align-items:start}
+.contact-card{background:linear-gradient(160deg,var(--steel-2),var(--steel-3));border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.2rem);position:relative;overflow:hidden}
+.contact-card::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(242,184,75,.3),transparent 70%);pointer-events:none}
+.big-phone{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font:800 clamp(1.9rem,1.2rem + 2.2vw,2.8rem)/1.05 var(--font-display);letter-spacing:.01em;color:var(--on-dark);margin:.3rem 0 .6rem;position:relative;font-variant-numeric:tabular-nums;transition:color .25s var(--ease)}
+.big-phone svg{width:34px;height:34px;color:var(--lamp);flex:none}
+.big-phone:hover{color:var(--lamp)}
+.contact-card > p{color:var(--on-dark-muted)}
+.contact-facts{margin:1.6rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:.7rem 1rem;position:relative}
+.contact-facts dt{font:700 .85rem/1.5 var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:var(--lamp)}
+.contact-facts dd{margin:0;color:var(--on-dark);font-variant-numeric:tabular-nums}
+.form-card{background:var(--steel-2);border:1px solid var(--line-dark);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.2rem);display:grid;align-content:center}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field.full{grid-column:1/-1}
+.field label{font:600 1rem var(--font-body);color:var(--on-dark)}
+.field label span{font:400 .85rem var(--font-body);color:var(--on-dark-muted)}
+.field input,.field select,.field textarea{width:100%;background:var(--steel-3);color:var(--on-dark);border:1px solid rgba(244,239,230,.18);border-radius:var(--r-sm);padding:.9rem 1rem;font:400 1.05rem/1.4 var(--font-body);transition:border-color .25s var(--ease),box-shadow .25s var(--ease);min-width:0}
+.field input::placeholder,.field textarea::placeholder{color:var(--on-dark-muted);opacity:.8}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none;border-color:var(--lamp);box-shadow:0 0 0 3px rgba(242,184,75,.35)}
+.select-wrap{position:relative}
+.select-wrap select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;cursor:pointer}
+.select-wrap::after{content:"";position:absolute;right:1.1rem;top:50%;width:9px;height:9px;border-right:2px solid var(--lamp);border-bottom:2px solid var(--lamp);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.field.has-error input,.field.has-error textarea{border-color:var(--red-soft)}
+.error{font:600 .88rem var(--font-body);color:var(--red-soft)}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:.4rem}
+.form-note{font-size:var(--fs-small);color:var(--on-dark-muted);flex:1 1 240px}
+.form-success{text-align:center;padding:2.5rem 1rem;display:grid;justify-items:center;gap:.9rem}
+.form-success:not([hidden]){animation:rise .5s var(--ease-out) both}
+.form-success svg{width:64px;height:64px;color:var(--lamp)}
+.form-success h3{font-size:1.8rem;text-transform:uppercase;letter-spacing:.03em}
+.form-success p{color:var(--on-dark-muted);max-width:44ch}
+.form-success .actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:.5rem}
+
+/* Notes panel */
+.notes-sec{padding-top:0}
+.notes-panel{border:2px dashed var(--red);border-radius:var(--r-lg);background:var(--white)}
+.notes-panel summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1.25rem,3vw,2rem) clamp(1.5rem,3vw,2.5rem)}
+.notes-panel summary::-webkit-details-marker{display:none}
+.notes-panel .summary-text{display:block}
+.notes-panel summary .eyebrow{margin-bottom:.5rem}
+.notes-panel h2{font-size:clamp(1.5rem,1.1rem + 1.4vw,2.3rem);transition:color .25s var(--ease)}
+.notes-panel summary:hover h2{color:var(--red-deep)}
+.notes-panel .chev{background:var(--red-pale);color:var(--red-deep)}
+.notes-panel summary:hover .chev{background:var(--red);color:var(--white)}
+.notes-panel[open] .chev{transform:rotate(180deg)}
+.notes-body{padding:0 clamp(1.5rem,3vw,2.5rem) clamp(1.5rem,3vw,2.5rem)}
+.notes-panel[open] .notes-body{animation:rise .4s var(--ease-out) both}
+.notes-intro{color:var(--text-muted);max-width:70ch;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.notes-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem 1.6rem}
+.notes-list li{display:flex;gap:.7rem;align-items:flex-start;color:var(--text-muted)}
+.notes-list li strong{color:var(--text);font-weight:600}
+.notes-list svg{width:20px;height:20px;flex:none;color:var(--red-deep);margin-top:.2rem}
+
+/* Footer */
+.footer{background:var(--steel-2);color:var(--on-dark-muted);padding-block:3.5rem 2rem;border-top:4px solid var(--red);--focus:var(--lamp)}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem}
+.foot-title{font:700 .85rem var(--font-display);letter-spacing:.16em;text-transform:uppercase;color:var(--lamp);margin-bottom:.9rem}
+.foot-desc{margin-top:1rem;max-width:40ch}
+.footer ul{display:grid;gap:.5rem}
+.footer a{color:var(--on-dark);text-decoration:none;transition:color .25s var(--ease)}
+.footer a:hover{color:var(--lamp)}
+.footer ul a{display:inline-block;padding-block:.4rem;margin-block:-.4rem;background:linear-gradient(currentColor,currentColor) no-repeat 0 calc(100% - .45rem)/0 1px;transition:color .25s var(--ease),background-size .3s var(--ease)}
+.footer ul a:hover,.footer ul a:focus-visible{background-size:100% 1px}
+.foot-legal{margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.5rem;font-size:var(--fs-small)}
+.foot-legal .todo{font-size:.78rem}
+
+/* Scroll-driven (progressive) */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+  }
+}
+@keyframes reveal{from{opacity:.75;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Responsive */
+@media (max-width:1140px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{max-width:none}
+  .hero{padding-bottom:clamp(3rem,6vw,5rem)}
+  .hero-visual{max-width:720px;margin-inline:auto;width:100%}
+}
+@media (max-width:1100px){
+  .grid-svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:1000px){
+  .why-grid,.loc-grid,.quote-grid,.process-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:1080px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;background:var(--steel-2);padding:.75rem var(--gutter) 1.1rem;border-bottom:1px solid var(--line-dark);box-shadow:0 20px 40px -20px rgba(0,0,0,.7);visibility:hidden;opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .3s var(--ease),transform .4s var(--ease-out),visibility .3s}
+  .menu-open .nav-links{visibility:visible;opacity:1;transform:none;pointer-events:auto}
+  .nav-links a{padding:.85rem .5rem;font-size:1.15rem}
+  .nav-links a::after{left:.5rem;right:.5rem;bottom:.55rem}
+  .menu-open .nav-links a{animation:rise .45s var(--ease-out) both}
+  .menu-open .nav-links a:nth-child(1){animation-delay:40ms}
+  .menu-open .nav-links a:nth-child(2){animation-delay:80ms}
+  .menu-open .nav-links a:nth-child(3){animation-delay:120ms}
+  .menu-open .nav-links a:nth-child(4){animation-delay:160ms}
+  .menu-open .nav-links a:nth-child(5){animation-delay:200ms}
+  .menu-open .nav-links a:nth-child(6){animation-delay:240ms}
+}
+@media (max-width:900px){
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g-tall{grid-row:auto}
+  .g-tall.gt{aspect-ratio:1/1;min-height:0}
+}
+@media (max-width:640px){
+  .form{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .brand-name small{display:none}
+  .nav-call .num{display:none}
+  .nav-call .call-word{display:inline}
+  .trust-card{margin-inline:.75rem}
+  .trust-card ul{grid-template-columns:1fr}
+  .contact-facts{grid-template-columns:1fr;gap:.2rem .5rem}
+  .contact-facts dd{margin-bottom:.6rem}
+  .cta-row .btn{width:100%}
+  .draft{justify-content:space-between;align-items:center;text-align:left;font-size:.75rem;line-height:1.3;padding-block:.3rem}
+  .draft span{flex:1 1 auto;-webkit-line-clamp:3}
+  .draft-close{padding-inline:.7rem}
+  .grid-svc{grid-template-columns:1fr}
+  .card-cta{grid-column:auto}
+  .card{grid-template-columns:auto 1fr;grid-template-areas:"icon tag" "icon title" "icon text" "foot foot";gap:.3rem 1rem;padding:1.1rem 1.15rem}
+  .svc-icon{width:46px;height:46px}
+  .svc-icon svg{width:26px;height:26px}
+  .card .tag{justify-self:start}
+  .card h3{font-size:1.2rem;margin-top:0}
+  .card p{font-size:.95rem}
+  .card-cta{display:flex}
+  .card-cta .svc-icon{width:58px;height:58px}
+  .map .road-label{display:none}
+  .map .m-foot{font-size:20px}
+  .ph-pill{font-size:.74rem;padding:.45rem .65rem}
+  .fig-legend{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat-num{font-size:2.2rem}
+  .hours > div{grid-template-columns:1fr;gap:.1rem}
+  .hours dd{text-align:left}
+  .addr-card{grid-template-columns:1fr}
+  .form-foot .btn{width:100%}
+  .form-note{text-align:center;flex:1 1 100%}
+  .footer ul{gap:.35rem}
+}
+@media (max-width:520px){
+  .gallery{grid-template-columns:1fr}
+  .g-wide{grid-column:auto}
+  .g-wide.gt{aspect-ratio:4/3}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .stage,.reveal,.lamp-glow,.m-pin-ring{animation:none}
+  .ticker-track{animation:none;width:100%;flex-wrap:wrap}
+  .ticker-list{flex-wrap:wrap;justify-content:center;gap:.5rem 0}
+  .ticker-list[aria-hidden="true"]{display:none}
+  .ticker::before,.ticker::after{display:none}
+  .layer{transition:none;transform:none}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="draft" id="draft-banner" role="note" aria-label="Draft notice">
+  <span>Draft website proposal for Garland's Auto Repair — not live. Prepared by Adeel Ahmed (Sites by Adeel), Calgary.</span>
+  <button class="draft-close" id="draft-close" type="button">Close</button>
+</div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Garland's Auto Repair, back to top">
+      <svg class="brand-mark" viewBox="0 0 42 42" aria-hidden="true" focusable="false">
+        <rect class="bm-bg" width="42" height="42" rx="8"/>
+        <path class="bm-d" d="M0 30h42v4a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8z"/>
+        <path class="bm-f" d="M29.5 9.2a6.2 6.2 0 0 0-6.9 8.6L11.2 29.2a2.6 2.6 0 0 0 3.7 3.7l11.4-11.4a6.2 6.2 0 0 0 8.6-6.9l-3.6 3.6-3.1-.7-.7-3.1z"/>
+      </svg>
+      <span class="brand-name">Garland's<small>Auto Repair · NE Calgary</small></span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#why">Why independent</a>
+      <a href="#location">Hours &amp; location</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quote">Get a quote</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-call" href="tel:+14032773699">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+        <span class="num">403-277-3699</span><span class="call-word">Call</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+<!-- HERO -->
+<section class="hero dark" id="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow stage s1">Auto repair · 429 36 Avenue NE</p>
+      <h1 id="hero-title" class="stage s2">The neighbourhood garage on <em>36 Avenue NE</em></h1>
+      <p class="lede stage s3">Garland's Auto Repair is an auto repair shop in Calgary's Highland Park / Greenview area — <strong>weekdays from 8 AM.</strong> Call <a href="tel:+14032773699">403-277-3699</a> and talk to the shop directly.</p>
+      <div class="cta-row stage s4">
+        <a class="btn btn-primary btn-lg" href="tel:+14032773699">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          Call 403-277-3699
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#quote">Ask for a quote</a>
+      </div>
+      <p class="hero-note stage s5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span>429 36 Avenue NE, Calgary, AB T2E 6R1 · Business started 1997, per the BBB profile</span>
+      </p>
+    </div>
+
+    <div class="hero-visual stage s3">
+      <div class="scene-frame">
+        <svg class="scene" id="scene" viewBox="0 0 960 640" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="scene-title scene-desc">
+          <title id="scene-title">Illustration of a garage bay with a car raised on a two-post lift</title>
+          <desc id="scene-desc">A stylised illustration drawn for this draft, not a photo of Garland's shop. A red car sits on a lift under two warm pendant lamps, with a tool chest and a stack of tires in the foreground.</desc>
+          <defs>
+            <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3C424C"/><stop offset="1" stop-color="#262A31"/></linearGradient>
+            <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B4048"/><stop offset="1" stop-color="#1C1F24"/></linearGradient>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4E3A56"/><stop offset=".55" stop-color="#D7743B"/><stop offset="1" stop-color="#F5C46B"/></linearGradient>
+            <radialGradient id="cone" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD98A" stop-opacity=".62"/><stop offset=".45" stop-color="#FFC66A" stop-opacity=".22"/><stop offset="1" stop-color="#FFC66A" stop-opacity="0"/></radialGradient>
+            <linearGradient id="carBody" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9E1F17"/><stop offset=".35" stop-color="#D33F31"/><stop offset=".7" stop-color="#C7352B"/><stop offset="1" stop-color="#8E1C15"/></linearGradient>
+            <linearGradient id="carTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".28"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity=".3"/></linearGradient>
+            <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C4DAE8"/><stop offset="1" stop-color="#4C6478"/></linearGradient>
+            <linearGradient id="post" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F5762"/><stop offset=".45" stop-color="#8B95A2"/><stop offset="1" stop-color="#454C56"/></linearGradient>
+            <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA2AC"/><stop offset=".5" stop-color="#E3E7EC"/><stop offset="1" stop-color="#8F98A3"/></linearGradient>
+            <linearGradient id="chest" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C7352B"/><stop offset="1" stop-color="#8E1C15"/></linearGradient>
+            <linearGradient id="tire" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#101216"/><stop offset=".5" stop-color="#2A2E35"/><stop offset="1" stop-color="#101216"/></linearGradient>
+            <radialGradient id="vig" cx=".5" cy=".5" r=".72"><stop offset=".55" stop-color="#1C1F24" stop-opacity="0"/><stop offset="1" stop-color="#1C1F24" stop-opacity=".6"/></radialGradient>
+            <pattern id="blocks" x="0" y="0" width="120" height="50" patternUnits="userSpaceOnUse">
+              <path d="M0 0H120M0 25H120M60 0V25M0 25V50M120 25V50" stroke="#1E2126" stroke-opacity=".35" stroke-width="1.5" fill="none"/>
+            </pattern>
+            <pattern id="pegs" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1.4" fill="#1E2126" opacity=".6"/></pattern>
+          </defs>
+          <g class="layer layer-far">
+            <rect x="-40" y="-30" width="1040" height="510" fill="url(#wall)"/>
+            <rect x="-40" y="-30" width="1040" height="510" fill="url(#blocks)"/>
+            <rect x="-40" y="34" width="1040" height="30" fill="#1D2025"/>
+            <rect x="-40" y="64" width="1040" height="4" fill="#12141A"/>
+            <g fill="#4F5762"><circle cx="60" cy="49" r="3"/><circle cx="220" cy="49" r="3"/><circle cx="380" cy="49" r="3"/><circle cx="540" cy="49" r="3"/><circle cx="700" cy="49" r="3"/><circle cx="860" cy="49" r="3"/></g>
+            <g>
+              <rect x="100" y="96" width="190" height="64" rx="3" fill="#15171B"/><rect x="108" y="103" width="174" height="50" fill="url(#sky)"/><path d="M195 103V153M108 128H282" stroke="#15171B" stroke-width="5"/>
+              <rect x="385" y="96" width="190" height="64" rx="3" fill="#15171B"/><rect x="393" y="103" width="174" height="50" fill="url(#sky)"/><path d="M480 103V153M393 128H567" stroke="#15171B" stroke-width="5"/>
+              <rect x="670" y="96" width="190" height="64" rx="3" fill="#15171B"/><rect x="678" y="103" width="174" height="50" fill="url(#sky)"/><path d="M765 103V153M678 128H852" stroke="#15171B" stroke-width="5"/>
+            </g>
+            <g>
+              <rect x="600" y="196" width="290" height="190" rx="6" fill="#33383F" stroke="#1E2126" stroke-width="3"/>
+              <rect x="608" y="204" width="274" height="174" fill="url(#pegs)"/>
+              <g fill="#C7CCD3">
+                <path d="M640 226a10 10 0 0 1 14-9l-6 6 4 4 6-6a10 10 0 0 1-9 14l-13 25-6-4z"/>
+                <path d="M690 220a10 10 0 0 1 14-9l-6 6 4 4 6-6a10 10 0 0 1-9 14l-13 25-6-4z" transform="translate(4 8)"/>
+                <rect x="740" y="214" width="8" height="70" rx="2"/><rect x="726" y="208" width="36" height="16" rx="3"/>
+                <rect x="790" y="216" width="6" height="64" rx="2"/><rect x="806" y="216" width="6" height="64" rx="2"/><path d="M786 216h30l-8-14h-14z"/>
+                <path d="M640 306h60v10h-60zM646 316h48v6h-48z"/>
+                <path d="M720 300h30l4 30h-38z" opacity=".9"/><rect x="726" y="292" width="18" height="8" rx="2"/>
+                <circle cx="800" cy="330" r="16"/><circle cx="800" cy="330" r="7" fill="#33383F"/>
+                <circle cx="842" cy="330" r="16"/><circle cx="842" cy="330" r="7" fill="#33383F"/>
+              </g>
+            </g>
+            <g>
+              <rect x="50" y="232" width="270" height="9" fill="#1E2126"/>
+              <rect x="60" y="241" width="8" height="18" fill="#1E2126"/><rect x="302" y="241" width="8" height="18" fill="#1E2126"/>
+              <rect x="70" y="192" width="30" height="40" rx="3" fill="#E4B23A"/><rect x="74" y="200" width="22" height="14" fill="#2B2F36" opacity=".55"/>
+              <rect x="108" y="196" width="26" height="36" rx="3" fill="#B3271E"/><rect x="112" y="204" width="18" height="12" fill="#F4EFE6" opacity=".7"/>
+              <rect x="142" y="186" width="34" height="46" rx="3" fill="#4E9AD6"/><rect x="147" y="196" width="24" height="14" fill="#F4EFE6" opacity=".7"/>
+              <rect x="186" y="204" width="24" height="28" rx="3" fill="#F4EFE6"/><rect x="190" y="211" width="16" height="10" fill="#B3271E"/>
+              <rect x="220" y="198" width="40" height="34" rx="3" fill="#2B2F36" stroke="#4F5762" stroke-width="2"/>
+              <rect x="270" y="206" width="30" height="26" rx="3" fill="#E4B23A"/>
+            </g>
+            <g>
+              <path d="M310 68V150" stroke="#12141A" stroke-width="3"/>
+              <circle class="lamp-glow" cx="310" cy="205" r="190" fill="url(#cone)"/>
+              <path d="M262 190 L288 150 H332 L358 190 Z" fill="#23262C"/>
+              <path d="M262 190 L288 150 H332 L358 190 Z" fill="#FFD98A" opacity=".15"/>
+              <ellipse cx="310" cy="190" rx="48" ry="7" fill="#FFE7B0"/>
+              <ellipse cx="310" cy="190" rx="22" ry="5" fill="#FFF6DC"/>
+            </g>
+            <g>
+              <path d="M650 68V150" stroke="#12141A" stroke-width="3"/>
+              <circle class="lamp-glow b" cx="650" cy="205" r="190" fill="url(#cone)"/>
+              <path d="M602 190 L628 150 H672 L698 190 Z" fill="#23262C"/>
+              <path d="M602 190 L628 150 H672 L698 190 Z" fill="#FFD98A" opacity=".15"/>
+              <ellipse cx="650" cy="190" rx="48" ry="7" fill="#FFE7B0"/>
+              <ellipse cx="650" cy="190" rx="22" ry="5" fill="#FFF6DC"/>
+            </g>
+          </g>
+          <g class="layer layer-mid">
+            <rect x="226" y="136" width="508" height="16" rx="3" fill="#4F5762"/>
+            <rect x="226" y="136" width="508" height="5" fill="#8B95A2" opacity=".6"/>
+            <rect x="232" y="146" width="38" height="330" fill="url(#post)"/>
+            <rect x="690" y="146" width="38" height="330" fill="url(#post)"/>
+            <rect x="222" y="466" width="58" height="14" rx="2" fill="#3A3F48"/>
+            <rect x="680" y="466" width="58" height="14" rx="2" fill="#3A3F48"/>
+            <g fill="#E4B23A"><rect x="240" y="160" width="22" height="70" opacity=".85"/><rect x="698" y="160" width="22" height="70" opacity=".85"/></g>
+            <g fill="#15171B"><path d="M240 176h22v6h-22zM240 190h22v6h-22zM240 204h22v6h-22zM698 176h22v6h-22zM698 190h22v6h-22zM698 204h22v6h-22z"/></g>
+            <rect x="270" y="398" width="112" height="14" rx="3" fill="#6B7380"/><rect x="270" y="398" width="112" height="4" fill="#9AA2AC" opacity=".6"/>
+            <rect x="578" y="398" width="112" height="14" rx="3" fill="#6B7380"/><rect x="578" y="398" width="112" height="4" fill="#9AA2AC" opacity=".6"/>
+            <rect x="372" y="388" width="34" height="12" rx="2" fill="#2B2F36"/><rect x="554" y="388" width="34" height="12" rx="2" fill="#2B2F36"/>
+            <ellipse cx="480" cy="480" rx="220" ry="14" fill="#0E1013" opacity=".45"/>
+            <g>
+              <circle cx="386" cy="394" r="46" fill="#1F2227"/><circle cx="574" cy="394" r="46" fill="#1F2227"/>
+              <rect x="298" y="332" width="364" height="60" rx="12" fill="url(#carBody)"/>
+              <path d="M368 334 Q380 266 438 258 L536 258 Q596 264 612 334 Z" fill="url(#carBody)"/>
+              <path d="M368 334 Q380 266 438 258 L536 258 Q596 264 612 334 Z" fill="url(#carTop)"/>
+              <rect x="298" y="332" width="364" height="60" rx="12" fill="url(#carTop)"/>
+              <path d="M382 330 Q392 280 442 274 L530 274 Q580 280 596 330 Z" fill="url(#glass)"/>
+              <path d="M392 322 Q402 292 440 284 L470 284 L470 322 Z" fill="#FFFFFF" opacity=".16"/>
+              <rect x="486" y="274" width="9" height="56" fill="#7E1A13"/>
+              <path d="M452 340 V386" stroke="#7E1A13" stroke-width="2.5"/>
+              <rect x="458" y="350" width="22" height="6" rx="3" fill="#F4EFE6" opacity=".7"/>
+              <rect x="304" y="346" width="352" height="5" rx="2.5" fill="#FFFFFF" opacity=".2"/>
+              <path d="M630 342 L662 346 L662 360 L634 360 Z" fill="#FFE9B8"/>
+              <path d="M640 348 L662 350 L662 356 L642 356 Z" fill="#FFFFFF" opacity=".6"/>
+              <rect x="298" y="342" width="22" height="16" rx="4" fill="#FF6B57"/>
+              <rect x="298" y="345" width="22" height="4" fill="#FFFFFF" opacity=".35"/>
+              <rect x="292" y="380" width="376" height="16" rx="7" fill="#2B2F36"/>
+              <rect x="292" y="380" width="376" height="4" rx="2" fill="#4B525D"/>
+              <rect x="606" y="296" width="16" height="10" rx="3" fill="#8E1C15"/>
+              <rect x="318" y="396" width="324" height="10" fill="#1F2227"/>
+              <rect x="330" y="404" width="150" height="7" rx="3.5" fill="#7A828C"/>
+              <rect x="470" y="402" width="26" height="12" rx="3" fill="#8F98A3"/>
+              <g>
+                <circle cx="386" cy="400" r="38" fill="url(#tire)"/><circle cx="386" cy="400" r="24" fill="#B8BEC6"/><circle cx="386" cy="400" r="20" fill="#8F98A3"/>
+                <path d="M386 382v36M368 400h36M373 387l26 26M399 387l-26 26" stroke="#DDE1E6" stroke-width="3"/>
+                <circle cx="386" cy="400" r="7" fill="#2B2F36"/><circle cx="386" cy="400" r="3" fill="#B3271E"/>
+              </g>
+              <g>
+                <circle cx="574" cy="400" r="38" fill="url(#tire)"/><circle cx="574" cy="400" r="24" fill="#B8BEC6"/><circle cx="574" cy="400" r="20" fill="#8F98A3"/>
+                <path d="M574 382v36M556 400h36M561 387l26 26M587 387l-26 26" stroke="#DDE1E6" stroke-width="3"/>
+                <circle cx="574" cy="400" r="7" fill="#2B2F36"/><circle cx="574" cy="400" r="3" fill="#B3271E"/>
+              </g>
+            </g>
+          </g>
+          <g class="layer layer-near">
+            <rect x="-40" y="476" width="1040" height="200" fill="url(#floor)"/>
+            <rect x="-40" y="476" width="1040" height="6" fill="#E4B23A" opacity=".75"/>
+            <path d="M-40 540H1000M-40 600H1000" stroke="#12141A" stroke-opacity=".5" stroke-width="2"/>
+            <path d="M200 482V640M760 482V640" stroke="#12141A" stroke-opacity=".35" stroke-width="2"/>
+            <ellipse cx="310" cy="500" rx="150" ry="10" fill="#FFD98A" opacity=".13"/>
+            <ellipse cx="650" cy="500" rx="150" ry="10" fill="#FFD98A" opacity=".13"/>
+            <path d="M298 510 Q480 530 662 510 L680 560 Q480 590 280 560 Z" fill="#B3271E" opacity=".07"/>
+            <g>
+              <ellipse cx="128" cy="500" rx="100" ry="8" fill="#0E1013" opacity=".4"/>
+              <rect x="34" y="350" width="184" height="12" rx="2" fill="#1F2227"/>
+              <rect x="40" y="362" width="172" height="124" rx="4" fill="url(#chest)"/>
+              <rect x="40" y="362" width="172" height="124" rx="4" fill="#000000" opacity=".08"/>
+              <g fill="#FFFFFF" opacity=".08"><rect x="40" y="362" width="172" height="3"/></g>
+              <g fill="#000000" opacity=".3"><rect x="48" y="392" width="156" height="2"/><rect x="48" y="422" width="156" height="2"/><rect x="48" y="452" width="156" height="2"/></g>
+              <g fill="url(#chrome)"><rect x="96" y="374" width="60" height="6" rx="3"/><rect x="96" y="404" width="60" height="6" rx="3"/><rect x="96" y="434" width="60" height="6" rx="3"/><rect x="96" y="464" width="60" height="6" rx="3"/></g>
+              <circle cx="62" cy="492" r="9" fill="#15171B"/><circle cx="190" cy="492" r="9" fill="#15171B"/><circle cx="62" cy="492" r="3" fill="#4F5762"/><circle cx="190" cy="492" r="3" fill="#4F5762"/>
+              <path d="M70 344a7 7 0 0 1 10-6l-4 4 3 3 4-4a7 7 0 0 1-6 10l-22 4-2-5z" fill="#C7CCD3"/>
+              <rect x="150" y="336" width="44" height="14" rx="3" fill="#E4B23A"/><rect x="156" y="340" width="32" height="6" fill="#2B2F36" opacity=".5"/>
+            </g>
+            <g>
+              <ellipse cx="856" cy="500" rx="90" ry="8" fill="#0E1013" opacity=".4"/>
+              <rect x="790" y="452" width="132" height="42" rx="21" fill="url(#tire)"/><ellipse cx="856" cy="452" rx="66" ry="13" fill="#2A2E35"/><ellipse cx="856" cy="452" rx="34" ry="7" fill="#15171B"/>
+              <rect x="784" y="416" width="132" height="42" rx="21" fill="url(#tire)"/><ellipse cx="850" cy="416" rx="66" ry="13" fill="#2A2E35"/><ellipse cx="850" cy="416" rx="34" ry="7" fill="#15171B"/>
+              <rect x="792" y="380" width="132" height="42" rx="21" fill="url(#tire)"/><ellipse cx="858" cy="380" rx="66" ry="13" fill="#2A2E35"/><ellipse cx="858" cy="380" rx="34" ry="7" fill="#15171B"/>
+              <path d="M800 470h116M794 434h116M802 398h116" stroke="#3A3F48" stroke-width="2" opacity=".6"/>
+            </g>
+            <g>
+              <ellipse cx="560" cy="498" rx="70" ry="6" fill="#0E1013" opacity=".4"/>
+              <path d="M500 486 L610 486 L620 470 L520 470 Z" fill="#B3271E"/>
+              <rect x="500" y="486" width="120" height="10" rx="3" fill="#8E1C15"/>
+              <circle cx="512" cy="496" r="7" fill="#15171B"/><circle cx="608" cy="496" r="7" fill="#15171B"/>
+              <rect x="530" y="456" width="26" height="16" rx="3" fill="#2B2F36"/>
+              <path d="M612 476 L740 402" stroke="#B3271E" stroke-width="9" stroke-linecap="round"/>
+              <path d="M612 476 L740 402" stroke="#FFFFFF" stroke-opacity=".18" stroke-width="3" stroke-linecap="round"/>
+              <rect x="734" y="392" width="16" height="16" rx="4" fill="#15171B"/>
+            </g>
+            <g fill="none" stroke="#C7CCD3" stroke-width="4" stroke-linecap="round" opacity=".7">
+              <path d="M740 478 q-30 -18 -60 0 q-30 18 -60 0"/>
+            </g>
+            <g>
+              <ellipse cx="278" cy="497" rx="34" ry="5" fill="#0E1013" opacity=".4"/>
+              <rect x="248" y="478" width="60" height="16" rx="3" fill="#4B525D"/><rect x="252" y="482" width="52" height="4" fill="#15171B" opacity=".6"/>
+            </g>
+          </g>
+          <rect x="-40" y="-30" width="1040" height="700" fill="url(#vig)"/>
+        </svg>
+      </div>
+      <div class="trust-card stage s6" role="group" aria-label="At a glance">
+        <ul>
+          <li class="tc-head"><span>At a glance</span><span>NE Calgary</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div>429 36 Avenue NE<small>Highland Park / Greenview, Calgary</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div>Weekdays from 8:00 AM<small>Closed Saturday and Sunday · <span class="todo">closing time to confirm</span></small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><div>4.9 rating shown on Wheree and AutoTechIQ<small>Google-review aggregators; review count not shown</small></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><div><a href="tel:+14032773699">403-277-3699</a><small>Call the shop directly</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTS TICKER -->
+<section class="ticker" aria-label="Key facts at a glance">
+  <div class="ticker-track">
+    <ul class="ticker-list">
+      <li>Auto repair</li><li>429 36 Avenue NE</li><li>Highland Park / Greenview</li><li>Weekdays from 8 AM</li><li>Closed weekends</li><li>403-277-3699</li><li>Business started 1997, per BBB</li><li>0 BBB complaints in 3 years</li>
+    </ul>
+    <ul class="ticker-list" aria-hidden="true">
+      <li>Auto repair</li><li>429 36 Avenue NE</li><li>Highland Park / Greenview</li><li>Weekdays from 8 AM</li><li>Closed weekends</li><li>403-277-3699</li><li>Business started 1997, per BBB</li><li>0 BBB complaints in 3 years</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What the shop does</p>
+      <h2 id="services-title">Minor and major repairs, <em>under one roof</em></h2>
+      <p class="sub">Directory listings for Garland's describe <q>minor and major repairs on makes and models</q> and tag the shop for the work below. The business has not published its own service list yet, so each card carries its source — the owner confirms, and the tags come off.</p>
+    </div>
+    <div class="grid-svc reveal">
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h14v6H9z"/><path d="M11 11v14a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3V11"/><path class="acc-stroke" d="M14 17h4M14 21h4"/><path d="M6 8H3M29 8h-3"/></svg></div>
+        <span class="tag tbc">Directory listing</span>
+        <h3>Oil changes &amp; maintenance</h3>
+        <p>Regular oil and filter changes are the cheapest insurance an engine gets. Keeping to the interval is what separates a car that runs for years from one that does not.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="4"/><path d="M16 5v3M16 24v3M5 16h3M24 16h3"/><path class="acc-stroke" d="M22 9a9 9 0 0 1 3 7" stroke-width="3"/></svg></div>
+        <span class="tag tbc">Directory listing</span>
+        <h3>Brake work</h3>
+        <p>Pads, rotors, calipers and the fluid that moves them. A squeal, a pulse in the pedal or a car that pulls to one side when you stop are all worth a look sooner rather than later.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="6"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l3 3M21.5 21.5l3 3M24.5 7.5l-3 3M10.5 21.5l-3 3"/><circle class="acc" cx="16" cy="16" r="1.8" stroke="none"/></svg></div>
+        <span class="tag tbc">Directory listing</span>
+        <h3>Tire rotations &amp; repairs</h3>
+        <p>Rotating tires evens out wear so a set lasts longer. Punctures in the tread can often be repaired properly from the inside instead of replacing the tire.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="acc-stroke" d="M17 3L8 18h7l-2 11 11-16h-7z"/><path d="M4 27h4M24 27h4" opacity=".5"/></svg></div>
+        <span class="tag tbc">Directory listing</span>
+        <h3>Electrical diagnostics</h3>
+        <p>A check-engine light, a battery that keeps dying or a window that stopped moving. Diagnostics means finding the actual fault before replacing parts on a guess.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6a5 5 0 0 0-5.6 6.9L6 23.3a2.2 2.2 0 0 0 3.1 3.1L19.5 16A5 5 0 0 0 26.4 10.4l-3 3-2.4-.6-.6-2.4z"/><circle class="acc" cx="7.5" cy="24.5" r="1.2" stroke="none"/></svg></div>
+        <span class="tag tbc">Directory listing</span>
+        <h3>Minor &amp; major repairs</h3>
+        <p>From a rattle you cannot place to work that has the car up on the lift for the day. Repairs on the makes and models that show up in a Calgary neighbourhood.</p>
+        <p class="src">From a YellowPages search snippet: <q>minor and major repairs on makes and models</q>.</p>
+      </article>
+      <article class="card">
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h10V11H6l-3 5z"/><path d="M13 20h9v-4h-9"/><path d="M22 16l4-1 3 5v3h-3"/><circle cx="8" cy="23" r="2.5"/><circle cx="24" cy="23" r="2.5"/><path class="acc-stroke" d="M16 12l6-6M18 6h4v4"/></svg></div>
+        <span class="tag tbc">To confirm</span>
+        <h3>Towing</h3>
+        <p>One directory tags the shop for towing services. Whether that means the shop tows, or can arrange a tow to the bay, is a question for the owner.</p>
+        <p class="src">Wheree category tag only. Not confirmed by the business.</p>
+      </article>
+      <article class="card card-cta">
+        <div class="cta-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h5l2.5 6.5L11 13a14 14 0 0 0 8 8l2.5-3.5L28 20v5a3 3 0 0 1-3 3A21 21 0 0 1 4 7a3 3 0 0 1 3-3z"/></svg></div>
+          <span class="tag">Not sure?</span>
+        </div>
+        <h3>Ask us. Describe the problem, we take it from there.</h3>
+        <p>The quickest way to find out if the shop can help is a phone call. Say what the car is doing and when it started.</p>
+        <a class="btn btn-primary" href="tel:+14032773699">Call 403-277-3699</a>
+      </article>
+    </div>
+    <div class="owner-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+      <p><strong>Note for the owner:</strong> every service above comes from a third-party directory, not from the business. The oil change, brake, tire and electrical cards are listed on the Place All aggregator page (community-edited); the two cards with their own source line say where they came from. Tell us what you actually do — and what you send elsewhere — and this grid becomes your list. Specialties, makes you know best and anything you do not touch all belong here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section dark" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2 id="process-title">Three steps, <em>no runaround</em></h2>
+      <p class="sub">What a visit to an independent shop normally looks like. The parts specific to Garland's are marked for the owner to confirm.</p>
+    </div>
+    <div class="process-grid">
+      <ol class="steps reveal">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">01</span>
+          <h3>Call or come by</h3>
+          <p>Phone <a href="tel:+14032773699">403-277-3699</a> or use the form on this page. The shop is at 429 36 Avenue NE, open weekdays from 8 AM.</p>
+          <span class="todo">To confirm: appointment needed, or drop-ins welcome?</span>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">02</span>
+          <h3>Look, diagnose, quote</h3>
+          <p>The car goes on the lift or the scanner, the fault is found, and you get told what it needs before any work starts.</p>
+          <span class="todo">To confirm: written estimate? approval before work? diagnostic fee?</span>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">03</span>
+          <h3>Fix it, pick it up</h3>
+          <p>The repair is done, you pay, you drive home. Simple as it should be.</p>
+          <span class="todo">To confirm: payment methods, warranty on parts and labour, loaner or shuttle</span>
+        </li>
+      </ol>
+      <figure class="fig-card reveal">
+        <svg class="fig" viewBox="0 0 640 520" role="img" aria-labelledby="fig-title fig-desc">
+          <title id="fig-title">Diagram of a disc brake assembly</title>
+          <desc id="fig-desc">A simplified side-on drawing of a disc brake: a vented rotor bolted to the hub, a caliper clamped over its edge with two pads inside, a brake line feeding the caliper, and the wheel studs. Numbered callouts match the legend below.</desc>
+          <defs>
+            <pattern id="f-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" class="fg-grid"/></pattern>
+          </defs>
+          <rect width="640" height="520" rx="14" class="fg-paper"/>
+          <rect width="640" height="520" rx="14" fill="url(#f-grid)"/>
+          <text x="26" y="36" class="fg-eyebrow">FIG. 01</text>
+          <text x="26" y="66" class="fg-title">Disc brake, side view</text>
+          <text x="614" y="36" text-anchor="end" class="fg-eyebrow fg-mute">NOT TO SCALE</text>
+          <path d="M26 82H614" class="fg-rule"/>
+          <g transform="translate(250 300)">
+            <circle r="168" class="fg-steel fg-stroke"/>
+            <circle r="160" class="fg-light"/>
+            <circle r="160" class="fg-thin"/>
+            <g class="fg-thin">
+              <path d="M0 -160 A160 160 0 0 1 113 -113"/>
+              <circle r="130"/>
+              <circle r="100"/>
+            </g>
+            <g class="fg-ink" opacity=".35">
+              <circle cx="0" cy="-118" r="4"/><circle cx="59" cy="-102" r="4"/><circle cx="102" cy="-59" r="4"/><circle cx="118" cy="0" r="4"/><circle cx="102" cy="59" r="4"/><circle cx="59" cy="102" r="4"/><circle cx="0" cy="118" r="4"/><circle cx="-59" cy="102" r="4"/><circle cx="-102" cy="59" r="4"/><circle cx="-118" cy="0" r="4"/><circle cx="-102" cy="-59" r="4"/><circle cx="-59" cy="-102" r="4"/>
+              <circle cx="30" cy="-142" r="4"/><circle cx="84" cy="-118" r="4"/><circle cx="118" cy="-84" r="4"/><circle cx="142" cy="-30" r="4"/><circle cx="142" cy="30" r="4"/><circle cx="118" cy="84" r="4"/><circle cx="84" cy="118" r="4"/><circle cx="30" cy="142" r="4"/><circle cx="-30" cy="142" r="4"/><circle cx="-84" cy="118" r="4"/><circle cx="-118" cy="84" r="4"/><circle cx="-142" cy="30" r="4"/><circle cx="-142" cy="-30" r="4"/><circle cx="-118" cy="-84" r="4"/><circle cx="-84" cy="-118" r="4"/><circle cx="-30" cy="-142" r="4"/>
+            </g>
+            <circle r="62" class="fg-steel2 fg-stroke"/>
+            <circle r="54" class="fg-light2"/>
+            <circle r="54" class="fg-thin"/>
+            <circle r="22" class="fg-steel fg-stroke"/>
+            <circle r="9" class="fg-ink"/>
+            <g class="fg-ink">
+              <circle cx="0" cy="-40" r="6"/><circle cx="38" cy="-12" r="6"/><circle cx="24" cy="32" r="6"/><circle cx="-24" cy="32" r="6"/><circle cx="-38" cy="-12" r="6"/>
+            </g>
+            <g class="fg-light2" opacity=".9">
+              <circle cx="0" cy="-40" r="2.5"/><circle cx="38" cy="-12" r="2.5"/><circle cx="24" cy="32" r="2.5"/><circle cx="-24" cy="32" r="2.5"/><circle cx="-38" cy="-12" r="2.5"/>
+            </g>
+            <g transform="rotate(-38)">
+              <path d="M-52 -196 A196 196 0 0 1 52 -196 L58 -128 A130 130 0 0 0 -58 -128 Z" class="fg-red fg-stroke"/>
+              <path d="M-44 -190 A190 190 0 0 1 44 -190 L46 -170 A170 170 0 0 0 -46 -170 Z" fill="#000000" opacity=".18"/>
+              <path d="M-40 -166 A166 166 0 0 1 40 -166 L40 -156 A156 156 0 0 0 -40 -156 Z" class="fg-lamp fg-thin"/>
+              <path d="M-40 -154 A154 154 0 0 1 40 -154 L40 -144 A144 144 0 0 0 -40 -144 Z" class="fg-lamp fg-thin"/>
+              <rect x="-60" y="-176" width="8" height="42" rx="2" class="fg-steel3"/>
+              <rect x="52" y="-176" width="8" height="42" rx="2" class="fg-steel3"/>
+              <rect x="-10" y="-214" width="20" height="18" rx="3" class="fg-steel3 fg-stroke"/>
+              <circle cx="0" cy="-208" r="3" class="fg-ink"/>
+            </g>
+          </g>
+          <path d="M112 84 C 80 130 60 180 62 230 C 64 250 84 262 100 272" class="fg-ldr" stroke-width="3"/>
+          <path d="M112 84 C 80 130 60 180 62 230 C 64 250 84 262 100 272" fill="none" stroke="#FFFFFF" stroke-width="1" opacity=".5"/>
+          <path d="M100 272 L140 300" class="fg-ldr"/>
+          <path d="M250 132 L250 110 H330" class="fg-ldr"/>
+          <path d="M395 208 L470 170" class="fg-ldr"/>
+          <path d="M330 300 L470 300" class="fg-ldr"/>
+          <path d="M290 262 L470 236" class="fg-ldr"/>
+          <path d="M250 468 L250 490 H330" class="fg-ldr"/>
+          <g class="fg-co">
+            <circle cx="350" cy="110" r="16"/><text x="350" y="110">1</text>
+            <circle cx="490" cy="170" r="16"/><text x="490" y="170">2</text>
+            <circle cx="490" cy="236" r="16"/><text x="490" y="236">3</text>
+            <circle cx="490" cy="300" r="16"/><text x="490" y="300">4</text>
+            <circle cx="350" cy="490" r="16"/><text x="350" y="490">5</text>
+            <circle cx="100" cy="110" r="16"/><text x="100" y="110">6</text>
+          </g>
+          <text x="520" y="176" class="fg-lab">Caliper</text>
+          <text x="520" y="242" class="fg-lab">Hub</text>
+          <text x="520" y="306" class="fg-lab">Wheel studs</text>
+          <text x="380" y="116" class="fg-lab">Rotor</text>
+          <text x="380" y="496" class="fg-lab">Cooling vents</text>
+          <text x="126" y="116" class="fg-lab">Brake line</text>
+        </svg>
+        <ol class="fig-legend">
+          <li><b>1</b>Rotor — the disc the wheel bolts to</li>
+          <li><b>2</b>Caliper, with the pads inside it</li>
+          <li><b>3</b>Hub and bearing</li>
+          <li><b>4</b>Wheel studs</li>
+          <li><b>5</b>Vents that let the rotor shed heat</li>
+          <li><b>6</b>Brake line carrying fluid pressure</li>
+        </ol>
+        <figcaption class="fig-cap"><b>Fig. 01</b><span>What a brake job is working on. Pads wear down; rotors wear thin or warp; both get measured before anyone recommends replacing them.</span></figcaption>
+      </figure>
+    </div>
+    <div class="process-cta">
+      <p>Something not right with the car? Start with a call.</p>
+      <a class="btn btn-primary" href="tel:+14032773699"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Call 403-277-3699</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="shop" aria-labelledby="shop-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The shop</p>
+      <h2 id="shop-title">Show people <em>where their car goes</em></h2>
+      <p class="sub">A customer choosing a garage wants to see the place. These tiles are designed placeholders, laid out for the photos that matter: the front of the building, the bays, and the people who work there.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="gt g-wide">
+        <svg viewBox="0 0 600 300" aria-hidden="true" focusable="false"><defs><linearGradient id="g1s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9D7E3"/><stop offset="1" stop-color="#EDE4D4"/></linearGradient></defs><rect width="600" height="300" fill="url(#g1s)"/><rect x="0" y="228" width="600" height="72" fill="#8E9299"/><rect x="0" y="222" width="600" height="8" fill="#B4B8BE"/><rect x="40" y="90" width="520" height="140" fill="#D9D2C3"/><rect x="40" y="76" width="520" height="18" fill="#B3271E"/><rect x="60" y="120" width="150" height="110" fill="#2B2F36"/><rect x="66" y="126" width="138" height="98" fill="#4B525D"/><path d="M66 150H204M66 174H204M66 198H204" stroke="#2B2F36" stroke-width="3"/><rect x="250" y="120" width="150" height="110" fill="#2B2F36"/><rect x="256" y="126" width="138" height="98" fill="#4B525D"/><path d="M256 150H394M256 174H394M256 198H394" stroke="#2B2F36" stroke-width="3"/><rect x="440" y="130" width="60" height="100" fill="#3F454F"/><rect x="448" y="138" width="44" height="60" fill="#A9C4D6"/><rect x="450" y="26" width="110" height="40" rx="4" fill="#2B2F36"/><rect x="458" y="34" width="94" height="24" rx="2" fill="#F4EFE6"/><g fill="#6E7680"><path d="M120 236l4-8h30l4 8z"/><path d="M300 236l4-8h30l4 8z"/></g></svg>
+        <span class="gt-lbl">Placeholder</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here: the front of the shop on 36 Avenue</span></div>
+        <p class="gt-cap">Storefront, 429 36 Avenue NE</p>
+      </div>
+      <div class="gt g-tall">
+        <svg viewBox="0 0 300 600" aria-hidden="true" focusable="false"><defs><linearGradient id="g2s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3C424C"/><stop offset="1" stop-color="#22262C"/></linearGradient><radialGradient id="g2g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD98A" stop-opacity=".6"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient></defs><rect width="300" height="600" fill="url(#g2s)"/><circle cx="150" cy="170" r="140" fill="url(#g2g)"/><path d="M150 40V120" stroke="#12141A" stroke-width="3"/><path d="M118 150l20-30h24l20 30z" fill="#23262C"/><ellipse cx="150" cy="150" rx="32" ry="5" fill="#FFE7B0"/><rect x="40" y="200" width="24" height="260" fill="#6B7380"/><rect x="236" y="200" width="24" height="260" fill="#6B7380"/><rect x="30" y="190" width="240" height="12" fill="#4F5762"/><rect x="70" y="330" width="160" height="40" rx="8" fill="#B3271E"/><path d="M100 330q10-34 50-34t50 34z" fill="#8E1C15"/><circle cx="105" cy="372" r="16" fill="#15171B"/><circle cx="195" cy="372" r="16" fill="#15171B"/><rect x="0" y="460" width="300" height="140" fill="#1C1F24"/><rect x="0" y="460" width="300" height="5" fill="#E4B23A" opacity=".7"/></svg>
+        <span class="gt-lbl">Placeholder</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here: a car up on the lift</span></div>
+        <p class="gt-cap">In the bay</p>
+      </div>
+      <div class="gt">
+        <svg viewBox="0 0 300 300" aria-hidden="true" focusable="false"><rect width="300" height="300" fill="#33383F"/><rect width="300" height="300" fill="#1E2126" opacity=".2"/><g fill="#C7CCD3"><rect x="40" y="50" width="8" height="90" rx="2"/><rect x="26" y="42" width="36" height="16" rx="3"/><rect x="90" y="46" width="6" height="94" rx="2"/><rect x="106" y="46" width="6" height="94" rx="2"/><path d="M86 46h30l-8-14h-14z"/><path d="M160 60a12 12 0 0 1 17-11l-7 7 5 5 7-7a12 12 0 0 1-11 17l-16 30-7-5z"/><path d="M220 60a12 12 0 0 1 17-11l-7 7 5 5 7-7a12 12 0 0 1-11 17l-16 30-7-5z"/><rect x="40" y="180" width="220" height="12"/><rect x="50" y="200" width="30" height="40" rx="3" fill="#E4B23A"/><rect x="90" y="196" width="26" height="44" rx="3" fill="#B3271E"/><rect x="126" y="204" width="34" height="36" rx="3" fill="#4E9AD6"/><rect x="170" y="200" width="24" height="40" rx="3"/><rect x="204" y="206" width="40" height="34" rx="3" fill="#2B2F36" stroke="#4F5762" stroke-width="2"/></g></svg>
+        <span class="gt-lbl">Placeholder</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here: the tool wall or bench</span></div>
+        <p class="gt-cap">Tools of the trade</p>
+      </div>
+      <div class="gt">
+        <svg viewBox="0 0 300 300" aria-hidden="true" focusable="false"><defs><linearGradient id="g4s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0E7D6"/><stop offset="1" stop-color="#DCD4C3"/></linearGradient></defs><rect width="300" height="300" fill="url(#g4s)"/><rect x="0" y="210" width="300" height="90" fill="#B4AA95"/><rect x="30" y="80" width="240" height="130" rx="6" fill="#F4EFE6" stroke="#CFC6B5" stroke-width="2"/><rect x="50" y="100" width="90" height="70" rx="4" fill="#B3271E"/><rect x="60" y="112" width="70" height="8" rx="2" fill="#F4EFE6" opacity=".8"/><rect x="60" y="128" width="50" height="8" rx="2" fill="#F4EFE6" opacity=".6"/><rect x="160" y="100" width="90" height="70" rx="4" fill="#2B2F36"/><rect x="170" y="112" width="70" height="8" rx="2" fill="#F4EFE6" opacity=".8"/><rect x="170" y="128" width="40" height="8" rx="2" fill="#F4EFE6" opacity=".6"/><rect x="50" y="184" width="200" height="10" rx="3" fill="#CFC6B5"/><rect x="110" y="224" width="80" height="50" rx="6" fill="#4B525D"/><rect x="120" y="234" width="60" height="30" rx="3" fill="#6B7380"/></svg>
+        <span class="gt-lbl">Placeholder</span>
+        <div class="ph"><span class="ph-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Your photo here: the front counter or waiting area</span></div>
+        <p class="gt-cap">Front counter</p>
+      </div>
+    </div>
+    <div class="owner-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+      <p><strong>Note for the owner:</strong> four phone photos on a weekday morning fill this whole section. No stock photos will ever be shown as your shop, and no names or faces go on the site without your say-so.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BAND -->
+<section class="section why" id="why" aria-labelledby="why-title">
+  <div class="wrap why-grid">
+    <div>
+      <div class="section-head tight reveal">
+        <p class="eyebrow">Why an independent shop</p>
+        <h2 id="why-title">Straight answers. <em>No corporate script.</em></h2>
+        <p class="sub">What tends to be different about taking your car to an independent garage instead of a dealership or a chain.</p>
+      </div>
+      <ul class="why-list reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><div><strong>You talk to the shop, not a call centre</strong><span>At most single-location shops, the phone rings in the building where the work happens. Questions get answered by people who have seen the car.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg><div><strong>Fix what is broken</strong><span>Independent shops live on repeat customers from the same few neighbourhoods, which is a strong reason to recommend only the work a car actually needs.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>Around the corner</strong><span>Garland's is on 36 Avenue NE in Calgary's Highland Park / Greenview area, close to home for the surrounding NE communities.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><strong>A long time in one place</strong><span>The BBB profile records the business start as December 29, 1997, and a Nextdoor neighbour describes it as a shop that has been there <q>for decades</q>.</span> <span class="todo">Owner to confirm the year the site should use</span></div></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="stats">
+        <div class="stat"><span class="stat-num">1997</span><span class="stat-label">Business started</span><small>Per the BBB profile</small></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">BBB complaints</span><small>Closed in the last 3 years, per BBB</small></div>
+        <div class="stat"><span class="stat-num">4.9</span><span class="stat-label">Rating shown</span><small>On Wheree and AutoTechIQ, Google-review aggregators</small></div>
+        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Neighbour recommendations</span><small>On Nextdoor, 2020 to 2023</small></div>
+      </div>
+      <figure class="quote-card">
+        <blockquote>Old time mechanic. Been in this shop for decades. Great rates.</blockquote>
+        <footer><span>A neighbour's recommendation on</span> <a href="https://ca.nextdoor.com/pages/garlands-auto-repair/" rel="noopener noreferrer" target="_blank">Nextdoor</a><span>— a customer's words, not the shop's claim.</span></footer>
+      </figure>
+      <div class="reviews-row">
+        <p>Read the reviews at the source</p>
+        <a class="link-pill" href="https://ca.nextdoor.com/pages/garlands-auto-repair/" rel="noopener noreferrer" target="_blank">Nextdoor <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://www.yelp.ca/biz/garlands-auto-repair-calgary" rel="noopener noreferrer" target="_blank">Yelp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://garland-s-auto-repair.wheree.com/" rel="noopener noreferrer" target="_blank">Wheree <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://www.autotechiq.com/auto-repair-shop/451049/garlands-auto-repair" rel="noopener noreferrer" target="_blank">AutoTechIQ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="link-pill" href="https://www.bbb.org/ca/ab/calgary/profile/auto-repair/garlands-auto-repair-0017-39508" rel="noopener noreferrer" target="_blank">BBB profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS AND LOCATION -->
+<section class="section" id="location" aria-labelledby="location-title">
+  <div class="wrap loc-grid">
+    <div class="reveal">
+      <div class="section-head tight">
+        <p class="eyebrow">Hours &amp; location</p>
+        <h2 id="location-title">On 36 Avenue, <em>weekdays from 8</em></h2>
+        <p class="sub">Every directory agrees on the shape of the week: open weekday mornings at 8:00, closed Saturday and Sunday. They disagree on the closing time, so it is marked to confirm rather than guessed.</p>
+      </div>
+      <div class="hours-card">
+        <div class="hc-head"><h3>Shop hours</h3><span>Mountain Time</span></div>
+        <dl class="hours" id="hours">
+          <div data-days="1,2,3,4"><dt>Monday to Thursday</dt><dd>8:00 AM – <span class="todo">5:00 or 5:30 PM, to confirm</span></dd></div>
+          <div data-days="5"><dt>Friday</dt><dd>8:00 AM – <span class="todo">closing time to confirm (one listing shows Friday closed)</span></dd></div>
+          <div data-days="6"><dt>Saturday</dt><dd><span class="closed">Closed</span></dd></div>
+          <div data-days="0"><dt>Sunday</dt><dd><span class="closed">Closed</span></dd></div>
+        </dl>
+        <p class="hours-note">Hours compiled from Wheree, AutoTechIQ, Nexdu, Waze and YellowPages listings. The business has not published hours itself. Holiday hours: to confirm.</p>
+      </div>
+      <div class="addr-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div>
+          <h3>Find the shop</h3>
+          <address>429 36 Avenue NE<br>Calgary, AB T2E 6R1</address>
+          <p>In Calgary's Highland Park / Greenview area of the NE <span class="todo">community name to confirm</span>. Street parking and drop-off details: <span class="todo">to confirm</span></p>
+          <div class="row">
+            <a class="btn btn-primary btn-sm" href="tel:+14032773699">Call 403-277-3699</a>
+            <a class="btn btn-ghost btn-sm" href="https://www.waze.com/live-map/directions/ca/ab/calgary/garlands-auto-repair?to=place.ChIJR3qUqwxlcVMRQMJHrJGiGYY" rel="noopener noreferrer" target="_blank">Directions on Waze</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-card reveal">
+      <svg class="map" viewBox="0 0 640 480" role="img" aria-labelledby="map-title map-desc">
+        <title id="map-title">Stylised map of the Highland Park and Greenview area of NE Calgary</title>
+        <desc id="map-desc">A simplified, not-to-scale map. Centre Street, 4 Street, Edmonton Trail and Deerfoot Trail run north to south; McKnight Boulevard, 40 Avenue, 36 Avenue and 32 Avenue run east to west. A pin marks 429 36 Avenue NE. Community labels are illustrative; the shop's own neighbourhood name is to be confirmed.</desc>
+        <defs>
+          <pattern id="mgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" class="m-grid"/></pattern>
+          <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="m-bg1"/><stop offset="1" class="m-bg2"/></linearGradient>
+        </defs>
+        <rect width="640" height="480" rx="18" fill="url(#mbg)"/>
+        <rect width="640" height="480" rx="18" fill="url(#mgrid)"/>
+        <path class="m-green" d="M470 0 C 480 120, 500 240, 480 480 L 540 480 C 556 300, 548 120, 536 0 Z"/>
+        <g>
+          <rect class="comm" x="132" y="92" width="196" height="300" rx="16"/>
+          <rect class="comm" x="344" y="92" width="134" height="300" rx="16"/>
+        </g>
+        <g class="m-major">
+          <path d="M120 0V480"/>
+          <path d="M380 0V480"/>
+          <path d="M0 80H640"/>
+          <path d="M560 0 C 566 160, 566 320, 556 480"/>
+        </g>
+        <g class="m-major-in">
+          <path d="M120 0V480"/>
+          <path d="M380 0V480"/>
+          <path d="M0 80H640"/>
+          <path d="M560 0 C 566 160, 566 320, 556 480"/>
+        </g>
+        <g class="m-road">
+          <path d="M290 80V480"/>
+          <path d="M120 200H480"/>
+          <path d="M120 280H480"/>
+          <path d="M120 360H480"/>
+          <path d="M210 80V480"/>
+          <path d="M440 80V480"/>
+          <path d="M40 200H120M40 280H120M40 360H120"/>
+        </g>
+        <g class="road-label">
+          <text x="126" y="470" transform="rotate(-90 126 470)">Centre St N</text>
+          <text x="296" y="470" transform="rotate(-90 296 470)">4 St NE</text>
+          <text x="386" y="470" transform="rotate(-90 386 470)">Edmonton Tr NE</text>
+          <text x="548" y="470" transform="rotate(-90 548 470)">Deerfoot Tr</text>
+          <text x="20" y="70">McKnight Blvd NE</text>
+          <text x="128" y="194">40 Ave NE</text>
+          <text x="128" y="274">36 Ave NE</text>
+          <text x="128" y="354">32 Ave NE</text>
+          <text x="496" y="240" transform="rotate(90 496 240)" class="m-water-text">Nose Creek</text>
+        </g>
+        <text x="230" y="150" text-anchor="middle" class="m-lab">Highland Park</text>
+        <text x="411" y="150" text-anchor="middle" class="m-lab">Greenview</text>
+        <circle class="m-pin-ring" cx="336" cy="280" r="26"/>
+        <g class="m-pin" transform="translate(336 268) scale(1.5)">
+          <path d="M0 22 C -12 8 -12 -8 0 -14 C 12 -8 12 8 0 22 Z"/>
+          <circle cx="0" cy="-2" r="4.5"/>
+        </g>
+        <g transform="translate(224 300)">
+          <rect width="224" height="34" rx="8" class="m-white"/>
+          <text x="112" y="23" text-anchor="middle" class="m-addr">429 36 AVENUE NE</text>
+        </g>
+        <g transform="translate(596 130)">
+          <circle r="20" class="m-white"/>
+          <path d="M0 -13 L6 6 L0 2 L-6 6 Z" class="m-ink"/>
+          <text x="0" y="38" text-anchor="middle" class="m-foot">N</text>
+        </g>
+        <text x="24" y="460" class="m-foot">Stylised, not to scale</text>
+      </svg>
+      <p class="map-note">Illustrative map drawn for this draft; community labels are illustrative and the shop's own neighbourhood name is to be confirmed. The live site would link out to the shop's Google Maps listing rather than embed a map.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-sec" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq-title">Straight <em>answers</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <h3><button class="faq-q" id="faq-q1" type="button" aria-expanded="true" aria-controls="faq-a1"><span>What kind of work do you do?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-inner"><p>General auto repair. Directory listings describe <q>minor and major repairs on makes and models</q> and mention oil changes, tire rotations, brake work, tire repairs and electrical diagnostics. Those lists were written by directories, not by the shop, so the surest answer is a phone call: <a href="tel:+14032773699">403-277-3699</a>.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q2" type="button" aria-expanded="false" aria-controls="faq-a2"><span>What are your hours?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-inner"><p>Weekdays from 8:00 AM, closed Saturday and Sunday. Listings disagree on whether the shop closes at 5:00 or 5:30 PM, and whether Friday differs.</p><p><span class="todo">Owner to confirm closing time so the site can state it plainly</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q3" type="button" aria-expanded="false" aria-controls="faq-a3"><span>Do I need an appointment?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-inner"><p><span class="todo">To confirm with the owner</span></p><p>Nothing published says whether the shop books appointments, takes drop-ins, or both. Until then, calling ahead is the safe move.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q4" type="button" aria-expanded="false" aria-controls="faq-a4"><span>Why is my check-engine light on?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>The car's computer has logged a fault code. A scan tool reads the code, but the code describes the symptom the computer noticed, not always the part that caused it. Proper diagnostics follows the code back to the cause before anything gets replaced. If the light is flashing rather than steady, stop driving and call.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q5" type="button" aria-expanded="false" aria-controls="faq-a5"><span>Do you tow, or can you arrange a tow?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div class="faq-a-inner"><p>One directory tags the shop for towing services, but the business has not said so itself.</p><p><span class="todo">To confirm with the owner: own truck, a partner, or neither</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q6" type="button" aria-expanded="false" aria-controls="faq-a6"><span>How long has the shop been here?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div class="faq-a-inner"><p>The BBB profile records the business start as December 29, 1997, and a Nextdoor neighbour describes it as a shop that has been there for decades.</p><p><span class="todo">Owner to confirm the year — that becomes a "since" line in the hero</span></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" id="faq-q7" type="button" aria-expanded="false" aria-controls="faq-a7"><span>Warranty, payment, parking?</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>
+        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div class="faq-a-inner"><p><span class="todo">To confirm with the owner</span></p><p>None of these are published anywhere. Each gets its own plain answer here once the owner supplies it: warranty on parts and labour, cards accepted, where to leave the car and the keys.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="section dark" id="quote" aria-labelledby="quote-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Get a quote</p>
+      <h2 id="quote-title">Tell the shop <em>what the car is doing</em></h2>
+      <p class="sub">Call, or send the details below. A year, make and model plus a sentence about the symptom is enough to start.</p>
+    </div>
+    <div class="quote-grid reveal">
+      <div class="contact-card">
+        <p class="eyebrow">Fastest way</p>
+        <a class="big-phone" href="tel:+14032773699"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>403-277-3699</a>
+        <p>Weekdays from 8:00 AM. Call the shop directly.</p>
+        <dl class="contact-facts">
+          <dt>Address</dt><dd>429 36 Avenue NE, Calgary, AB T2E 6R1</dd>
+          <dt>Hours</dt><dd>Mon–Fri from 8:00 AM · <span class="todo">closing time to confirm</span></dd>
+          <dt>Weekends</dt><dd>Closed</dd>
+          <dt>Email</dt><dd><span class="todo">To confirm — none published</span></dd>
+        </dl>
+      </div>
+      <div class="form-card">
+        <form class="form" id="quote-form" novalidate>
+          <div class="field">
+            <label for="q-name">Your name</label>
+            <input id="q-name" name="name" type="text" autocomplete="name" required aria-describedby="q-name-error">
+            <p class="error" id="q-name-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="q-phone">Phone</label>
+            <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="403 555 0123" required aria-describedby="q-phone-error">
+            <p class="error" id="q-phone-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="field">
+            <label for="q-vehicle">Vehicle <span>(year, make, model)</span></label>
+            <input id="q-vehicle" name="vehicle" type="text" placeholder="e.g. 2014 Honda Civic">
+          </div>
+          <div class="field">
+            <label for="q-service">What does it need?</label>
+            <div class="select-wrap">
+              <select id="q-service" name="service">
+                <option value="">Choose one</option>
+                <option value="maintenance">Oil change or maintenance</option>
+                <option value="brakes">Brakes</option>
+                <option value="tires">Tires</option>
+                <option value="electrical">Warning light or electrical</option>
+                <option value="noise">A noise, leak or vibration</option>
+                <option value="wont-start">Will not start</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="field full">
+            <label for="q-details">What is the car doing?</label>
+            <textarea id="q-details" name="details" required aria-describedby="q-details-error" placeholder="When it started, when it happens, and anything already tried."></textarea>
+            <p class="error" id="q-details-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-primary btn-lg" type="submit">Send to the shop</button>
+            <p class="form-note">Draft: this form has no backend yet. On the live site it will reach the shop directly.</p>
+          </div>
+        </form>
+        <div class="form-success" id="form-success" hidden tabindex="-1" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <h3>Request noted</h3>
+          <p id="form-success-msg"></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:+14032773699">Or call 403-277-3699</a>
+            <button class="btn btn-ghost" id="form-again" type="button">Send another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRAFT NOTES -->
+<section class="section notes-sec" id="notes" aria-labelledby="notes-title">
+  <div class="wrap">
+    <details class="notes-panel reveal" id="notes-panel" open>
+      <summary>
+        <span class="summary-text">
+          <span class="eyebrow">Draft notes</span>
+          <h2 id="notes-title">Before this goes live: things to confirm with the owner</h2>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="notes-body">
+        <p class="notes-intro">Everything on this page comes from public directories, because Garland's has never published a website or a description of its own. That is the opportunity. Each dashed pill above marks a fact the owner can settle in a five-minute conversation.</p>
+        <ul class="notes-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>Closing time.</strong> Directories agree on weekdays from 8:00 AM and closed weekends, but split between 5:00 and 5:30 PM, and one lists Friday differently. Pills appear in the hero card, hours table, FAQ, contact card and footer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><strong>Years in business.</strong> BBB records a start of December 29, 1997; an earlier note about a City of Calgary licence since 2001 could not be verified. The page attributes 1997 to BBB everywhere it appears. Confirm the year and it becomes a plain "since" line.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span><strong>Services.</strong> Oil changes, tire rotations, brake work, tire repairs and electrical diagnostics come from a community-edited aggregator; "minor and major repairs" from a YellowPages snippet; towing and auto parts from Wheree tags. Nothing is business-authored. Every card is labelled with its source until you give us your list.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20h10V11H6l-3 5z"/><path d="M13 20h9v-4h-9"/><circle cx="8" cy="23" r="1"/><circle cx="24" cy="23" r="1"/></svg><span><strong>Towing.</strong> A single directory tag. The card and FAQ both mark it to confirm.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span><strong>How a visit works.</strong> Appointments or drop-ins, written estimates, approval before work, diagnostic fee, payment methods, warranty, loaner or shuttle: all flagged in the three steps and the FAQ.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><strong>Email.</strong> None published anywhere. The contact card and footer leave the slot open.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span><strong>Names and "owner-operated".</strong> Directories list a principal contact and reviewers refer to the owner by first name, but the business itself publishes no name, so the site names nobody and does not say "owner-operated". Both can go in with your permission.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/></svg><span><strong>Independent, single location, phone answered on-site.</strong> Assumed from directory data, not stated by the business; confirm. Wording elsewhere on the page is kept general until then.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span><strong>Phone number.</strong> 403-277-3699 is confirmed by BBB, Wheree, Nextdoor, 411.ca, Waze and AutoTechIQ, and is the only number on this page. Hotfrog, 2findlocal and Nexdu also show 403-277-3691, and a second 411.ca profile shows 3698. Worth asking the directories to correct.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><strong>Neighbourhood, parking, stale addresses.</strong> Directories label the address Highland Park; the brief said Greenview; the page says both. Parking and drop-off are unknown. One directory shows an old SW address that should be corrected.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span><strong>Reviews.</strong> The 4.9 figure is what Wheree and AutoTechIQ display as an aggregated Google rating; neither shows a clear count, so no count is stated. Yelp's page could not be read (its search title says 10 reviews) and a Bing card showing 5/5 is unverified, so both are left out. The one quote shown is a Nextdoor neighbour's recommendation, attributed as such. Real Google reviews can replace the links once the shop's Google listing is confirmed.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg><span><strong>BBB.</strong> The profile shows 0 complaints closed in the last 3 years, which the page states. It also shows "Not BBB Accredited" and "Not Rated" (accreditation is a paid program), so no rating or accreditation is claimed.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M13 8h-2a2 2 0 0 0-2 2v8M7 13h6"/></svg><span><strong>Facebook.</strong> A page exists but sits behind a login wall, so it is linked in the footer with a pill until you confirm it is yours and active.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span><strong>Photos.</strong> None available publicly. Four placeholder tiles wait for the storefront, a bay, the tool wall and the front counter. The hero illustration is drawn, not a photo.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12l-8 8-9-9V4h7z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span><strong>Prices, certifications, warranties, payment methods, languages.</strong> None stated anywhere public. Add only what you want on the site.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span><strong>Domain.</strong> No owned website exists, and an aggregator squats on a look-alike address that says it is not official. Registering a real domain for the shop is step one.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg><span><strong>Quote form.</strong> No backend in this draft. The live site needs a delivery route (a form service or SMS relay) so requests reach the shop's phone or inbox.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/></svg><span><strong>Draft banner.</strong> Remove the yellow banner and the footer draft line when the site goes live.</span></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Garland's Auto Repair, back to top">
+          <svg class="brand-mark" viewBox="0 0 42 42" aria-hidden="true" focusable="false"><rect class="bm-bg" width="42" height="42" rx="8"/><path class="bm-d" d="M0 30h42v4a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8z"/><path class="bm-f" d="M29.5 9.2a6.2 6.2 0 0 0-6.9 8.6L11.2 29.2a2.6 2.6 0 0 0 3.7 3.7l11.4-11.4a6.2 6.2 0 0 0 8.6-6.9l-3.6 3.6-3.1-.7-.7-3.1z"/></svg>
+          <span class="brand-name">Garland's<small>Auto Repair · NE Calgary</small></span>
+        </a>
+        <p class="foot-desc">Garland's Auto Repair. An auto repair shop at 429 36 Avenue NE, in Calgary's Highland Park / Greenview area.</p>
+      </div>
+      <div>
+        <h3 class="foot-title">Details</h3>
+        <ul>
+          <li><a href="tel:+14032773699">403-277-3699</a></li>
+          <li>429 36 Avenue NE, Calgary, AB T2E 6R1</li>
+          <li>Mon–Fri from 8:00 AM · closing <span class="todo">to confirm</span></li>
+          <li>Saturday and Sunday: closed</li>
+          <li>Email: <span class="todo">to confirm</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="foot-title">Listings</h3>
+        <ul>
+          <li><a href="https://www.bbb.org/ca/ab/calgary/profile/auto-repair/garlands-auto-repair-0017-39508" rel="noopener noreferrer" target="_blank">BBB profile</a></li>
+          <li><a href="https://ca.nextdoor.com/pages/garlands-auto-repair/" rel="noopener noreferrer" target="_blank">Nextdoor</a></li>
+          <li><a href="https://www.yelp.ca/biz/garlands-auto-repair-calgary" rel="noopener noreferrer" target="_blank">Yelp</a></li>
+          <li><a href="https://garland-s-auto-repair.wheree.com/" rel="noopener noreferrer" target="_blank">Wheree</a></li>
+          <li><a href="https://www.autotechiq.com/auto-repair-shop/451049/garlands-auto-repair" rel="noopener noreferrer" target="_blank">AutoTechIQ</a></li>
+          <li><a href="https://www.facebook.com/1015114195192868" rel="noopener noreferrer" target="_blank">Facebook</a> <span class="todo">confirm it is yours</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>Draft website proposal — not the business's live website. Prepared by Adeel Ahmed (Sites by Adeel), Calgary, September 2026.</span>
+      <span>Garland's Auto Repair · Calgary, Alberta</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* Draft banner: measure height so body offset and sticky nav track it */
+  var banner = document.getElementById('draft-banner');
+  var bannerClose = document.getElementById('draft-close');
+  function setBannerHeight() {
+    var h = (banner && !banner.hidden) ? banner.offsetHeight : 0;
+    root.style.setProperty('--banner-h', h + 'px');
+  }
+  if (banner) {
+    setBannerHeight();
+    window.addEventListener('resize', setBannerHeight);
+    if (window.ResizeObserver) { new ResizeObserver(setBannerHeight).observe(banner); }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(setBannerHeight); }
+    if (bannerClose) {
+      bannerClose.addEventListener('click', function () {
+        banner.hidden = true;
+        setBannerHeight();
+      });
+    }
+  }
+
+  /* Sticky nav: mobile menu + scrolled shadow */
+  var nav = document.getElementById('site-nav');
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  function closeMenu() {
+    if (!nav || !toggle) { return; }
+    nav.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+  if (nav && toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('menu-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    links.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t && t.closest && t.closest('a')) { closeMenu(); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('menu-open')) { closeMenu(); toggle.focus(); }
+    });
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* Hero scene: pointer parallax on fine pointers only */
+  var hero = document.getElementById('hero');
+  var scene = document.getElementById('scene');
+  var finePointer = window.matchMedia('(pointer: fine)');
+  if (hero && scene && finePointer.matches && !reduceMotion.matches) {
+    var raf = 0, px = 0, py = 0;
+    var paint = function () {
+      raf = 0;
+      scene.style.setProperty('--px', px.toFixed(3));
+      scene.style.setProperty('--py', py.toFixed(3));
+    };
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      px = (e.clientX - r.left) / r.width - 0.5;
+      py = (e.clientY - r.top) / r.height - 0.5;
+      if (!raf) { raf = window.requestAnimationFrame(paint); }
+    });
+    hero.addEventListener('mouseleave', function () {
+      if (raf) { window.cancelAnimationFrame(raf); raf = 0; }
+      px = 0; py = 0; paint();
+    });
+  }
+
+  /* Hours table: mark today's row */
+  var hours = document.getElementById('hours');
+  if (hours) {
+    var today = String(new Date().getDay());
+    Array.prototype.slice.call(hours.children).forEach(function (row) {
+      var days = (row.getAttribute('data-days') || '').split(',');
+      if (days.indexOf(today) !== -1) { row.classList.add('today'); }
+    });
+  }
+
+  /* FAQ accordion: single open item */
+  var faqButtons = Array.prototype.slice.call(document.querySelectorAll('.faq-q'));
+  faqButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) { return; }
+      var wasOpen = item.classList.contains('open');
+      faqButtons.forEach(function (other) {
+        var oi = other.closest('.faq-item');
+        if (oi) { oi.classList.remove('open'); }
+        other.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* Draft notes: open on wide screens, collapsed on phones; tracks resizes */
+  var notes = document.getElementById('notes-panel');
+  if (notes) {
+    var notesMq = window.matchMedia('(max-width: 640px)');
+    var syncNotes = function () { notes.open = !notesMq.matches; };
+    syncNotes();
+    if (notesMq.addEventListener) { notesMq.addEventListener('change', syncNotes); }
+    else if (notesMq.addListener) { notesMq.addListener(syncNotes); }
+  }
+
+  /* Quote form: client-side validation, no backend */
+  var form = document.getElementById('quote-form');
+  var success = document.getElementById('form-success');
+  var successMsg = document.getElementById('form-success-msg');
+  var again = document.getElementById('form-again');
+  var formCard = form ? form.closest('.form-card') : null;
+  function setError(id, msg) {
+    var field = document.getElementById(id);
+    var err = document.getElementById(id + '-error');
+    if (!field || !err) { return; }
+    err.textContent = msg;
+    err.hidden = !msg;
+    field.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    var wrap = field.closest('.field');
+    if (wrap) { wrap.classList.toggle('has-error', !!msg); }
+  }
+  if (form && success && successMsg) {
+    ['q-name', 'q-phone', 'q-details'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) { el.addEventListener('input', function () { setError(id, ''); }); }
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('q-name');
+      var phone = document.getElementById('q-phone');
+      var details = document.getElementById('q-details');
+      var ok = true;
+      var nameVal = name ? name.value.trim() : '';
+      var phoneVal = phone ? phone.value.trim() : '';
+      var detailsVal = details ? details.value.trim() : '';
+      if (!nameVal) { setError('q-name', 'Please tell us your name.'); ok = false; } else { setError('q-name', ''); }
+      if (phoneVal.replace(/\D/g, '').length < 10) { setError('q-phone', 'Please enter a phone number with area code.'); ok = false; } else { setError('q-phone', ''); }
+      if (detailsVal.length < 10) { setError('q-details', 'A sentence about what the car is doing helps the shop give a useful answer.'); ok = false; } else { setError('q-details', ''); }
+      if (!ok) {
+        var first = form.querySelector('[aria-invalid="true"]');
+        if (first) { first.focus(); }
+        return;
+      }
+      successMsg.textContent = 'Thanks — on the live site this reaches the shop directly.';
+      /* Lock the card at its current height so it does not jump when the form leaves */
+      if (formCard) { formCard.style.minHeight = formCard.offsetHeight + 'px'; }
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
+    });
+    if (again) {
+      again.addEventListener('click', function () {
+        form.reset();
+        success.hidden = true;
+        form.hidden = false;
+        if (formCard) { formCard.style.minHeight = ''; }
+        var name = document.getElementById('q-name');
+        if (name) { name.focus(); }
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
